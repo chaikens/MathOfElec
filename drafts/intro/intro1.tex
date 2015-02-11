@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{cite}
 \title{Introduction}
 \author{Seth Chaiken}
 \begin{document}
@@ -10,7 +11,11 @@ Why Electricity, EE?
 \begin{itemize}
 \item $>$ Some 100 years geometry-like intuition
 
-(Marc Thompson ``Intuitive Analog Circuit Design'' 2nd ed 2013)
+(Marc Thompson ``Intuitive Analog Circuit Design'' 2nd ed 2013
+\cite{intuitAna}, Hasler, Neirynck translates pretty directly into
+OM pair analysis \cite{HaslerNeirynck})
+
+
 
 \item
 Real behavior often equals ideal plus perturbations
@@ -33,5 +38,8 @@ Analogs to chemical, biological, mechanical, etc., random walks.
 Merely one scalar non-linearity can cause chaos.
 \end{itemize}
 
+
+\bibliography{../../bib/MathOfElec}{}
+\bibliographystyle{plain}
 
 \end{document}
