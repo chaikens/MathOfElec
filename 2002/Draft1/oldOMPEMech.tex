@@ -1,0 +1,652 @@
+% Template for ICIP-2000 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,epsfig}
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+\def\Reals{\ensuremath{\mathbf R}}
+\newtheorem{theorem}{Theorem}[section]
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+
+%    Rank
+\DeclareMathOperator{\rank}{rank}
+
+%    Matroid Union 
+\newcommand{\munion}{\lor}
+
+%   Set minus
+\newcommand{\sminus}{\backslash}
+
+
+%   Two matrices horizontally concatenated, space between can be
+%   adjusted here
+%
+\newcommand{\hmat}[2]{[#1\;#2]}
+
+%   Oriented Matroid Pair
+\newcommand{\OMP}[2]{#1,\,#2}
+
+\newcommand{\extra}[1]{{\small{#1}}}
+
+
+% Title.
+% ------
+\title{\extra{REPORT:}
+(\today)
+AN ORIENTED MATROID PAIR MODEL FOR ELECTRICAL AND MECHANICAL NETWORKS
+}
+%
+% Single address.
+% ---------------
+\name{Seth Chaiken\thanks{Part of this reseach was done during a Sabbatical
+from the University at Albany in 2001.}}
+\address{University at Albany\\
+	Department of Computer Science\\
+	Albany, NY 12222\\
+	\texttt{sdc@cs.albany.edu}}
+%
+\begin{document}
+%\ninept
+%
+\maketitle
+%
+
+\begin{abstract}
+Both resistive electrical networks and elastic mechanical systems such
+as trusses have a topological or geometric structure together with constitutive
+laws for the elements prior to their interconnection.
+Oriented matroids provide a common discrete mathematical model 
+for such structures in which relationships on the signs of element 
+quantities can be expressed.
+Pairing of oriented matroids
+enables non-linear monotone constitutive laws to be fit
+into the abstraction in a way that accomodates port and nullor
+insertions as well.
+
+The resulting mathematical model clarifies some mechanical analogies for 
+these 
+circuit theory concepts, enables constraints on the signs of system response 
+quantities to be predicted from the structure when this is possible, 
+and derives topological solution formulas for linearized mechanical 
+systems in which the analog of a tree-sum is a sum over minimally rigid
+trusses.  It also enables the theories for existance and uniqueness to
+be applied to mechanical systems with small displacements.
+\end{abstract}
+%
+
+\section{Introduction}
+\label{sec:intro}
+
+Our work \cite{sdcOMP} shows that the model and results of 
+\cite{HaslerDApplMath,HaslerNeirynck} generalize from a graph model to a
+linear subspace pair model
+for which 
+a pair of oriented
+matroids (with a common ground set that generalizes the
+set of resistor and other edges)
+rather than a graph with designated resistor, source, nullator
+and norator edges,
+is the discrete structure 
+%in which the topological conditions are expressed 
+that expresses 
+%the 
+topological conditions
+for existance or uniqueness of solutions.  These results, like
+those of \cite{HaslerDApplMath,HaslerNeirynck} apply to
+models whose non-linearities are monotone.
+Each oriented matroid codes which combinations of \textit{signs} $\{+,-,0\}$
+are feasible as \textit{signatures} of the real coordinate tuple  members
+of each subspace.
+Bachem and Kern's book \cite{BachemKern}
+motivates oriented matroids from this direction.  For example, a dual 
+pair of oriented matroids abstracts an orthogonally complementary pair
+of (finite dim. real) linear subspaces.  Minty's painting property,
+most popularly known as a theorem about directed graphs, then emerges
+as an excellent \textit{defining axiom} for oriented matroids.
+This led us to generalize in \cite{sdcOMP}
+Hasler and Neirynck's notion of a ``pair of 
+conjugate trees'' to a ``complementary pair of bases''; and of 
+a ``non-trivial uniform partial orientation of the resistors''
+to a ``common (non-zero) covector''.   
+Theory valid for all oriented matroid pairs, not just those represented by
+a pair of linear subspaces, was presented in \cite{sdcOMP}.
+We will clarify below how our 
+generalizations of Foss\'{e}prez, Hasler and Neirynck's conditions
+for unique solvability
+are equivalent to the characterization of $\mathcal{W}_0$ matrix pairs
+shown by Sandberg and Willson \cite{SWExistancePf,W0APPLpaper}
+to be the condition for unique solvability
+of a \textit{common} (not just similar) 
+problem with monotone non-linearities.
+\extra{
+
+In the electrical circuit theory literature, the circuit ``topology''
+means the network graph (to which Kirchhoff's laws apply)
+together with particular kinds of ``device elements''
+such as resistors, capacitors, voltage sources (batteries), 
+current sources, etc., associated with single graph edges, and possibly
+``multiport'' elements associated with multiple graph edges.
+Kirchhoff's current law is that current, a scalar in each directed edge,
+satisfies conservation of flow.  Kirchhoff's voltage law amounts to the 
+condition that 
+the voltage drop, a scalar in each directed edge, is equal to the 
+difference of the scalar potential values at the endpoints.
+Problems with multiport elements are reduced to 
+those with only single edge elements, in order to apply
+the theory of  \cite{HaslerDApplMath},  through the use of 
+``nullator'' and ``norator'' elements, discussed below.  
+Detailed exposition of the problems,
+reductions, theory and applications is given in \cite{HaslerNeirynck}.
+
+}We will introduce our model by using it to demonstrate
+the analogy between the electrical and mechanical elastic 
+applications.   
+The  subspace 
+pairs of the latter 
+are not graphic cycle and cocycle spaces.  
+Unlike in the electrical case, the structural model is ``inexact'' because
+it depends of the precise sizes and positions of
+the bars in addition to their interconnection; 
+the constitutive laws describe elastic characteristics of the bars.
+\extra{
+
+Interesting purely ``discrete'' results (and open problems)
+are known in rigidity theory for \textit{generic rigidity}, where
+the positions are assumed to have no algebraic dependencies.  Then,
+the oriented matroid of the rigidity matrix (defined below)
+doesn't change with small position perturbations, and the property
+of first order rigidity coincides with local rigidity:  The framework
+embedding is determined up to Euclidean motions by the lengths of the
+bars, when restricted to a neighborhood of the original embedding.
+
+}We believe that our formulation
+has the advantage over conventional matrix formulations
+of making more explicit the discrete structure model for circuit 
+topology and some conditions when this model determines qualitative
+relationships among circuit quantity signs independently of 
+particular monotone constitutive laws.
+
+\section{Basic}
+\label{sec:Basic}
+
+A \textit{subspace pair} $(L_V, L_I)$ is a pair of linear subspaces of
+$\Reals^U$, where the elements of finite set $U$ index the coordinates.
+The scalar product $v\cdot w = \sum_{e\in U}v_e w_e$ is used to define that
+$v, w \in \Reals^U$ are \textit{orthogonal} when $v\cdot w = 0$.  An 
+\textit{orthogonal subspace pair}  satisfies $v\cdot w = 0$ for
+all $v\in L_V$ and $w\in L_I$.  A subspace pair has \textit{full rank} when
+$\mathrm{rank}(L_V)+\mathrm{rank}(L_I)= |U|$.  Hence an orthogonal full rank 
+subspace pair is a linear subspace paired with its orthogonal complement.
+
+The structure of an electrical network is defined 
+beginning with the \textit{network graph}
+$\mathcal{N}$ with \textit{nodes} $N$  and \textit{arcs} $U$.  
+(The generality obtainable by port, nullator/norator or nullor, and 
+device characteristic insertions will be treated later.)
+Each arc has 
+a fixed but arbitrary direction to define the sign of its voltage drop and
+current flow.  The \textit{incidence matrix} $M_V$, with rows indexed by $N$
+and columns indexed by $U$ is defined so $M_V(n,e)=+1$ when the tail of $e$ is
+$n$, $-1$ if the head of $e$ is $n$, and $0$ if $n$ and $e$ are not incident.
+
+When $L_V$ is the row space of $M_V$ and $L_I$ is the orthogonal complement
+of $L_V$, the members of $L_V$ are voltage drop tuples in $\mathcal{N}$ 
+feasible under Kirchhoff's voltage law and the members of $L_I$ are the 
+current flow tuples feasible under Kirchhoff's current law.  These facts 
+restate Kirchhoff's laws and Tellegen's theorem.  Note that we can determine
+$(L_V, L_I)$ from one of these subspaces given and Tellegen's theorem: The
+role of nodes here is not strictly necessary.
+
+The definition of mechanical network structure begins with the 
+(undirected) \textit{framework graph} $\mathcal{F}$ with \textit{vertices}
+$N$ and \textit{edges} $U$.  A \textit{framework} $\mathcal{F}(\mathbf{p})$ 
+in d $dimentions$ is a framework graph $\mathcal{F}$ and an \textit{embedding} 
+$\mathbf{p}:N\rightarrow \Reals^d$.  
+The embedding assigns each vertex to a point in
+$d$-dimensional space.  The \textit{rigidity matrix} $M_V$ 
+has $d|N|$ rows, each
+indexed by one coordinate in $\Reals^d$ of the point that embeds one vertex.
+For edge $e=(i,j)\in U$, column $M_V(e)$ of the rigidity matrix is defined 
+(when vertices are numbered 0 through $|N|-1$):\\
+\begin{minipage}{\linewidth}
+\begin{align*}
+(0, \ldots,0, &\mathbf{p}(n_i)-\mathbf{p}(n_j),\\
+              &\mathrm{positions\ } di\ldots di+d-1
+\end{align*}
+\end{minipage}
+\hfill\begin{minipage}{.85\linewidth}
+\begin{align*}
+\hfill 0,\ldots,0,&\mathbf{p}(n_j)-\mathbf{p}(n_i), 0, \ldots,0)^T\\
+                  &\mathrm{positions\ } dj\ldots dj+d-1
+\end{align*}
+      \end{minipage}\\
+This definition is echoed from the literature \cite{RigidityBook} on rigidity theory, except
+we interchange rows and columns.  Just as we deemphasized nodes of electrical
+networks, we will use merely the row space of $M_V$ for most of what follows.
+
+\extra{
+The rigidity matrix as a function of the embedding $\mathbf{p}$ is denoted
+$M_V(\mathbf{p})$.  The row vector $\mathbf{p}$ left multiplied with
+$M_V(\mathbf{p})$
+is the row tuple denoted $\mathbf{L}=\mathbf{p}M_V(\mathbf{p})$  Then, 
+$\mathbf{L}_e$ $=$ 
+$(\mathbf{p}M_V(\mathbf{p}))_e$ $=$ $|\mathbf{p}_i-\mathbf{p}_j|^2$ for
+each edge $e=(i,j)$.  Now if each $\mathbf{p}_i$ is a differentiable function
+of $t$, $d\mathbf{L}/dt$ $=$ $2\mathbf{p}'M_V(\mathbf{p})$.  Framework
+$\mathcal{F}(\mathbf{p})$ is \textit{first-order rigid} when 
+$d\mathbf{L}/dt$ $=$ $0$ for all $\mathbf{p}'$ implies 
+$|\mathbf{p}_i-\mathbf{p}_j|^2$ is constant for all pairs $i$, $j$, not just
+endpoints of edges. 
+}%extra
+
+Let $\mathbf{p}(i)-\mathbf{p}(j)$ for edge $e=\{i,j\}$ be called the
+\textit{vector from } $j$ \textit{to} $i$.  
+It is known that the row space $L_V$ 
+of $M_V$ consists of tuples in $\Reals^{U}$
+such that component $v(e)\in\Reals$ for $e\in U$ is the projection of the
+relative velocity of vertex $i$ with respect to vertex $j$ projected onto
+the vector from $j$ to $i$, for some combination of vertex velocities 
+$\mathbf{v}:N\rightarrow\Reals^d$:
+$v(e)=(\mathbf{v}(i)-\mathbf{v}(j))\cdot(\mathbf{p}(i)-\mathbf{p}(j))$.
+
+It is also known that the $L_I$, the orthogonal complement of $L_V$, 
+is comprised of the tuples $\sigma:U\rightarrow\Reals$ 
+of scalars for which the framework is in static
+equilibrium when each edge $e$ exerts force 
+$\sigma(e)(\mathbf{p}(j)-\mathbf{p}(i))$ on vertex $i$.  By this convention, 
+$\sigma(e)>0$ means $e$ is under tension and $\sigma(e)<0$ means $e$ is under 
+compression.  Each tuple $\sigma\in L_I$ is called a \textit{self-stress}.
+
+Under this analogy, 
+(1) KVL corresponds to geometric consistancy of first order
+edge length changes under changes in the embedding, (2) KCL corresponds to
+Newton's laws of static equilibrium, and (3) Tellegen's theorem corresponds
+to a virtual work principle, that static equilibrium is
+characterized by 
+the internal forces of every virtual embedding change 
+doing zero virtual work.
+
+\subsection{Independent Variables and Bases}
+KVL, KCL and analogous mechanical structural or geometric laws 
+are each formulated above by a constraint of the form 
+$v\in L$ $=$ $\mbox{row space}(M)$
+where $v$ is a tuple of variables indexed by $U$
+and $L\subset\Reals^U$ is a linear subspace.  The problem of
+reformulating such a law by a system of linear equations is
+solved as follows:  A maximal subset $B\subset U$ corresponding to
+a linearly independent set of columns of $M$ is found.  Such a $B$ is
+called a \textit{basis in the matroid} $\mathcal{M}(L)$ 
+\textit{represented by} the columns of matrix $M$ or the linear subspace
+$L$.  Row operations and possibly deletion of zero rows can transform
+$M$ to $( I\ ;\ M^{\overline{B}} )$ (after column permutation)
+where $I$ is the $r\times r$ identity matrix, where $r$ $=$ 
+$\mbox{rank}(M)$ $=$ $\mbox{dim}(L)$ $=$ $\mbox{rank}(L)$
+$=$ $\mbox{rank}(\mathcal{M}(L))$.    
+It is now clear that $v\in L$ is characterized by 
+$v_{\overline{B}}$ $=$ $v_{B}M^{\overline{B}}$.
+For each independently chosen
+$v_{B}\in\Reals^B,$ $v=(v_B;v_{\overline{B}})$ is unique tuple
+for which the $B$ coordinates equal $v_B$.
+
+
+\extra{\section{Elastic Analog of the Nodal Admittance Matrix}
+
+Reduced nodal admittance matrix.  Nodal resistance matrix.
+Interaction with a physical framework with it's environment.
+A framework is first order rigid iff it ``resolves all applications of
+static equilibrium forces''.  However, every physical bar has some
+elasticity:  An ideal rigid bar is analogous to an ideal voltage 
+source.  Hence, given an elastic framework, for every application
+of static equilibrium forces on the vertices, the vertex positions
+will change as the bars stretch or shrink under the forces they now
+carry to resolve the applied force.  These first order vertex position 
+changes are given by $Z\mathbf{f}$.
+
+The environment might interact by ``forcing'' some vertices to change position
+relative to one another.
+Intuitively, the framework will ``push back''.  The other vertices are free
+to move as adjacent vertices move and incident bars change length in
+response to the forces developed in them to resolve the forces required
+to hold the framework in its new position.  The position changes of the
+free vertices $V$ can be calculated by solving for the unknown position changes
+in the system of equations $(Y\mathbf{v}_V)(V)=0$.
+
+For our purposes, we insert port elements in order to make interactions 
+with the environment explicit.  This enables a coordinate of an 
+environmental interaction quantity to correspond to an oriented matroid
+element, so that its sign can be read off from the corresponding entry
+in a covector.
+
+It's yet to be done to handle simutaneous application of force to more 
+than 2 vertices....
+
+
+
+to be written..}
+
+
+\section{THE SUBSPACE PAIR MODEL}
+
+Ports are introduced so the response of an electrical network to current 
+and/or voltage sources, and the mechanical analogs, can be formulated.
+After modeling device characteristics, questions of existance and 
+uniquenss of solution for various kinds of sources can be formulated.
+Familiar topological conditions on dependencies among source values
+pertain to the \textit{matroids} of the subspaces $L_V$ and $L_I$.
+Questions about existance and uniqueness of solution
+will be answered in terms of supplementary subspace pair models
+which are obtained by the familiar operations of opening and shorting ports.
+Finally, operations on subspace pairs that model nullor insertion are
+defined, so that such ideal elements can be modeled combinatorially or
+geometrically.  
+
+The supplemental subspace pair derived after nullor 
+insertion will typically not be orthogonal.  One might also choose to
+model linearized CCCSs or VCVSs within one of the subspaces.  
+Each port insertion generally increases $\rank(L_V)+\rank(L_I)-|U|$;
+system behavior for linearized constitutive laws will be shown to be
+represented by the intersection of two linear spaces.
+Hence we do not assume any rank or orthogonality conditions on subspace 
+pairs in the definitions below.
+
+Given a subspace pair $(L_V, L_I)$ and element $p\in U$ not already a port, 
+we define the 
+operation of \textit{inserting a port at  $p$} 
+as follows: A new subspace pair $(L'_V, L'_I)$
+is defined with $U'=U-\{p\}\cup\{p_V,p_I\}$, $L'_V=L_V\oplus\Reals$ (direct 
+sum) with $p_V$ replacing $p$ and $p_I$ indexing the coordinate of the added
+subspace, and $L'_I=L_I\oplus\Reals$ with $p_I$ replacing $p$ and $p_V$ 
+indexing the coordinate of the added subspace.  Note (going to 
+$(L'_V, L'_I)$) that the ranks of
+$L_V$ and $L_I$ each increase by 1, and $|U'|$ $=$ $|U|+1$.  After $p$ port
+insertions, we denote the final $U=E\cup P_V \cup P_I$ with pairwise disjoint
+$E$, $P_V$ and $P_I$, $|P_V|$ $=$ $|P_I|$ $=$ $p$, $P_V\cup P_I$ being the 
+replacement elements.  Let $P$ denote $P_V \cup P_I$.  
+
+The \textit{subspace pair model} $\mathbf{M}$ $=$ 
+$(E, \Gamma, P, (L_V, L_I))$ consists of finite set $E$ of 
+\textit{device elements}, \textit{constitutive law relations}
+$\Gamma = \{\Gamma_e\subset\Reals\times\Reals | e \in E\}$, a finite set
+$P=P_V \cup P_I$ that result from inserting ports as defined above, 
+and a subspace pair $(L_V, L_I)$ over $\Reals^U$ with $U=E\cup P$.
+
+The \textit{variables} of $\mathbf{M}$ are 
+$\{u_{Ve}, u_{Ie} | e \in E\}$  $\cup$ \\
+$\{ u_{Vp}, u_{Ip} | p_I, p_V \in P \}$.  
+(For brevity, subscript ``$Vp$'' means port element
+$p_V\in P_V$, etc.)
+A \textit{subspace pair model with sources} $S$ 
+is a subspace pair model $(E, \Gamma, P, (L_V, L_I), S)$
+together with a subset $S$ of exactly $|P|$ of the $2|P|$ elements
+in $P$.  A \textit{$V$-driven port} is a port $p\in P$ for which 
+$p_V\in S$ and $p_I\not\in S$, then $u_{Vp}$ is called 
+an \textit{input variable}.   Reverse $V$ and $I$ to define an 
+\textit{$I$-driven port} and its input variable.
+
+A \textit{solution} of $\mathbf{M}$ with sources
+is a real valued extension to \textit{all} variables of $\mathbf{M}$ 
+of a given \textit{input} assignment to the input variables
+that satisfies\\
+$(u_{VP}, u_{IP}, u_V) \in L_V$,
+$(u_{VP}, u_{IP}, u_I) \in L_I$
+and
+$(u_{Ve}, u_{Ie}) \in \Gamma_e$ for all
+$e\in E$.  Note that in this model, the constraint 
+$(u_{VP}, u_{IP}, u_V) \in L_V$ does not (by itself) imply any constraint
+on a ``I'' type port variable $u_{Ip}$, similarly, $u_{Vp}$ is not constrained
+by $(u_{VP}, u_{IP}, u_I) \in L_V$.  Port variables are not constrained
+by the constitutive laws $\Gamma$ (by themselves) either.
+
+In the language of matroid theory, we can call the element $p_I$ an 
+\textit{isthmus} of the matroid $\mathcal{M}(L_V)$; similarly, $p_V$ is
+an isthmus of $\mathcal{M}(L_I)$.  In general, the matroid represented by
+a matrix is characterized by the collection $\mathcal{I}$ 
+of \textit{independent sets} 
+of matrix columns, where a set of columns is called independent when it is
+linearly independent.  (Matroid theory studies what can be deduced by 
+the following three axioms satisfied by $\mathcal{I}$: (1) 
+$\mathcal{I}\neq\emptyset$. 
+(2) If $A\subset B\in\mathcal{I}$ then $A\in\mathcal{I}$.  (3) 
+If $A$, $B$ $\in\mathcal{I}$ and $|A|<|B|$, then there exists $e\in B-A$ 
+for which $A\cup\{e\}\in\mathcal{I}$.  For example, an isthmus $e$ is 
+characterized by $A\cup\{e\}\in\mathcal{I}$ for all $A\in\mathcal{I}$.
+The \textit{rank} of a subset $C\in U$ is the size of the largest independent
+subset of $C$.  A set $D$ is called \textit{co-independent} if $\rank(U-D)$
+$=$ $\rank(U)$; in other words, removing $D$ does not diminish the original
+matroid's rank.)
+
+We say a subspace pair problem with sources $S$ 
+is \textit{well-posed} when for all input assignments there is a unique 
+solution.
+
+
+The condition that there is no cycle of voltage source branches nor a
+cutset of current source branches is well-known to be necessary for 
+an electrical network to have a solution for all choices of source values.
+Assume as usual no branch is taken to be both a current and voltage source.
+Our generalization of the following:
+The set of elements $p_V$ 
+for ports driven by ``V'' sources
+is an independent set in the matroid $\mathcal{M}(L_V)$ and 
+co-independent set
+in $\mathcal{M}(L_I)$,
+and the elements $p_I$ for ports driven by ``I'' sources comprise an
+independent set in $\mathcal{M}(L_I)$ and a co-independent set in
+$\mathcal{M}(L_V)$.  
+
+When the constitutive laws are linear, the solutions of $\textbf{M}$ are
+found from the \textit{intersection} of two linear subspaces:  Let $G$ 
+be the diagonal matrix with ``conductances'' $g_e$ in its positions
+indexed by $e \in E$ (so $\Gamma_e$ $=$ $\{ (v, g_e v) | v \in \Reals \}$
+and 1 in its other diagonal positions.  The solution set projected onto
+the $w_I$ variables is $L_VG\cap L_I$.
+
+\section{DELETION AND CONTRACTION}
+
+Given a subspace $L\subset\Reals^U$ and $e\in U$, the subspace $L-e$ 
+``$L$ \textit{with} $e$ \textit{deleted}'' is the
+subspace $L-e\subset\Reals^{U-\{e\}}$ defined by $L-e$ $=$
+$\{ l(U-e) | l(U)\in L\}$, where $l(U-e)$ denotes the tuple $l(U)\in\Reals^U$
+with component labeled by $e$ dropped.  If $L$ is the row space of matrix $M$,
+then $L-e$ is the row space of $M(U-e)$, which is $M$ with column $e$ deleted.
+
+The subspace $L/e$ ``$L$ \textit{with} $e$ \textit{contracted}'' is the 
+subspace
+of $\Reals^{\{U-e\}}$ defined by 
+$L/e$ $=$
+$\{ l(U-e) | l(U)\in L \mathrm{\ and\ } l(e)=0\}$.  
+In other words, $L/e$ is the 
+intersection of $L$ with
+the (hyperplane) subspace of $\Reals^U$ with $l(e)=0$ followed by the $e$ 
+coordinate removed.  
+
+We now define deletion and contraction on subspace pairs:  
+$(L_V, L_I)-e$ $=$ $(L_V-e, L_I/e)$ and 
+$(L_V, L_I)/e$ $=$ $(L_V/e, L_I-e)$.  One can recognize that 
+deleting element $e\in S$ from a subspace pair modeling an electrical network
+corresponds to \textit{opening} the corresponding branch.  Dually, 
+contraction corresponds to \textit{shorting} the branch.  Mechanically,
+deletion of an edge corresponds to ``breaking'' the corresponding bar:
+ignore any distance change between its ends and transmit no force.
+Contraction corresponds to 
+declaring the bar to be rigid, which rules out 
+all (first order) distance changes between the endpoints and allows 
+the bar 
+to transmit arbitrary force.
+
+\section{SIMPLE EXAMPLES}
+
+
+\begin{figure}[htb]
+
+\begin{minipage}[c]{.48\linewidth}
+  \centering
+ \centerline{\input{2res.pstex_t}}
+%  \vspace{2.0cm}
+\end{minipage}
+%
+\hfill
+\begin{minipage}[c]{.48\linewidth}
+\[
+\begin{array}{cccc}
+\multicolumn{4}{c}{\mbox{($M_V$ matrix)}} \\
+0   &  1  &  0  &  0  \\
+1   &  0  &  1  &  1  \\ \hline \hline
+p_V & p_I & e_1 & e_2 \\ \hline \hline
+1   &  0  &  0  &  0  \\
+0   &  1  & -1  &  0  \\
+0   &  0  &  1  &  -1 \\
+\multicolumn{4}{c}{\mbox{($M_I$ matrix)}} \\
+\end{array}
+\]
+\end{minipage}
+%
+\begin{minipage}[b]{.48\linewidth}
+\[
+\begin{array}{ccc}
+  1  &  0  &  0  \\ \hline
+ p_I & e_1 & e_2 \\ \hline
+  0  &  0  &  0  \\
+  1  & -1  &  0  \\
+  0  &  1  &  -1
+\end{array}
+\]
+ZIR analysis for voltage source input:
+$p_V$ contracted.  Zero response (unique solution) even if
+negative resistances $\neq 0$ are allowed.
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.48\linewidth}
+\[
+\begin{array}{ccc}
+0   &  0  &  0  \\
+1   &  1  &  1  \\ \hline
+p_V & e_1 & e_2 \\ \hline
+1   &  0  &  0  \\
+0   &  1  &  -1
+\end{array}
+\]
+ZIR analysis for current source input:
+$p_I$ deleted.
+Zero response (unique solution) \textit{unless}
+$g_1 = -g_2$.  
+\end{minipage}
+\caption{Simple Example.}
+\label{Simple}
+%
+\end{figure}
+
+
+\section{NO-COMMON-COVECTOR PROPERTY AND $\mathcal{W}_0$ PAIRS}
+
+
+
+The following theorem
+demonstrates, by means of Sandberg and Willson's theory of 
+$\mathcal{W}_0$ pairs, that any 
+subspace pair model (with  its separation of
+geometric/topological and constitutive constraints) can be analyzed
+for unique solvability from the oriented matroid pair it generates.
+Conversely, a matrix pair 
+$(A,B)\in\mathcal{W}_0$ is characterized by a rank condition and a 
+no-common-covector property.
+
+\begin{theorem}
+The subspace pair model has a unique solution for all source 
+values when the corresponding oriented matroid pair has a complementary 
+base pair and no common covector.
+\end{theorem}
+
+Proof:  The following matrices must be square and order $|U|$
+for solutions of (..) to be unique:
+$A$ $=$ $\left(\begin{array}{c}M_V\\ 0\end{array}\right)$ and
+$B$ $=$ $\left(\begin{array}{c}0\\ -M_I\end{array}\right)$.
+The theorem follows with these matrices used in the equivalance of 
+2. and 5. in the theorem below.
+
+\begin{theorem}
+\label{sandwillompairtheorem}
+For a pair 
+%
+% EDITdone
+% delete ``order'' --- we understand that when we see 
+% ``$n\times n$'', and this avoids confusing with order as in
+% a linear ordering
+%
+of $n\times n$ 
+matrices $(A,B)$, the following conditions are 
+equivalent.
+%
+% EDITdone
+% period, not colon
+%
+\begin{enumerate}
+\item 
+$(A,B)\in {\mathcal W}_0$ in the sense of 
+Sandberg and 
+Willson~\cite{SWExistancePf,W0APPLpaper};
+e.g., $|AD+B|\neq 0$ for all positive diagonal $D$, etc.
+\item 
+$\rank{\mathcal M}\hmat{A}{B}=n$ and 
+${\mathcal L}\hmat{A}{B} \cap {\mathcal L}\hmat{I}{-I}=\{0\}.$
+\item 
+$\rank{\mathcal M}\hmat{A}{B}=n$ and 
+${\mathcal V}\hmat{A}{B} \cap {\mathcal V}\hmat{I}{-I}=\{0\}.$
+\item 
+\textrm{(}Fundamental theorem of Sandberg and 
+Willson~\cite{SWExistancePf,W0APPLpaper}\textrm{)}\ 
+%
+% EDITdone
+% use ~ before \cite so a space is left between the word and the reference
+%
+For all functions $F:{\bf R}^n\rightarrow {\bf R}^n$ of the form
+$F(x)_k=f_k(x_k)$ where each $f_k$ is a strictly 
+monotone increasing 
+function from 
+${\bf R}$ {\em onto} $\bf R$ and for all $c\in {\bf R}^n$, the 
+equation
+\[
+AF(x) + Bx = c
+\]
+has a unique solution $x$.% \cite{W0APPLpaper,W0paper}.
+\item 
+For all functions $G:{\bf R}^n\rightarrow {\bf R}^n$ of the form
+$G(w)_k=g_k(w_k)$ where each $g_k$ is a strictly monotone increasing 
+function from ${\bf R}$ {\em onto} $\bf R$ and for all 
+$d^{\prime}, d^{\prime\prime}\in {\bf R}^n$, the 
+equations
+\begin{equation}
+\label{W0dualproblem}
+u^t=z^tA+d^{\prime},\;\; w^t=z^tB+d^{\prime\prime},\;\; u=-G(w)
+\end{equation}
+have a unique solution $(u,w,z)$.
+\end{enumerate}
+\end{theorem}
+
+Note:  A direct inductive proof is obtainable by generalizing 
+the proofs given in \cite{HaslerNeirynck}.  This approach has the advantage
+of revealing circuit theoretic concepts that occur.  See also
+\cite{Fosseprez}.  One of the steps is to prove that if the no-common-covector
+property is true for $(M_V,M_I)$, then it is true for the matrix pair 
+from the system obtained by replacing one of the non-linear elements by a
+source.
+
+
+
+% References should be produced using the bibtex program from suitable
+% BiBTeX files (here: strings, refs, manuals). The IEEEbib.bst bibliography
+% style file from IEEE produces unsorted bibliography list.
+% -------------------------------------------------------------------------
+\bibliographystyle{IEEEbib}
+%\bibliography{strings,refs,manuals}
+\bibliography{OMPEMech}
+
+\end{document}

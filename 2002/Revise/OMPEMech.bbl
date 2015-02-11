@@ -1,0 +1,118 @@
+\begin{thebibliography}{10}
+
+\bibitem{SWExistancePf}
+I.~W. Sandberg and A.~N. {Willson, Jr.},
+\newblock ``Some theorems on properties of dc equations of non-linear
+  networks,''
+\newblock {\em Bell Syst. Tech. J.}, vol. 48, pp. 1--34, 1969.
+
+\bibitem{FiedlerPtak}
+M.~Fiedler and V.~Ptak,
+\newblock ``Some generalizations of positive definiteness and monotonicity,''
+\newblock {\em Numer. Math.}, vol. 9, pp. 163--172, 1966.
+
+\bibitem{NielWillpaper}
+R.~O. Nielsen and A.~N. {Willson, Jr.},
+\newblock ``A fundamental result concerning the topology of transistor circuits
+  with multiple operating equilibria,''
+\newblock {\em Proc. IEEE}, vol. 68, pp. 196--208, 1980.
+
+\bibitem{HaslerDApplMath}
+M.~Hasler, C.~Marthy, A.~Oberlin, and D.~de~Werra,
+\newblock ``A discrete model for studying existence and uniqueness of solutions
+  in nonlinear resistive circuits,''
+\newblock {\em Disc. Appl. Math.}, vol. 50, pp. 169--184, 1994.
+
+\bibitem{HaslerNeirynck}
+M.~Hasler and J.~Neirynck,
+\newblock {\em Nonlinear Circuits},
+\newblock Artech House, Norwood, Mass., 1986.
+
+\bibitem{Fosseprez}
+M.~Foss\'{e}prez,
+\newblock {\em Non-linear Circuits, Qualitative Analysis of Non-linear,
+  Non-reciprocal Circuits},
+\newblock John Wiley, 1992.
+
+\bibitem{NishiChuaCactus}
+T.~Nishi and L.~O. Chua,
+\newblock ``Topological criteria for nonlinear resistive circuits with
+  controlled sources to have a unique solution,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--31, pp. 722--741, 1984.
+
+\bibitem{NishiChuaCCCS}
+T.~Nishi and L.~O. Chua,
+\newblock ``Uniqueness of solution for nonlinear resistive circuits containing
+  {CCCS}'s or {VCVS}'s whose controlling coefficients are finite,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--33, pp. 381--397, 1986.
+
+\bibitem{NishiChuaTransFB}
+T.~Nishi and L.~O. Chua,
+\newblock ``Topological proof of the {N}ielsen-{W}illson theorem,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--33, pp. 398--405, 1986.
+
+\bibitem{BachemKern}
+A.~Bachem and W.~Kern,
+\newblock {\em Linear Programming Duality, An Introduction to Oriented
+  Matroids},
+\newblock Springer-Verlag, 1992.
+
+\bibitem{OMBOOK}
+A.~Bj\"{o}rner, M.~Las Vergnas, B.~Sturmfels, N.~White, and G.~Ziegler,
+\newblock {\em Oriented Matroids}, vol.~46 of {\em Encyc. Math. and its Appl.},
+\newblock Cambridge Univ. Press, 2nd edition, 1999.
+
+\bibitem{TrajWillNDR}
+L.~Trajkovi\`{c} and A.~N. {Willson, Jr.},
+\newblock ``Complementary two-transistor circuits and negative differential
+  resistance,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--37, pp. 1258--1266, 1990.
+
+\bibitem{VandewalleChua}
+J.~Vandewalle and L.~O. Chua,
+\newblock ``The colored branch theorem and its applications in circuit
+  theory,''
+\newblock {\em IEEE Trans. Circuits Syst.}, vol. CAS--27, no. 9, 1980.
+
+\bibitem{sdcOMP}
+S.~Chaiken,
+\newblock ``Oriented matroid pairs, theory and an electric application,''
+\newblock in {\em Matroid Theory, AMS-IMS-SIAM Joint Summer Research
+  Conference}, J.~E. Bonin, J.~G. Oxley, and B.~Servatius, Eds. American
+  Mathematical Society, 1996, vol. 197 of {\em Contemporary Mathematics}, pp.
+  313--331.
+
+\bibitem{ChensBook}
+W.~K. Chen,
+\newblock {\em Applied Graph Theory, Graphs and Electrical Networks},
+\newblock North-Holland, 2 edition, 1976.
+
+\bibitem{Murota}
+K.~Murota,
+\newblock {\em Matrices and matroids for systems analysis},
+\newblock Springer, 2000.
+
+\bibitem{Recski}
+A.~Recski,
+\newblock {\em Matroid Theory and its Applications in Electric Network Theory
+  and in Statics},
+\newblock Springer-Verlag, 1989.
+
+\bibitem{RigidityBook}
+J.~Graver, B.~Servatius, and H.~Servatius,
+\newblock {\em Combinatorial Rigidity}, vol.~2 of {\em Graduate Studies in
+  Mathematics},
+\newblock American Mathematics Society, 1993.
+
+\bibitem{Welsh}
+D.~J.~A. Welsh,
+\newblock {\em Matroid Theory},
+\newblock Addison-Wesley, 1976.
+
+\bibitem{W0APPLpaper}
+A.~N. {Willson, Jr.},
+\newblock ``New theorems on the equations of nonlinear dc transistor
+  networks,''
+\newblock {\em Bell Syst. Tech. J.}, vol. 49, pp. 1713--1738, 1970.
+
+\end{thebibliography}

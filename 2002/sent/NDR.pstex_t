@@ -1,0 +1,34 @@
+\begin{picture}(0,0)%
+\special{psfile=NDR.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(3705,1228)(1135,-1643)
+\put(2063,-1149){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$-$}}}
+\put(2209,-1013){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$u_{\mbox{VR}}$}}}
+\put(4494,-713){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$+$}}}
+\put(3909,-1493){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$-$}}}
+\put(3601,-1493){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$u_{\mbox{pV}}$}}}
+\put(3248,-1493){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$+$}}}
+\put(2263,-822){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$+$}}}
+\put(1536,-837){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$+$}}}
+\put(1740,-1164){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$-$}}}
+\put(4733,-1515){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$-$}}}
+\put(4644,-1117){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$-u_{\mbox{VD1}}$}}}
+\put(4650,-758){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$+u_{\mbox{pV}}+$}}}
+\put(2641,-1433){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$u_{\mbox{pI}}=-I_{\mbox{p}}$}}}
+\put(1680,-1426){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$I_{\mbox{p}}$}}}
+\put(1635,-990){\makebox(0,0)[b]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$u_{\mbox{VD1}}$}}}
+\put(3046,-1044){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$=~u_{\mbox{IR}}$}}}
+\put(3046,-901){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$(\alpha_1+\alpha_2-1)I_{\mbox{p}}$}}}
+\put(3601,-511){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$(1-\alpha_2)I_{\mbox{p}}$}}}
+\put(4643,-931){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$+u_{\mbox{VR}}+$}}}
+\put(4644,-1291){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$=u_{\mbox{VD2}}$}}}
+\put(2574,-511){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$\alpha_1 I_{\mbox{p}}$}}}
+\end{picture}

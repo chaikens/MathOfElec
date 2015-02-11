@@ -1,0 +1,1337 @@
+% Template for ICIP-2000 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,epsfig,verbatim}
+% verbatim needed for comment environment
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+\def\Reals{\ensuremath{\mathbf R}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+\newcommand{\supp}[1]{{{\mbox{supp\ }#1}}}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+
+%    Rank
+\DeclareMathOperator{\rank}{rank}
+
+%    Matroid Union 
+\newcommand{\munion}{\lor}
+
+%   Set minus
+\newcommand{\sminus}{\backslash}
+
+
+%   Two matrices horizontally concatenated, space between can be
+%   adjusted here
+%
+\newcommand{\hmat}[2]{[#1\;#2]}
+
+%   Oriented Matroid Pair
+\newcommand{\OMP}[2]{#1,\,#2}
+
+%\newcommand{\extra}[1]{{\small{#1}}}
+\newcommand{\extra}[1]{}
+
+% Title.
+% ------
+\title{\extra{REPORT:}
+%(\today
+(Proposal for ISCAS 2002)
+%\the\time)
+THE ORIENTED MATROID PAIR MODEL FOR MONOTONE
+DC ELECTRICAL AND ELASTIC NETWORK UNIQUE SOLVABILITY
+}
+%
+% Single address.
+% ---------------
+\name{Seth Chaiken\thanks{Part of this reseach was done during a Sabbatical
+from the University at Albany in 2001.}}
+\address{University at Albany,
+	Department of Computer Science\\
+	Albany, NY 12222 (\texttt{sdc@cs.albany.edu})}
+%
+\begin{document}
+%\renewcommand{\baselinestretch}{0.90}
+\ninept
+%
+\maketitle
+%
+
+\begin{abstract}
+Resistive electrical networks and elastic mechanical systems such
+as trusses have a topological or geometric structure together with constitutive
+laws for the elements prior to their interconnection.
+Oriented matroids provide a common discrete mathematical model 
+for such 
+structure
+%structures
+in which relationships on the signs of element 
+quantities can be expressed.
+Pairing of oriented matroids
+enables non-linear monotone constitutive laws to be fit
+into the abstraction in a way that allows port and nullor
+insertions and provides discrete unique solvability conditions.
+
+The resulting mathematical model clarifies some mechanical analogies for 
+these 
+circuit theory concepts, 
+relates apparently dissimilar published theories
+for existence and uniqueness and shows how to 
+handle elastic mechanical systems with small displacements.
+It also enables constraints on the signs of system quantities
+to be predicted from the structure when this is possible.
+\extra{Finally, it 
+derives topological solution formulas for linearized mechanical 
+systems in which the analog of a tree-sum is a sum over minimally rigid
+trusses.}
+\end{abstract}
+%
+
+\section{Introduction}
+\label{sec:intro}
+
+%Our work \cite{sdcOMP} shows that the model and results of 
+%\cite{HaslerDApplMath,HaslerNeirynck} generalize from a graph model to a
+%linear subspace pair model
+%for which the discrete structure 
+%%in which the topological conditions are expressed 
+%that expresses 
+%%the 
+%topological conditions
+%for existance or uniqueness of solutions
+%is pair of oriented
+%matroids, rather than a graph with designated resistor, source, nullator
+%and norator edges.  
+
+Our topic in non-linear systems is DC equations, 
+say for operating points/resistive circuits, whose only
+non-linearities are 
+monotone increasing bijections $\Reals\rightarrow\Reals$.  
+Special case conditions
+for existence and uniqueness of solutions for all 
+%choices of 
+such non-linear
+functions and additive 
+%(source value)
+constants were given by Duffin, Minty,
+and Rockafellar.  
+The more general determinant based theory
+of $\mathcal{W}_0$ matrix pairs due to Sandberg and Willson 
+\cite{SWExistancePf} extended Fiedler and Pt\'{a}k's work \cite{FiedlerPtak}.
+Nielsen and Willson \cite{NielWillpaper}
+%applied it \cite{NielWillpaper} to demonstrate
+%proved with it  
+used it to prove 
+that disallowing the 2 transistor feedback structure in a transistor circuit
+is sufficient for uniqueness.
+Graph based theories that identified structures forbidden for general
+solvability and uniqueness were given by 
+Hasler, Neirynck, and others \cite{HaslerDApplMath,HaslerNeirynck,Fosseprez}
+for nullor/resistor networks; and by Nishi and Chua 
+\cite{NishiChuaCactus,NishiChuaCCCS} for networks with all kinds of 2-port
+controlled sources, applied in \cite{NishiChuaTransFB} to 
+reproduce Nielsen and Willson's result.  
+Hasler \textit{et.\ als.\ } conclusion is that 
+a ``pair of conjugate spanning trees'' and the absence of a
+``non-trivial uniform partial orientation of the resistor [edges]''
+are necessary and sufficient for existence and uniqueness of solutions
+for all suitable functions and source values.  Nishi and Chua's structures
+are ``cactus graph'' networks with negative determinants obtained by 
+deletion/contraction operations particular to each kind of controlled source.
+
+%The present 
+Our paper shows 
+%that 
+oriented matroid (OM) theory \cite{BachemKern,OMBOOK}
+covers
+%generalizes 
+Hasler \textit{et.\ als.}
+``conjugate spanning tree'' and ``orientation'' concepts to 
+provide a theory equivalent to Sandberg and Willson's theory of 
+$\mathcal{W}_0$ 
+%matrix 
+pairs 
+%that solves 
+to solve 
+the same problem.  
+We also review the key oriented matroid concepts and 
+demonstrate them on one feedback structure case of
+\cite{TrajWillNDR}.
+%and show how electric and elastic structures are modeled
+%analogously.  
+%(The matroids of the elastic structure model geometry 
+% in addition to topology.)
+We believe distinguished port elements,
+pairings of oriented matroids with a common ground set,
+and common covectors (explained below) are crucial.
+%to this enterprise.  
+Although oriented matroids can 
+also be axiomatized with ``chirotopes''
+which abstract determinant signs, 
+(so suitable abstractions of graph orientation properties are
+mathematically equivalent to principles behind determinant signs)
+the oriented matroid pair
+common covector approach has an intuitive
+advantage for qualitative reasoning because
+the common covector displays precisely 
+the signs of all state quantities or their differences.
+
+\extra{Preliminary connections between our approach and the 
+issue of DC operating point stability \cite{Green} were published
+\cite{sdcISCAS98}, but relating these determinant based results
+to common covectors is still under investigation.}
+
+The recognition of Minty's painting property\cite{VandewalleChua} 
+and other facts
+from OM
+%oriented matroid theory being 
+theory used by Hasler \textit{et. al.} 
+\cite{HaslerNeirynck,Fosseprez,HaslerDApplMath} led us to 
+generalize in \cite{sdcOMP}
+their graph model notion of a ``pair of 
+conjugate trees''
+to a ``complementary pair of bases''
+in a pair of matroids (which abstract the ``voltage and current graphs''
+of \cite{Recski} and others); and of 
+a ``non-trivial uniform partial orientation of the resistors''
+to a ``common (non-zero) covector in an oriented matroid pair''.   
+We showed that the graph model 
+generalizes to a linear subspace pair model;
+the pair of linear subspaces defines a pair of oriented matroids.
+This OM pair is the discrete structure that
+generalizes a graph with designated resistor, source, nullator
+and norator edges.
+Topological conditions
+for the existence or uniqueness of solutions
+are expressed in it. 
+Two real matrices, which can be easily generated
+from the system design, represent the OMs so that 
+it is practical to work with them.  (Some OMs, indeed 
+most, are not representable by real matrices and would require much more
+space to store, but they do not occur in our application.)
+Theory valid for all OM pairs, not just those represented by
+a pair of linear subspaces, was presented in \cite{sdcOMP}.  For lack of
+space, we omit determinant sign conditions shown equivalent
+in \cite{sdcOMP} to the cases of common covector conditions that we cover.
+
+
+\extra{
+
+In the electrical circuit theory literature, the circuit ``topology''
+means the network graph (to which Kirchhoff's laws apply)
+together with particular kinds of ``device elements''
+such as resistors, capacitors, voltage sources (batteries), 
+current sources, etc., associated with single graph edges, and possibly
+``multiport'' elements associated with multiple graph edges.
+Problems with multiport elements are reduced to 
+those with only single edge elements, in order to apply
+the theory of  \cite{HaslerDApplMath},  through the use of 
+``nullator'' and ``norator'' elements.  Detailed exposition of the problems,
+reductions, theory and applications is given in \cite{HaslerNeirynck}.
+
+}
+
+In many cases, interesting conclusions can be reached
+from the sign patterns of feasible subspace members by 
+``calculations'' in an ``algebra of signs'', a 
+form of qualitative reasoning that uses
+easy, fundamental oriented matroid theoretic 
+operations 
+upon matrix sign patterns.  In cases when
+the qualitative calculations show the outcome depends on numeric
+values, the numeric information can then be used, say to 
+calculate a new matrix
+whose signs reveal better information;
+or else, inequalities
+on system parameters for each case of outcome can be derived.  
+The pairing seems to be needed because
+the non-linear monotonicity
+constrains two quantities to only have a common
+sign. The list of those signs for one state or state difference
+is the common covector.  (Our structural/constitutive law
+separation by OM pairing handles issues different from
+``imprecise constitutive law constants'' of \cite{Murota} and others.)
+
+\subsection{Single Oriented Matroids}
+
+See \cite{OMBOOK} for full details about OMs;
+%oriented matroids;
+\cite{BachemKern} is a good introduction to our point of view.
+Other ways to apply matroids to 
+electrical and other systems are given in \cite{Recski,Murota,RigidityBook}
+and EE literature on symbolic simulation.  A full survey is omitted.
+
+We think of the oriented matroid $\mathcal{M}(M)$ 
+\textit{represented} by matrix $M$ 
+as its finite set of \textit{covectors} $\mathcal{L}(M)$, where
+each covector 
+is the tuple of the \textit{signs} $\{+,-,0\}$
+or \textit{signature} $X=\sigma(l)$ of the real coordinates 
+of a member $l$ of the \textit{linear subspace} $L(M)$ in $\Reals^U$
+spanned by the rows of $M$. 
+%(We use italics to denote a 
+(Italics denote a 
+\textit{term or symbol being defined}.)  Hence 
+$\mathcal{L}(M)=\mathcal{L}(L(M))$ has at most 
+$3^{|U|}$ covectors.  
+For example,
+when $M$ is the signed incidence matrix of a network graph, each covector
+represents a combination of branch voltage drop 
+signs feasible under Kirchhoff's
+voltage law; the finite \textit{ground set} $U$ labels the branches.
+One can call $X$ a \textit{signed set}, in
+which elements of subset $X^+$ occur with $+$ sign and those in $X^-$ have
+$-$ sign. 
+The \textit{support} $\supp{X}$ is the subset
+of $e\in U$ for which $X_e \neq 0$, i.e., $\supp{X}=X^+\cup X^-$.
+Bachem and Kern's book \cite{BachemKern}
+motivates oriented matroids from linear subspaces this way.
+%For the sake of brevity,
+For brevity's sake,
+we define oriented matroids 
+using some ``sign algebra'' operation properties 
+we will then use.
+
+Given two sign tuples $X^1$, $X^2$, their \textit{composition}
+$Z=X^1 \circ X^2$ has $\supp{Z}$ $=$ 
+$\supp{X^1}\cup \supp{X^2}$
+and 
+for $e\in\supp{Z}$,
+$X_e=X^i_e$ where $i$ is the smallest index for which $X^i_e\neq 0$.
+Note that if $X^i=\sigma(l^i)$ for $l^i\in\Reals^U$, then $X^1\circ X^2$
+$=$ $\sigma(l^1 + \epsilon l^2)$ for some sufficiently small $\epsilon >0$.
+Hence $\mathcal{L}(M)$ is closed under 
+%the 
+$\circ$.
+% operation.
+
+\begin{definition}
+\label{OMDEF}
+The collection $\mathcal{L}(\mathcal{M})$ 
+of signed sets with ground set $U$ is the set of 
+\textit{covectors} of an oriented matroid 
+$\mathcal{M}$ if it satisfies:\\
+\textbf{(L0)} $0\in\mathcal{L}$. \textbf{(L1-2)} If $X,Y\in
+      \mathcal{L}$ then $-X$ and $X\circ Y\in\mathcal{L}$.\\
+\textbf{(L3)} For all $X$, $Y \in \mathcal{L}$ and $e\in X^+\cap Y^-$
+there is
+$Z\in\mathcal{L}$ such that 
+$Z^+\subset(X^+\cup Y^+)\sminus\{e\}$,
+$Z^-\subset(X^-\cup Y^-)\sminus\{e\}$,\\
+and 
+$(\supp{X}\sminus \supp{Y})\cup(\supp{Y}\sminus \supp{X})\cup$\\
+\hspace*{0.5in}$(X^+\cup Y^+)\cup(X^-\cup Y^-)\subset\supp{Z}$.
+\end{definition}
+%Note that property 
+Property (L3) says $Z_e=0$ and it predicts $Z_g$ for all
+$g\neq e$ except those with $X_gY_g = -$; i.e., $g$
+having opposite signs in
+$X$ and $Y$.  The logical
+equivalence of this definition to various apparently weaker
+axiomatizations is due to work of Edmonds, Fukada and 
+Mandel cited and surveyed in \cite{OMBOOK}.
+
+Other oriented matroid 
+notions such as orthogonality and 
+independence can be expressed by properties of covector sets
+that are motivated by linear algebra.
+The covectors $\mathcal{L}(L^\perp)$ of the 
+\textit{orthogonal complement}
+$L^\perp$
+of linear subspace $L\subset\Reals^U$ form another oriented matroid.
+We say $X\perp Y$ for signed sets $X,Y$ when 
+either $\supp{X}\cap\supp{Y}=\emptyset$ or
+there are $e,f\in U$
+with $X_fY_f = -X_eY_e \neq 0$.
+This abstracts a necessary condition for 
+two real vectors to be orthogonal
+under the usual dot product.
+In fact, for every 
+%oriented matroid $\mathcal{M}$ with covectors
+covector set
+$\mathcal{L}(\mathcal{M})$,
+the set $\mathcal{V}=\mathcal{L}^\perp$ defined by
+$\{Y | Y\perp X \mbox{\ for all\ }X\in\mathcal{L}\}$ satisfies the
+covector axioms (\cite{OMBOOK}, Prop. 3.7.12); 
+$\mathcal{V}(\mathcal{M})$ is called the 
+set of \textit{vectors} of $\mathcal{M}$ and is the set of covectors
+of the \textit{dual} or \textit{orthogonal} oriented matroid 
+$\mathcal{M}^\perp$. The OM vectors display 
+%code 
+all combinations of coefficient 
+sign that occur among all linear dependencies of the columns of $M$,
+when $\mathcal{M}=\mathcal{M}(M)$.
+\extra{More directly, an independent set $I\subset U$ is characterized by: 
+for all $3^{|I|}$ ``input'' assignments $i$ of $e\in I$ to $\{+,-,0\}$, 
+there exists a covector $X\in \mathcal{L}(\mathcal{M})$ for which
+$X_e = i_e$ for all $e\in I$.}  Abstractly, an \textit{independent set}
+$I\subset U$ satisfies $\supp{V}\not\subset I$ for all non-zero 
+vectors $V\in\mathcal{V}(\mathit{M})$.
+
+KVL, KCL and analogous mechanical structural or geometric laws 
+are each formulated by a constraint of the form 
+$v\in L$ $=$ $\mbox{row space}(M)$
+where $L\subset\Reals^U$.  To
+reformulate this law by a system of linear equations,
+a maximal subset $B\subset U$ corresponding to
+a linearly independent set of columns of $M$ is found.  Such a $B$ is
+a maximal independent set,
+called a \textit{basis in the matroid} $\mathcal{M}(M)$.
+The collection of all bases in $\mathcal{M}$ is denoted by 
+$\mathcal{B}(\mathcal{M})$.
+Row operations and possibly deletion of zero rows can transform
+$M$ to $\hmat{I}{M^{\overline{B}}}$ (after column permutation)
+where $I$ is the $r\times r$ identity matrix, where $r$ $=$ 
+$\mbox{rank}(M)$ $=$ $\mbox{dim}(L)$ $=$ $\mbox{rank}(L)$
+$=$ $\mbox{rank}(\mathcal{M}(L))$.    
+It is now clear that $v\in L$ is characterized by 
+$v_{\overline{B}}$ $=$ $v_{B}M^{\overline{B}}$.
+For each independently chosen
+$v_{B}\in\Reals^B,$ $v=(v_B;v_{\overline{B}})\in L$ is unique
+with its $B$ coordinates equal to $v_B$.
+
+The \textit{cocircuits} (resp. \textit{circuits} $\mathcal{C}$)
+of an oriented matroid are the non-zero covectors (resp. vectors)
+whose support is minimal.  
+\extra{Minty's painting property,
+most popularly known as a theorem about 
+directed graphs\cite{VandewalleChua}, is generally true about
+the cocircuit $\mathcal{C}^*(\mathcal{M})$ and circuit 
+$\mathcal{C}(\mathcal{M})$ collections.}
+Note $\mathcal{C}$ is the
+cocircuits of the orthogonal oriented matroid $\mathcal{M}^\perp$.
+\extra{In fact, when the 
+simple non-triviality, symmetry, and minimal support properties are assumed, 
+the painting property characterizes when 
+$\mathcal{C}^*$ and $\mathcal{C}$ are the cocircuit/circuit collections of 
+an oriented matroid.}
+
+\extra{
+\begin{theorem}
+(\cite{OMBOOK}, Th. 3.4.4(4P); \cite{BachemKern}, Prop. 5.12) 
+For every partition $U=R\cup G \cup B \cup W$ and for every $e\in R\cup G$,
+\textbf{either} %\\
+%\begin{itemize}
+%\item[(a)] 
+(a) There exists $X\in\mathcal{C}^*$ so $e\in\mbox{Supp}{X}$,
+$X_R\geq 0$, $X_G\leq 0$, $X_B$ unrestricted and $X_W=0$ %\\
+%\item[]
+\textbf{or}\\
+%\item[(b)]
+(b) There exists $Y\in\mathcal{C}$ so $e\in\mbox{Supp}{Y}$,
+$Y_R\geq 0$, $Y_G\leq 0$, $Y_B = 0$ and $Y_W$ unrestricted %\\
+%\item[]
+\textbf{but not both.}
+%\end{itemize}
+\end{theorem}
+}
+
+\section{THE SUBSPACE PAIR MODEL AND APPLICATIONS}
+
+\begin{comment}
+A \textit{subspace pair} $(L_V, L_I)$ is a pair of linear subspaces of
+$\Reals^U$, where the elements of finite set $U$ index the coordinates.
+The scalar product $v\cdot w = \sum_{e\in U}v_e w_e$ is used to define that
+$v, w \in \Reals^U$ are \textit{orthogonal} when $v\cdot w = 0$.  An 
+\textit{orthogonal subspace pair}  satisfies $v\cdot w = 0$ for
+all $v\in L_V$ and $w\in L_I$.  A subspace pair has \textit{full rank} when
+$\mathrm{rank}(L_V)+\mathrm{rank}(L_I)= |U|$.  Hence an orthogonal full rank 
+subspace pair is a linear subspace paired with its orthogonal complement.
+\end{comment}
+
+Some applications begin with basic structural laws
+modeled by an orthogonal complementary pair of 
+linear subspaces $(L_V, L_I)$, i.e., $L_I=L_V^\perp$.  This pair 
+is then modified by port insertion, deletion, contraction, and 
+nullator/norator insertion operations which can 
+destroy the original orthogonality and/or 
+$\mbox{dim\ }(L_V)+\mbox{dim\ }(L_I)=|U|$ properties.
+Other applications can begin with one or both of $L_V,L_I$ 
+expressing some constitutive laws too (see our example).
+
+Electrical network structure is defined 
+%beginning 
+with the \textit{network graph}
+$\mathcal{N}$ with \textit{nodes} $N$  and \textit{arcs} $U$.  
+%(The generality obtainable by port, nullator/norator or nullor, and 
+%device characteristic insertions will be treated later.)
+%Each arc has 
+%a fixed but arbitrary direction to define the sign of its voltage drop and
+%current flow.  
+The \textit{incidence matrix} $M_V$ has rows indexed by $N$,
+columns indexed by $U$, and $M_V(n,e)=+1$ when the tail of $e$ is
+$n$, $-1$ if the head of $e$ is $n$, and $0$ if $n$ and $e$ are not incident.
+When $L_V=L(M_V)$ and $L_I=L_V^\perp$,
+each $u\in L_V$ is a combination of voltage drops in $\mathcal{N}$ 
+feasible under KVL and each $w\in L_I$ is 
+an arc current flow feasible under KCL.  These facts 
+restate Kirchhoff's laws and Tellegen's theorem.  
+
+\extra{ 
+We can determine
+$(L_V, L_I)$ from one of these subspaces given and Tellegen's theorem: The
+role of nodes here is not strictly necessary.
+Kirchhoff's voltage law can be expressed by the statement:  
+The feasible voltage drops are the image of the map 
+$\Reals^N\rightarrow\Reals^U$ given by $\phi\rightarrow\phi M_V$.  
+Kirchhoff's current law says the feasible current flows are the kernel
+of the map $\Reals^U\rightarrow\Reals^N$ given by $u\rightarrow u M_I^t$.
+Tellegen's theorem is the observation that $M_V$ and $M_I^t$ are adjoints.
+See \cite{WyattTele}.}
+
+\extra{
+A practical and familiar way to generate $M_V$ and $M_I$ matrices whose rows 
+provide some covectors to use for qualitative analysis is to 
+chose a spanning set of (directed) cuts and cycles respectively, say
+the fundamental cutsets and cycles of a spanning tree.  A single spanning
+tree however
+for both $M_V$ and $M_I$ is not necessary.  There is no advantage, at 
+least for hand calculations, for $M_V$ and $M_I$ to have the minimum
+number of rows.  Particular cutsets and cycles, or linear combinations of
+them, can be devised and used to provide covectors that represent
+approximations of particular ``modes'' of system operation or change 
+from one operating point to another.}
+
+
+The definition of mechanical elastic structure begins with the 
+(undirected) \textit{framework graph} $\mathcal{F}$ with \textit{vertices}
+$N$ and \textit{edges} $U$.  \textit{Framework} $\mathcal{F}(\mathbf{p})$ 
+%in d $dimentions$ 
+is 
+%a framework graph 
+$\mathcal{F}$ and an \textit{embedding} 
+$\mathbf{p}:N\rightarrow \Reals^d$.  
+%The embedding assigns each vertex to a point in
+%$d$-dimensional space.  
+The \textit{rigidity matrix} $M_V$ 
+has $d|N|$ rows in groups of $d$ corresponding to the vertices.
+%each indexed by one coordinate in $\Reals^d$ 
+%of the point that embeds one vertex.
+For $e=(i,j)\in U$, column $M_V(e)$ 
+%of the rigidity matrix 
+is defined \cite{RigidityBook}\\
+%(when vertices are numbered 0 through $|N|-1$):\\
+$(0, \ldots,0, \mathbf{p}(n_i)-\mathbf{p}(n_j),0,\ldots,
+\mathbf{p}(n_j)-\mathbf{p}(n_i), 0, \ldots,0)^T$\\
+where $\mathbf{p}(n_i)-\mathbf{p}(n_j)$ occupies 
+%positions $di\ldots di+d-1$ and 
+$n_i$'s group of positions
+and $\mathbf{p}(n_j)-\mathbf{p}(n_i)$
+occupies $n_j$'s.
+%positions $dj\ldots dj+d-1$.
+\extra{This definition is echoed from the 
+literature \cite{RigidityBook} on rigidity theory, except
+we interchange rows and columns.  Just as we deemphasized nodes of electrical
+networks, we will use merely the row space of $M_V$ for most of what follows.
+}
+\extra{The rigidity matrix as a 
+function of the embedding $\mathbf{p}$ is denoted
+$M_V(\mathbf{p})$.  The row vector $\mathbf{p}$ left multiplied with
+$M_V(\mathbf{p})$
+is the row tuple denoted $\mathbf{L}=\mathbf{p}M_V(\mathbf{p})$  Then, 
+$\mathbf{L}_e$ $=$ 
+$(\mathbf{p}M_V(\mathbf{p}))_e$ $=$ $|\mathbf{p}_i-\mathbf{p}_j|^2$ for
+each edge $e=(i,j)$.  Now if each $\mathbf{p}_i$ is a differentiable function
+of $t$, $d\mathbf{L}/dt$ $=$ $2\mathbf{p}'M_V(\mathbf{p})$.  Framework
+$\mathcal{F}(\mathbf{p})$ is \textit{first-order rigid} when 
+$d\mathbf{L}/dt$ $=$ $0$ for all $\mathbf{p}'$ implies 
+$|\mathbf{p}_i-\mathbf{p}_j|^2$ is constant for all pairs $i$, $j$, not just
+endpoints of edges. 
+}%extra
+%Let $\mathbf{p}(i)-\mathbf{p}(j)$ for edge $e=\{i,j\}$ be called the
+%\textit{vector from } $j$ \textit{to} $i$.  
+From \cite{RigidityBook},
+$u\in L_V=L(M_V)\subset\Reals^U$ 
+iff 
+for some combination of \textit{vertex velocities}
+$\mathbf{v}:N\rightarrow\Reals^d$,
+$u_e=(\mathbf{v}(i)-\mathbf{v}(j))\cdot(\mathbf{p}(i)-\mathbf{p}(j))$
+for each $e=(i,j)\in U$.
+Also,
+the \textit{self-stress subspace} $L_I=L_V^\perp$%
+%, the orthogonal complement of $L_V$, 
+is shown to be all $w\in\Reals^U$
+for which the framework is in static
+equilibrium when each edge $e=(i,j)$ exerts force 
+$w_e(\mathbf{p}(j)-\mathbf{p}(i))$ on vertex $i$.  By this convention, 
+$w_e>0$ means $e$ is under tension and $w_e<0$ means $e$ is under 
+compression.  
+%(\cite{RigidityBook} actually defines $M_V^T$, not $M_V$.)
+(The rigidity matrix in \cite{RigidityBook} is $M_V^T$, not $M_V$.)
+
+Under this analogy, 
+(1) KVL corresponds to geometric consistency of first order
+bar length changes under changes in the embedding, (2) KCL corresponds to
+Newton's laws of static equilibrium, and (3) Tellegen's theorem corresponds
+to a virtual work principle, that static equilibrium is
+characterized by 
+the internal forces against every virtual embedding change 
+doing zero virtual work.
+
+\extra{\subsection{Elastic Analog of the Indefinite Nodal Admittance Matrix}
+
+Reduced nodal admittance matrix.  Nodal resistance matrix.
+Interaction with a physical framework with it's environment.
+A framework is first order rigid iff it ``resolves all applications of
+static equilibrium forces''.  However, every physical bar has some
+elasticity:  An ideal rigid bar is analogous to an ideal voltage 
+source.  Hence, given an elastic framework, for every application
+of static equilibrium forces on the vertices, the vertex positions
+will change as the bars stretch or shrink under the forces they now
+carry to resolve the applied force.  These first order vertex position 
+changes are given by $Z\mathbf{f}$.
+
+The environment might interact by ``forcing'' some vertices to change position
+relative to one another.
+Intuitively, the framework will ``push back''.  The other vertices are free
+to move as adjacent vertices move and incident bars change length in
+response to the forces developed in them to resolve the forces required
+to hold the framework in its new position.  The position changes of the
+free vertices $V$ can be calculated by solving for the unknown position changes
+in the system of equations $(Y\mathbf{v}_V)(V)=0$.
+
+For our purposes, we insert port elements in order to make interactions 
+with the environment explicit.  This enables a coordinate of an 
+environmental interaction quantity to correspond to an oriented matroid
+element, so that its sign can be read off from the corresponding entry
+in a covector.
+
+It's yet to be done to handle simutaneous application of force to more 
+than 2 vertices....
+}
+
+%\subsection{Ports, Devices and Solutions}
+
+Given $(L_V, L_I)$ and $p\in U$ not already a port, 
+the 
+operation of \textit{inserting a port at  $p$} 
+defines a new subspace pair $(L'_V, L'_I)$
+with $U'=U\sminus \{p\}\cup\{p_V,p_I\}$, $L'_V=L_V\oplus\Reals$ (direct 
+sum) with $p$ replaced by $p_V$;
+and the coordinate of the added $\mathbf{R}$ 
+indexed by $p_I$, together with
+$L'_I=L_I\oplus\Reals$ with $p$ now replaced by $p_I$
+and the added subspace indexed by $p_V$.
+\extra{Note that (going to $(L'_V, L'_I)$) the ranks of
+$L_V$ and $L_I$ each increase by 1, and $|U'|$ $=$ $|U|+1$.}
+\extra{After $p$ port
+insertions, we denote the final $U$ by $E\cup P_V \cup P_I$ 
+with pairwise disjoint
+$E$, $P_V$ and $P_I$, $|P_V|$ $=$ $|P_I|$ $=$ $p$, $P_V\cup P_I$ being the 
+replacement elements.}
+
+\extra{Questions of existence and 
+uniqueness of solution for various combinations of 
+kinds of sources are formulated after 
+modeling devices.  
+Each port element provides separate output and input
+variables
+for an 
+electrical current or 
+voltage \textit{kind of} source, or its mechanical analog.}
+\extra{Unlike device variables, the two variables of each port
+are not directly related by a constitutive law which is 
+part of the system model.}
+%Ports are introduced so the response of an electrical network to current 
+%and/or voltage sources, and the mechanical analogs, can be formulated.
+
+\extra{ Ports also facilitate formal operations to compose larger systems
+from smaller ones.  We believe ports are important for investigations of
+rigidity because they model how a framework interacts with its environment,
+for example, what a mechanical model ``feels like'' when you squeeze it.
+We have also found that electrical port characteristics of unit resistance
+ported electrical networks are ratios of coefficients in certain 
+partial evaluations 
+of a generalization of the Tutte polynomial\cite{sdcPorted}.}
+
+%Hence we do not assume any rank or orthogonality conditions on subspace 
+%pairs in the definitions below.
+
+\pagebreak
+The \textit{subspace pair model} $\mathbf{M}$ $=$ 
+$(E, \Gamma, P, (L_V, L_I))$ consists of finite set $E$ of 
+\textit{device elements}, \textit{constitutive law relations}
+$\Gamma = \{\Gamma_e\subset\Reals\times\Reals | e \in E\}$, the finite set
+$P=P_V \cup P_I$ that results from inserting ports as defined above, 
+and a subspace pair $(L_V, L_I)$ over $\Reals^U$ with $U=E\cup P$.
+
+The \textit{variables} of $\mathbf{M}$ are 
+$\{u_{\mathit{Ve}}, u_{\mathit{Ie}} | e \in E\}$  $\cup$ \\
+$\{ u_{\mathit{pV}}, u_{\mathit{pI}} | p_I, p_V \in P \}$.  
+(For brevity, subscript ``$\mathit{pV}$'' means port element
+$p_V\in P_V$, etc.)
+A \textit{subspace pair model with sources} $S$ 
+is a subspace pair model $(E, \Gamma, P, (L_V, L_I), S)$
+together with a subset $S$ of exactly $|P|$ of the $2|P|$ elements
+in $P$.  A \textit{$V$-driven port} is 
+%a port $p\in P$ 
+one for which 
+$p_V\in S$ and $p_I\not\in S$, then $u_{\mathit{pV}}$ is called 
+an \textit{input variable}.   Reverse $V$ and $I$ to define an 
+\textit{$I$-driven port} and its input variable.
+
+A \textit{solution} of $\mathbf{M}$ with sources
+is a real valued extension to \textit{all} variables of $\mathbf{M}$ 
+of a given \textit{input} assignment to the input variables
+that satisfies
+$(u_{\mathit{PV}}, u_{\mathit{PI}}, u_V) \in L_V$,
+$(u_{\mathit{PV}}, u_{\mathit{PI}}, u_I) \in L_I$
+and
+$(u_{\mathit{Ve}}, u_{\mathit{Ie}}) \in \Gamma_e$ for all
+$e\in E$.
+%  Note that in this model, 
+The constraint 
+$(u_{\mathit{PV}}, u_{\mathit{PI}}, u_V) \in L_V$ 
+does not (by itself) imply any constraint
+on a I-driven port variable $u_{\mathit{pI}}$, similarly, 
+$u_{\mathit{pV}}$ is not constrained
+by 
+$(u_{\mathit{PV}}, u_{\mathit{PI}}, u_V) \in L_I$.
+\extra{Port variables are not constrained
+by the constitutive laws $\Gamma$ (by themselves) either.}
+In matroid theory an element like $p_I$ of
+$\mathcal{M}(L_V)$ that is independent of all others
+is called an \textit{isthmus}.
+
+\extra{
+In the language of matroid theory, we can call the element $p_I$ an 
+\textit{isthmus} of the matroid $\mathcal{M}(L_V)$; similarly, $p_V$ is
+an isthmus of $\mathcal{M}(L_I)$.  In general, the matroid represented by
+a matrix is characterized by the collection $\mathcal{I}$ 
+of \textit{independent sets} 
+of matrix columns, where a set of columns is called independent when it is
+linearly independent.  (Matroid theory studies what can be deduced by 
+the following three axioms satisfied by $\mathcal{I}$: (1) 
+$\mathcal{I}\neq\emptyset$. 
+(2) If $A\subset B\in\mathcal{I}$ then $A\in\mathcal{I}$.  (3) 
+If $A$, $B$ $\in\mathcal{I}$ and $|A|<|B|$, then there exists $e\in B\sminus A$ 
+for which $A\cup\{e\}\in\mathcal{I}$.  For example, an isthmus $e$ is 
+characterized by $A\cup\{e\}\in\mathcal{I}$ for all $A\in\mathcal{I}$.
+The \textit{rank} of a subset $C\in U$ is the size of the largest independent
+subset of $C$.  
+%A set $D$ is called \textit{coindependent} if $\rank(U\sminus D)$
+%$=$ $\rank(U)$; in other words, removing $D$ does not diminish the original
+%matroid's rank.)
+}
+
+\extra{We say a subspace pair problem with sources $S$ 
+is \textit{well-posed} when for all input assignments there is a unique 
+solution.}
+
+Assume as usual 
+%no branch is taken to be both a current and voltage source.
+no port is both I-driven and V-driven.
+The 
+\extra{well-known necessary condition
+for an electrical network to have a unique 
+solution for all choices of source values is}
+condition of no cycle of voltage source branches
+in the ``voltage'' graph nor a
+cutset of current source branches in the ``current graph'' (see, e.g.,
+\cite{ChensBook})
+generalizes to:
+
+
+\begin{theorem}
+\label{Feasiblity1}
+\textbf{(1)} If all V input assignments are feasible under
+the $L_V$ constraint then 
+$\{p_V|p \mbox{\ is V-driven}\}$
+is an independent set in the matroid $\mathcal{M}(L_V)$.
+\textbf{(2)} If every solution is unique then\\
+$\{p_I|p \mbox{\ is V-driven}\}$
+must be coindependent in $\mathcal{M}(L_I)$.
+\textbf{(3)} 
+If all V input assignments are feasible under
+the $L_I$ constraint then 
+$\{p_I|p \mbox{\ is I-driven}\}$
+is an independent set in the matroid $\mathcal{M}(L_I)$.
+\textbf{(4)} If every solution is unique 
+then
+$\{p_V|p \mbox{\ is I-driven}\}$
+must be coindependent in $\mathcal{M}(L_V)$.
+\end{theorem}
+
+\noindent Pf.\ (1,3):
+If set $S$ of input variables is dependent, then there is
+some combination of input values that is not feasible.
+Pf.\ (2,4):
+$S$ is not a \textit{coindependent} set iff $S$ contains a cocircuit, so
+%A non-coindependent set $S$ must contain a cocircuit, so
+there is a non-zero covector supported by $S$.  Hence there is a 
+feasible variable assignment that is non-zero on the some port output
+variables only.
+
+
+Each port insertion increases $\rank(L_V)+\rank(L_I)-|U|$ by 1.
+When the constitutive laws are linear, the solutions of $\textbf{M}$ are
+found from the \textit{intersection} of two linear subspaces:  Let $G$ 
+be the diagonal matrix with ``conductances'' $g_e$ in its positions
+indexed by $e \in E$ (so $\Gamma_e$ $=$ $\{ (v, g_e v) | v \in \Reals \}$
+and 1 in its other diagonal positions.  The solution set projected onto
+the $u_I$ variables is $L_VG\cap L_I$.  
+(Here, $L_V G$ means $L(M_V G)$.)
+
+
+\begin{comment}
+Familiar topological conditions on dependencies among source values
+pertain to the \textit{matroids} of the subspaces $L_V$ and $L_I$.
+Questions about existence and uniqueness of solution
+will be answered in terms of supplementary subspace pair models
+which are obtained by the familiar operations of opening and shorting ports.
+Finally, operations on subspace pairs that model nullor insertion are
+defined, so that such ideal elements can be modeled combinatorially or
+geometrically.  
+
+The supplemental subspace pair derived after nullor 
+insertion will typically not be orthogonal.  One might also choose to
+model linearized CCCSs or VCVSs within one of the subspaces.  
+\end{comment}
+
+\subsection{Example: a feedback structure case of 
+Trajkovi\`{c} and Willson \cite{TrajWillNDR}}
+
+%$M_V$ is written above; $M_I$ below.  
+We used the rules of 
+Definition \ref{OMDEF} to figure out common covectors in 
+$\mathcal{L}(M_V)$, $\mathcal{L}(M_I)$ with 
+their first two 
+signs,
+of port elements pV, pI given,
+for the 
+tangents and differences drawn boldly on the 
+$I_{\mbox{p}}$/$V_{\mbox{p}}$ curve.  
+(The algorithm ideas used appear in \cite{sdcOMP}.)
+In three cases, (unique)
+extensions of the given signs exist when $1-\Sigma\alpha\le 0$ but there is
+only one such case otherwise, verifying a condition for NDR from 
+\cite{TrajWillNDR}.
+Multiple operating points with an I-driven port are impossible.  
+The magnitude inequalities come from ``$\epsilon<<1$'' in explaining
+``$\circ$'' above Definition \ref{OMDEF}.
+
+\noindent 
+Fig. 1: Example.  
+$M_V$/$M_I$ are the upper/lower right arrays.\hspace*{-20pt}
+\[
+\begin{array}{c|ccccc}
+\mbox{(row mults.)}u_{\mbox{pI}}
+                           & 0 & 1 & 0 & 0 & 0 \\
+u_{\mbox{pV}}              & 1 & 0 & 0 & 0 & +1 \\
+u_{\mbox{VR}}              & 0 & 0 & 1 & 0 & +1 \\
+u_{\mbox{VD1}}             & 0 & 0 & 0 & 1 &-1 \\ \hline
+\Gamma\mbox{\ coeffs.}\rightarrow
+                           & 1 & 1 & g_{\mbox{R}}
+                                       & g_{\mbox{D1}}
+                                           & g_{\mbox{D1}} \\ \hline
+\mbox{elements}\rightarrow & \mbox{pV}
+                               & \mbox{pI}
+                                   & \mbox{R} 
+                                       & \mbox{D1}
+                                           & \mbox{D2} \\ \hline
+u_{\mbox{pI}}=-I_{\mbox{p}}& 0 & 1 
+                                   & 1-\alpha_1-\alpha_2
+                                       & \alpha_1-1
+                                           &\alpha_2-1  \\
+u_{\mbox{pV}}              & 1 & 0 & 0 & 0 & 0
+\end{array}
+\]
+
+\noindent
+\input{NDR.pstex_t}\vspace*{0.5em}
+
+\noindent
+\input{NDRgraph.pstex_t}
+
+
+\begin{comment}
+We illustrate the oriented matroid approach by reproducing the result of
+\cite{TrajWillNDR} that a particular configuration of a ``feedback structure''
+with two Ebers-Moll transistors and one port
+cannot exhibit negative differential resistance by itself, and it can 
+exhibit NDR if one resistor is added and $\alpha_1+\alpha_2-1>0$.  
+Under KVL,
+the voltages across the port, resistor
+and two 
+Ebers-Moll diodes are given by the row space member of $M_V$ when the
+three rows are multiplied by the 3 independent voltages
+$V_1$, $V_2$ and the port voltage $V$.  The space of current values
+feasible in the same 4 elements under KCL and the two 
+Ebers-Moll linear CCCS's
+is only one dimensional; it is spanned by the one
+row of $M_I$.  Beginning with the signatures of the rows of the matrices,
+we can apply the covector axioms to explore what common covectors are possible
+under several variations.
+\end{comment}
+
+
+%\subsection{Deletion and contraction}
+
+Given a subspace $L\subset\Reals^U$ and $e\in U$, the subspace 
+``$L$ \textit{with} $e$ \textit{deleted}''
+is
+$L\sminus e$ $=$ 
+$\{ l(U\sminus e) | l\in L\}$
+$\subset\Reals^{U\sminus \{e\}}$, 
+where $l(U\sminus e)$ denotes the $l\in\Reals^U$
+with the component labeled by $e$ dropped.  
+Thus, $L\sminus e$ is the \textit{projection} of $L$ into 
+$\Reals^{U\sminus \{e\}}$.
+If $L=L(M)$ 
+then $L\sminus e$ $=$ $L(M(U\sminus \{e\}))$ is the row space of 
+$M(U\sminus \{e\})$, which is $M$ with column $e$ deleted.
+The subspace  ``$L$ \textit{with} $e$ \textit{contracted}'' 
+$L/e$ $=$ 
+$\{ l(U\sminus e) | l(U)\in L \mathrm{\ and\ } l(e)=0\}$.  
+So, $L/e$ is the 
+intersection of $L$ with
+the (hyperplane) subspace of $\Reals^U$ with $l(e)=0$,
+projected into 
+$\Reals^{U\sminus \{e\}}$.
+
+We now define \textit{deletion} and \textit{contraction} on subspace pairs:  
+$(L_V, L_I)\sminus e$ $=$ $(L_V\sminus e, L_I/e)$ and 
+$(L_V, L_I)/e$ $=$ $(L_V/e, L_I\sminus e)$.  
+Deleting $e$ in the electrical application
+corresponds to \textit{opening} the corresponding branch.
+Dually, 
+contraction corresponds to \textit{shorting}.  
+Mechanically,
+deletion of an edge corresponds to ``breaking'' the corresponding bar:
+ignore any distance change between its ends and transmit no force.
+Contraction corresponds to 
+declaring the bar to be inelastic, which rules out 
+all (first order) distance changes between the endpoints and 
+rules out any constitutive law referring to 
+tension or compression in that bar.
+
+%\subsection{Nullators and Norators}
+A \textit{nullator} element $e\in E$ 
+expresses the ideal constitutive law $u_{Ve}=0$
+and $u_{Ie}=0$ which approximates conditions at the input
+to a high-gain amplifier when a system is stabilized by feedback.
+Hence a nullator is declared by 
+\textit{contracting $e$ in both
+$L_V$ and $L_I$.}  Ordinarily, this reduces both their ranks by 1.
+%
+A \textit{norator} element $e\in E$ indicates that the constitutive
+law puts no direct constraint on $u_{Ve}$ or $u_{Ie}$; the amplifiers
+approximately adjust the output state so the feedback results in zero input.
+Hence a norator is declared by 
+\textit{deleting $e$ in both
+$L_V$ and $L_I$.}  Ordinarily, their ranks don't change.
+%
+Theorem \ref{Feasiblity1} applies to the subspace pair
+obtained from all declarations of nullators, norators, opens and shorts.
+
+\extra{ There is a subtle difference between declaring a V-source with 0
+input value and contracting the same element.  If a set $S$ 
+of $k$ such elements
+is not independent in $\mathcal{M}(L_V)$, then the rank of $\mathcal{M}(L_V/S)$
+will be more than
+$\mbox{rank}(\mathcal{M}(L_V))-k$ but the given combination of input values
+will still be feasible.  If they are not coindependent in
+$\mathcal{M}(L_I)$ (which will certainly be true when there are no nullors).
+then the rank of $\mathcal{M}(L_I\sminus S)$ will be less than 
+$\mbox{rank}(\mathcal{M}(L_I))$ but there will be a non-zero combination of
+output only variables.  (Physically, that corresponds to non-zero current 
+circulating in a loop of ideal wires; or a non-zero self-stress in an
+overbraced subframework of rigid bars.  The dual dual physical situation
+is that is possible for the disconnected parts of an electrical network
+to differ in electrical potential when a cut-set of branches are removed;
+mechanically, more flexes of the framework can exist when some edges are
+removed. For this reason, we are careful to distinguish deletion/contraction
+from port insertion.)
+
+
+We can also declare ``display'' quantities, say for the difference of two
+independent quantities, by appending the appropriate column to $M_V$ or
+$M_I$.  Any dependency of the display quantity on element quantities will
+appear as a dependency in the oriented matroid.
+}
+
+\extra{
+\subsection{Topological Formulas}
+
+They can come out of the subspace pair formulation three ways:
+\begin{itemize}
+\item  Besides the ``$g$'' or ``$r$'' variables, do not insert ports but
+do use an extra variable ``$x$'' to relate the voltage to current of one port.
+Then the equation $\det(M_VG;M_I)=0$ has the form $Ax+B=0$, so $x=-B/A$.
+\item Use the Pl\"{u}cker coordinate formulation of the intersection subspace to 
+identify a minor of a hybrid or other description matrix of as the determinant
+of the solution submatrix for a system of equations; then use the Cramer's
+rule generalization to find the ratios of minors of the equation 
+matrix to analyzed.  
+This was done for my ISCAS 98 paper.
+\item Use Rota's Grassmann-Cayley algebra meet formula to extract expansion
+directly from subspace pair matrices, together with the previous way to
+identify Pl\"{u}cker coordinate ratios with description matrix minors.
+\end{itemize}
+
+}
+
+
+The \textit{supplemental subspace pair}
+% of a subspace pair model
+%with sources 
+is constructed by \textit{zeroing} all the sources.
+For each V-driven (resp. I-driven) port $p$, $p_V$ 
+(resp. $p_I$) is 
+contracted in both $L_V$ and $L_I$, and $p_I$ 
+(resp. $p_V$) is deleted in
+both $L_V$ and $L_I$.
+The resulting subspaces, etc.  are denoted $L_V^0$, $L_I^0$, etc.
+
+\extra{
+\begin{figure}[htb]
+
+\begin{minipage}[c]{.48\linewidth}
+  \centering
+ \centerline{\input{2res.pstex_t}}
+%  \vspace{2.0cm}
+\end{minipage}
+%
+\hfill
+\begin{minipage}[c]{.48\linewidth}
+\[
+\begin{array}{cccc}
+\multicolumn{4}{c}{\mbox{($M_V$ matrix)}} \\
+0   &  1  &  0  &  0  \\
+1   &  0  &  1  &  1  \\ \hline \hline
+p_V & p_I & e_1 & e_2 \\ \hline \hline
+1   &  0  &  0  &  0  \\
+0   &  1  & -1  &  0  \\
+0   &  0  &  1  &  -1 \\
+\multicolumn{4}{c}{\mbox{($M_I$ matrix)}} \\
+\end{array}
+\]
+\end{minipage}
+%
+\begin{minipage}[b]{.48\linewidth}
+\[
+\begin{array}{ccc}
+  1  &  0  &  0  \\ \hline
+ p_I & e_1 & e_2 \\ \hline
+  0  &  0  &  0  \\
+  1  & -1  &  0  \\
+  0  &  1  &  -1
+\end{array}
+\]
+ZIR analysis for voltage source input:
+$p_V$ contracted.  Zero response (unique solution) even if
+negative resistances $\neq 0$ are allowed.
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.48\linewidth}
+\[
+\begin{array}{ccc}
+0   &  0  &  0  \\
+1   &  1  &  1  \\ \hline
+p_V & e_1 & e_2 \\ \hline
+1   &  0  &  0  \\
+0   &  1  &  -1
+\end{array}
+\]
+ZIR analysis for current source input:
+$p_I$ deleted.
+Zero response (unique solution) \textit{unless}
+$g_1 = -g_2$.  
+\end{minipage}
+\caption{Simple example that illustrates the solution is unique when the 
+port is V-driven provided each $g_e\neq 0$, but the I-driven system has a
+unique solution provided each $g_e>0$ because the resulting supplemental
+oriented matroid pair has complementary bases and no common covector.}
+\label{Simple}
+%
+\end{figure}
+}
+
+\section{NO-COMMON-COVECTORS, $\mathcal{W}_0$ PAIRS}
+
+%The following Theorem demonstrates, by means of 
+Theorem \ref{SubspacePairTh} uses
+Sandberg and Willson's 
+%theory of 
+$\mathcal{W}_0$ pairs
+to show every 
+subspace pair model 
+\extra{(with  its separation of
+geometric/topological and constitutive constraints)}
+can be analyzed
+for unique solvability from the oriented matroid pair it generates.
+%By Thm.\ \ref{sandwillompairtheorem} 
+Theorem \ref{sandwillompairtheorem} shows how
+$(A,B)\in\mathcal{W}_0$ is characterized by a rank condition and a 
+no-common-covector property.  
+Theorem \ref{PairConclusionTheorem} is our unifying conclusion.
+
+\begin{theorem}
+\label{SubspacePairTh}
+The subspace pair model has a unique solution for all 
+%source 
+input assignment 
+values and positive monotone constitutive laws iff 
+\textbf{(1)}, \textbf{(2)} and \textbf{(3)} are satisfied:\\
+\textbf{(1).} There are bases $B_V\in\mathcal{B}(L_V)$,
+$B_I\in\mathcal{B}(L_I)$ for which all V-driven 
+ports $p$ satisfy $p_V\in B_V$ (note $p_I$ must be 
+in $B_V$ since it's an isthmus in $\mathcal{M}_V$) 
+and $p_I\not\in B_I$,
+and all I-driven ports $p$ satisfy $p_I\in B_I$ and 
+$p_V \not\in B_V$.  \\
+\textbf{(2).}
+$B_V\cup B_I = U$, for the bases in \textbf{(1)}.\\
+\textbf{(3).} The oriented matroid pair of supplemental pair $(L_V^0,L_I^0)$ 
+have no common (nonzero) covector.
+(i.e., $\mathcal{L}(L_V^0)\cap\mathcal{L}(L_I^0)=\{0\}$.)
+\end{theorem}
+
+Proof sketch, if:  When $(L_V^0,L_I^0)$ is constructed given
+\textbf{(1-2)}, we find $\mbox{rank\ }(L_V^0)+\mbox{rank\ }(L_I^0)\geq|E|$. By
+Theorem 1.3 of \cite{sdcOMP}
+and $|E|\geq$ rank of the matroid union 
+(\cite{Welsh}, 8.3) of $\mathcal{M}_V^0\vee\mathcal{M}_I^0$,
+we must have equality else \textbf{(3)} would be 
+contradicted.  
+%We then verify from (2) the square matrices
+%$A$ $=$ $\left(\begin{array}{c}M_V^0\\ 0\end{array}\right)$ and
+%$B$ $=$ $\left(\begin{array}{c}0\\ -M_I^0\end{array}\right)$
+%satisfy the rank part of condition (2) of Theorem
+Form square matrices
+$A$ $=$ $\left(\begin{array}{c}M_V^0\\ 0\end{array}\right)$,
+$B$ $=$ $\left(\begin{array}{c}0\\ -M_I^0\end{array}\right)$ and 
+verify from \textbf{(2)} they satisfy the rank part of cond. \textbf{(2)} of
+Th. \ref{sandwillompairtheorem}. 
+${\mathcal L}\hmat{A}{B} \cap {\mathcal L}\hmat{I}{-I}=\{0\}.$
+follows directly from hypothesis \textbf{(3)}.  We can then
+formulate the monotonic 
+subspace pair problem as a case of 
+Theorem \ref{sandwillompairtheorem} part \textbf{(5)} to complete the proof.
+
+Only if:  Use Theorem \ref{Feasiblity1} to verify \textbf{(1)} and 
+\textbf{(2)}.  
+If \textbf{(3)} were violated,
+positive linear constitutive laws could be constructed
+(as in \cite{HaslerNeirynck,SWExistancePf}) for which 
+a non-zero solution for zero input exists.
+
+\begin{theorem}
+\label{sandwillompairtheorem}
+(From \cite{sdcOMP}) For a pair 
+%
+% EDITdone
+% delete ``order'' --- we understand that when we see 
+% ``$n\times n$'', and this avoids confusing with order as in
+% a linear ordering
+%
+of $n\times n$ 
+matrices $(A,B)$, the following conditions are 
+equivalent.\\
+%
+% EDITdone
+% period, not colon
+%
+\textbf{(1)}
+$(A,B)\in {\mathcal W}_0$ in the sense of 
+Sandberg and 
+Willson~\cite{SWExistancePf};
+e.g., $|AD+B|\neq 0$ for all positive diagonal $D$, etc.\\
+\textbf{(2)}
+$\rank{\mathcal M}\hmat{A}{B}=n$ and 
+${\mathcal L}\hmat{A}{B} \cap {\mathcal L}\hmat{I}{-I}=\{0\}.$\\
+\textbf{(3)}
+$\rank{\mathcal M}\hmat{A}{B}=n$ and 
+${\mathcal V}\hmat{A}{B} \cap {\mathcal V}\hmat{I}{-I}=\{0\}.$\\
+\textbf{(4)}
+\textrm{(}Fundamental theorem of Sandberg and 
+Willson~\cite{SWExistancePf,W0APPLpaper}\textrm{)}\ 
+%
+% EDITdone
+% use ~ before \cite so a space is left between the word and the reference
+%
+For all functions $F:{\bf R}^n\rightarrow {\bf R}^n$ of the form
+$F(x)_k=f_k(x_k)$ where each $f_k$ is a strictly 
+monotone increasing 
+function from 
+${\bf R}$ {\em onto} $\bf R$ and for all $c\in {\bf R}^n$, the 
+equation $AF(x) + Bx = c$\\
+has a unique solution $x$. \cite{W0APPLpaper}.\\
+\textbf{(5)}
+For all functions $G:{\bf R}^n\rightarrow {\bf R}^n$ of the form
+$G(w)_k=g_k(w_k)$ where each $g_k$ is a strictly monotone increasing 
+function from ${\bf R}$ {\em onto} $\bf R$ and for all 
+$d^{\prime}, d^{\prime\prime}\in {\bf R}^n$, the 
+eqns.\ $u^t=z^tA+d^{\prime},\;\; w^t=z^tB+d^{\prime\prime},\;\; u=-G(w)$
+have a unique solution.% $(u,w,z)$.
+\end{theorem}
+
+%Note:  
+A direct inductive proof generalizing 
+\cite{HaslerNeirynck,Fosseprez}'s has the advantage
+of revealing circuit theoretic concepts that occur.
+One step proves that if the no-common-covector
+property is true for $(M_V,M_I)$, then it is true for the matrix pair 
+from the system obtained by replacing one of the non-linear elements by a
+source.
+
+\begin{theorem}
+\label{PairConclusionTheorem}
+With constitutive laws given by monotone increasing functions from 
+$\Reals$ onto
+$\Reals$, every subspace pair problem can be posed as a case of Theorem
+\ref{sandwillompairtheorem} (see Theorem \ref{SubspacePairTh}), 
+and every case of Theorem
+\ref{sandwillompairtheorem} can be posed as a subspace pair problem
+(with $\hmat{A}{B}=M_V^0$, $\hmat{I}{-I}=M_I^0$.)
+\end{theorem}
+
+
+% References should be produced using the bibtex program from suitable
+% BiBTeX files (here: strings, refs, manuals). The IEEEbib.bst bibliography
+% style file from IEEE produces unsorted bibliography list.
+% -------------------------------------------------------------------------
+%\bibliographystyle{IEEEbib}
+%%\bibliography{strings,refs,manuals}
+%\bibliography{OMPEMech}
+
+%\begin{comment} %comment out our hand hacked bibliography
+
+
+\begin{thebibliography}{10}
+\setlength{\itemsep}{-2pt}
+
+\bibitem{SWExistancePf}
+I.~W. Sandberg and A.~N. {Willson, Jr.},
+\newblock ``Some theorems on properties of dc equations of non-linear
+  networks,''
+\newblock {\em Bell Syst. Tech. J.}, vol. 48, pp. 1--34, 1969.
+
+\bibitem{FiedlerPtak}
+M.~Fiedler and V.~Ptak,
+\newblock ``Some generalizations of positive definiteness and monotonicity,''
+\newblock {\em Numer. Math.}, vol. 9, pp. 163--172, 1966.
+
+\bibitem{NielWillpaper}
+R.~O. Nielsen and A.~N. {Willson, Jr.},
+\newblock ``A fundamental result concerning the topology of transistor circuits
+  with multiple operating equilibria,''
+\newblock {\em Proc. IEEE}, vol. 68, pp. 196--208, 1980.
+
+\bibitem{HaslerDApplMath}
+M.~Hasler, C.~Marthy, A.~Oberlin, and D.~de~Werra,
+\newblock ``A discrete model for studying existence and uniqueness of solutions
+  in nonlinear resistive circuits,''
+\newblock {\em Disc. Appl. Math.}, vol. 50, pp. 169--184, 1994.
+
+\bibitem{HaslerNeirynck}
+M.~Hasler and J.~Neirynck,
+\newblock {\em Nonlinear Circuits},
+\newblock Artech House, Norwood, Mass., 1986.
+
+\bibitem{Fosseprez}
+M.~Foss\'{e}prez,
+\newblock {\em Non-linear Circuits, Qualitative Analysis of Non-linear,
+  Non-reciprocal Circuits},
+\newblock John Wiley, 1992.
+
+\bibitem{NishiChuaCactus}
+T.~Nishi and L.~O. Chua,
+\newblock ``Topological criteria for nonlinear resistive circuits with
+  controlled sources to have a unique solution,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--31, pp. 722--741, 1984.
+
+\bibitem{NishiChuaCCCS}
+T.~Nishi and L.~O. Chua,
+\newblock ``Uniqueness of solution for nonlinear resistive circuits containing
+  {CCCS}'s or {VCVS}'s whose controlling coefficients are finite,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--33, pp. 381--397, 1986.
+
+\bibitem{NishiChuaTransFB}
+T.~Nishi and L.~O. Chua,
+\newblock ``Topological proof of the {N}ielsen-{W}illson theorem,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--33, pp. 398--405, 1986.
+
+\bibitem{BachemKern}
+A.~Bachem and W.~Kern,
+\newblock {\em Linear Programming Duality, An Introduction to Oriented
+  Matroids},
+\newblock Springer-Verlag, 1992.
+
+\bibitem{OMBOOK}
+A.~Bj\"{o}rner, M.~Las Vergnas, B.~Sturmfels, N.~White, and G.~Ziegler,
+\newblock {\em Oriented Matroids}, vol.~46 of {\em Encyc. Math. and its Appl.},
+\newblock Cambridge Univ. Press, 2nd edition, 1999.
+
+\bibitem{TrajWillNDR}
+L.~Trajkovi\`{c} and A.~N. {Willson, Jr.},
+\newblock ``Complementary two-transistor circuits and negative differential
+  resistance,''
+\newblock {\em IEEE Trans. Circ. Syst.}, vol. CAS--37, pp. 1258--1266, 1990.
+
+\bibitem{VandewalleChua}
+J.~Vandewalle and L.~O. Chua,
+\newblock ``The colored branch theorem and its applications in circuit
+  theory,''
+\newblock {\em IEEE Trans. Circuits Syst.}, vol. CAS--27, no. 9, 1980.
+
+\bibitem{sdcOMP}
+S.~Chaiken,
+\newblock ``Oriented matroid pairs, theory and an electric application,''
+\newblock in {\em Matroid Theory, AMS-IMS-SIAM Joint Summer Research
+  Conference}, J.~E. Bonin, J.~G. Oxley, and B.~Servatius, Eds. American
+  Mathematical Society, 1996, vol. 197 of {\em Contemporary Mathematics}, pp.
+  313--331.
+
+\bibitem{Recski}
+A.~Recski,
+\newblock {\em Matroid Theory and its Applications in Electric Network Theory
+  and in Statics},
+\newblock Springer-Verlag, 1989.
+
+\bibitem{Murota}
+K.~Murota,
+\newblock {\em Matrices and matroids for systems analysis},
+\newblock Springer, 2000.
+
+\bibitem{RigidityBook}
+J.~Graver, B.~Servatius, and H.~Servatius,
+\newblock {\em Combinatorial Rigidity}, vol.~2 of {\em Graduate Studies in
+  Mathematics},
+\newblock American Mathematics Society, 1993.
+
+\bibitem{ChensBook}
+W.~K. Chen,
+\newblock {\em Applied Graph Theory, Graphs and Electrical Networks},
+\newblock North-Holland, 2 edition, 1976.
+
+\bibitem{Welsh}
+D.~J.~A. Welsh,
+\newblock {\em Matroid Theory},
+\newblock Addison-Wesley, 1976.
+
+\bibitem{W0APPLpaper}
+A.~N. {Willson, Jr.},
+\newblock ``New theorems on the equations of nonlinear dc transistor
+  networks,''
+\newblock {\em Bell Syst. Tech. J.}, vol. 49, pp. 1713--1738, 1970.
+
+\end{thebibliography}
+
+
+
+
+
+%\end{comment}
+
+
+\end{document}

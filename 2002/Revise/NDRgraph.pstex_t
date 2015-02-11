@@ -1,0 +1,19 @@
+\begin{picture}(0,0)%
+\special{psfile=NDRgraph.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(3501,1408)(1075,-3598)
+\put(3598,-3066){\makebox(0,0)[rb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$\dot{u}_{\mbox{VR}}>>\dot{u}_{\mbox{VD1}}$}}}
+\put(2375,-3403){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$\dot{u}_{\mbox{pV}}\mbox{\ or\ }\dot{u}_{\mbox{VR}}>>\dot{u}_{\mbox{VD1}}$}}}
+\put(2771,-2756){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$1-\Sigma\alpha\leq 0$ req. for NDR.}}}
+\put(1104,-3048){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$I_{\mbox{p}}=-u_{\mbox{pI}}$}}}
+\put(1821,-2593){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$\dot{u}_{\mbox{VR}}>>\dot{u}_{\mbox{VD1}}-\dot{u}_{\mbox{PV}}$}}}
+\put(4576,-3526){\makebox(0,0)[lb]{\smash{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}$u_{\mbox{pV}}$}}}
+\end{picture}
