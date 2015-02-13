@@ -1,11 +1,23 @@
 \documentclass{article}
 \usepackage{cite}
+\usepackage{amsmath}
 \title{Introduction}
 \author{Seth Chaiken}
 \begin{document}
 \maketitle
 
 (here we go, geronimo)
+
+
+\rule{\textwidth}{3pt}
+(1)
+
+
+
+
+
+
+
 
 Why Electricity, EE?
 \begin{itemize}
@@ -37,6 +49,300 @@ Analogs to chemical, biological, mechanical, etc., random walks.
 \item
 Merely one scalar non-linearity can cause chaos.
 \end{itemize}
+\rule{\textwidth}{3pt}
+
+\subsection{Equivalent Resistance}
+
+
+
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}
+(2)\\
+(Kirchhoff (18xx), Maxwell (18xx)) The equivalent resistance problem
+is solved by
+the Matrix Tree Theorem.
+ 
+\rule{\textwidth}{3pt}
+\end{quote}
+
+
+Kirchhoff and Maxwell solved the equivalent resistance problem
+by the matrix tree theorem.
+
+
+\rule{\textwidth}{3pt}\\
+(3)\\
+\begin{minipage}{.4\textwidth}
+(resistor edge diagram)\\
+$i_e$\\
+$v_e=v_1-v_2$\\
+$g_ev_e=r_ei_e$
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+(port edge diagram, environment)\\
+$i_p$\\
+$v_p=v_1-v_2$\\
+mathematics sign convention.\\
+$g_ev_e=r_ei_e$
+\end{minipage}\\
+\rule{\textwidth}{3pt}\\
+
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(4)\\
+(KCL) $(i_e)_{e\in S}$ is a cycle (a flow)\\
+(KVL) $(v_e)_{e\in S}$ is a cocycle\\
+(constituitive Law) $i_e=g_e(v_e)$
+non-linear, usually monotonic increasing $R\rightarrow R$ 
+(Ohm's approximation $i_e=g_ev_e$\\
+signs ($\pm$) have oriented matroid structure
+(combinatorial, geometric, topological)\\
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(5)\\
+Equivalent resistance is a \textbf{ratio}
+\[
+\frac{\mbox{WTS}(G/p)}
+{\mbox{WTS}(G\backslash p)}
+\]
+\[
+\mbox{(WeightedTreeSum)}\mbox{WTS}(G') =
+g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
+\text{\ for all\ }e \not\in P
+\]
+\rule{\textwidth}{3pt}
+\end{quote}
+
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(6)\\
+Multiple ports
+
+\begin{itemize}
+\item
+Formalize composition of systems
+\item
+Label variables to observe
+\item
+Model practical devices (transistors, op amps)
+\end{itemize}
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(7)\\
+Equivalent resistance is a coefficient ratio in an 
+implicitly defined linear function.
+
+(diagram)
+
+In other words
+\[
+R_pi_p + v_p = 0
+\]
+or dually,
+\[
+\mathcal{B} = \{(i_p,v_p)\}
+= \{ t(-1, R_p) | t\in R\}
+\]
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+(linear subspace over the $R^{\mathbf{P}}$)
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(8)\\
+The $2\times d$ port variable constraint space, 
+and its solution spaces, are $d$-dimensional.
+
+We represent these spaces by carefully defined
+extensor, an exterior algebra element $E(N)$
+(not a ray).
+\[
+E(N) = \text{sign}(...)(g_e E(N/e) + r_e E(N\backslash e)
+\text{\ for\ }e\not\in P
+\]
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(9)\\
+\[
+E(N) = \ldots + C_i\mbox{\bf XXX} + \ldots
+\]
+\[
+R = C_i/C_j
+\]
+All the other $C_k$'s have similar interpretations.
+
+Each $C_k$ is a determinant.
+
+Each $C_k$ is a signed weighted enumerator of
+forests satisfying \textbf{conditions ...}
+
+Each $C_k$ satisfies
+\[
+C_k(N) = g_e C_k(N/e) + r_e C_k(N\backslash e)
+\text{\ for\ }e\not\in {P}
+\]
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(10)\\
+The \textbf{conditions ...} are best described with 
+a \textbf{pair of ported oriented matroids}
+(aka \textbf{relative or set-pointed}
+
+The conditions for a given $C_k$ \textit{sometimes}
+make all the signs the same (example: $C_i$ and 
+$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
+
+\textit{Othertimes}, the oriented \textbf{P-minors}
+in the completed Tutte decomposition of $C_k$ determine
+the sign.
+
+(diagram of the two orientations of $C_2$)
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(11)\\
+What is the nature of the conditions?  We state them using the 
+network's graphic oriented matroid.
+
+(diagram--glob w/ ports)
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\textbf{port} (sdc, engineering literature), 
+\textbf{distinguished element}, 
+element of the restriction's set (Diao and Hetyei), 
+a element in the set of points (Las Vergnas).
+
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(12)\\
+Voltage and Current graphs
+
+
+
+\begin{minipage}{0.4\textwidth}
+``Voltage graph'' (EE, NOT Gross, et. al.) represents KVL
+\[\mathbf{v}\in \text{Cocycle space}\]
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+``Current graph'' represents KCL
+\[\mathbf{i}\in \text{Cycle space}\]
+\end{minipage}
+They are equal graphs for resistor networks.
+
+For networks with idealized amplifiers, they are not 
+equal.  
+
+(more) Realistic amplifier model $=$ idealized amplifiers $+$ 
+resistors.
+
+(ideal op amp nullator/norator T diagram)
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\begin{minipage}{0.4\textwidth}
+\[
+\text{(nullator)\ }N_v = N/e// 
+N_I = N\backslash e
+\]
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\[
+\text{(norator)\ }N_v = N\backslash e// 
+N_I = N/e
+\]
+\end{minipage}
+
+
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(13)\\
+What are the conditions like?
+
+\[
+\text{Extensor\ }= \sigma(C)(a_1\vee a_2\vee \ldots \vee a_d)
+\]
+\[
+C = \ldots + t + \ldots
+\]
+$t \leftrightarrow \text{\ sets of (``contractible'' non-port edges} 
+E_1, E_2$ for which
+\[
+N_V/E_1\backslash(E\setminus E_1) = \text{\ certain OMs on\ } P
+\]
+AND
+\[
+N_I/E_2\backslash(E\setminus E_2) = \text{\ certain OMs on\ } P
+\]
+
+Transfer resistance might be 0 and might be $\neq 0$ iff
+\[
+\exists E_1, E_2 \text{so (diag) and (diag)}
+\]
+
+($K_4$ Wheatstone bridge diagram)
+
+\[
+\frac{R_1}{R_2} > \frac{R_3}{R_4} 
+\text{\ neg\ }
+\frac{R_1}{R_2} < \frac{R_3}{R_4} 
+\text{\ pos\ }
+\]
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(14)\\
+(Rayleigh)
+
+
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(15)\\
+
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(16)\\
+
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+\pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
+(17)\\
+
+
+\rule{\textwidth}{3pt}
+\end{quote}
+
+
 
 
 \bibliography{../../bib/MathOfElec}{}
