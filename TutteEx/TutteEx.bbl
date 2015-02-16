@@ -17,10 +17,10 @@ N.~Biggs.
 \newblock {\em Bull. London Math. Soc.}, 29:641--682, 1997.
 
 \bibitem{OMBOOK}
-A.~Bj{\"o}rner, M.~Las~Vergnas, B.~Sturmfels, N.~White, and G.~M. Ziegler.
-\newblock {\em Oriented matroids}, volume~46 of {\em Encyclopedia of
-  Mathematics and its Applications}.
-\newblock Cambridge University Press, Cambridge, second edition, 1999.
+A.~Bj\"{o}rner, M.~L. Vergnas, B.~Sturmfels, N.~White, and G.~Ziegler.
+\newblock {\em Oriented Matroids}, volume~46 of {\em Encyc. Math. and its
+  Appl.}
+\newblock Cambridge Univ. Press, Cambridge, 2nd edition, 1999.
 
 \bibitem{BollobasRiordanTuttePolyColored}
 B.~Bollobas and O.~Riordan.
@@ -87,11 +87,15 @@ W.~K. Chen.
 \newblock {\em Applied Graph Theory, Graphs and Electrical Networks}.
 \newblock North-Holland, Amsterdam, 2nd edition, 1976.
 
+\bibitem{ChoeOSW}
+Y.-B. Choe, J.~G. Oxley, A.~D. Sokal, and D.~G. Wagner.
+\newblock Homogeneous multivariate polynomials with the half-plane property.
+\newblock {\em Adv. Appl. Math.}, 32:88--187, 2004.
+
 \bibitem{ChoeRayl}
 Y.-B. Choe and D.~G. Wagner.
 \newblock Rayleigh matroids.
-\newblock {\em Combin. Prob. Comput.}, to appear.
-\newblock also arXiv.org/abs/math.CO/0307096.
+\newblock {\em Combin. Probab. Comput.}, 15(5):765--781, 2006.
 
 \bibitem{LinNonLinCircuitsBook}
 L.~O. Chua, C.~A. Desoer, and E.~S. Kuh.
@@ -194,19 +198,11 @@ M.~Las~Vergnas.
 \newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 280(22):Ai, A1479--A1482,
   1975.
 
-\bibitem{TPMorphMat80}
-M.~Las~Vergnas.
-\newblock On the {T}utte polynomial of a morphism of matroids.
-\newblock {\em Ann. Discrete Math.}, 8:7--20, 1980.
-\newblock Combinatorics 79 (Proc. Colloq., Univ. Montr\'eal, Montreal, Que.,
-  1979), Part I.
-
 \bibitem{SetPointedLV}
 M.~Las~Vergnas.
-\newblock The {T}utte polynomial of a morphism of matroids. {I}. {S}et-pointed
+\newblock The {T}utte polynomial of a morphism of matroids {I}. set-pointed
   matroids and matroid perspectives.
-\newblock {\em Ann. Inst. Fourier (Grenoble)}, 49(3):973--1015, 1999.
-\newblock Symposium \`a la M\'emoire de Fran\c cois Jaeger (Grenoble, 1998).
+\newblock {\em Annales de l'Institut Fourier}, 49(3):973--1015, 1999.
 
 \bibitem{MakowskyLotzComplexity}
 M.~Lotz and J.~A. Makowsky.
@@ -272,7 +268,7 @@ C.~A.~B. Smith.
 A.~D. Sokal.
 \newblock The multivariate {T}utte polynomial (alias {P}otts model) for graphs
   and matroids.
-\newblock Technical report, arXiv.org/abs/math.CO/0503607v1, March 25 2005.
+\newblock Technical report, arXiv:CO/0503607v1, March 25 2005.
 
 \bibitem{ThulasiramanSwamyBook}
 K.~Thulasiraman and M.~N.~S. Swamy.
@@ -314,6 +310,11 @@ L.~G. Valiant.
 \newblock The complexity of enumeration and reliability problems.
 \newblock {\em SIAM J. Comput.}, 8(3):410--421, 1979.
 
+\bibitem{TPMorphMat80}
+M.~L. Vergnas.
+\newblock On the {T}utte polynomial of a morphism of matroids.
+\newblock {\em Ann. Discrete Math.}, 8:7--20, 1980.
+
 \bibitem{VertiganBaseCounting}
 D.~Vertigan.
 \newblock Counting bases in matroids.
@@ -326,8 +327,9 @@ D.~Vertigan.
 
 \bibitem{NegCorr}
 D.~G. Wagner.
-\newblock Negatively correlated random variables and {M}ason's conjecture.
-\newblock Technical report, arXiv.org/abs/math.CO/0602648v1, Feb. 28 2006.
+\newblock Negatively correlated random variables and {M}ason's conjecture for
+  independent sets in matroids.
+\newblock {\em Ann. Comb.}, 12(2):211--239, 2008.
 
 \bibitem{MR94m:57027}
 D.~J.~A. Welsh.
@@ -372,11 +374,6 @@ N.~L. White.
 \newblock Geometric applications of the {G}rassmann-{C}ayley algebra.
 \newblock In {\em Handbook of discrete and computational geometry}, Ser.
   Discrete Math. Appl., pages 881--892. CRC Press, Boca Raton, FL, 1997.
-
-\bibitem{ChoeOSW}
-A.~D.~S. Young-Bin~Choe, James G.~Oxley and D.~G. Wagner.
-\newblock Homogeneous multivariate polynomials with the half-plane property.
-\newblock {\em Adv. Appl. Math.}, 32:88--187, 2004.
 
 \bibitem{MR93a:05047}
 T.~Zaslavsky.
