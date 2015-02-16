@@ -1,0 +1,422 @@
+%% BEGIN semsamp2.tex
+% This is a sample document for seminar.sty, v0.93 (and maybe later).
+%
+% This file contains both landscape and portrait mode slides.
+% Choose one of the following to print them out:
+%  - If using PSTricks, try the semcolor style option.
+%  - If using Rokicki's dvips, try the semrot style option.
+%  - To print the landscape slides, put \landscapeonly in the preamble.
+%    To print the portrait slides, include the portrait style option and
+%    put \portraitonly in the preamble.
+%
+%
+\documentclass[%
+  slidesonly,%  Try notes or notesonly instead.
+  %notes,%      Use instead of slidesonly to typeset the notes and slides.
+  %notesonly,%  Use instead of slidesonly to typeset notes.
+  %semcolor,%   Try me if using PSTricks.
+  %semrot,%     Try me if using Rokicki's dvips.
+  %semhelv,%    Try me if using a PostScript printer.
+  %article,%    Try me.
+  %portrait,%   Try me.
+  %sem-a4,%     Try me if using A4 paper.
+  semlayer,%     This must be included, but you need the semcolor option to
+  amsmath
+  ]{seminar}                                  % actually see the overlays.
+
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{graphics}
+
+%\slidesmag{5}
+%default slidesmag is 4
+\articlemag{1}
+
+
+%\extraslideheight{1in}
+
+%\twoup                     % Try me for twoup printing.
+
+%\portraitonly              % To print only portrait slides
+%\landscapeonly             % To print only landscape slides
+
+%\notslides{\ref{questions}-7,1}   %Try me: The slides are omitted.
+%\onlyslides{\ref{questions}-7,1}  %Try me: Only these slides are included.
+%\onlynotestoo                     %Try me: For selecting notes as well.
+
+\colorlayers{red,blue}      % Try deleting this if using the semcolor option,
+                            % to get \blue and \red to use PostScript color.
+
+%\overlaysfalse             % Suppress overlays with semcolor option.
+%\layersfalse               % Suppress color layers with semcolor option.
+
+\rotateheaderstrue          % Try this out if using rotation macros.
+
+
+\title{}
+\author{}
+\date{\today}
+
+\newcommand{\sref}[1]{SLIDE \ref{#1}}
+\newcommand{\heading}[1]{\begin{center}\large\bf #1\end{center}}
+
+\newcommand{\dunder}[1]{\underline{\underline{#1}}}
+
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+
+
+%
+%   Put a symbol for a matroid in a box, or brackets
+%\newcommand{\MVAR}[1]{{\boxed{#1}\;}}
+\newcommand{\MVAR}[1]{{[#1]\;}}
+
+\newcommand{\UNION}{\cup} %try to make this bold.
+
+\setlength{\slidewidth}{9.5in}
+\setlength{\slideheight}{7.5in}
+
+%\newpagestyle{MH}%
+%  {University at Albany Computer Science Dept.\hfil\thepage}{}
+%\pagestyle{MH}
+\pagestyle{empty}
+\slideframe{none}
+
+\begin{document}
+
+%\maketitle          % This won't show up when \onlynotestoo is in effect.
+
+%\begin{slide}
+%  \ifslidesonly              % Title slide only for slidesonly selection.
+%    \maketitle
+%    \addtocounter{slide}{-1}
+%    \slidepagestyle{empty}
+%  \fi
+%\end{slide}
+
+\begin{slide}
+\begin{center}
+Ported alias Set-Pointed and Non-scalar Tutte Functions \\
+
+Seth Chaiken\\
+Computer Science Department\\[-0.8ex]
+University at Albany, State Univ. of New York, USA\\[-0.8ex]
+\texttt{sdc@cs.albany.edu}\\
+\texttt{http://www.cs.albany.edu/~sdc/Matroids}\\
+
+October 9, 2005
+
+\end{center}
+\end{slide}
+
+\begin{slide}
+Traditionally a \textbf{Tutte Function} $F$
+\[
+F:\left\{\begin{array}{l} \mbox{Matroids } \\ \mbox{(or Graphs)} \end{array}\right.
+\rightarrow \mbox{Commutative Ring\ \ } R
+\]
+\begin{equation}
+F(\mathcal{N}) = g_eF(\mathcal{N}/e) + r_eF(\mathcal{N}\setminus e)
+\tag{A}
+\end{equation}
+for all $e$ not a loop or inthmus.  $g_e$, $r_e$ are parameters or 1.
+\begin{equation}
+F(\mathcal{N}_1\oplus\mathcal{N}_2)
+=F(\mathcal{N}_1)\cdot F(\mathcal{N}_2)
+\tag{M}
+\end{equation}
+We survey results where
+
+\noindent (1) $(R,+,\cdot)$ is replaced by discrete (Matroids!) or
+other algebraic structures; or ``Matroids'' is replaced by 
+matroid presentations.
+
+\noindent \textbf{and} (2) Given a distinguished subset $P$ (``ports'' or
+``set of points''), (A) is restricted to $e\not\in P$.
+\end{slide}
+
+\begin{slide}
+\begin{enumerate}
+\item $F:\mbox{Matroids}\rightarrow\mbox{Matroids}$.
+\item $F:\mbox{Extensors}\rightarrow\mbox{Extensors}$.\\
+Anticommutative multiplication: 
+$\mathbf{E}_1\mathbf{E}_2=\mathbf{E}_2\mathbf{E}_1(-1)^{r(\mathbf{E}_1)r(\mathbf{E}_2)}$
+\item $F:\mbox{(Oriented) Matroids}\rightarrow\mbox{Commutative Ring}$ where 
+a substitution expresses (2) in the unimodular (regular) oriented case.
+\item Algebraic expressions of (3) for $P$-unions and generalized parallel
+connections over $P$.
+\end{enumerate}
+\end{slide}
+
+\begin{slide}
+Result 1:
+
+Matroid $\mathcal{N}(P,E)$ has ground set $P\dunion E$.
+
+$P_V$ and $P_I$ are two disjoint copies of $P$:\\
+$P_V=\{p_V: p\in P\}$; $P_I=\{p_I: p\in P\}$.
+\[
+\text{(The matroid!)\ }\mathcal{M}_E(\mathcal{N})(P_I\dunion P_V)
+:\equiv \big(\mathcal{N}(P_I,E))\cup\mathcal{N}^{\perp}(P_V,E)\big)/E
+\]
+satisfies
+\begin{equation}
+\mathcal{M}_E(\mathcal{N}) = \mathcal{M}_{E'}(\mathcal{N}/ e) \cup_{\mathcal{B}}
+\mathcal{M}_{E'}(\mathcal{N}\setminus e)\text{ where }e\not\in P\text{ and }E'=E\setminus e.
+\end{equation}
+\begin{equation}
+\mathcal{M}_{E}\big(\mathcal{N}_1(E_1,P_1)\oplus\mathcal{N}_2(E_2,P_2)\big)=
+\mathcal{M}_{E_1}\big(\mathcal{N}_1(E_1,P_1)\big)\oplus
+\mathcal{M}_{E_2}\big(\mathcal{N}_2(E_2,P_2)\big).
+\end{equation}
+where $\cup_{\mathcal{B}}$ denotes union of matroid basis collections and \\
+$\oplus$ denotes matriod direct sum.
+
+Proof:  $E$ is independent in $\mathcal{N}(P_I,E)\cup\mathcal{N}^{\perp}(P_V,E)$, so
+$B$ is a basis of $\mathcal{M}_E(\mathcal{N})$ iff $A\subseteq E$, 
+$B\dunion A \dunion (E\setminus A)$ is a basis of the union; thence either $e\in A$ or $e\in (E\setminus A)$.
+\end{slide}
+
+\begin{slide}
+Result 2. applies to a given
+\textbf{Decomposible}  
+%element 
+($=\mathbf{v}_1\mathbf{v}_2\cdots\mathbf{v}_r$ of
+vectors)
+in the exterior algebra over vector space
+$\mathbf{k}(P\dunion E)$ with distinguished basis $(P\dunion E)$.
+\[
+\mathbf{N}(P,E): \text{\textbf{Extensor} over }\mathbf{k}(P\dunion E).
+\]
+
+Let $P\dunion E$ label the columns of matrix $N$ (full row rank $r$).
+
+%Think that $N$ presents a rank $r$ (oriented) matroid by (signed) linear dependencies
+%among the columns.
+
+The (oriented) matroid of column dependencies (rank $r$) is determined by 
+the \textit{row space} of $N$ $\leftrightarrow$ $k$-multiples of one extensor
+$\mathbf{N}$
+$\in$ the \textbf{exterior algebra} $\mathcal{E}$.
+
+$\mathcal{E}$ is quotient of the algebra 
+generated by $\mathbf{k}(P\dunion E)$
+modulo the ideal generated by $\mathbf{v}^2$, $\mathbf{v}\in \mathbf{k}(P\dunion E)$.
+
+$\mathcal{E}$ has dimension $2^{|P\dunion E|}=2^n$. 
+
+$\mathcal{E}$ is graded: At rank $r$, $\mathcal{E}_r$ has 
+dim. $\binom{n}{r}$, $r=0,1,\ldots,n$.
+
+\end{slide}
+
+\begin{slide}
+The row space of $N$, (within $\mathbf{k}(P\dunion E)$) 
+uniquely corresponds to the set of non-zero $\mathbf{k}$-multiples of one 
+decomposible (extensor) $\mathbf{N}$ $\in$ $\mathcal{E}_r$.
+
+We can use $\mathbf{N}=\mathbf{v}_1\mathbf{v}_2\cdots\mathbf{v}_r$ where
+$\mathbf{v}_i$ is the $i$-th row of matrix $N$:
+\[
+\mathbf{v}_i = \sum_{p\in P}N_{i,p}\mathbf{p} + \sum_{e\in E}N_{i,e}\mathbf{e}
+\]
+We then get
+\[
+\mathbf{N} = \sum_{B\in P\dunion E, |B|=r}N[B]\mathbf{b}_1\mathbf{b}_2\cdots\mathbf{b}_r,
+\]
+in which $N[B]$ is the $r\times r$ \textit{determinant} in $N$ with columns 
+$b_1b_2\cdots b_r$ in that order.
+
+These $\binom{n}{r}$ exterior products of vectors drawn from
+$E\dunion P$, comprise one basis for $\mathcal{E}_r$.
+
+\end{slide}
+
+\begin{slide}
+Exterior \textit{sum} can be expressed by addition of the expansion coefficients
+under the basis of all $2^n$ subsets of $P\dunion E$, (each subset with an element order fixed).
+
+But, the sum of two extensors is not necessarilly \textit{decomposible}, not necessarilly
+an \textit{extensor}
+
+The exterior \textit{product} of extensors for disjoint subspaces represents the
+\textbf{subspace join}.
+
+When a ground set $S$ is given (like $S=E\dunion P$, distinguished basis for 
+$\mathbf{k}(E\dunion P)$), \textbf{deletion} and  \textbf{contraction} of $e\in S$, 
+and \textbf{dualization}, known from multilinear algebra, represent
+the corresponding (oriented) matroid operations.
+
+We define deletion/contraction so 
+\[
+\mathbf{N} = \mathbf{N}\setminus e + (\mathbf{N}/e)\mathbf{e}
+\]
+
+Dualization: Copy the oriented matroid chirotope dualization formula
+(also known as Hodge star): Coefficients (determinants!)
+$\mathbf{N}^{\perp}[X]=\mathbf{N}[\overline{X}]\epsilon(X,\overline{X})$.
+
+\end{slide}
+\begin{slide}
+
+Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
+
+Given $N$ (matrix), construct $N^\perp$ so their row spaces are orthogonal
+complements ($N^\perp$ presents the (oriented) dual of the matroid from $N$).
+
+Form the matrix:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+\]
+with columns labelled by $P_I\dunion P_V\dunion E$.
+
+Extensor $\mathbf{M}$ over $\mathbf{k}[g_e, r_e](P_V\dunion P_I \dunion E)$
+is the product of $M$'s \textbf{row vectors}, and define $\mathbf{M}_E(\mathbf{N})$ by:
+\[
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+
+
+\end{slide}
+
+\begin{slide}
+Result 2:
+\[
+   \epsilon(PE)\mathbf{M}_E(\mathbf{N}(P,E))=
+\]
+\[
+   \epsilon(PE')\big(g_e\mathbf{M}_{E'}(\mathbf{N}/e) 
+                + r_e\mathbf{M}_{E'}(\mathbf{N}\setminus e)\big)
+\]
+\[
+   \epsilon(P_1P_2E)\mathbf{M}_E(\mathbf{N}_1(P_1,E_1)\mathbf{N}_2(P_2,E_2))
+   =
+\]
+\[
+   \epsilon(P_1E_1)\epsilon(P_2E_2)
+   \big(\mathbf{M}_{E_1}(\mathbf{N}_1(P_1,E_1))\mathbf{M}_{E_2}({N}_2(P_2,E_2))\big)  
+\]
+Corollory:
+\begin{equation}
+\label{MESubsetSum}
+\epsilon(PE)\ext{M}_E(\ext{N})=\epsilon(P)\sum_
+             {\begin{array}{c}
+                A\subseteq E:
+	\rank_{\ext{N}}{A}=\Card{A},\\
+	\rank{\ext{N}}-\rank{(\ext{N}/A|P)}-
+        \rank_{\ext{N}}{A}=0
+               \end{array}}
+    \ext{M}_\emptyset(\ext{N}/A|P) g_Ar_{\scomp{A}}.
+\end{equation}
+Compare: (with $u=0$ and $v=0$)
+\[
+R(\mathcal{N}(P,E))=\sum_{A\subseteq E}
+	\MVAR{\mathcal{N}/A|P}g_Ar_{\scomp{A}}
+	u^{\Rank{\mathcal{N}}-\Rank{[\mathcal{N}/A|P]}-\Rank{A}}
+	v^{\Card{A}-\Rank{A}}.
+\]
+
+\end{slide}
+
+\begin{slide}
+Result 3:  The ported, parametrized corank-nullity polynomials
+of oriented and non-oriented matroids 
+\[
+R(\mathcal{N}(P,E))=\sum_{A\subseteq E}
+	\MVAR{\mathcal{N}/A|P}g_Ar_{\scomp{A}}
+	u^{\Rank{\mathcal{N}}-\Rank{[\mathcal{N}/A|P]}-\Rank{A}}
+	v^{\Card{A}-\Rank{A}}.
+\]
+satisfy the ported Tutte equations.
+
+(In the invariant case, this $R$ is universal for Tutte $P$-invariants
+of oriented and non-oriented matroids)
+
+\end{slide}
+
+\begin{slide}
+Result 4 pertains to three matroid combination operations:
+
+Given $\mathcal{N}_1(W,E_1)$ and $\mathcal{N}_1(W,E_2)$ with
+only elements $P$ in common.
+
+(1.) Ported matroid union: $\mathcal{B}\big(\mathcal{N}_1\UNION\mathcal{N}_2\big) =
+\{B_1\cup B_2 : B_i\in\mathcal{B}(\mathcal{N}_i)\}$
+
+(2. Duality conjugate of $\UNION$.)
+
+(3.) Given that $W$ is a modular flat and a common submatroid
+in $\mathcal{N}_1$ and $\mathcal{N}_2$, the generalized parallel connection.
+
+When $|W|=1$, both dual $\UNION$ and generalized parallel connection REDUCE
+to (one base point) parallel connection.
+
+
+\end{slide}
+
+
+\begin{slide}
+(Switch $P$ to $W$.)
+$K$=polynomial ring containing $u$ and $w$.  
+$K_W$=commutative $K$-module generated by monomials
+$[q_i]$ signifying matroids $q_i$ over subsets of $W$, and $[\emptyset]=1$.
+
+Recall ported corank-nullity polynomial $R_W:\text{Matroids}\rightarrow K_W$.
+
+Result 4:  For each combination operation ($*_i,i=1,2,3$) there is a bilinear 
+$M_i:K_W\times K_W\rightarrow K_W$ map and an $u^jw^k$-valued function $f_i$ such 
+that 
+\[
+R_W(\mathcal{N}_1 *_i \mathcal{N}_2) =
+f_i(\mathcal{N}_1,\mathcal{N}_2,\mathcal{N}_1*_i\mathcal{N}_2)
+M_i\big(R_W(\mathcal{N}_1),R_W(\mathcal{N}_2)\big)
+\]
+
+In other words, once $*_i$ is determined on pairs of matroids over subsets of $W$,
+the ported $R_W$ for $\mathcal{N}_1*_i\mathcal{N}_2$ can be calculated by
+a formal multiplication of $R_W(\mathcal{N}_1)*_iR_W(\mathcal{N}_2)$ followed
+by a substitution of $[q_j]*_i[q_k]$ products.
+
+\end{slide}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
