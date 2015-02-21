@@ -1,0 +1,408 @@
+\documentclass{beamer}
+%\mode<presentation>
+\usepackage{cite}
+\usepackage{amsmath}
+\title{Introduction}
+\author{Seth Chaiken}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialized Symbols
+%
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+%{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip0.45em$\cdot$\hskip-0.44em$\cup$\hskip0.2em}}}
+%{\mbox{\hbox{\hskip0.45em$+$\hskip-0.70em$\cup$\hskip0.3em}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+%\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+%\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%
+%   Put a symbol for a matroid in a box, or brackets
+%\newcommand{\MVAR}[1]{{\boxed{#1}\;}}
+\newcommand{\MVAR}[1]{{[#1]\;}}
+%
+\newcommand{\UNION}{\cup} %try to make this bold.
+%%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+\begin{frame}
+ \titlepage
+\end{frame}
+
+\note{(here we go, geronimo)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why Electricity, EE?}
+\begin{itemize}
+\item $>$ Some 100 years geometry-like intuition
+
+(Engineering books: ``Intuitive Analog Circuit Design''
+\cite{intuitAna}; ``Non-linear Circuits'' \cite{HaslerNeirynck}
+translates to our Oriented Matroid pair model.)
+
+\item Geometry of linear spaces and oriented matroids.
+
+(Our Tutte decomposed exterior algebraic
+function of oriented matroids.)
+
+(Techniques from Barnabi, Brini and Rota's Exterior Calculus 
+\cite{exteriorCalc})
+
+\item
+Real behavior $\approx$ ideal plus perturbations
+
+\item
+Ideal constraints predict intended real behavior
+(how geometry is applied everyday)
+
+\item 
+Interesting, accessible, intuitively understandable
+intentential designs), applicable,
+easy to both simulate and build physically, structure of moderate
+dimension (about 12 or 24, depending on what they may count / formulation)
+\item
+Analogs to chemical (and real algebraic geometry 
+\cite{signsInChemRAG}), biological, mechanical, etc., random walks ...
+\item
+Merely one scalar non-linearity can cause chaos.
+\end{itemize}
+\end{frame}
+
+\note{
+(nonframe)Analogies:
+\begin{enumerate}
+\item Electric: Voltage, Resistance, Current, Capacitance, Inductance
+\item Mech. Dyn: Force, Viscous friction, Velocity, Elasticity, Mass
+\item Statics: Displacement, Elasticity, Force,  ???, ???
+\item Random Walk: First hit probability, transition probability, flow, ???, ??? \\
+Doyle and Snell \cite{DoyleSnellRandom},
+Lyons and Peres \cite{ProbOnTreesNetworks}
+(ref? Thanks, David G. Wagner's course notes).
+\item Traffic: Time, Clogginess (travel time/flow ratio), flow, ???, ???\\
+Condition: All vehicles reach their destinations in equal times regardless of 
+route (ref? Thanks, Peter Shor).
+\item Knot theory: ???, $\pm 1$ crossing sign, ???, ???, ???\\
+Equivalent resistance ``Conductance Invariant'' of rational tangles is a 
+Reinmeister move 
+invariant\cite{RationalTangles} (Thanks, Jay Goldman).
+\end{enumerate}
+
+KCL+KVL+Ohms=(one of KCL)+Ohms+(min power)
+
+Future: Memistor?
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Kirchhoff (1847)
+\cite{Kirchhoff}
+ Maxwell (1891)
+\cite{MaxR} 
+The equivalent resistance problem
+solved by the Matrix Tree Theorem.}
+
+\begin{minipage}{.4\textwidth}
+(resistor edge diagram)\\
+$i_e$\\
+$v_e=v_1-v_2$\\
+$g_ev_e=r_ei_e$
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+(port edge diagram, environment)\\
+$i_p$\\
+$v_p=v_1-v_2$\\
+mathematics sign convention.\\
+$g_ev_e=r_ei_e$
+\end{minipage}\\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Equations}
+(KCL) $(i_e)_{e\in S}$ is a cycle (a flow)\\
+(KVL) $(v_e)_{e\in S}$ is a cocycle\\
+(constituitive Law) $i_e=g_e(v_e)$
+non-linear, usually monotonic increasing $R\rightarrow R$ 
+(Ohm's approximation $i_e=g_ev_e$\\
+signs ($\pm$) have oriented matroid structure
+(combinatorial, geometric, topological)\\
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Equiv. Resistance is a Ratio}
+
+\[
+\frac{\mbox{WTS}(G/p)}
+{\mbox{WTS}(G\backslash p)}
+\]
+\[
+\mbox{(WeightedTreeSum)}\mbox{WTS}(G') =
+g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
+\text{\ for all\ }e \not\in P
+\]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Benefits of Multiple ports}
+
+\begin{itemize}
+\item
+Formalize composition of systems\cite{NarayananDecompVS1986}
+\item
+Label variables to observe
+\item
+Model practical devices (transistors, op amps)
+\item
+Interesting \textbf{non-commutative ranges} of
+new Tutte functions with pattern:
+\[
+\text{TF}(N(P\dunion E)) = F(N(P\dunion E)/E)
+\]
+\item
+Systematize ad-hoc vertex-based proofs.
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Equivalent resistance is a coefficient ratio in an 
+implicitly defined linear function}
+
+(diagram)
+
+In other words
+\[
+R_pi_p + v_p = 0
+\]
+or dually,
+\[
+\mathcal{B} = \{(i_p,v_p)\}
+= \{ t(-1, R_p) | t\in R\}
+\]
+
+\end{frame}
+
+\note{nonframe(linear subspace over the $R^{\mathbf{P}}$)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The $2\times d$ port variable constraint space, 
+and its solution spaces, are $d$-dimensional.}
+
+We represent these spaces by carefully defined
+\textbf{extensors}, as Barnabei, Brini and Rota \cite{exteriorCalc}
+term ``decomposible antisymmetric tensors''
+
+The solution extensor (not a ray) satisfies:
+
+\[
+E(N) = \text{sign}(...)(g_e E(N/e) + r_e E(N\backslash e)
+\text{\ for\ }e\not\in P
+\]
+
+\end{frame}
+
+
+\note{
+(nonframe) 
+The port elements represent the basis chosen so coordinates correspond
+to voltages and currents belonging to network edges.  Geometric aspects
+of extensors are surveyed by 
+Barnabei and Brini \cite{exteriorCalc}.
+
+Cordovil\cite{CommAlgOMs} 
+presented a \textbf{commutative algebraic} function of 
+oriented matroids in which monomial signs encode orientation information.
+The analogy to our \textbf{exterior algebraic} functions must be explored. 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Coefs}
+\[
+E(N) = \ldots + C_i\mbox{\bf XXX} + \ldots
+\]
+\[
+R = C_i/C_j
+\]
+All the other $C_k$'s have similar interpretations.
+
+Each $C_k$ is a determinant.
+
+Each $C_k$ is a signed weighted enumerator of
+forests satisfying \textbf{conditions ...}
+
+Each $C_k$ satisfies
+\[
+C_k(N) = g_e C_k(N/e) + r_e C_k(N\backslash e)
+\text{\ for\ }e\not\in {P}
+\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conditions}
+The \textbf{conditions ...} are best described with 
+a \textbf{pair of ported oriented matroids}
+(aka \textbf{relative or set-pointed}
+
+The conditions for a given $C_k$ \textit{sometimes}
+make all the signs the same (example: $C_i$ and 
+$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
+
+\textit{Othertimes}, the oriented \textbf{P-minors}
+in the completed Tutte decomposition of $C_k$ determine
+the sign.
+
+(diagram of the two orientations of $C_2$)
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conditions}
+What is the nature of the conditions?  We state them using the 
+network's graphic oriented matroid.
+
+(diagram--glob w/ ports)
+
+\end{frame}
+
+
+
+
+\note{
+nonframe \textbf{port} (sdc, engineering literature), 
+\textbf{distinguished element}, 
+element of the restriction's set (Diao and Hetyei), 
+a element in the set of points (Las Vergnas).
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Voltage and Current graphs}
+
+\begin{minipage}{0.4\textwidth}
+``Voltage graph'' (EE, NOT Gross, et. al.) represents KVL
+\[\mathbf{v}\in \text{Cocycle space}\]
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+``Current graph'' represents KCL
+\[\mathbf{i}\in \text{Cycle space}\]
+\end{minipage}
+They are equal graphs for resistor networks.
+
+For networks with idealized amplifiers, they are not 
+equal.  
+
+(more) Realistic amplifier model $=$ idealized amplifiers $+$ 
+resistors.
+
+(ideal op amp nullator/norator T diagram)
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\begin{minipage}{0.4\textwidth}
+\[
+\text{(nullator)\ }N_v = N/e// 
+N_I = N\backslash e
+\]
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\[
+\text{(norator)\ }N_v = N\backslash e// 
+N_I = N/e
+\]
+\end{minipage}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{What are the conditions like?}
+
+\[
+\text{Extensor\ }= \sigma(C)(a_1\vee a_2\vee \ldots \vee a_d)
+\]
+\[
+C = \ldots + t + \ldots
+\]
+$t \leftrightarrow \text{\ sets of (``contractible'' non-port edges} 
+E_1, E_2$ for which
+\[
+N_V/E_1\backslash(E\setminus E_1) = \text{\ certain OMs on\ } P
+\]
+AND
+\[
+N_I/E_2\backslash(E\setminus E_2) = \text{\ certain OMs on\ } P
+\]
+
+Transfer resistance might be 0 and might be $\neq 0$ iff
+\[
+\exists E_1, E_2 \text{so (diag) and (diag)}
+\]
+
+($K_4$ Wheatstone bridge diagram)
+
+\[
+\frac{R_1}{R_2} > \frac{R_3}{R_4} 
+\text{\ neg\ }
+\frac{R_1}{R_2} < \frac{R_3}{R_4} 
+\text{\ pos\ }
+\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(Rayleigh)}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(15)}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(16)}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(17)}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]{References}
+\bibliographystyle{plain}
+\bibliography{../../bib/MathOfElec}{}
+\end{frame}
+
+\end{document}
