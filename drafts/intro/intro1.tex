@@ -3,6 +3,53 @@
 \usepackage{amsmath}
 \title{Introduction}
 \author{Seth Chaiken}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialized Symbols
+%
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+%{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip0.45em$\cdot$\hskip-0.44em$\cup$\hskip0.2em}}}
+%{\mbox{\hbox{\hskip0.45em$+$\hskip-0.70em$\cup$\hskip0.3em}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+%\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+%\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%
+%   Put a symbol for a matroid in a box, or brackets
+%\newcommand{\MVAR}[1]{{\boxed{#1}\;}}
+\newcommand{\MVAR}[1]{{[#1]\;}}
+%
+\newcommand{\UNION}{\cup} %try to make this bold.
+%%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 \begin{document}
 \maketitle
 
@@ -24,20 +71,20 @@ Why Electricity, EE?
 \item $>$ Some 100 years geometry-like intuition
 
 (Marc Thompson ``Intuitive Analog Circuit Design'' 2nd ed 2013
-\cite{intuitAna}, Hasler, Neirynck translates pretty directly into
-OM pair analysis \cite{HaslerNeirynck})
+\cite{intuitAna}, Hasler, Neirynck translates into
+Oriented Matroid pair analysis \cite{HaslerNeirynck})
 
 
 \item Geometry of linear spaces and oriented matroids.
 
-(Our results include a Tutte decomposition of an exterior algebra
-valued function of oriented matroids.)
+(Our Tutte decomposed exterior algebraic
+function of oriented matroids.)
 
-(We apply techniquesfrom Barnabi, Brini and Rota's Exterior Calculus 
+(Techniques from Barnabi, Brini and Rota's Exterior Calculus 
 \cite{exteriorCalc})
 
 \item
-Real behavior often equals ideal plus perturbations
+Real behavior $\approx$ ideal plus perturbations
 
 \item
 Ideal constraints result in intended real behavior
@@ -154,7 +201,7 @@ g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
 
 \pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
 (6)\\
-Multiple ports
+Benefits of Multiple ports:
 
 \begin{itemize}
 \item
@@ -163,6 +210,14 @@ Formalize composition of systems
 Label variables to observe
 \item
 Model practical devices (transistors, op amps)
+\item
+Interesting \textbf{non-commutative ranges} of
+new Tutte functions with pattern:
+\[
+\text{TF}(N(P\dunion E)) = F(N(P\dunion E)/E)
+\]
+\item
+Systematize ad-hoc vertex-based proofs.
 \end{itemize}
 
 \rule{\textwidth}{3pt}
@@ -213,6 +268,11 @@ The port elements represent the basis chosen so coordinates correspond
 to voltages and currents belonging to network edges.  Geometric aspects
 of extensors are surveyed by 
 Barnabei and Brini \cite{exteriorCalc}.
+
+Cordovil\cite{CommAlgOMs} 
+presented a \textbf{commutative algebraic} function of 
+oriented matroids in which monomial signs encode orientation information.
+The analogy to our \textbf{exterior algebraic} functions must be explored. 
 
 \pagebreak[3] \begin{quote}\rule{\textwidth}{3pt}\\
 (9)\\
