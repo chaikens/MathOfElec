@@ -1,7 +1,8 @@
 #!/bin/bash
+FILE=Mar2015Talk
+pdflatex $FILE
+bibtex $FILE
+pdflatex $FILE
+pdflatex $FILE
 
-pdflatex intro1.tex
-bibtex intro1
-pdflatex intro1.tex
-pdflatex intro1.tex
 

@@ -61,32 +61,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Why Electricity, EE?}
 \begin{itemize}
-\item $>$ Some 100 years geometry-like intuition
-
-(Engineering books: ``Intuitive Analog Circuit Design''
+\item $\approx 100$ yrs. geometry-like intuition of
+circuit configurations known by engineers, EE books:
+``Intuitive Analog Circuit Design (2013)''
 \cite{intuitAna}; ``Non-linear Circuits'' \cite{HaslerNeirynck}
-translates to our Oriented Matroid pair model.)
+translates to our Oriented Matroid pair model.
 
-\item Geometry of linear spaces and oriented matroids.
-
-(Our Tutte decomposed exterior algebraic
-function of oriented matroids.)
-
-(Techniques from Barnabi, Brini and Rota's Exterior Calculus 
+\item Geometry of linear spaces and oriented matroids;
+Tutte decomp. w/
+techniques from Barnabi, Brini and Rota's Exterior Calculus 
 \cite{exteriorCalc})
 
 \item
-Real behavior $\approx$ ideal plus perturbations
-
-\item
-Ideal constraints predict intended real behavior
-(how geometry is applied everyday)
+Real behavior $\approx$ ideal plus perturbations,
+ideal constraints predict intended real behavior,
+applied everyday geometry.
 
 \item 
 Interesting, accessible, intuitively understandable
-intentential designs), applicable,
-easy to both simulate and build physically, structure of moderate
-dimension (about 12 or 24, depending on what they may count / formulation)
+intentential designs, applicable,
+easy to both simulate and build physically, dimension
+$\approx$
+12 or 24, depending on formulation
 \item
 Analogs to chemical (and real algebraic geometry 
 \cite{signsInChemRAG}), biological, mechanical, etc., random walks ...
@@ -126,8 +122,8 @@ Future: Memistor?
 \cite{Kirchhoff}
  Maxwell (1891)
 \cite{MaxR} 
-The equivalent resistance problem
-solved by the Matrix Tree Theorem.}
+The equivalent resistance problem IS SOLVED
+by the Matrix Tree Theorem: the VARIABLES}
 
 \begin{minipage}{.4\textwidth}
 (resistor edge diagram)\\
@@ -145,7 +141,7 @@ $g_ev_e=r_ei_e$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Equations}
+\begin{frame}{The EQUATIONS}
 (KCL) $(i_e)_{e\in S}$ is a cycle (a flow)\\
 (KVL) $(v_e)_{e\in S}$ is a cocycle\\
 (constituitive Law) $i_e=g_e(v_e)$
@@ -158,14 +154,15 @@ signs ($\pm$) have oriented matroid structure
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Equiv. Resistance is a Ratio}
+\begin{frame}{SOLUTION: Equiv. Resistance is a Ratio}
 
 \[
 \frac{\mbox{WTS}(G/p)}
 {\mbox{WTS}(G\backslash p)}
 \]
+Weighted Tree Sum (WTS) is a Tutte function:
 \[
-\mbox{(WeightedTreeSum)}\mbox{WTS}(G') =
+\mbox{WTS}(G') =
 g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
 \text{\ for all\ }e \not\in P
 \]
