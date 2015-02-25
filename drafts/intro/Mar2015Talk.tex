@@ -393,6 +393,28 @@ Transfer resistance might be 0 and might be $\neq 0$ iff
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{(17)}
+
+
+Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
+
+Given $N$ (matrix), construct $N^\perp$ so their row spaces are orthogonal
+complements. ($N^\perp$ presents the (oriented) dual of the matroid from $N$).
+
+Form the matrix:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+\]
+with columns labelled by $P_I\dunion P_V\dunion E$.
+
+Extensor $\mathbf{M}$ over $k[g_e, r_e](P_V\dunion P_I \dunion E)$
+is the product of $M$'s \textbf{row vectors}, and define $\mathbf{M}_E(\mathbf{N})$ by:
+\[
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+
+
+
 \end{frame}
 
 
