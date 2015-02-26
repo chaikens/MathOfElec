@@ -246,8 +246,39 @@ $ \cap \text{Constraint Subspaces}$
 $\text{Solution Space}$\\
 $ =$\\
 $\text{Closure}(\text{Set of Generators})$
+
 \end{minipage}
 
+\end{frame}
+
+
+\begin{frame}
+{Matrix $M$ of CONSTRAINTS $MX=0$}
+
+Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
+
+Given $N$ (matrix), construct $N^\perp$ 
+with orthog. comp. row space.
+
+Construct:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+\]
+with columns labelled by $P_I\dunion P_V\dunion E$.
+
+Extensor $\mathbf{M}$ over $k[g_e, r_e](P_V\dunion P_I \dunion E)$
+is the product of $M$'s \textbf{row vectors}. The contraction result
+$\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
+\[
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+
+$\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
+\end{frame}
+
+\begin{frame}{Common Covector Model}
+\input{commonCovectorModel.pspdftex}
 \end{frame}
 
 
