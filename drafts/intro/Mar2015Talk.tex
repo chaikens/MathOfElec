@@ -2,9 +2,13 @@
 %\mode<presentation>
 \usepackage{cite}
 \usepackage{amsmath}
-\title{Introduction}
-\author{Seth Chaiken}
-
+\title{Ported or Relative Oriented Matroids and Electric Circuits}
+\author{Seth Chaiken\\
+Dept. of Computer Science\\
+Univ. at Albany\\
+\url{schaiken@albany.edu}
+}
+\date{March 2, 2015}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Specialized Symbols
 %
@@ -123,25 +127,30 @@ Future: Memistor?
  Maxwell (1891)
 \cite{MaxR} 
 The equivalent resistance problem IS SOLVED
-by the Matrix Tree Theorem: the VARIABLES}
+by the Matrix Tree Theorem. (1) Let's POSE the problem: the VARIABLES}
 
-\begin{minipage}{.4\textwidth}
-(resistor edge diagram)\\
-$i_e$\\
-$v_e=v_1-v_2$\\
-$g_ev_e=r_ei_e$
+\begin{minipage}{.48\textwidth}
+\input{resistor.pspdftex}\\
+(Use \textbf{voltage drops along the flow}, 
+not potentials $V_1$, $V_2$.)\\
+Ohm's law \textbf{EQUATION:}
+\begin{center}$g_ev_e=r_ei_e$\end{center}
+\begin{center}\textbf{ordinary, resistor edge} $e\in E$
+\end{center}
 \end{minipage}
-\begin{minipage}{.4\textwidth}
-(port edge diagram, environment)\\
-$i_p$\\
-$v_p=v_1-v_2$\\
-mathematics sign convention.\\
-$g_ev_e=r_ei_e$
+\begin{minipage}{.48\textwidth}
+\input{portWithEnviron.pspdftex}\\
+\begin{center}\textbf{DISTINGUISHED, PORT edge} $p\in P$
+\end{center}
+An interface to an environment.
+\begin{center}(math, not EE 
+sign convention)
+\end{center}
 \end{minipage}\\
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{The EQUATIONS}
+\begin{frame}{(2) Let's POSE the problem: EQUATIONS}
 (KCL) $(i_e)_{e\in S}$ is a cycle (a flow)\\
 (KVL) $(v_e)_{e\in S}$ is a cocycle\\
 (constituitive Law) $i_e=g_e(v_e)$
@@ -154,11 +163,13 @@ signs ($\pm$) have oriented matroid structure
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{SOLUTION: Equiv. Resistance is a Ratio}
+\begin{frame}{SOLUTION: Equiv. Resistance $ :\equiv -(v_p/i_p)$
+observed at a port $p$ by the environment
+EQUALS a Ratio of Spanning Tree Enumerators!}
 
 \[
-\frac{\mbox{WTS}(G/p)}
-{\mbox{WTS}(G\backslash p)}
+-(\frac{v_p}{i_p})=\frac{\mbox{WTS}(G/p)}
+{\mbox{WTS}(G\backslash p)} \text{ ``Maxwell's rule'' }
 \]
 Weighted Tree Sum (WTS) is a Tutte function:
 \[
@@ -166,28 +177,83 @@ Weighted Tree Sum (WTS) is a Tutte function:
 g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
 \text{\ for all\ }e \not\in P
 \]
+\[
+\mbox{WTS}(\text{coloop}(e)) = g_e
+\]
+\[
+\mbox{WTS}(\text{loop}(e)) = r_e
+\]
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Benefits of Multiple ports}
+\begin{frame}{Benefits of Multiple Ports}
 
 \begin{itemize}
+\item One formula expresses $\binom{2|P|}{|P|}$ different Matrix Tree Theorems.
+\item
+Systematize their ad-hoc vertex-based proofs.
+\item
+Interesting \textbf{non-commutative ranges} of
+new ORIENTED MATROID Tutte invariants with pattern:
+\[
+\text{TF}(N(P\dunion E)) = F(N(P\dunion E)/E)
+\]
+(They distinguish DIFFERENT ORIENTATIONS of the SAME MATROID.)
 \item
 Formalize composition of systems\cite{NarayananDecompVS1986}
 \item
 Label variables to observe
 \item
 Model practical devices (transistors, op amps)
-\item
-Interesting \textbf{non-commutative ranges} of
-new Tutte functions with pattern:
-\[
-\text{TF}(N(P\dunion E)) = F(N(P\dunion E)/E)
-\]
-\item
-Systematize ad-hoc vertex-based proofs.
+\item 
+Align EE applications with knots (Ported = ``Relative'')
+and geometry (Ported = ``Set Pointed'').  
 \end{itemize}
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+Now known: Bollobos/Riordan/Zaslavsky theory for well-definedness
+all goes through.  
+Their 3 conditions on (colors,initial values) generalize to 5.
+Same for the theory of activities
+based on linear order on the non-port-elements.
+
+\begin{block}{In a nutshell}
+The conditions $\Longrightarrow$ activities define an unambiguous Tutte function 
+from the deletion/contraction and initial value formulas.\\
+
+Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
+expansion.
+\end{block}
+
+\begin{block}{Globally ordered deletion/contraction is unnecessary.}
+The Gordon/McMahon computation
+tree-based activity theory also generalizes. (sdc).
+\end{block}
+\end{frame}
+
+\begin{frame}{Constraint/Generator Duality}
+\begin{minipage}{0.48\textwidth}
+$\text{Solution Space}$\\
+$=$\\
+$ \cap \text{Constraint Subspaces}$
+
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+$\text{Solution Space}$\\
+$ =$\\
+$\text{Closure}(\text{Set of Generators})$
+\end{minipage}
+
+\end{frame}
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -385,6 +451,7 @@ Transfer resistance might be 0 and might be $\neq 0$ iff
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{(15)}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
