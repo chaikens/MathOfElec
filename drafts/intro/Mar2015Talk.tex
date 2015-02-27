@@ -169,9 +169,15 @@ EQUALS a Ratio of Spanning Tree Enumerators!}
 
 \[
 -(\frac{v_p}{i_p})=\frac{\mbox{WTS}(G/p)}
-{\mbox{WTS}(G\backslash p)} \text{ ``Maxwell's rule'' }
+{\mbox{WTS}(G\backslash p)} 
+= \frac{\mbox{Matrix-Tree Det}(G/p)}
+       {\mbox{Matrix-Tree Det}(G\backslash p)}
 \]
-Weighted Tree Sum (WTS) is a Tutte function:
+\begin{itemize}
+\item
+``Maxwell's rule'' uses MTT on 2 DIFFERENT GRAPHS
+\item
+Weighted Tree Sum (WTS) is a colored Tutte function:
 \[
 \mbox{WTS}(G') =
 g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
@@ -183,6 +189,7 @@ g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
 \[
 \mbox{WTS}(\text{loop}(e)) = r_e
 \]
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -237,25 +244,42 @@ tree-based activity theory also generalizes. (sdc).
 
 \begin{frame}{Constraint/Generator Duality}
 \begin{minipage}{0.48\textwidth}
-$\text{Solution Space}$\\
-$=$\\
-$ \cap \text{Constraint Subspaces}$
+
+\begin{itemize}
+\item
+Technique:
+\begin{center}$\text{Solution Space}$\end{center}
+\begin{center}$=$\end{center}
+\begin{center}$\cap \text{Constraint Subspaces}$\end{center}
+\item
+An
+exterior algebraic Tutte function
+and det. formulas
+easily prove Rayleigh inequalities.
+\end{itemize}
 
 \end{minipage}
 \begin{minipage}{0.48\textwidth}
-$\text{Solution Space}$\\
-$ =$\\
-$\text{Closure}(\text{Set of Generators})$
 
+\begin{itemize}
+\item
+Combine with:
+\begin{center}$\text{Solution Space}$ \end{center}
+\begin{center}$=$ \end{center}
+\begin{center}$\text{Closure}(\text{Set of Generators})$\end{center}
+\item
+An oriented matroid pair model
+for some non-linear problem
+well-posedness.
+\end{itemize}
 \end{minipage}
-
 \end{frame}
 
-
 \begin{frame}
-{Matrix $M$ of CONSTRAINTS $MX=0$}
-
-Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
+{Coef. Matrix $M$ in CONSTRAINTS $MX=0$}
+\begin{center}
+The Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$:
+\end{center}
 
 Given $N$ (matrix), construct $N^\perp$ 
 with orthog. comp. row space.
