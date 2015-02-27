@@ -133,10 +133,14 @@ by the Matrix Tree Theorem. (1) Let's POSE the problem: the VARIABLES}
 \input{resistor.pspdftex}\\
 (Use \textbf{voltage drops along the flow}, 
 not potentials $V_1$, $V_2$.)\\
-Ohm's law \textbf{EQUATION:}
-\begin{center}$g_ev_e=r_ei_e$\end{center}
 \begin{center}\textbf{ordinary, resistor edge} $e\in E$
 \end{center}
+
+(We'll soon see Ohm's\\
+\textbf{EQUATION:}
+\begin{center}$g_ev_e=r_ei_e$).
+\end{center}
+
 \end{minipage}
 \begin{minipage}{.48\textwidth}
 \input{portWithEnviron.pspdftex}\\
@@ -165,7 +169,8 @@ signs ($\pm$) have oriented matroid structure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{SOLUTION: Equiv. Resistance $ :\equiv -(v_p/i_p)$
 observed at a port $p$ by the environment
-EQUALS a Ratio of Spanning Tree Enumerators!}
+EQUALS a Ratio of Spanning Tree Enumerators!
+(Port edge $p$ locates the \textit{2 terminals}.)}
 
 \[
 -(\frac{v_p}{i_p})=\frac{\mbox{WTS}(G/p)}
@@ -175,7 +180,8 @@ EQUALS a Ratio of Spanning Tree Enumerators!}
 \]
 \begin{itemize}
 \item
-``Maxwell's rule'' uses MTT on 2 DIFFERENT GRAPHS
+``Maxwell's rule'' uses MatrTreeT on 2 DIFFERENT GRAPHS\\
+\begin{center}($G/p$ and $G\backslash p$)\end{center}
 \item
 Weighted Tree Sum (WTS) is a colored Tutte function:
 \[
@@ -220,25 +226,31 @@ and geometry (Ported = ``Set Pointed'').
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
 
-Now known: Bollobos/Riordan/Zaslavsky theory for well-definedness
-all goes through.  
-Their 3 conditions on (colors,initial values) generalize to 5.
-Same for the theory of activities
+The Bollobos/Riordan/Zaslavsky BRZ theory for well-definedness
+of ``Relative Tutte Polynomials for Colored Graphs'' all goes through 
+(Diao and Hetyei \cite{RelTuttePoly}):
+The 3 BRZ conditions on (colors,initial values) generalize to 5;
+also the theory of activities
 based on linear order on the non-port-elements.
 
 \begin{block}{In a nutshell}
-The conditions $\Longrightarrow$ activities define an unambiguous Tutte function 
+The 5 conditions $\Longrightarrow$ activities define an 
+unambiguous Tutte function 
 from the deletion/contraction and initial value formulas.\\
 
 Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
-expansion.
+expansion.\\
+
+(The rank-nullity conditions are satisfied in our application.)
 \end{block}
 
-\begin{block}{Globally ordered deletion/contraction is unnecessary.}
-The Gordon/McMahon computation
-tree-based activity theory also generalizes. (sdc).
+\begin{block}{To specify the activity/deletion-contraction linear 
+order GLOBALLY is 
+UNNECESSARY.}
+The Gordon/McMahon computation-tree-based 
+activity theory also generalizes. (sdc).
 \end{block}
 \end{frame}
 
