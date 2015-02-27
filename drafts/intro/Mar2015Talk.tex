@@ -224,49 +224,20 @@ and geometry (Ported = ``Set Pointed'').
 \end{itemize}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
-
-The Bollobos/Riordan/Zaslavsky BRZ theory for well-definedness
-of ``Relative Tutte Polynomials for Colored Graphs'' all goes through 
-(Diao and Hetyei \cite{RelTuttePoly}):
-The 3 BRZ conditions on (colors,initial values) generalize to 5;
-also the theory of activities
-based on linear order on the non-port-elements.
-
-\begin{block}{In a nutshell}
-The 5 conditions $\Longrightarrow$ activities define an 
-unambiguous Tutte function 
-from the deletion/contraction and initial value formulas.\\
-
-Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
-expansion.\\
-
-(The rank-nullity conditions are satisfied in our application.)
-\end{block}
-
-\begin{block}{To specify the activity/deletion-contraction linear 
-order GLOBALLY is 
-UNNECESSARY.}
-The Gordon/McMahon computation-tree-based 
-activity theory also generalizes. (sdc).
-\end{block}
-\end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Constraint/Generator Duality}
 \begin{minipage}{0.48\textwidth}
 
 \begin{itemize}
 \item
-Technique:
+(Part 1) Technique:
 \begin{center}$\text{Solution Space}$\end{center}
 \begin{center}$=$\end{center}
 \begin{center}$\cap \text{Constraint Subspaces}$\end{center}
 \item
 An
 exterior algebraic Tutte function
-and det. formulas
+and det. formulas that
 easily prove Rayleigh inequalities.
 \end{itemize}
 
@@ -275,7 +246,7 @@ easily prove Rayleigh inequalities.
 
 \begin{itemize}
 \item
-Combine with:
+(Part 2) Combine with:
 \begin{center}$\text{Solution Space}$ \end{center}
 \begin{center}$=$ \end{center}
 \begin{center}$\text{Closure}(\text{Set of Generators})$\end{center}
@@ -288,7 +259,7 @@ well-posedness.
 \end{frame}
 
 \begin{frame}
-{Coef. Matrix $M$ in CONSTRAINTS $MX=0$}
+{Part 1) Coef. Matrix $M$ in CONSTRAINTS $MX=0$}
 \begin{center}
 The Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$:
 \end{center}
@@ -313,7 +284,68 @@ $\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
 $\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
 \end{frame}
 
-\begin{frame}{Common Covector Model}
+\begin{frame}{(Part 2) Common Covector Model}
+\input{commonCovectorModel.pspdftex}
+\end{frame}
+
+\begin{frame}{Return to the Part 1 Equation $MX=0$}
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+;
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+ELIMINATE the variables indexed by $E$, leaving $2|P|$ variables
+labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} $A$ IS:
+
+\[
+\mathbf{M}_E = \bigwedge^{\text{Exterior}}_{\text{JOIN over rows}} \left[\begin{array}{c|c} A_{I,I}  &  A_{I,V}   \\  \hline
+    A_{V_I}  & A_{V,V} \end{array}\right] 
+[\mathbf{p_{I_1}, \cdots, p_{I_p}; p_{V_1}, \cdots, p_{V_p}}]^{\mathbf{t}} 
+\]
+
+\[
+ = \ldots + C_i\mbox{\bf XXX} + \ldots; \text{Equiv. Resistance} = 
+\text{certain}\;\; C_i/C_j
+\]
+
+All the other $C_k$'s have similar interpretations.
+
+{\bf $\binom{2|P|}{|P|}$ Matr. Tree Theorems:}
+Each $C_k(N)$ (a PRINCIPAL MINOR of $M$ ABOVE!)
+$= 
+g_e C_k(N/e) + r_e C_k(N\backslash e)$ ($e\not\in P$, $e$ not (co)loop).
+
+Each $C_k$ is a signed weighted enumerator of
+forests satisfying \textbf{conditions ...}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conditions}
+The \textbf{conditions ...} are best described with 
+a \textbf{pair of ported oriented matroids}
+
+The conditions for a given $C_k$ \textit{sometimes}
+make all the signs the same (example: $C_i$ and 
+$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
+
+\textit{Othertimes}, the oriented \textbf{P-minors}
+in the completed Tutte decomposition of $C_k$ determine
+the sign.
+
+(diagram of the two orientations of $C_2$)
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(Rayleigh)}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(Part 2) Common Covector Model}
 \input{commonCovectorModel.pspdftex}
 \end{frame}
 
@@ -323,7 +355,7 @@ $\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ex
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
 \frametitle{Equivalent resistance is a coefficient ratio in an 
 implicitly defined linear function}
@@ -401,30 +433,13 @@ C_k(N) = g_e C_k(N/e) + r_e C_k(N\backslash e)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Conditions}
-The \textbf{conditions ...} are best described with 
-a \textbf{pair of ported oriented matroids}
-(aka \textbf{relative or set-pointed}
-
-The conditions for a given $C_k$ \textit{sometimes}
-make all the signs the same (example: $C_i$ and 
-$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
-
-\textit{Othertimes}, the oriented \textbf{P-minors}
-in the completed Tutte decomposition of $C_k$ determine
-the sign.
-
-(diagram of the two orientations of $C_2$)
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Conditions}
 What is the nature of the conditions?  We state them using the 
 network's graphic oriented matroid.
 
 (diagram--glob w/ ports)
 
 \end{frame}
+
 
 
 
@@ -513,10 +528,6 @@ Transfer resistance might be 0 and might be $\neq 0$ iff
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(Rayleigh)}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{(15)}
 
 \end{frame}
@@ -551,6 +562,43 @@ $\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
 $\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
 
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
+
+The Bollobos/Riordan/Zaslavsky BRZ theory for well-definedness
+of ``Relative Tutte Polynomials for Colored Graphs'' all goes through 
+(Diao and Hetyei \cite{RelTuttePoly}):
+The 3 BRZ conditions on (colors,initial values) generalize to 5;
+also the theory of activities
+based on linear order on the non-port-elements.
+
+\begin{block}{In a nutshell}
+The 5 conditions $\Longrightarrow$ activities define an 
+unambiguous Tutte function 
+from the deletion/contraction and initial value formulas.\\
+
+Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
+expansion.\\
+
+(The rank-nullity conditions are satisfied in our application.)
+\end{block}
+
+\begin{block}{To specify the activity/deletion-contraction linear 
+order GLOBALLY is 
+UNNECESSARY.}
+The Gordon/McMahon computation-tree-based 
+activity theory also generalizes. (sdc).
+\end{block}
+\end{frame}
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
