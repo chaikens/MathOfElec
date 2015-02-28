@@ -322,19 +322,52 @@ forests satisfying \textbf{conditions ...}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Conditions}
-The \textbf{conditions ...} are best described with 
-a \textbf{pair of ported oriented matroids}
+\begin{frame}{Conditions (resistor network det. quantities)}
+The \textbf{conditions ...}
+are WHAT ORIENTED MINOR is \
+$G/F\setminus (E\setminus F)$, the minor
+with ONLY PORT EDGES from contracting $F$
+and deleting the other resistor edges, leaving the
+ports.
 
 The conditions for a given $C_k$ \textit{sometimes}
-make all the signs the same (example: $C_i$ and 
+make all the signs the same (eg: $C_i$ and 
 $C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
 
 \textit{Othertimes}, the oriented \textbf{P-minors}
 in the completed Tutte decomposition of $C_k$ determine
-the sign.
+some + and some - signs.
 
-(diagram of the two orientations of $C_2$)
+\begin{center}
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+When $G/F|P$ is
+\end{center}
+\begin{center}
+\input{c2plus.pspdftex}
+\end{center}
+\begin{center}
+the term is
+\end{center}
+\begin{center}
+$+g_Fr_{E\setminus F}$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\begin{center}
+When $G/F|P$ is
+\end{center}
+\begin{center}
+\input{c2minus.pspdftex}
+\end{center}
+\begin{center}
+the term is
+\end{center}
+\begin{center}
+$-g_Fr_{E\setminus F}$
+\end{center}
+\end{minipage}
+\end{center}
 
 \end{frame}
 
