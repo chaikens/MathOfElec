@@ -528,39 +528,75 @@ activity theory also generalizes. (sdc).
 \begin{frame}
 \frametitle{Voltage and Current graphs}
 
-\begin{minipage}{0.4\textwidth}
+\framebox{\begin{minipage}{0.4\textwidth}
 ``Voltage graph'' (EE, NOT Gross, et. al.) represents KVL
-\[\mathbf{v}\in \text{Cocycle space}\]
-\end{minipage}
+$\mathbf{v}\in \text{Cocycle space}$
+\end{minipage}}
+\framebox{
 \begin{minipage}{0.4\textwidth}
 ``Current graph'' represents KCL
-\[\mathbf{i}\in \text{Cycle space}\]
-\end{minipage}
-They are equal graphs for resistor networks.
+$\mathbf{i}\in \text{Cycle space}$
+\end{minipage}}
 
+\begin{itemize}
+\item 
+They are EQUAL GRAPHS for resistor networks.
+
+\item
 For networks with idealized amplifiers, they are not 
 equal.  
 
-(more) Realistic amplifier model $=$ idealized amplifiers $+$ 
+\item
+(more) Realistic amplifier model $=$ idealized amps. $+$ 
 resistors.
 
+\vfill
 (ideal op amp nullator/norator T diagram)
 
 The output voltage and current are whatever makes the input
 voltage and current BOTH BE zero.
 
-\begin{minipage}{0.4\textwidth}
+\end{itemize}
+
+
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{open}
 \[
-\text{(nullator)\ }N_v = N/e// 
+N_v = N\backslash e
+\]
+\[ 
 N_I = N\backslash e
 \]
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{short}
 \[
-\text{(norator)\ }N_v = N\backslash e// 
+N_v = N/e
+\]
+\[
 N_I = N/e
 \]
-\end{minipage}
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{nullator}
+\[
+N_v = N/e
+\]
+\[ 
+N_I = N\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{norator}
+\[
+N_v = N\backslash e
+\]
+\[
+N_I = N/e
+\]
+\end{minipage}}
 
 \end{frame}
 
