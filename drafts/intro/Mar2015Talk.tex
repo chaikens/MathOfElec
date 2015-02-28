@@ -477,6 +477,37 @@ spanning trees?}
 \vfill
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
+
+The Bollobos/Riordan/Zaslavsky, Traldi, Ellis-Monaghan, (sdc unpub)
+BRZ theory for well-definedness
+of ``Relative Tutte Polynomials for Colored Graphs'' ALL GOES THROUGH 
+(Diao and Hetyei \cite{RelTuttePoly}):
+The 2 BRZ conditions on (colors,initial values) GENERALIZE TO 5;
+activity theory WORKS TOO, when
+based on linear orders on the non-port-elements.
+
+\begin{block}{In a nutshell}
+The 5 conditions $\Longrightarrow$ activities define an 
+unambiguous Tutte function 
+from the deletion/contraction and initial value formulas.\\
+
+Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
+expansion.\\
+
+\Remph{
+(The rank-nullity conditions are satisfied in our application.)}
+\end{block}
+
+\begin{block}{To specify the activity/deletion-contraction linear 
+order GLOBALLY is 
+UNNECESSARY.}
+The Gordon/McMahon computation-tree-based 
+activity theory also generalizes. (sdc).
+\end{block}
+\end{frame}
+
 
 
 
@@ -486,10 +517,119 @@ spanning trees?}
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Voltage and Current graphs}
+
+\begin{minipage}{0.4\textwidth}
+``Voltage graph'' (EE, NOT Gross, et. al.) represents KVL
+\[\mathbf{v}\in \text{Cocycle space}\]
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+``Current graph'' represents KCL
+\[\mathbf{i}\in \text{Cycle space}\]
+\end{minipage}
+They are equal graphs for resistor networks.
+
+For networks with idealized amplifiers, they are not 
+equal.  
+
+(more) Realistic amplifier model $=$ idealized amplifiers $+$ 
+resistors.
+
+(ideal op amp nullator/norator T diagram)
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\begin{minipage}{0.4\textwidth}
+\[
+\text{(nullator)\ }N_v = N/e// 
+N_I = N\backslash e
+\]
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\[
+\text{(norator)\ }N_v = N\backslash e// 
+N_I = N/e
+\]
+\end{minipage}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(15)}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(16)}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(17)}
+
+
+Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
+
+Given $N$ (matrix), construct $N^\perp$ 
+with orthog. comp. row space.
+
+Construct:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+\]
+with columns labelled by $P_I\dunion P_V\dunion E$.
+
+Extensor $\mathbf{M}$ over $k[g_e, r_e](P_V\dunion P_I \dunion E)$
+is the product of $M$'s \textbf{row vectors}. The contraction result
+$\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
+\[
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+
+$\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
+
+\end{frame}
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{What are the conditions like?}
 
+\[
+\text{Extensor\ }= \sigma(C)(a_1\vee a_2\vee \ldots \vee a_d)
+\]
+\[
+C = \ldots + t + \ldots
+\]
+$t \leftrightarrow \text{\ sets of (``contractible'' non-port edges} 
+E_1, E_2$ for which
+\[
+N_V/E_1\backslash(E\setminus E_1) = \text{\ certain OMs on\ } P
+\]
+AND
+\[
+N_I/E_2\backslash(E\setminus E_2) = \text{\ certain OMs on\ } P
+\]
+
+Transfer resistance might be 0 and might be $\neq 0$ iff
+\[
+\exists E_1, E_2 \text{so (diag) and (diag)}
+\]
+
+($K_4$ Wheatstone bridge diagram)
+
+\[
+\frac{R_1}{R_2} > \frac{R_3}{R_4} 
+\text{\ neg\ }
+\frac{R_1}{R_2} < \frac{R_3}{R_4} 
+\text{\ pos\ }
+\]
+
+\end{frame}
 
 
 \begin{frame}
@@ -586,149 +726,6 @@ nonframe \textbf{port} (sdc, engineering literature),
 element of the restriction's set (Diao and Hetyei), 
 a element in the set of points (Las Vergnas).
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Voltage and Current graphs}
-
-\begin{minipage}{0.4\textwidth}
-``Voltage graph'' (EE, NOT Gross, et. al.) represents KVL
-\[\mathbf{v}\in \text{Cocycle space}\]
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-``Current graph'' represents KCL
-\[\mathbf{i}\in \text{Cycle space}\]
-\end{minipage}
-They are equal graphs for resistor networks.
-
-For networks with idealized amplifiers, they are not 
-equal.  
-
-(more) Realistic amplifier model $=$ idealized amplifiers $+$ 
-resistors.
-
-(ideal op amp nullator/norator T diagram)
-
-The output voltage and current are whatever makes the input
-voltage and current BOTH BE zero.
-
-\begin{minipage}{0.4\textwidth}
-\[
-\text{(nullator)\ }N_v = N/e// 
-N_I = N\backslash e
-\]
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\[
-\text{(norator)\ }N_v = N\backslash e// 
-N_I = N/e
-\]
-\end{minipage}
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{What are the conditions like?}
-
-\[
-\text{Extensor\ }= \sigma(C)(a_1\vee a_2\vee \ldots \vee a_d)
-\]
-\[
-C = \ldots + t + \ldots
-\]
-$t \leftrightarrow \text{\ sets of (``contractible'' non-port edges} 
-E_1, E_2$ for which
-\[
-N_V/E_1\backslash(E\setminus E_1) = \text{\ certain OMs on\ } P
-\]
-AND
-\[
-N_I/E_2\backslash(E\setminus E_2) = \text{\ certain OMs on\ } P
-\]
-
-Transfer resistance might be 0 and might be $\neq 0$ iff
-\[
-\exists E_1, E_2 \text{so (diag) and (diag)}
-\]
-
-($K_4$ Wheatstone bridge diagram)
-
-\[
-\frac{R_1}{R_2} > \frac{R_3}{R_4} 
-\text{\ neg\ }
-\frac{R_1}{R_2} < \frac{R_3}{R_4} 
-\text{\ pos\ }
-\]
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(15)}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(16)}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(17)}
-
-
-Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
-
-Given $N$ (matrix), construct $N^\perp$ 
-with orthog. comp. row space.
-
-Construct:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
-\[
-M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
-0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
-\]
-with columns labelled by $P_I\dunion P_V\dunion E$.
-
-Extensor $\mathbf{M}$ over $k[g_e, r_e](P_V\dunion P_I \dunion E)$
-is the product of $M$'s \textbf{row vectors}. The contraction result
-$\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
-\[
-\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
-\]
-
-$\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
-
-The Bollobos/Riordan/Zaslavsky, Traldi, Ellis-Monaghan, (sdc unpub)
-BRZ theory for well-definedness
-of ``Relative Tutte Polynomials for Colored Graphs'' ALL GOES THROUGH 
-(Diao and Hetyei \cite{RelTuttePoly}):
-The 2 BRZ conditions on (colors,initial values) $\Rightarrow$ 5;
-so does activity theory based on linear order on the non-port-elements.
-
-\begin{block}{In a nutshell}
-The 5 conditions $\Longrightarrow$ activities define an 
-unambiguous Tutte function 
-from the deletion/contraction and initial value formulas.\\
-
-Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
-expansion.\\
-
-(The rank-nullity conditions are satisfied in our application.)
-\end{block}
-
-\begin{block}{To specify the activity/deletion-contraction linear 
-order GLOBALLY is 
-UNNECESSARY.}
-The Gordon/McMahon computation-tree-based 
-activity theory also generalizes. (sdc).
-\end{block}
-\end{frame}
-
 
 
 
