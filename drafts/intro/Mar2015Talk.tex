@@ -51,6 +51,10 @@ Univ. at Albany\\
 \newcommand{\MVAR}[1]{{[#1]\;}}
 %
 \newcommand{\UNION}{\cup} %try to make this bold.
+%
+%Emphasize in color!
+\newcommand{\Remph}[1]{{\color{red}#1}}
+%
 %%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -372,8 +376,104 @@ $-g_Fr_{E\setminus F}$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(Rayleigh)}
+\begin{frame}
+\frametitle{Application: Rayleigh Identity, ``Neg. Spanning Tree Correlation''}
+\[
+\Gamma_e(G)\text{ is equivalent conductance across }e.
+\text{ Rayleigh: }0 \le \frac{\partial \Gamma_{p}}{\partial g_f} =
+\frac{\partial \frac{T_G}{T_{G/e}}}{\partial g_f}
+\]
+is equivalent to 
+\[
+0 \le \frac{\partial T_G}{\partial g_f}T_{G/e} - 
+       T_G\frac{\partial T_{G/e}}{\partial g_f} 
+=
+T_{G/f}T_{G/e} - T_GT_{G/e/f}
+\]
+In fact,
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+
+
 \end{frame}
+
+\begin{frame}
+\frametitle{Known Partial and Full Combinatorial Proofs}
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+
+\vfill
+Choe (2004) 
+proved essentially this using the vertex-based all-minors matrix tree theorem,
+combinatorial cases and Jacobi's theorem relating the minors of a matrix to
+the minors of its inverse..
+
+\vfill
+Cibulka, Hladky, Lacroix and Wagner (2008) gave a completely bijective proof
+that utilizes some natural 2:2 and 2:1 correspondances.
+
+\vfill
+\Remph{Difficulty:} Some terms on the left \Remph{cancel} and some
+reduce to terms with coefficients $\pm 2$.
+\vfill
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Linear Alg./Oriented Matroid Proof of Rayleigh's Identity}
+Let $R$ be the transfer resistance matrix for 2 ports across $e$ and $f$.
+Our result implies that
+\[
+\det R = \left|\begin{array}{cc} R_{ee} & R_{ef} \\ R_{fe} & R_{ff} \end{array}\right|
+= \alert{+} \frac{T_{G/e/f}}{T_G}
+\]
+It and better-known results tell us
+\[
+R_{ee} = \frac{T_{G/e}}{T_G};\;\;R_{ff} = \frac{T_{G/f}}{T_G};\;\;
+R_{ef}=R_{fe}=\frac{ T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} }{T_G}
+\]
+%Rayleigh's identity 
+$T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2$
+is immediate after substituting these into
+\[
+\det R = R_{ee}R_{ff}-(R_{ef})^2
+\]
+\alert{The $+$ follows from physical grounds if the $g_e, r_e \geq 0$.  Our
+characterization and proof are combinatorial.}
+\end{frame}
+
+\begin{frame}
+\frametitle{New Rayleigh's Identities!}
+
+The same method generates identities from
+\[
+\left|
+\begin{array}{ccc} R_{ee} & R_{ef} & R_{eg} \\ 
+                   R_{fe} & R_{ff} & R_{fg} \\
+                   R_{ge} & R_{gf} & R_{gg}
+\end{array}\right|
+= \alert{+} \frac{T_{G/e/f/g}}{T_G}
+\]
+ETC...
+
+\vfill
+
+(Applications???)
+
+\vfill
+
+\Remph{Might the same methods address a much harder problem:
+The same inequality for } forests \Remph{ instead of 
+spanning trees?}
+
+\vfill
+\end{frame}
+
 
 
 
