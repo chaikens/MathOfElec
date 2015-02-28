@@ -9,9 +9,9 @@
   \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
   \selectfont}%
 \fi\endgroup%
-\begin{picture}(930,1366)(2536,-1494)
-\put(2551,-886){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
+\begin{picture}(1705,1366)(2186,-1494)
+\put(2926,-736){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
 }}}}
-\put(3451,-886){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_2$}%
+\put(3076,-1036){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_2$}%
 }}}}
 \end{picture}%
