@@ -513,16 +513,16 @@ activity theory also generalizes. (sdc).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Voltage and Current graphs}
+\frametitle{Voltage and Current graphs $N_V$, $N_I$}
 
-\framebox{\begin{minipage}{0.4\textwidth}
-``Voltage graph'' (EE, NOT Gross, et. al.) represents KVL
-$\mathbf{v}\in \text{Cocycle space}$
+\framebox{\begin{minipage}{0.52\textwidth}
+``Voltage graph'' $N_V$ (EE\cite{HaslerNeirynck,PathologicalAct}, NOT Gross, ...) represents KVL
+$\mathbf{v}\in \text{Cocycles}$ W/ SOME $v_e \equiv 0$
 \end{minipage}}
 \framebox{
 \begin{minipage}{0.4\textwidth}
-``Current graph'' represents KCL
-$\mathbf{i}\in \text{Cycle space}$
+``Current graph'' $N_I$ represents KCL
+$\mathbf{i}\in \text{Cycles}$ WITH SOME FLOWS $\equiv 0$
 \end{minipage}}
 
 \begin{itemize}
@@ -533,15 +533,14 @@ They are EQUAL GRAPHS for resistor networks.
 For networks with idealized amplifiers, they are not 
 equal.  
 
-\item
-(more) Realistic amplifier model $=$ idealized amps. $+$ 
-resistors.
-
-\vfill
-(ideal op amp nullator/norator T diagram)
+\input{idealAmp.pspdftex}
 
 The output voltage and current are whatever makes the input
 voltage and current BOTH BE zero.
+
+\item
+(More) realistic amp. model $=$ idealized amp. $+$ 
+resistors.
 
 \end{itemize}
 
@@ -568,6 +567,7 @@ N_I = N/e
 \framebox{
 \begin{minipage}{0.2\textwidth}
 \Remph{nullator}
+\input{nullator.pspdftex}
 \[
 N_v = N/e
 \]
@@ -577,6 +577,7 @@ N_I = N\backslash e
 \end{minipage}}
 \framebox{\begin{minipage}{0.2\textwidth}
 \Remph{norator}
+\input{norator.pspdftex}
 \[
 N_v = N\backslash e
 \]
