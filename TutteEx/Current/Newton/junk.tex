@@ -1,0 +1,78 @@
+Parametrized, ring valued
+Tutte equations and functions (with empty port set), and 
+the universal ported Tutte invariant (called the big Tutte 
+polynomial by Las Vergnas) have been studied.  So has
+the (reduced) Laplacian matrix's determinant for a graph--This 
+determinant, according to the famous matrix tree theorem, equals
+the number of bases in the corresponding graphic matroid.  It is
+well-known that the number of bases in a Tutte invariant defined
+for all matroids.  More strongly, the following homogeneous generating
+function for the bases
+\[
+F(\mathcal{N}(\emptyset,E))=
+\sum_{B\in\mathcal{B}(\mathcal{N})}
+\left(\prod_{e\in B} g_e
+\right)
+\left(\prod_{e\in E\setminus B} r_e
+\right)
+=
+\sum_{B\in\mathcal{B}(\mathcal{N})}
+g_B\;\;r_{\scomp{B}}
+\]
+is a Tutte function (with $P=\emptyset$).
+These background topics will be surveyed and extended as needed.
+
+
+This paper's main topic is a parametrized function from certain
+(ported) extensors to extensors.  An extensor is a 
+(fully or completely\footnote{We will follow authors such as
+\cite{JacobsonI} in omitting this qualifier for such decomposible elements})
+decomposible element in an exterior algebra (i.e., algebra of antisymmetric
+tensors).  Our main result (Theorem \textbf{FILLIN}) is that 
+if extensor deletion and contraction are defined in a way that is
+consistant with our function definition, then our function obeys 
+identities in exterior algebra that are analogs of the Tutte 
+equations.  
+
+
+One corollary applies to the class of ported unimodular oriented
+matroids:  Our function, restricted to the unimodular extensors
+which represent this class, yields an extensor-valued Tutte function 
+that sometimes distinguishes different orientations of the same 
+matroid.
+
+When the corollary is applied with the
+parameters all set to $1$, we get new Tutte-like invariants
+that can sometimes distinguish different orientations of the same matroid.
+
+\subsection{Ports and Parameters}
+
+The idea to restrict deletion/contraction decomposition so it does
+not apply to some distinguished elements 
+is a natural one.  It was applied to invariants of
+matroid morphisms (or strong maps) by Las 
+Vergnas\cite{MR0419272,SetPointedLV,EtienneLasVergnasMorphismVectorial}.
+The equations for 
+ported Tutte invariants (i.e., $F$ with the $r_e=g_e=1$ and 
+invariant under port-preserving matroid isomorphisms) determine
+the 
+\textbf{big Tutte polynomial} defined by Las Vergnas in \cite{SetPointedLV}.
+Whereas the traditional Tutte polynomial has only two variables,
+which correspond to the isomorphism classes of the indecomposible 
+loop and coloop matroids, the generalization adds additional
+variables corresponding to the additional indecomposible matroids
+on sets of port elements. 
+
+Our motivation there and here
+comes from distinguishing as ports some edges
+in a directed graph model of an electrical network.  The ports
+model two-terminal plugs or sockets where the network interacts
+with an enviroment; the other edges model resistors.
+
+In this paper we add the observation that if ported Tutte 
+decomposition is done on an \emph{oriented} matroid, the indecomposible
+minors include connected \emph{oriented} matroids on sets of port elements.
+Therefore, if $\mathcal{N}_1$ and $\mathcal{N}_2$ are different orientations
+of the same orientable matroid, then 
+$F(\mathcal{N}_1)\neq F(\mathcal{N}_2)$ is possible for a ported
+Tutte function $F$.  

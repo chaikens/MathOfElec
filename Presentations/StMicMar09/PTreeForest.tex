@@ -1,0 +1,635 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{url}
+
+
+
+
+%\usetheme{Berlin}
+\title{Ported Tree and Forest Polynomial Applications}
+\author{Seth Chaiken\\
+CS Department\\
+Univ. at Albany\\
+State Univ. of New York\\
+\url{sdc@cs.albany.edu}\\
+\url{http://www.cs.albany.edu/~sdc}
+%\verb|sdc@cs.albany.edu|\\
+%\verb|http://www.cs.albany.edu/~sdc|
+}
+%\address{Computer Science Department\\
+%The University at Albany (SUNY)\\
+%Albany, NY 12222, U.S.A.}
+
+%\email{\tt sdc@cs.albany.edu}
+\date{Version of \today}
+%March 26, 2009\\
+%St. Michael's College and Univ. Vermont\\
+%Combinatorics Seminar}
+\begin{document}
+
+\newcommand{\Remph}[1]{{\color{red}#1}}
+
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\en}{\;\raisebox{-0.2\height}{\input{e1b.pdf_t}}}
+\newcommand{\ez}{\;\;\raisebox{-0.2\height}{\input{e0b.pdf_t}}}
+
+\newcommand{\pn}{\;\raisebox{-0.2\height}{\input{p1b.pdf_t}}}
+\newcommand{\qn}{\;\raisebox{-0.2\height}{\input{q1b.pdf_t}}}
+\newcommand{\pz}{\;\;\raisebox{-0.2\height}{\input{p0b.pdf_t}}}
+\newcommand{\qz}{\;\;\raisebox{-0.2\height}{\input{q0b.pdf_t}}}
+\newcommand{\pzqz}{\;\raisebox{-0.2\height}{\input{p0q0b.pdf_t}}}
+\newcommand{\pzqn}{\;\raisebox{-0.2\height}{\input{p0q1b.pdf_t}}}
+\newcommand{\pnqz}{\;\raisebox{-0.2\height}{\input{p1q0b.pdf_t}}}
+\newcommand{\pnqn}{\;\raisebox{-0.2\height}{\input{p1q1b.pdf_t}}}
+\newcommand{\pqegg}{\;\raisebox{-0.2\height}{\input{pqeggb.pdf_t}}}
+
+\newcommand{\pnsub}{\input{p1.pdf_t}}
+\newcommand{\qnsub}{\input{q1.pdf_t}}
+\newcommand{\pzsub}{\input{p0.pdf_t}}
+\newcommand{\qzsub}{\input{q0.pdf_t}}
+\newcommand{\pzqzsub}{\input{p0q0.pdf_t}}
+\newcommand{\pzqnsub}{\input{p0q1.pdf_t}}
+\newcommand{\pnqzsub}{\input{p1q0.pdf_t}}
+\newcommand{\pnqnsub}{\input{p1q1.pdf_t}}
+\newcommand{\pqeggsub}{\input{pqegg.pdf_t}}
+
+
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+\section*{Outline}
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{$P$-subbasis (Spanning Tree) Polynomial}
+\[
+\mathcal{T}_P(G)=\sum_{T:P-\text{subbasis}}
+[G/T|P]x^Ty^{E\setminus T}
+=
+\sum_{T:P-\text{subbasis}}
+[G/IP(T)|P]x^Ty^{E\setminus T}
+\]
+\[
+\text{with notation: } z^S=\prod_{e\in S}z_e (z = x \text{ or } y).
+\]
+Remark: If $G$ is a tree, then $E$ is the one 
+$P$-subbasis, $IP(E)=\emptyset$ and  $IA(E)=E$.
+\[
+\mathcal{T}(G)=x_e\mathcal{T}(G/e)+y_e\mathcal{T}(G\setminus e)
+\;\;\text{if $e\not\in P$ is a non-separator.}
+\]
+\[
+\mathcal{T}(G)=y_e\mathcal{T}(G\setminus e)
+\;\;\text{if $e\not\in P$ is a loop.}
+\]
+\[
+\mathcal{T}(G)=x_e\mathcal{T}(G/ e)\;\;\text{if $e$ is an isthmus.}
+\]
+To enumerate the spanning trees in $E$, set
+\[
+[\text{all loops}]\leftarrow 1\;\;\;\text{ and }\;\;\;
+[\text{other $P$-quotients}]\leftarrow 0
+\]
+\end{frame}
+
+
+\begin{frame}
+\frametitle{$P$-ported Forest Polynomial}
+
+\[
+\mathcal{F}(G)=\sum_{F\subseteq E:F\text{ is a forest}}
+[G/F|P]x^F
+\]
+The $\sum x^F$ coefficient of each $[Q]$ variable enumerates
+a class of forests.  Examples: $[\pzqz]\rightarrow$ $F$ spans
+both $p$ and $q$; $[\pnqn]\rightarrow$ $F$ spans neither
+$p$ nor $q$.
+\[
+\mathcal{F}(G)=\sum_{T:P-\text{subbasis}}
+[G/T|P]x^{IP(T)}(1+x)^{IA(T)}
+\]
+\[=
+\sum_{T:P-\text{subbasis}}
+[G/IP(T)|P]x^{IP(T)}\sum_{F\subseteq IA(T)}x^F
+\]
+\[\text{where  }(1+x)^S=\prod_{e\in S}(1+x_e)\]
+\[
+\mathcal{F}(G)=x_e\mathcal{F}(G/e)+\mathcal{F}(G\setminus e)
+\;\;\text{if $e\not\in P$ is a non-separator.}
+\]
+\[
+\mathcal{F}(G)=\mathcal{F}(G\setminus e)
+\;\;\text{if $e\not\in P$ is a loop.}
+\]
+\[
+\mathcal{F}(G)=(1+x_e)\mathcal{F}(G/ e)
+\;\;\text{if $e\not\in P$ is an isthmus.}
+\]
+\end{frame}
+
+\section{Electricity in Graphs}
+\begin{frame}
+\frametitle{Spanning Tree polys solve Equations of Kirchhoff and Ohm}
+\begin{block}{Variables}
+\begin{minipage}{1.25in}
+For each $e\in E(G)$ or $p\in P$,
+\end{minipage}
+\begin{minipage}{2.7in}
+$v_e$ or $v_p$ is the \Remph{voltage drop} across $e$ or $p$;\\
+$i_e$ or $i_p$ is the \Remph{current flow} through $e$ or $p$.
+\end{minipage}
+\end{block}
+\begin{block}{Equations}
+For some (unimodular) basis for the cocycle space $(k^j_{e \text{ or } p})$,
+$j=1,\ldots,\text{rank}(G)$, 0 net flow across cuts:
+\[
+\sum_{e\in E}k^j_e i_e + \sum_{p\in P} k^j_p i_p = 0
+\text{ for }j=1,\ldots,\text{rank}(G).
+\]
+For some (unimodular) basis for the cycle space $(c^h_{e \text{ or } p})$,
+$h=1,\ldots,\text{nullity}(G)$, 0 sum of diffs. of potential around cycles:
+\[
+\sum_{e\in E}c^h_e v_e + \sum_{p\in P} c^h_p v_p = 0
+\text{ for }h=1,\ldots,\text{nullity}(G).
+\]
+For each $e\in E:\;\;\;$ $x_ev_e - y_ei_e = 0$\\
+{\small Physical Conductance = $x_e:y_e$, Resistance = $y_e:x_e$}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Matrix $M$:Flow, Potential Eqs. (Kirchhoff's) and Ohm's}
+\input{Tableau.pdf_t}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution using Determinants}
+Let us apply current $i_{p_{\beta}}$ through port edge $p_{\beta}$,
+leave the other ports ``open'' (means $i_{p_{\gamma}}=0$, $\gamma\neq\beta$)
+and determine what is voltage drop $v_{p_{\alpha}}$ across port $p_{\alpha}$.
+
+\[
+v_{p_{\alpha}}=-\frac{M[I_{e_1},...,I_{e_n},V_{e_1},...,V_{e_n},
+                V_{p_1}...,\Remph{I_{p_{\beta}}},...,V_{p_k}]}
+                   {M[I_{e_1},...,I_{e_n},V_{e_1},...,V_{e_n},
+                V_{p_1}...,\Remph{V_{p_{\alpha}}},...,V_{p_k}]}
+                  \cdot i_{p_{\beta}}
+\]
+In short: Coefficients in the linear relationships among port voltage
+and current variables are \Remph{ratios of full-rowed minors of $M$},
+all with
+\begin{itemize}
+\item $k=|P|$ of the $2k$ column labels 
+$I_{p_1},\ldots,I_{p_k},V_{p_1},\ldots,V_{p_k}$.
+\item
+\Remph{All} $2n=2|E|$ column labels
+$I_{e_1},\ldots,I_{e_n},V_{e_1},\ldots,V_{e_n}$.
+\end{itemize}
+
+\begin{theorem}
+Each of these minors (with carefully defined sign)
+satisfies the $P$-ported parametrized
+Tutte equations.
+\end{theorem}
+
+Remark: Ratios of these minors with numerator gotten by replacing 
+\Remph{more than one} denominator label are \Remph{higher order minors}
+of a square matrix relating some $k$ port variables with some
+$k$ port variables.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Why the Tutte equations? Sketch}
+
+The last row is $(0 \cdots 0 y_{e_n} 0 \cdots -x_{e_n} 0 \cdots 0)$.
+
+So, each minor can be written 
+\[
+-x_{e_n}(\text{a }(2n+k-1)\text{ by }(2n+k-1)\text{ minor})
+\]
+\[
++y_{e_n}(\text{a }(2n+2k-1)\text{ by }(2n+k-1)\text{ minor})
+\]
+
+In the first minor, the column for $e_n$ of the cycle matrix was deleted.
+
+Do row operations so the column for $e_n$ of the cocycle matrix becomes
+$(1,0,\cdots,0)^t$.
+
+The resulting matrix corresponds to $G/e_n$.  The other minor
+corresponds to $G\!\setminus\! e_n$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Application: Rayleigh Identity, ``Neg. Spanning Tree Correlation''}
+\[
+\Gamma_e(G)\text{ is equivalent conductance across }e.
+\text{ Rayleigh: }0 \le \frac{\partial \Gamma_{p}}{\partial g_f} =
+\frac{\partial \frac{T_G}{T_{G/e}}}{\partial g_f}
+\]
+is equivalent to 
+\[
+0 \le \frac{\partial T_G}{\partial g_f}T_{G/e} - 
+       T_G\frac{\partial T_{G/e}}{\partial g_f} 
+=
+T_{G/f}T_{G/e} - T_GT_{G/e/f}
+\]
+In fact,
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Known Partial and Full Combinatorial Proofs}
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+
+\vfill
+Choe (2004) 
+proved essentially this using the vertex-based all-minors matrix tree theorem,
+combinatorial cases and Jacobi's theorem relating the minors of a matrix to
+the minors of its inverse..
+
+\vfill
+Cibulka, Hladky, Lacroix and Wagner (2008) gave a completely bijective proof
+that utilizes some natural 2:2 and 2:1 correspondances.
+
+\vfill
+\Remph{Difficulty:} Some terms on the left \Remph{cancel} and some
+reduce to terms with coefficients $\pm 2$.
+\vfill
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Linear Alg./Oriented Matroid Proof of Rayleigh's Identity}
+Let $R$ be the transfer resistance matrix for 2 ports across $e$ and $f$.
+Our result implies that
+\[
+\det R = \left|\begin{array}{cc} R_{ee} & R_{ef} \\ R_{fe} & R_{ff} \end{array}\right|
+= \alert{+} \frac{T_{G/e/f}}{T_G}
+\]
+It and better-known results tell us
+\[
+R_{ee} = \frac{T_{G/e}}{T_G};\;\;R_{ff} = \frac{T_{G/f}}{T_G};\;\;
+R_{ef}=R_{fe}=\frac{ T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} }{T_G}
+\]
+%Rayleigh's identity 
+$T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2$
+is immediate after substituting these into
+\[
+\det R = R_{ee}R_{ff}-(R_{ef})^2
+\]
+\alert{The $+$ follows from physical grounds if the $g_e, r_e \geq 0$.  Our
+characterization and proof are combinatorial.}
+\end{frame}
+
+\begin{frame}
+\frametitle{New Rayleigh's Identities!}
+
+The same method generates identities from
+\[
+\left|
+\begin{array}{ccc} R_{ee} & R_{ef} & R_{eg} \\ 
+                   R_{fe} & R_{ff} & R_{fg} \\
+                   R_{ge} & R_{gf} & R_{gg}
+\end{array}\right|
+= \alert{+} \frac{T_{G/e/f/g}}{T_G}
+\]
+ETC...
+
+\vfill
+
+(Applications???)
+
+\vfill
+
+\Remph{Might the same methods address a much harder problem:
+The same inequality for } forests \Remph{ instead of 
+spanning trees?}
+
+\vfill
+\end{frame}
+
+\section{Correlation in Forests}
+
+\begin{frame}
+\frametitle{Negative Correlation in Forests Conjecture}
+Conjecture[Grimmett-Winker, Kahn and Pemantle]:
+For every pair of edges $p,q$ in a graph, let
+$F_p$ ($F_q$) enumerate all forests with $p$ ($q$ resp.),
+$F_{pq}$ enumerate those with both $p$ and $q$, and
+$F$ enumerate all forests.
+\[
+F_pF_q-FF_{pq}\geq 0 
+\text{ if }x_e,x_p,x_q\geq 0\text{ for all }e\in E\text{ and }p,q.
+\]
+Consider random forests, take for $e, p, q$: $x_e=Pr(e)/(1-Pr(e))$.
+\[
+\text{Corr}(p\in RF,q\in RF) =
+\frac{-1}{\sigma^2}\left(\frac{F_p}{F}\frac{F_q}{F}-
+\frac{F_{pq}}{F}\right).
+\]
+\[\text{By calculation: }
+W(G)=\mathcal{F}_{\pnsub}\mathcal{F}_{\qnsub}-
+\mathcal{F}_{\text{all}}\mathcal{F}_{\pnqnsub}=
+\frac{F_pF_q-FF_{pq}}{x_px_q}
+\]
+Example where the conjecture is true: If $p$ and $q$ are in series, then
+$\mathcal{F}_{\pnsub}=\mathcal{F}_{\qnsub}=\mathcal{F}_{\text{all}}$
+and 
+$\mathcal{F}_{\pnqnsub}=\mathcal{F}_{\text{all}}-\mathcal{F}_{\pqeggsub}$,
+so 
+\[
+W(G)=\mathcal{F}_{\text{all}}\mathcal{F}_{\text{all}}-
+\mathcal{F}_{\text{all}}(\mathcal{F}_{\text{all}}-\mathcal{F}_{\pqeggsub})
+= \mathcal{F}_{\text{all}}\mathcal{F}_{\pqeggsub} \geq 0
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Wagner's Conjectured Formula}
+\[
+W(G)=\mathcal{F}_{\pnsub}\mathcal{F}_{\qnsub}-
+\mathcal{F}_{\text{all}}\mathcal{F}_{\pnqnsub}=?
+\sum_{A\subseteq E}x^A\left((\sum \pm x^L)^2\right)
+\]
+For each $A\subseteq E$, the sum is over (some?) forests $L$,
+$L\cap A=\emptyset$, for which there is some $B\subseteq L$,
+$A\cup B\cup\{p,q\}$ \Remph{is a circuit}.
+
+We call $A\cup B\cup\{p,q\}$ a \Remph{linking circuit}.
+The signs are related to the \Remph{relative orientations} of 
+$p$ and $q$ in the linking circuit.
+
+$W^?(G)$ denotes Wagner's formula.  Since $L\cap A=\emptyset$,
+any $x_e^2$ can only come from one or more $(\sum\cdots)^2$ expressions.
+
+We sketch a $P$-ported Tutte decomposition approach
+to the conjecture.
+(It remains unproven.)
+\end{frame}
+
+\begin{frame}
+\frametitle{Towards Tutte Decompositions for $p,q$-in-Forest Correlation}
+\[
+W(G)=\mathcal{F}_{\pnsub}\mathcal{F}_{\qnsub}-\mathcal{F}_{\text{all}}\mathcal{F}_{\pnqnsub}
+\]
+Each of the four $\mathcal{F}_R$ satisfy separator-strong $P$-ported
+Tutte equations with $P=\{p,q\}$:
+\[
+\mathcal{F}_R(G)=x_e\mathcal{F}_R(G/e)+\mathcal{F}_R(G\setminus e)
+\text{ for non-sep. }e\in E.
+\]
+\[
+\mathcal{F}_R(G)=x_e\mathcal{F}_R(G/e)
+\text{ for isthmus }e\;\;\;
+\mathcal{F}_R(G)=\mathcal{F}_R(G\setminus e)
+\text{ for loop }e.
+\]
+Therefore;
+\[
+W(G) = W(G\setminus e) + x_e^2 W(G/e) + x_e B(G/e,G\setminus e)
+\]
+Where:
+\[
+\begin{split}
+B(G_1,G_2) =\;\;
+&\mathcal{F}_{\pnsub}(G_1)\mathcal{F}_{\qnsub}(G_2)+
+\mathcal{F}_{\qnsub}(G_1)\mathcal{F}_{\pnsub}(G_2)\\
+-&\mathcal{F}_{\text{all}}(G_1)\mathcal{F}_{\pnqnsub}(G_2)-
+\mathcal{F}_{\pnqnsub}(G_1)\mathcal{F}_{\text{all}}(G_2)
+\end{split}
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Towards Tutte Decompositions...}
+\[
+W(G) = W(G\setminus e) + x_e^2 W(G/e) + x_e B(G/e,G\setminus e)
+\]
+\[
+\begin{split}
+\text{Where }B(G_1,G_2) =\;\;
+&\mathcal{F}_{\pnsub}(G_1)\mathcal{F}_{\qnsub}(G_2)+
+\mathcal{F}_{\qnsub}(G_1)\mathcal{F}_{\pnsub}(G_2)\\
+-&\mathcal{F}_{\text{all}}(G_1)\mathcal{F}_{\pnqnsub}(G_2)-
+\mathcal{F}_{\pnqnsub}(G_1)\mathcal{F}_{\text{all}}(G_2)
+\end{split}
+\]
+\[
+B(G_1,G_2) = x_eB(G_1/e,G_2)+B(G_1\setminus e,G_2)
+\text{ if }e\not\in \{p, q\}\text{ is non-sep. in }G_1.
+\]
+\[
+B(G_1,G_2) = (x_e+1)B(G_1/e,G_2)
+\text{ if }e\not\in \{p, q\}\text{ is an isthmus in }G_1.
+\]
+\[
+B(G_1,G_2) = B(G_1\setminus e,G_2)
+\text{ if }e\not\in \{p, q\}\text{ is a loop in }G_1.
+\]
+\Remph{And similarly for $G_2$}.
+
+Values on indecomposibles: $W(\pqegg)=1$, $W(\text{ 4 others})=0$.
+
+Values of $B$ on \Remph{pairs} of indecomposibles are
+expressed in a symmetric 5x5 table.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{An Approach to an Inductive Proof}
+Verify $W(G)=W^?(G)$ for small cases.  Use induction
+to verify $W(G)=W^?(G)$ for separable $G$.
+\[
+W(G)=x_e^2W(G/e)+W(G\setminus e)+x_eB(G/e,G\setminus e)
+\]
+\[
+=\text{ (by induction) }
+x_e^2W^?(G/e)+W^?(G\setminus e)+x_eB(G/e,G\setminus e)
+\]
+From a combinatorial definition (of $\sigma(A,L_1,L_2)=\sigma_G$)
+\[
+W^?(G)=\sum_{A\subseteq E}x^A(\sum_L{\pm x^L})^2=
+\sum_{A\subseteq E}x^A(\sum_{L_1,L_2\subseteq E\setminus A}
+(\sigma(A,L_1,L_2) x^{L_1}x^{L_2}))
+\]
+extract a combinatorial description of the terms with degree 1 in $x_e$.
+There are 3 kinds: $x_e$ in $x^A$, $x_e$ in $x^{L_1}$, $x_e$ in $x^{L_2}$.
+This will be completed to a proof if we verify (combinatorially)
+that all non-separable $G$:
+\[
+B(G/e,G\setminus e)=\frac{\partial W^?(G)}{\partial x_e}|_{x_e=0}
+\]
+
+%Example: Suppose $W(G')=W^?(G')$ is true for $G'$, and
+%$G=G'\oplus G_0$ where $\{p,q\}\cap G'=\emptyset$.
+
+\end{frame}
+
+\begin{frame}{Bi-Tutte Decomposition for $B$}
+Remember, $B$ is well defined and 
+\[
+B(G/e,G\!\setminus\! e)=\sum_{F_1,F_2:\text{ forests in }E} x^{F_1}x^{F_2}
+B(G/e/F_1|P,G\!\setminus\! e/F_2|P).
+\]
+
+Since $B(G/e/F_1|P,G\!\setminus\! e/F_2|P)=
+B(G/F_1/e|P,G/F_2\!\setminus\! e|P)=
+B((G/F_1|P\cup e)/e,(G/F_2|P\cup e)\!\setminus\!e)$,
+we can use \Remph{ONE} $\{p,q,e\}$-ported Tutte tree,
+and then at each leaf labelled by $Q$, append at most
+two branches, ``Left'' for $Q/e$ and ``Right'' for 
+$Q\setminus e$.
+
+The monomials have the form $c_{A,B}x^{2A}x^B$.
+There are at most $2^{|B|}$ Left/Right pairs of 
+new leaves ($Q_L/e$, $Q_R\setminus e$); the pair
+contributes $B(Q_L/e,Q_R\setminus e)$ to $c_{A,B}$.
+
+This at least helps us extract the coefficients of
+particular terms, and how various partitions of
+$B$ contribute....
+\end{frame}
+
+\end{document}
+
+
+\begin{frame}
+\[
+\mathcal{F}_{\{p,q\}}=
+[\pzqz]\mathcal{F}_{\pzqzsub} +
+[\pzqn]\mathcal{F}_{\pzqnsub} +
+[\pnqz]\mathcal{F}_{\pnqzsub} +
+[\pnqn]\mathcal{F}_{\pnqnsub} +
+[\pqegg]\mathcal{F}_{\pqeggsub}
+\]
+\[
+\mathcal{F}_{\pnsub}=\mathcal{F}_{\pnqnsub}+\mathcal{F}_{\pnqzsub}+
+\mathcal{F}_{\pqeggsub}
+\]
+\[
+\mathcal{F}_{\qnsub}=\mathcal{F}_{\pnqnsub}+\mathcal{F}_{\pzqnsub}+
+\mathcal{F}_{\pqeggsub}
+\]
+\[
+W(G)=\mathcal{F}_{\pnsub}\mathcal{F}_{\qnsub}-\mathcal{F}\mathcal{F}_{\pnqnsub}
+\]
+\[
+W(G)\geq 0\text{ whenever }x_e\geq 0\text{ for all }e\in E(G)
+\]
+\end{frame} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%% REMOVED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Solution---Theorem}
+\begin{theorem}[After Zaslavsky, Bollobas-Riordan, Ellis-Monaghan-Traldi]
+$\mathcal{F}$ given with parameters and initial values in an $R$-module $M$
+\Remph{has a Tutte function} if and only if the following equations
+are satisfied whenever they arise from a member $G\in\mathcal{F}$ with
+two or three $e, f, g$ elements not in $P$:
+\begin{enumerate}
+\item With $e,f$ an isolated 2-circuit in $G$, 
+$I(G\setminus\{e,f\})(x_eY_f+y_eX_f)=
+I(G\setminus\{e,f\})(x_fY_e+y_fX_e)$.
+\item
+With $e,f,g$ an isolated 3-circuit in $G$, 
+$I(G\setminus\{e,f,g\})X_g(x_ey_f+y_eX_f)=
+I(G\setminus\{e,f,g\})X_g(x_fy_e+y_fX_e)$. 
+\item 
+With $e,f,g$ an isolated 3-cocircuit in $G$, 
+$I(G\setminus\{e,f,g\})Y_g(x_eY_f+y_ex_f)=
+I(G\setminus\{e,f,g\})Y_g(x_fY_e+y_fx_e)$. 
+\item With $e,f$ in series and not isolated (from elements 
+in $P$) in $G$,
+$I(G\setminus\{e,f\})(x_eY_f+y_eX_f)=
+I(G\setminus\{e,f\})(x_fY_e+y_fX_e)$.
+\item With $e,f$ in parallel and not isolated 
+in $G$,
+$I(G/e\setminus f)(x_eY_f+y_ex_f)=
+I(G/e\setminus f)(x_fY_e+y_fx_e)$.
+\end{enumerate}
+\end{theorem}
+\end{frame}
+
+This $\mathcal{F}_{\input{p1.pdf_t}}$ 
+$\mathcal{F}_{\input{q1.pdf_t}}$
+$\mathcal{F}_{\input{p0.pdf_t}}$
+$\mathcal{F}_{\input{q0.pdf_t}}$
+$\mathcal{F}_{\input{p1q1.pdf_t}}$
+$\mathcal{F}_{\input{p0q1.pdf_t}}$
+$\mathcal{F}_{\input{p1q0.pdf_t}}$
+$\mathcal{F}_{\input{pqegg.pdf_t}}$
+ notation is s(l)ick. Even $\pqegg$ inside text.
+
+\begin{frame}
+\frametitle{A Tutte Tree with Bi-Tutte Trees at Each Node}
+\begin{block}{Tree for $W(G)$}
+values on indecomposibles
+\end{block}
+\begin{block}{Bi-Tree for $R(G_1,G_2)$}
+\end{block}
+\begin{block}{One Tree for $R(G/e,G\setminus e)$}
+\end{block}
+\end{frame}
+

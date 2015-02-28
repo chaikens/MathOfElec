@@ -1,0 +1,525 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{url}
+
+
+
+
+%\usetheme{Berlin}
+\title{Ported Parametrized Tutte Functions}
+\author{Seth Chaiken\\
+CS Department\\
+Univ. at Albany\\
+State Univ. of New York\\
+\url{sdc@cs.albany.edu}\\
+\url{http://www.cs.albany.edu/~sdc}
+%\verb|sdc@cs.albany.edu|\\
+%\verb|http://www.cs.albany.edu/~sdc|
+}
+%\address{Computer Science Department\\
+%The University at Albany (SUNY)\\
+%Albany, NY 12222, U.S.A.}
+
+%\email{\tt sdc@cs.albany.edu}
+\date{Version of \today}
+%March 26, 2009\\
+%St. Michael's College and Univ. Vermont\\
+%Combinatorics Seminar}
+\begin{document}
+
+\newcommand{\Remph}[1]{{\color{red}#1}}
+
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\en}{\;\raisebox{-0.2\height}{\input{e1b.pdf_t}}}
+\newcommand{\ez}{\;\;\raisebox{-0.2\height}{\input{e0b.pdf_t}}}
+
+\newcommand{\pn}{\;\raisebox{-0.2\height}{\input{p1b.pdf_t}}}
+\newcommand{\qn}{\;\raisebox{-0.2\height}{\input{q1b.pdf_t}}}
+\newcommand{\pz}{\;\;\raisebox{-0.2\height}{\input{p0b.pdf_t}}}
+\newcommand{\qz}{\;\;\raisebox{-0.2\height}{\input{q0b.pdf_t}}}
+\newcommand{\pzqz}{\;\raisebox{-0.2\height}{\input{p0q0b.pdf_t}}}
+\newcommand{\pzqn}{\;\raisebox{-0.2\height}{\input{p0q1b.pdf_t}}}
+\newcommand{\pnqz}{\;\raisebox{-0.2\height}{\input{p1q0b.pdf_t}}}
+\newcommand{\pnqn}{\;\raisebox{-0.2\height}{\input{p1q1b.pdf_t}}}
+\newcommand{\pqegg}{\;\raisebox{-0.2\height}{\input{pqeggb.pdf_t}}}
+
+\newcommand{\pnsub}{\input{p1.pdf_t}}
+\newcommand{\qnsub}{\input{q1.pdf_t}}
+\newcommand{\pzsub}{\input{p0.pdf_t}}
+\newcommand{\qzsub}{\input{q0.pdf_t}}
+\newcommand{\pzqzsub}{\input{p0q0.pdf_t}}
+\newcommand{\pzqnsub}{\input{p0q1.pdf_t}}
+\newcommand{\pnqzsub}{\input{p1q0.pdf_t}}
+\newcommand{\pnqnsub}{\input{p1q1.pdf_t}}
+\newcommand{\pqeggsub}{\input{pqegg.pdf_t}}
+
+
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+\section*{Outline}
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Generalizing Tutte Functions}
+
+\begin{frame}
+\frametitle{Our Ported Parametrized {\small separator-strong} Tutte Equations}
+\begin{itemize}
+\item
+$T(G)=x_eT(G/e)+y_eT(G\setminus e)$\\  
+if  $e$ is a non-separator and  $e\not\in P$.
+\item
+$T(G)=X_eT(G/e) \text{ if } e 
+\text{ is a coloop (isthmus) and } e\not\in P.$
+\item
+$T(G)=Y_eT(G\setminus e) \text{ if } e
+\text{ is a loop and } e\not\in P.$
+\end{itemize}
+\begin{block}{They express two generalizations of Famous Tutte Polynomial properties}
+\begin{enumerate}
+\item
+We include four generally different parameters for each $e$\\
+($x_e$, $y_e$ in additive equation; $X_e$, $Y_e$ in
+separator multiplicative equations).\\
+Zaslavsky, Bollobas-Riordan, Ellis-Monaghan-Traldi:\\
+\Remph{NO SOLUTION} unless conditions hold on the
+parameters and $T(\emptyset)$.
+
+\item
+Deletion ($G\setminus e$), Contraction ($G/e$) and
+reduction of separators ($T(G'\oplus\ez)=Y_eT(G')$,
+$T(G'\oplus\en)=X_eT(G')$) is \Remph{restricted to
+$e\not\in P$}.\\
+Las Vergnas.  Diao-Hetyei and sdc combined (1) with (2).
+\end{enumerate}
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Famous Tutte Polynomial}
+
+\begin{block}{Recursive charactization}
+Take $P=\emptyset$, $x_e=y_e=1$, $X_e=X$ and $Y_e=Y$ for
+all $e$,\\
+define $T(\emptyset)=1$:
+
+$T(G)(X,Y)$ is then a well-defined polynomial in $X,Y$.
+\end{block}
+
+\begin{block}{Interesting graph or matroid invariants
+are evaluations of $T(G)$ for values of $X,Y$.}
+\begin{itemize}
+\item $T(G;1,1)=$ number of spanning trees (in a connected
+graphs) or number of bases (in a matroid).
+\item $T(G;\text{???}(-\lambda))=$ number of graph colorings over
+$\lambda$ colors (\Remph{chromatic polynomial}).
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Tutte Equations}
+\begin{block}{Classical Tutte Equations}
+$T(G)$ is a matroid \emph{invariant} that satisfies:
+\[
+T(G)=T(G/e)+T(G\setminus e)\text{ if $e$ is a non-separator}
+\]
+\[
+T(G_1\oplus G_2)=T(G_1)T(G_2)
+\]
+and so it is a polynomial in $X$ and $Y$ where
+\[
+X=T(\text{coloop, i.e. one element isthmus matroid})
+\]
+\[
+Y=T(\text{(one element) loop matroid}).
+\]
+\Remph{provided we know that } the Tutte equations
+uniquely determine $T(G)$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Well-definedness of Tutte Eq. Solutions---Newer, Easy Way}
+
+\begin{theorem}
+The following polynomial in $u$, $w$ defined below for all
+matroids $G$ satisfies the additive and multiplicative
+Tutte Equations:
+\[
+R(G)=\sum_{A\subseteq E}u^{\text{rank}(G)-\text{rank}(A)}
+                        w^{|A|-\text{rank}(A)}
+\]
+\end{theorem}
+\begin{corollary}
+$T(G;X,Y)$ is well-defined by $R(G)(X-1,Y-1)$.
+\end{corollary}
+\begin{proof}
+Verify that $R(\en)=u+1$, $R(\ez)=v+1$;
+use $T(\en)=X$, $T(\ez)=Y$; and apply
+induction on $|E|$.
+\end{proof}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Well-definedness of Tutte Eq. Solutions---Orig, Hard Way}
+\begin{theorem}[Tutte, Brylawski]
+\[
+T(X,Y)=\sum_{\text{Bases }B\subseteq E}
+X^{\text{Internal Activity}(B)}
+Y^{\text{External Activity}(B)}
+\]
+\Remph{independently} of $E$'s order used to define
+the activities.
+\end{theorem}
+\end{frame}
+
+\begin{frame}{Reminder about Activities}
+
+Given a linear order on $E$,\\
+\hspace{0.5in}Given a basis $B$ (spanning tree if $G$ is connected):
+\begin{itemize}
+\item $e\not\in B$ is \Remph{externally active} if $e$ is the 
+\Remph{smallest} element of the (unique) circuit in 
+$B\cup\{e\}$.
+\item $e\in B$ is \Remph{internally active} if $e$ is the 
+\Remph{smallest} element of the (unique) cocircuit in 
+$E\setminus B\cup\{e\}$.
+\item $\text{Internal (External) Activity}(B)$ is the 
+\Remph{number} of internally (externally) active elements.
+\end{itemize}
+
+\Remph{Huh??} 
+We will get intuition for this and extend it with $P\neq\emptyset$
+with a Tutte (Computation) Tree (Gordon-MacMahon) view.
+
+\vfill
+H. Crapo also proved the well-definedness of the
+Tutte polynomial from its corank-nullity polynomial 
+expression.  But that doesn't fully generalize to
+parametrized Tutte functions (Zaslavsky).
+
+\end{frame}
+
+\subsection{Tutte (Computation) Trees}
+\begin{frame}
+\frametitle{Recursive Computations and Trees}
+\begin{itemize}
+\item Every process of applying 
+subset of the Tutte equations applied left-to-right
+to calculate some $T(G)$ is a \Remph{recursive computation}.
+\item Recursive computations (ignoring dataflow independent 
+orderings) correspond to \Remph{computation trees}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The result from a Tutte Tree}
+bla bla
+\vfill
+It is natural, but not mandatory, to use a somehow-defined
+\Remph{next} non-separator to determine the two recursions
+used to compute $T(G')$ for an intermediate minor $G'$.
+\vfill
+Tutte (computation) trees were defined formally and
+used by Gordon-MacMahon to study Tutte polynomials of
+\Remph{greedoids}, where sometimes, the same element 
+priority order
+cannot be used under each branch.
+\end{frame}
+
+\subsection{Ambiguities among Tutte Equations}
+
+\begin{frame}
+{First Ambiguity among Tutte Equations}
+\[
+x_eY_f+y_eX_f=x_fY_e+y_fX_e
+\]
+\begin{center}\input{DyadProblem.pdf_t}\end{center}
+
+\begin{block}{A Detail}
+$T(\text{loop matroid on }e) = Y_eT(\emptyset\text{(empty matroid)})$, etc.
+so the real ZBR condition is 
+\[
+T(\emptyset)(x_eY_f+y_eX_f)=T(\emptyset)(x_fY_e+y_fX_e)
+\]
+\end{block}
+
+
+\end{frame}
+
+\begin{frame}{Two More: One for separated $P$ and another like it.}
+\input{TriadProblems.pdf_t}
+\end{frame}
+
+\begin{frame}{Another Two More: With all 5, are we done?}
+\input{TriangleProblems.pdf_t}
+\end{frame}
+
+\subsection{Solution}
+\begin{frame}
+\frametitle{Solution---Setup}
+\begin{block}{When do recursive equations have a solution?}
+``Have a solution'' here means ``\Remph{Every calculation of $T(G)$
+using the Tutte equations and initial values
+on members of $\mathcal{F}$ gives the same answer.}
+\end{block}
+
+\begin{definition}[Sep. Strong Ported Parametrized Tutte Function]
+Let $P$ be a set and $\mathcal{F}$ be a family of graphs, oriented
+matroids or matroids that is closed under deletion and 
+contraction of elements
+\Remph{not in} $P$.  Deletion of loops and contraction of coloops is 
+allowed.
+
+Let ring $R$ elements $X_e, Y_e, x_e$ and $y_e$ (for each $e\not\in P$)
+and $R-$module elements $I(Q)$ for every $Q\in \mathcal{F}$ 
+with $Q$ \Remph{over elements of $P$ only} also be given.
+
+This structure \Remph{has a Tutte function} if and only if
+the Ported Parametrized Tutte Equations have (a necessarilly
+unique) solution over all of $\mathcal{F}$.
+\end{definition}
+
+The $X_e, Y_e, x_e, y_e$ and $I(Q)$ are called parameters and
+initial values.
+\end{frame}
+
+
+\begin{frame}{Solution---Theorem}
+\begin{theorem}[After Zaslavsky, Bollobas-Riordan, Ellis-Monaghan-Traldi]
+$\mathcal{F}$ and values as above
+\Remph{has a Tutte function} iff the following equations
+are satisfied whenever they arise from a member $G\in\mathcal{F}$:
+\begin{enumerate}
+\item Suppose $G=Q\oplus G'$ where $S(Q)\subseteq P$.
+\begin{enumerate}
+\item With $G'$ a 2-circuit $\{e,f\}$ (and so 2-cocircuit too),
+$I(Q)(x_eY_f+y_eX_f)=I(Q)(x_fY_e+y_fX_e)$.
+\item
+With $G'$ a 3-circuit $\{e,f,g\}$,
+$I(Q)X_g(x_ey_f+y_eX_f)=
+I(Q)X_g(x_fy_e+y_fX_e)$. 
+\item 
+With $G'$ a 3-cocircuit $\{e,f,g\}$,
+$I(Q)Y_g(x_eY_f+y_ex_f)=
+I(Q)Y_g(x_fY_e+y_fx_e)$. 
+\end{enumerate}
+These generalize the 3 ZBR equations merely by replacing
+$I(\emptyset)$ with $I(Q)$.
+\item With $\{e,f\}=E$ in series and not isolated (from $P$),
+$I(G/e\setminus f)(x_ey_f+y_eX_f)=
+I(G/e\setminus f)(x_fy_e+y_fX_e)$.
+\item With $\{e,f\}=E$ in parallel and not isolated,
+$I(G/e\setminus f)(x_eY_f+y_ex_f)=
+I(G/e\setminus f)(x_fY_e+y_fx_e)$.
+\end{enumerate}
+\end{theorem}
+\end{frame}
+
+\subsection{Proof Ideas}
+\begin{frame}
+\frametitle{Proof Outline}
+\begin{block}{Ported ZBR equations are necessary}
+Consider the $1+4$ matroid/graph classes 
+with $E(G)=\{e,f\}$ or $E(G)=\{e,f,g\}$,
+where $E(G)=S(G)\setminus P$, corresponding
+to the 5 ZBR conditions.
+
+For each, show (as I illustrated before)
+that assuming certain pairs of computations of $T(G)$
+give equal results implies the condition.
+\end{block}
+\begin{block}{Ported ZBR equations are sufficient}
+Induction: Assume $G$ is a minimum $|E(G)|$ counter example, 
+where $E(G)=S(G)\setminus P$.  So: $T(G/e)$ and $T(G\setminus e)$
+are well-defined from the Tutte Equations for every $e\in E(G)$.
+
+Lemma (Zaslavsky) shows \Remph{all of} $E(G)$ is a series class
+or a parallel class.
+
+The relevent Tutte equations\\
+ (Is $E$ isolated? Or is $E$ connected to some of $P$?)\\
+show there's a smaller $E$ counterexample.
+\end{block}
+\end{frame}
+
+
+\subsection{Proof Details}
+\begin{frame}
+\frametitle{Some Details}
+\begin{itemize}
+\item $|E|\geq 2$.
+\item
+No $e\in E$ is a separator in $G$.
+\item
+For \Remph{no} $e,f\in E(G)$ is this a Tutte tree:
+\input{Tree2Ordinary.pdf_t}
+\raisebox{0.25in}{\hspace{0.2in}\framebox{\begin{minipage}[b]{2in}
+The Tutte Tree formalism here 
+\Remph{means} $e$ is a non-separator in $G$
+and $f$ is a non-separator in both $G/e$
+and $G\setminus e$.
+	       \end{minipage}}}
+\item
+Lemmas: Each $e\in E(G),f\in E(G)$, $e\neq f$, 
+is series pair or a parallel pair.\\
+$e,f$ parallel and $f,g$ series is impossible.\\
+So \Remph{all} of $E$ is a series class or is a parallel class.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{One of 5 cases}
+\begin{center}...\end{center}
+\end{frame}
+
+
+
+
+\section{Tutte (Computation) Trees and Internal/External Activities}
+
+\begin{frame}
+\frametitle{Root-Leaf Paths in Tutte (Computation) Trees}
+A {$P$-subbasis $T\subseteq E(G)$ 
+(``contracting set'' [Diao-Hetyei])}
+is an independent set (forest) for which 
+$T\cup P$ is spanning.
+
+%So, in $G/T$, $P$ is spanning.
+\input{TutteTree.pdf_t}
+\raisebox{0.4in}{\begin{minipage}[b]{2in}
+Path $\pi$ contributes\\
+$[G'|P]x^{IP(T)}y^{EP(T)}X^{IA(T)}Y^{EA(T)}$ to 
+our Tutte Poly.
+\end{minipage}}
+
+\vfill
+\Remph{All is determined by the Tutte tree, NOT an element order!}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Internal/External Activities and Tutte Trees}
+
+
+$E$ is partitioned: $T=IP(T)\cup IA(T)$, 
+$E\setminus T=EP(T)\cup EA(T)$.  $IP(T)=$ $\{$elements contracted 
+along$\;\pi\}$.  
+
+\vfill
+$EP(T)=$ $\{$elements deleted along$\;\pi$\}.  
+
+\vfill
+In $G'$, $IA(T)$ is all coloops, $EA(T)$ is all loops.
+
+\vfill
+$2^E$ is partitioned into intervals \\
+$\{[X_T,Y_T]|P-\text{subbasis} T\}$,\\
+$X_T=IP(T)\subseteq (T=IP(T)\cup IA(T))\subseteq (T\cup EA(T))=Y_T$.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Tutte Polynomials and Activities}
+\begin{enumerate}
+\item
+When the conditions in our $P$-ported ZBR theorem are satisfied,
+\Remph{all} Tutte trees yield the same \Remph{value in the $R$-module},
+called \Remph{THE} Tutte polynomial 
+(because trees$\leftrightarrow$computations.)
+This value has multiple \Remph{polynomial expressions}.  
+\item
+The $P$-quotient $[G/IP(T)|P]$ in the term contributed by
+$P$-subbasis $T$ is \Remph{determined by} the \Remph{internally
+passive} elements of $T$.
+\end{enumerate}
+\end{frame}
+
+\section{Normal Ported Param. Tutte Functions}
+\begin{frame}
+\frametitle{Ported Rank-Nullity Polynomial}
+\[
+R(G)=\sum_{A\subseteq E(G)}[G/A|P]x_A
+                 y_{E\setminus A}
+                 u^{\text{rank}(G)-\text{rank}[G/A|P]-\text{rank(A)}}
+                 w^{|A|-\text{rank}(A)}
+\]
+\begin{block}{$R(G)$ is a Tutte function.}
+\begin{itemize}
+\item
+\Remph{$R(G)$ is well-defined} as the above generating function.
+\item
+Exercise: $R(G)$ satisfies the $P$-ported parametrized Tutte Equations.
+\item
+The Tutte equations plus
+\[
+X_e=x_e+y_eu;\;\;\;Y_e=x_ew+y_e;\;\;\;I(Q)=[Q]
+\]
+have the unique solution $R(G)$, a polynomial
+in the (many) $x_e, y_e and [Q]$ and (two) $u, w$.
+\item
+Any Tutte function writable this way is called 
+\Remph{normal}, because Zaslavsky coined this
+name for them when $P=\emptyset$.
+\item
+The most popular Tutte functions are normal;
+only the ``Bla Bla the matroid structure''
+(Zaslavsky).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Tree and Forest Enumerators}
+\begin{frame}
+\frametitle{Ported Tree Enumerator}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ported Forest Enumerator}
+\end{frame}
+
+\subsection{Determinantal and Extensor Tutte Functions}
+\begin{frame}
+\frametitle{Determinantal and Extensor Tutte Functions}
+\end{frame}
+
+\section{Tutte Functions of Ported and Labelled Graphs}
+\begin{frame}
+\begin{itemize}
+\item The matroid structure determines the Tutte Trees.
+\item Other structures, on which matroid deletion and
+contraction operations act, determine the initial values.
+\item ZBR analyzed parametrized Tutte functions of 
+non-ported graphs with unlabelled vertices.  The
+indecomposibles are then $E_n$, the $n$-vertex graphs
+with no edges.  
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ZBR Conditions for edge-Parametrized unlabelled Graphs}
+\end{frame}
+
+
+\end{document}
+

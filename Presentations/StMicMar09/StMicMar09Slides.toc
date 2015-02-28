@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.06pt}
+\beamer@sectionintoc {2}{Generalizing Tutte Functions}{3}{0}{1}
+\beamer@subsectionintoc {2}{1}{Problems...}{5}{0}{1}
+\beamer@subsectionintoc {2}{2}{Solution}{8}{0}{1}
+\beamer@subsectionintoc {2}{3}{Proof Ideas}{10}{0}{1}
+\beamer@sectionintoc {3}{Tutte (Computation) Trees and Internal/External Activities}{12}{0}{2}
+\beamer@sectionintoc {4}{Electricity in Graphs}{16}{0}{3}
+\beamer@sectionintoc {5}{Correlation in Forests}{24}{0}{4}

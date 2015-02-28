@@ -1,0 +1,39 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}New}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Old}{5}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Exterior Algebra}{7}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}New Tutte-Like Invariants}{8}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Structure of Solutions}{9}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Computational Complexity}{10}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}Additional Context}{11}{subsection.1.7}
+\contentsline {section}{\numberline {2}Preliminaries}{11}{section.2}
+\contentsline {subsection}{\numberline {2.1}Exterior Algebra}{11}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Extensors with Ground Set}{13}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Ground Set Orientation and Duality}{17}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Identities}{18}{subsection.2.4}
+\contentsline {section}{\numberline {3}An Extensor Tutte Function}{20}{section.3}
+\contentsline {subsection}{\numberline {3.1}Main Result}{23}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}The New Proof}{27}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Preliminaries}{27}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.3}Corollaries}{28}{subsection.3.3}
+\contentsline {section}{\numberline {4}A Function of Extensor Pairs}{31}{section.4}
+\contentsline {subsection}{\numberline {4.1}Main Result}{34}{subsection.4.1}
+\contentsline {section}{\numberline {5}Maxwell's Rule Generalized}{40}{section.5}
+\contentsline {subsection}{\numberline {5.1}Maxwell's Rule for the Poisson Problem}{40}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Maxwell's Rule for the Dirichlet Problem}{41}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Consequences of Symmetry}{41}{subsection.5.3}
+\contentsline {section}{\numberline {6}Corank-Nullity Polynomials}{41}{section.6}
+\contentsline {section}{\numberline {7}Basis, Set and Flat Expansions}{43}{section.7}
+\contentsline {subsection}{\numberline {7.1}Boolean Interval Expansion}{47}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Geometric Lattice Flat Expansion}{48}{subsection.7.2}
+\contentsline {section}{\numberline {8}Electrical Networks}{49}{section.8}
+\contentsline {subsection}{\numberline {8.1}Discrete Laplacian}{49}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Electrical Network Equations in terms of Edges}{51}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Maxwell's Rules}{52}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Deriving Maxwell's Rule}{53}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Signed Contributions of Spanning Forests}{56}{subsection.8.5}
+\contentsline {section}{\numberline {9}Additional Background and Directions}{56}{section.9}
+\contentsline {subsection}{\numberline {9.1}Ground Set Orientation}{56}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Computational Complexity}{57}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Other Directions}{58}{subsection.9.3}
+\contentsline {section}{\numberline {10}Acknowledgments}{58}{section.10}

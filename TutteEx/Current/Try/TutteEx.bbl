@@ -1,0 +1,386 @@
+\begin{thebibliography}{10}
+
+\bibitem{BachemKern}
+A.~Bachem and W.~Kern.
+\newblock {\em Linear Programming Duality, An Introduction to Oriented
+  Matroids}.
+\newblock Springer-Verlag, Berlin, 1992.
+
+\bibitem{RotaCayley}
+M.~Barnabei, A.~Brini, and G.-C. Rota.
+\newblock On the exterior calculus of invariant theory.
+\newblock {\em J. Algebra}, 96:120--160, 1985.
+
+\bibitem{BiggsAlgPotTheory}
+N.~Biggs.
+\newblock Algebraic potential theory on graphs.
+\newblock {\em Bull. London Math. Soc.}, 29:641--682, 1997.
+
+\bibitem{OMBOOK}
+A.~Bj{\"o}rner, M.~Las~Vergnas, B.~Sturmfels, N.~White, and G.~M. Ziegler.
+\newblock {\em Oriented matroids}, volume~46 of {\em Encyclopedia of
+  Mathematics and its Applications}.
+\newblock Cambridge University Press, Cambridge, second edition, 1999.
+
+\bibitem{BollobasRiordanTuttePolyColored}
+B.~Bollobas and O.~Riordan.
+\newblock A {T}utte polynomial for colored graphs.
+\newblock {\em Combin. Probab. Computat.}, 8(1--2):45--93, 1999.
+
+\bibitem{BottDuffinAlgNetworks}
+R.~Bott and R.~J. Duffin.
+\newblock On the algebra of networks.
+\newblock {\em Trans. Amer. Math. Soc.}, 74:99--109, 1953.
+
+\bibitem{BSST}
+R.~L. Brooks, C.~A.~B. Smith, A.~H. Stone, and W.~T. Tutte.
+\newblock The dissection of rectangles into squares.
+\newblock {\em Duke Math. J.}, 7:312--340, 1940.
+
+\bibitem{BrylawskiPointed}
+T.~H. Brylawski.
+\newblock A combinatorial model for series-parallel networks.
+\newblock {\em Trans. Amer. Math. Soc.}, 154:1--22, 1971.
+
+\bibitem{sdcMTT}
+S.~Chaiken.
+\newblock A combinatorial proof of the all minors matrix tree theorem.
+\newblock {\em SIAM J. Alg. Disc. Meth.}, 3:319--329, 1982.
+
+\bibitem{sdcBDIMatroid}
+S.~Chaiken.
+\newblock A matroid abstraction of the {B}ott-{Duffin} constrained inverse.
+\newblock {\em SIAM J. Alg. Disc. Meth.}, 4:467--475, 1983.
+
+\bibitem{sdcELEW}
+S.~Chaiken.
+\newblock Extremal length and width of blocking polyhedra, {K}irchhoff spaces
+  and multiport networks.
+\newblock {\em SIAM J. Alg. Disc. Meth.}, 8(4):635--645, 1987.
+
+\bibitem{sdcPorted}
+S.~Chaiken.
+\newblock The {T}utte polynomial of a {$P$}-ported matroid.
+\newblock {\em J. Combin. Theory Ser. B}, 46:96--117, 1989.
+
+\bibitem{sdcOMP}
+S.~Chaiken.
+\newblock Oriented matroid pairs, theory and an electric application.
+\newblock In J.~E. Bonin, J.~G. Oxley, and B.~Servatius, editors, {\em Matroid
+  Theory, AMS-IMS-SIAM Joint Summer Research Conference}, volume 197 of {\em
+  Contemporary Math.}, pages 313--331. American Math. Society, 1996.
+
+\bibitem{sdcISCAS98}
+S.~Chaiken.
+\newblock Hybrid matrix minors from tableau applied to a multiport
+  generalization of {NDR} related to stability.
+\newblock In {\em IEEE Int. Conf. Circ. Syst.}, 1998.
+
+\bibitem{sdcISCAS95}
+S.~Chaiken and P.~Narendran.
+\newblock The all-minors {VCCS} matrix tree theorem, half-resistors and
+  applications in symbolic simulation.
+\newblock In {\em IEEE Int. Conf. Circ. Syst.} IEEE, 1995.
+
+\bibitem{ChensBook}
+W.~K. Chen.
+\newblock {\em Applied Graph Theory, Graphs and Electrical Networks}.
+\newblock North-Holland, Amsterdam, 2nd edition, 1976.
+
+\bibitem{ChoeRayl}
+Y.-B. Choe and D.~G. Wagner.
+\newblock Rayleigh matroids.
+\newblock {\em Combin. Prob. Comput.}, to appear.
+\newblock also arXiv.org/abs/math.CO/0307096.
+
+\bibitem{LinNonLinCircuitsBook}
+L.~O. Chua, C.~A. Desoer, and E.~S. Kuh.
+\newblock {\em Linear and nonlinear circuits}.
+\newblock McGraw-Hill, New York, 1987.
+
+\bibitem{ChungYaoCovHeatKer}
+F.~Chung and S.-T. Yau.
+\newblock Coverings, heat kernels and spanning trees.
+\newblock {\em Electronic J. Combinatorics}, 6((1)R 12), 1999.
+
+\bibitem{ChungYaoGreens}
+F.~Chung and S.-T. Yau.
+\newblock Discrete {G}reen's functions.
+\newblock {\em J. Comb. Theory A}, 91:191--214, 2000.
+
+\bibitem{CrapoAct}
+H.~H. Crapo.
+\newblock {M}obius inversion in lattices.
+\newblock {\em Arch. Math. (Basel)}, 19:565--607, 1968.
+
+\bibitem{DoyleSnellRandom}
+P.~G. Doyle and J.~L. Snell.
+\newblock {\em Random Walks and Electrical Networks}.
+\newblock Number~22 in Carus Monographs. Math. Assoc. America, 1984.
+
+\bibitem{Ellis-Monaghan-Traldi}
+J.~A. Ellis-Monaghan and L.~Traldi.
+\newblock Parametrized {T}utte polynomials of graphs and matroids.
+\newblock {\em Combinatorics, Probability and Computing}, to appear.
+
+\bibitem{someEEBooks}
+F.~V. Fernandez, A.~Rodriguez-Vazquez, J.~L. Huertas, and G.~Gielen, editors.
+\newblock {\em Symbolic Analysis Techniques: Applications to Analog Design
+  Automation}.
+\newblock IEEE Press and John Wiley \& Sons, Inc., 1998.
+
+\bibitem{Frankel}
+T.~Frankel.
+\newblock {\em Geometry of Physics, an Introduction}.
+\newblock Cambridge Univ. Press, Cambridge, 1997.
+
+\bibitem{GordonMcMachonGreedoid}
+G.~Gordon and E.~McMahon.
+\newblock Interval partitions and activities for the greedoid {T}utte
+  polynomial.
+\newblock {\em Adv. Appl. Math.}, 18(1):33--49, Jan. 1997.
+
+\bibitem{RigidityBook}
+J.~Graver, B.~Servatius, and H.~Servatius.
+\newblock {\em Combinatorial Rigidity}, volume~2 of {\em Graduate Studies in
+  Math.}
+\newblock Amer. Math. Soc., 1993.
+
+\bibitem{HaslerDApplMath}
+M.~Hasler, C.~Marthy, A.~Oberlin, and D.~de~Werra.
+\newblock A discrete model for studying existence and uniqueness of solutions
+  in nonlinear resistive circuits.
+\newblock {\em Disc. Appl. Math.}, 50:169--184, 1994.
+
+\bibitem{HaslerNeirynck}
+M.~Hasler and J.~Neirynck.
+\newblock {\em Nonlinear Circuits}.
+\newblock Artech House, Norwood, Mass., 1986.
+
+\bibitem{HodgePedoe1}
+W.~V.~D. Hodge and D.~Pedoe.
+\newblock {\em Methods of Algebraic Geometry}.
+\newblock Cambridge Univ. Press, Cambridge, 1994 edition, 1947.
+
+\bibitem{JacobsonI}
+N.~Jacobson.
+\newblock {\em Basic Algebra I}.
+\newblock W. H. Freeman, San Francisco, 1974.
+
+\bibitem{JaegerVertiganWelsh}
+F.~Jaeger, D.~L. Vertigan, and D.~J.~A. Welsh.
+\newblock On the computational complexity of the {J}ones and {T}utte
+  polynomials.
+\newblock {\em Math. Proc. Camb. Phil. Soc.}, 108:35--53, 1990.
+
+\bibitem{Kirchhoff}
+G.~Kirchhoff.
+\newblock \:{U}ber die aufl\:{o}sung der gleichungen, auf welshe man bei der
+  untersuchung der linearen verteilung galvanischer str\:{o}me gefuhrt wird.
+\newblock {\em Ann. Physik Chemie}, 72:497--508, 1847.
+\newblock On the solution of the equations obtained from the investigation of
+  the linear distribution of Galvanic currents, (J. B. O'Toole, tr.)
+  \textit{IRE Trans. Circuit Theory}, 5, 1958, pp. 238--249.
+
+\bibitem{Pak}
+M.~Korn and I.~Pak.
+\newblock Combinatorial evaluations of the tutte polynomial.
+\newblock Technical report, Math. Dept, MIT, 2003.
+
+\bibitem{MR0419272}
+M.~Las~Vergnas.
+\newblock Extensions normales d'un matro\"\i de, polyn\^ome de {T}utte d'un
+  morphisme.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 280(22):Ai, A1479--A1482,
+  1975.
+
+\bibitem{TPMorphMat80}
+M.~Las~Vergnas.
+\newblock On the {T}utte polynomial of a morphism of matroids.
+\newblock {\em Ann. Discrete Math.}, 8:7--20, 1980.
+\newblock Combinatorics 79 (Proc. Colloq., Univ. Montr\'eal, Montreal, Que.,
+  1979), Part I.
+
+\bibitem{SetPointedLV}
+M.~Las~Vergnas.
+\newblock The {T}utte polynomial of a morphism of matroids. {I}. {S}et-pointed
+  matroids and matroid perspectives.
+\newblock {\em Ann. Inst. Fourier (Grenoble)}, 49(3):973--1015, 1999.
+\newblock Symposium \`a la M\'emoire de Fran\c cois Jaeger (Grenoble, 1998).
+
+\bibitem{MakowskyLotzComplexity}
+M.~Lotz and J.~A. Makowsky.
+\newblock On the algebraic complexity of some families of colored {T}utte
+  polynomials.
+\newblock {\em Adv. Appl. Math.}, 32:327--349, February 2004.
+
+\bibitem{LovaszEnergy}
+L.~Lovasz.
+\newblock Energy of convex sets, shortest paths, and resistance.
+\newblock {\em J. Comb. Theory Ser. A}, 94:363--382, 2001.
+
+\bibitem{Maurer76}
+S.~B. Maurer.
+\newblock Matrix generalizations of some theorems on trees, cycles and cocycles
+  in graphs.
+\newblock {\em SIAM J. Appl. Math.}, 30:143--148, 1976.
+
+\bibitem{MaxR}
+J.~C. Maxwell.
+\newblock {\em A Treatise on Electricity and Magnetism}, volume 1, Part {II},
+  Appendix of Chapter {VI}, Mathematical Theory of the Distribution of Electric
+  Currents, pages 409--410.
+\newblock Claredon Press and reprinted by Dover, New York (1954), 3rd edition,
+  1891.
+
+\bibitem{MaxwellsFramesPaper}
+J.~C. Maxwell.
+\newblock On the calculation of the equilibrium and stiffness of frames, page
+  598.
+\newblock In W.~D. Niven, editor, {\em The Scientific Papers of James Clerk
+  Maxwell}. Dover, New York, 1965.
+\newblock from the Philosophical Magazine, Vol. XXVII.
+
+\bibitem{Murota}
+K.~Murota.
+\newblock {\em Matrices and matroids for systems analysis}.
+\newblock Springer, 2000.
+
+\bibitem{NerodeShank}
+A.~Nerode and H.~Shank.
+\newblock An algebraic proof of {K}irchhoff's network theorem.
+\newblock {\em Amer. Math. Monthly}, 68:244--247, 1961.
+
+\bibitem{OxleyWelshTuttePolyPolyTime}
+J.~G. Oxley and D.~J.~A. Welsh.
+\newblock {T}utte polynomials computable in polynomial time.
+\newblock {\em Discrete Math.}, 109:185--192, 1992.
+
+\bibitem{Recski}
+A.~Recski.
+\newblock {\em Matroid Theory and its Applications in Electric Network Theory
+  and in Statics}.
+\newblock Springer-Verlag, 1989.
+
+\bibitem{SmithElec}
+C.~A.~B. Smith.
+\newblock Electric currents in regular matroids.
+\newblock In D.~J.~A. Welsh and D.~R. Woodall, editors, {\em Combinatorics},
+  pages 262--284. Institute of Math. and its Appl., Southend-on-Sea, 1972.
+
+\bibitem{Sokal}
+A.~D. Sokal.
+\newblock The multivariate {T}utte polynomial (alias {P}otts model) for graphs
+  and matroids.
+\newblock Technical report, arXiv.org/abs/math.CO/0503607v1, March 25 2005.
+
+\bibitem{ThulasiramanSwamyBook}
+K.~Thulasiraman and M.~N.~S. Swamy.
+\newblock {\em Graphs: Theory and Algorithms}.
+\newblock Wiley-Interscience, New York, 1992.
+
+\bibitem{TraWilBilinear}
+L.~Trajkovi\'{c} and A.~N. {Willson, Jr.}
+\newblock Computer--aided generation of circuit matrices.
+\newblock In {\em Proc. Modeling and Simulation Conf.}, pages 987--992, Univ.
+  of Pittsburgh, PA, 1986.
+
+\bibitem{TutteDich}
+W.~T. Tutte.
+\newblock A contribution to the theory of dichromatic polynomials.
+\newblock {\em Canad. J. Math.}, 6:80--91, 1954.
+
+\bibitem{HowToDraw}
+W.~T. Tutte.
+\newblock How to draw a graph.
+\newblock {\em Proc. London. Math. Soc.}, 13:743--767, 1963.
+
+\bibitem{TutteBook}
+W.~T. Tutte.
+\newblock {\em Graph theory as {I} have known it}, volume~11 of {\em Oxford
+  Lecture Series in Mathematics and its Applications}, chapter 1, 4 and 12,
+  pages vi+156.
+\newblock The Clarendon Press Oxford University Press, New York, 1998.
+\newblock With a foreword by U. S. R. Murty.
+
+\bibitem{ValiantNonUnif}
+L.~G. Valiant.
+\newblock Completeness classes in algebra.
+\newblock In {\em Conf. Record 11th Ann. ACM Symp. Theory Computing}, pages
+  249--261. ACM, 1979.
+
+\bibitem{ValiantNumPComplete}
+L.~G. Valiant.
+\newblock The complexity of enumeration and reliability problems.
+\newblock {\em SIAM J. Comput.}, 8(3):410--421, 1979.
+
+\bibitem{VertiganBaseCounting}
+D.~Vertigan.
+\newblock Counting bases in matroids.
+\newblock Reference in \cite{MR99k:05053} to unpublished ms.
+
+\bibitem{MR99k:05053}
+D.~Vertigan.
+\newblock Bicycle dimension and special points of the {T}utte polynomial.
+\newblock {\em J. Combin. Theory Ser. B}, 74(2):378--396, 1998.
+
+\bibitem{NegCorr}
+D.~G. Wagner.
+\newblock Negatively correlated random variables and {M}ason's conjecture.
+\newblock Technical report, arXiv.org/abs/math.CO/0602648v1, Feb. 28 2006.
+
+\bibitem{MR94m:57027}
+D.~J.~A. Welsh.
+\newblock {\em Complexity: knots, colourings and counting}, volume 186 of {\em
+  London Math. Soc. Lecture Note Series}.
+\newblock Cambridge Univ. Press, Cambridge, 1993.
+
+\bibitem{WelshRandomApprox}
+D.~J.~A. Welsh.
+\newblock Randomised approximation schemes for {T}utte-{G}r\"othendieck
+  invariants.
+\newblock In {\em Discrete probability and algorithms (Minneapolis, MN, 1993)},
+  volume~72 of {\em IMA Vol. Math. Appl.}, pages 133--148. Springer, New York,
+  1995.
+
+\bibitem{WelshApproxCounting}
+D.~J.~A. Welsh.
+\newblock Approximate counting.
+\newblock In R.~A. Bailey, editor, {\em Surveys in Combinatorics}, volume 241
+  of {\em London Math. Soc. Lecture Notes}, pages 287--148. Cambridge Univ.
+  Press, Cambridge, 1997.
+
+\bibitem{WelshKayibiLinking}
+D.~J.~A. Welsh and K.~K. Kayibi.
+\newblock A linking polynomial of two matroids.
+\newblock {\em Advances in Appl. Math.}, 32(1--2):391--419, 2004.
+
+\bibitem{TheoryMatroids}
+N.~White, editor.
+\newblock {\em Theory of Matroids}, volume~26 of {\em Encyclopedia of
+  mathematics and its applications}.
+\newblock Cambridge Univ. Press, Cambridge, 1986.
+
+\bibitem{CombinatorialGeometries}
+N.~White, editor.
+\newblock {\em Combinatorial Geometries}, volume~29 of {\em Encyclopedia of
+  mathematics and its applications}.
+\newblock Cambridge Univ. Press, Cambridge, 1987.
+
+\bibitem{WhiteCayleyGeoAppl}
+N.~L. White.
+\newblock Geometric applications of the {G}rassmann-{C}ayley algebra.
+\newblock In {\em Handbook of discrete and computational geometry}, Ser.
+  Discrete Math. Appl., pages 881--892. CRC Press, Boca Raton, FL, 1997.
+
+\bibitem{ChoeOSW}
+A.~D.~S. Young-Bin~Choe, James G.~Oxley and D.~G. Wagner.
+\newblock Homogeneous multivariate polynomials with the half-plane property.
+\newblock {\em Adv. Appl. Math.}, 32:88--187, 2004.
+
+\bibitem{MR93a:05047}
+T.~Zaslavsky.
+\newblock Strong {T}utte functions of matroids and graphs.
+\newblock {\em Trans. Amer. Math. Soc.}, 334(1):317--347, 1992.
+
+\end{thebibliography}

@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.1}Exterior Algebra}{6}
+\contentsline {subsection}{\numberline {1.2}New Tutte-Like Invariants}{7}
+\contentsline {subsection}{\numberline {1.3}Structure of Solutions}{8}
+\contentsline {subsection}{\numberline {1.4}Computational Complexity}{9}
+\contentsline {subsection}{\numberline {1.5}Additional Context}{9}
+\contentsline {section}{\numberline {2}Preliminaries}{10}
+\contentsline {subsection}{\numberline {2.1}Exterior Algebra}{10}
+\contentsline {subsection}{\numberline {2.2}Extensors with Ground Set}{12}
+\contentsline {subsection}{\numberline {2.3}Ground Set Orientation and Duality}{16}
+\contentsline {subsection}{\numberline {2.4}Identities}{17}
+\contentsline {section}{\numberline {3}An Extensor Tutte Function}{19}
+\contentsline {subsection}{\numberline {3.1}Main Result}{22}
+\contentsline {section}{\numberline {4}Corank-Nullity Polynomials}{27}
+\contentsline {section}{\numberline {5}Basis, Set and Flat Expansions}{29}
+\contentsline {subsection}{\numberline {5.1}Boolean Interval Expansion}{33}
+\contentsline {subsection}{\numberline {5.2}Geometric Lattice Flat Expansion}{33}
+\contentsline {section}{\numberline {6}Electrical Networks}{34}
+\contentsline {subsection}{\numberline {6.1}Discrete Laplacian}{35}
+\contentsline {subsection}{\numberline {6.2}Electrical Network Equations in terms of Edges}{36}
+\contentsline {subsection}{\numberline {6.3}Maxwell's Rules}{38}
+\contentsline {subsection}{\numberline {6.4}Deriving Maxwell's Rule}{39}
+\contentsline {subsection}{\numberline {6.5}Signed Contributions of Spanning Forests}{41}
+\contentsline {section}{\numberline {7}Additional Background and Directions}{42}
+\contentsline {subsection}{\numberline {7.1}Ground Set Orientation}{42}
+\contentsline {subsection}{\numberline {7.2}Computational Complexity}{42}
+\contentsline {subsection}{\numberline {7.3}Other Directions}{43}
+\contentsline {section}{\numberline {8}Acknowledgments}{43}
