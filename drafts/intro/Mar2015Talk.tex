@@ -135,6 +135,7 @@ The equivalent resistance problem IS SOLVED
 by the Matrix Tree Theorem. (1) Let's POSE the problem: the VARIABLES}
 
 \framebox{\begin{minipage}{.47\textwidth}
+\framebox{\Remph{$v_e, i_e : e\in E$}}
 \input{resistor.pspdftex}
 (Use \textbf{voltage drops along the flow}, 
 not potentials $V_1$, $V_2$.)
@@ -147,6 +148,7 @@ use $2|E|$ variables.)
 
 \end{minipage}}
 \framebox{\begin{minipage}{.47\textwidth}
+\framebox{\Remph{$v_p, i_p : p\in P$}}
 \input{portWithEnviron.pspdftex}
 \begin{center}\textbf{DISTINGUISHED, PORT edge} $p\in P$
 \end{center}
@@ -247,11 +249,14 @@ and combinatorial geometry (Ported = ``Set Pointed'').
 (Part 1) Technique:
 \begin{center}$\text{Solution Space}$\end{center}
 \begin{center}$=$\end{center}
-\begin{center}$\cap \text{Constraint Subspaces}$\end{center}
+\begin{center}$\bigcap \text{Constraint Subspaces}$\end{center}
 \item
-An
-exterior algebraic Tutte function
-and det. formulas that
+\Remph{Result:} An
+exterior algebraic Tutte function: Every
+Plucker coordinate of it satisfies a Matrix
+Tree Theorem.\\
+ 
+This and det. formulas
 easily prove Rayleigh inequalities.
 \end{itemize}
 
@@ -265,6 +270,7 @@ easily prove Rayleigh inequalities.
 \begin{center}$=$ \end{center}
 \begin{center}$\text{Closure}(\text{Set of Generators})$\end{center}
 \item
+\Remph{Result:} 
 An oriented matroid pair model
 for some non-linear problem
 well-posedness.
@@ -471,36 +477,6 @@ spanning trees?}
 \vfill
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
-
-The Bollobos/Riordan/Zaslavsky\cite{BollobasRiordanTuttePolyColored,MR93a:05047}, Traldi-Ellis-Monaghan\cite{Ellis-Monaghan-Traldi}, (sdc unpub)
-BRZ theory for well-definedness
-of ``Relative Tutte Polynomials for Colored Graphs'' ALL GOES THROUGH 
-(Diao and Hetyei \cite{RelTuttePoly}):
-The 3 BRZ conditions on (colors,initial values) GENERALIZE TO 5;
-activity theory WORKS TOO, when
-based on linear orders on the non-port-elements.
-
-\begin{block}{In a nutshell}
-The 5 conditions $\Longrightarrow$ activities define an 
-unambiguous Tutte function 
-from the deletion/contraction and initial value formulas.\\
-
-Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
-expansion.\\
-
-\Remph{
-(The rank-nullity conditions are satisfied in our application.)}
-\end{block}
-
-\begin{block}{To specify the activity/deletion-contraction linear 
-order GLOBALLY is 
-UNNECESSARY.}
-The Gordon/McMahon computation-tree-based 
-activity theory also generalizes. (sdc).
-\end{block}
-\end{frame}
 
 
 
@@ -586,6 +562,37 @@ N_I = N/e
 \]
 \end{minipage}}
 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
+
+The Bollobos/Riordan/Zaslavsky\cite{BollobasRiordanTuttePolyColored,MR93a:05047}, Traldi-Ellis-Monaghan\cite{Ellis-Monaghan-Traldi}, (sdc unpub)
+BRZ theory for well-definedness
+of ``Relative Tutte Polynomials for Colored Graphs'' ALL GOES THROUGH 
+(Diao and Hetyei \cite{RelTuttePoly}):
+The 3 BRZ conditions on (colors,initial values) GENERALIZE TO 5;
+activity theory WORKS TOO, when
+based on linear orders on the non-port-elements.
+
+\begin{block}{In a nutshell}
+The 5 conditions $\Longrightarrow$ activities define an 
+unambiguous Tutte function 
+from the deletion/contraction and initial value formulas.\\
+
+Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
+expansion.\\
+
+\Remph{
+(The rank-nullity conditions are satisfied in our application.)}
+\end{block}
+
+\begin{block}{To specify the activity/deletion-contraction linear 
+order GLOBALLY is 
+UNNECESSARY.}
+The Gordon/McMahon computation-tree-based 
+activity theory also generalizes. (sdc).
+\end{block}
 \end{frame}
 
 
