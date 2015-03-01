@@ -1,0 +1,39 @@
+\begin{picture}(0,0)%
+\special{psfile=DEsubspacepair.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(7513,8563)(1232,-7980)
+\put(3826,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$E_{vt}$}}}
+\put(5101,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$E_{cl}$}}}
+\put(4426,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$E_{vl}$}}}
+\put(4141,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$E_{ct}$}}}
+\put(5776,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Vvl}$}}}
+\put(6451,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Vcl}$}}}
+\put(3541,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Ict}$}}}
+\put(3226,-1186){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Ivt}$}}}
+\put(7224,-1681){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Ivl}$}}}
+\put(7899,-1681){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Icl}$}}}
+\put(2980,-1636){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Vct}$}}}
+\put(2665,-1636){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$P_{Vvt}$}}}
+\put(3751,-4261){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$F_{cc}$}}}
+\put(4426,-3286){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(5026,-3286){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$-F^T_{vv}$}}}
+\put(4426,-2986){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$-F^T_{cc}$}}}
+\put(5101,-2986){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$-F^T_{vc}$}}}
+\put(4126,-4261){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(3751,-4786){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$F_{vc}$}}}
+\put(3751,-5686){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$-$}}}
+\put(4726,-2236){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\bfdefault}{\updefault}$-I$}}}
+\put(3853,-3559){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$x_V$}}}
+\put(4882,-3862){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$x_I$}}}
+\put(4108,-4936){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$F_{vv}$}}}
+\put(1651,-1561){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$M_V$:}}}
+\put(1576,-5611){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}$M_I$:}}}
+\end{picture}

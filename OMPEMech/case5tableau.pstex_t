@@ -1,0 +1,35 @@
+\begin{picture}(0,0)%
+\special{psfile=case5tableau.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(3253,2877)(360,-2323)
+\put(676,-436){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$M_V$:}}}
+\put(1501,-1336){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$A$}}}
+\put(1501,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(2101,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(2101,-1336){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$B$}}}
+\put(2101,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(1501,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(3301,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(2701,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(2701,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(3301,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(2701,-1336){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(3301,-1336){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(751,-2086){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$M_I$:}}}
+\put(3301,-2086){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(1501,-2086){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(2101,-2086){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$-I$}}}
+\put(2701,-2086){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(1501,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$E^A$}}}
+\put(2101,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$E^B$}}}
+\put(2701,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$P^A$}}}
+\put(3301,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$P^B$}}}
+\end{picture}

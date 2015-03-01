@@ -1,0 +1,27 @@
+\begin{picture}(0,0)%
+\special{psfile=case4tableau.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(2653,2277)(360,-1723)
+\put(1501,-1486){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(2101,-1486){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(2701,-1486){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(1501,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$A^T$}}}
+\put(2101,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(2701,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(1501,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$B^T$}}}
+\put(2101,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$0$}}}
+\put(2701,-736){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$I$}}}
+\put(1501,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$P$}}}
+\put(2101,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$E^A$}}}
+\put(2701,389){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$E^B$}}}
+\put(676,-436){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$M_V$:}}}
+\put(751,-1486){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$M_I$:}}}
+\end{picture}

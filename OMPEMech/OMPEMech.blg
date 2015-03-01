@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99c (Web2C 7.3.1)
+The top-level auxiliary file: OMPEMech.aux
+The style file: amsalpha.bst
+Database file #1: OMPEMech.bib
+Warning--I didn't find a database entry for "SymSim"
+You've used 32 entries,
+            2556 wiz_defined-function locations,
+            765 strings with 8672 characters,
+and the built_in function-call counts, 11504 in all, are:
+= -- 1049
+> -- 527
+< -- 15
++ -- 173
+- -- 166
+* -- 1006
+:= -- 1842
+add.period$ -- 32
+call.type$ -- 32
+change.case$ -- 189
+chr.to.int$ -- 31
+cite$ -- 32
+duplicate$ -- 434
+empty$ -- 915
+format.name$ -- 209
+if$ -- 2281
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 41
+newline$ -- 101
+num.names$ -- 98
+pop$ -- 158
+preamble$ -- 1
+purify$ -- 219
+quote$ -- 0
+skip$ -- 369
+stack$ -- 0
+substring$ -- 780
+swap$ -- 54
+text.length$ -- 15
+text.prefix$ -- 12
+top$ -- 0
+type$ -- 220
+warning$ -- 0
+while$ -- 129
+width$ -- 35
+write$ -- 337
+(There was 1 warning)

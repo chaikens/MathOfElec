@@ -1,0 +1,37 @@
+\begin{picture}(0,0)%
+\includegraphics{parallel.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(3324,1827)(1189,-1798)
+\put(3586,-1710){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$0$}%
+}}}
+\put(4366,-1710){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$0$}%
+}}}
+\put(3923,-1701){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\cdots$}%
+}}}
+\put(3338,-1710){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$-1$}%
+}}}
+\put(3121,-1710){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$1$}%
+}}}
+\put(3346,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e$}%
+}}}
+\put(3121,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$f$}%
+}}}
+\put(3121,-984){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$0$}%
+}}}
+\put(3121,-1524){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$0$}%
+}}}
+\put(3106,-1253){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}.}%
+}}}
+\put(3106,-1141){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}.}%
+}}}
+\put(1359,-136){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e$}%
+}}}
+\end{picture}

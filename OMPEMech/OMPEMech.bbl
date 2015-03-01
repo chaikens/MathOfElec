@@ -1,0 +1,148 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\begin{thebibliography}{HMOdW94}
+
+\bibitem[BK92]{BachemKern}
+A.~Bachem and W.~Kern, \emph{Linear programming duality, an introduction to
+  oriented matroids}, Springer-Verlag, 1992.
+
+\bibitem[Bla77]{BlandLP}
+R.~G. Bland, \emph{A combinatorial abstraction of linear programming}, J.
+  Combin. Theory, Ser. B \textbf{23} (1977), 33--57.
+
+\bibitem[BVS{\etalchar{+}}99]{OMBOOK}
+A.~Bj\"{o}rner, M.~Las Vergnas, B.~Sturmfels, N.~White, and G.~Ziegler,
+  \emph{Oriented matroids}, 2nd ed., Encyc. Math. and its Appl., vol.~46,
+  Cambridge Univ. Press, 1999.
+
+\bibitem[CH90]{ChauffHaslerMonoDep}
+P.~Chauffoureaux and M.~Hasler, \emph{Monotonicity is nonlinear resistive
+  circuits}, IEEE Int. Conf. Circ. Syst., 1990, pp.~395--398.
+
+\bibitem[Cha89]{sdcPorted}
+S.~Chaiken, \emph{The {T}utte polynomial of a {$P$}-ported matroid}, J. Combin.
+  Theory Ser. B \textbf{46} (1989), 96--117.
+
+\bibitem[Cha96]{sdcOMP}
+S.~Chaiken, \emph{Oriented matroid pairs, theory and an electric application},
+  Matroid Theory, AMS-IMS-SIAM Joint Summer Research Conference (J.~E. Bonin,
+  J.~G. Oxley, and B.~Servatius, eds.), Contemporary Mathematics, vol. 197,
+  American Mathematical Society, 1996, pp.~313--331.
+
+\bibitem[Cha98]{sdcISCAS98}
+S.~Chaiken, \emph{Hybrid matrix minors from tableau applied to a multiport
+  generalization of {NDR} related to stability}, IEEE Int. Conf. Circ. Syst.,
+  1998.
+
+\bibitem[Che76]{ChensBook}
+W.~K. Chen, \emph{Applied graph theory, graphs and electrical networks}, 2 ed.,
+  North-Holland, 1976.
+
+\bibitem[DW74]{DesoerWu}
+C.~A. Desoer and F.~F. Wu, \emph{Nonlinear monotone networks}, SIAM J. Appl.
+  Math. \textbf{26} (1974), 315--333.
+
+\bibitem[Fos92]{Fosseprez}
+M.~Foss\'{e}prez, \emph{Non-linear circuits, qualitative analysis of
+  non-linear, non-reciprocal circuits}, John Wiley, 1992.
+
+\bibitem[FP66]{FiedlerPtak}
+M.~Fiedler and V.~Ptak, \emph{Some generalizations of positive definiteness and
+  monotonicity}, Numer. Math. \textbf{9} (1966), 163--172.
+
+\bibitem[GSS93]{RigidityBook}
+J.~Graver, B.~Servatius, and H.~Servatius, \emph{Combinatorial rigidity},
+  Graduate Studies in Mathematics, vol.~2, American Mathematics Society, 1993.
+
+\bibitem[GW96]{GreenWillNDR}
+M.~M. Green and A.~N. {Willson, Jr.}, \emph{On the relationship between
+  negative differential resistance and stability for nonlinear one-ports}, IEEE
+  Trans. Circuits Syst. I \textbf{43} (1996), 407--410.
+
+\bibitem[HMOdW94]{HaslerDApplMath}
+M.~Hasler, C.~Marthy, A.~Oberlin, and D.~de~Werra, \emph{A discrete model for
+  studying existence and uniqueness of solutions in nonlinear resistive
+  circuits}, Disc. Appl. Math. \textbf{50} (1994), 169--184.
+
+\bibitem[HN86]{HaslerNeirynck}
+M.~Hasler and J.~Neirynck, \emph{Nonlinear circuits}, Artech House, Norwood,
+  Mass., 1986.
+
+\bibitem[HW92]{HaslerWangMonoDep}
+M.~Hasler and C.~Wang, \emph{Monotonic dependence on sources in nonlinear
+  resistive circuits}, Int. J. Electronics and Comm. \textbf{46} (1992),
+  242--249.
+
+\bibitem[Mur00]{Murota}
+K.~Murota, \emph{Matrices and matroids for systems analysis}, Springer, 2000.
+
+\bibitem[NC84]{NishiChuaCactus}
+T.~Nishi and L.~O. Chua, \emph{Topological criteria for nonlinear resistive
+  circuits with controlled sources to have a unique solution}, IEEE Trans.
+  Circ. Syst. \textbf{CAS--31} (1984), 722--741.
+
+\bibitem[NC86a]{NishiChuaTransFB}
+T.~Nishi and L.~O. Chua, \emph{Topological proof of the {N}ielsen-{W}illson
+  theorem}, IEEE Trans. Circ. Syst. \textbf{CAS--33} (1986), 398--405.
+
+\bibitem[NC86b]{NishiChuaCCCS}
+T.~Nishi and L.~O. Chua, \emph{Uniqueness of solution for nonlinear resistive
+  circuits containing {CCCS}'s or {VCVS}'s whose controlling coefficients are
+  finite}, IEEE Trans. Circ. Syst. \textbf{CAS--33} (1986), 381--397.
+
+\bibitem[NW80]{NielWillpaper}
+R.~O. Nielsen and A.~N. {Willson, Jr.}, \emph{A fundamental result concerning
+  the topology of transistor circuits with multiple operating equilibria},
+  Proc. IEEE \textbf{68} (1980), 196--208.
+
+\bibitem[Rec89]{Recski}
+A.~Recski, \emph{Matroid theory and its applications in electric network theory
+  and in statics}, Springer-Verlag, 1989.
+
+\bibitem[Roc67]{RockafellarConvProg}
+R.~T. Rockafellar, \emph{Convex programming and systems of elementary monotone
+  relations}, J. Math. Anal. Appl. \textbf{19} (1967), 543--564.
+
+\bibitem[RST99]{EvenCircSol:RobSeyTho}
+N.\ Robertson, P.\~D.\ Seymour, and R.\ Thomas, \emph{Permanents, pfaffian
+  orientations, and even directed circuits}, Ann. Math. \textbf{150} (1999),
+  929--975.
+
+\bibitem[SW69]{SWExistancePf}
+I.~W. Sandberg and A.~N. {Willson, Jr.}, \emph{Some theorems on properties of
+  dc equations of non-linear networks}, Bell Syst. Tech. J. \textbf{48} (1969),
+  1--34.
+
+\bibitem[SW72]{SWExistanceSIAM}
+I.~W. Sandberg and A.~N. {Willson, Jr.}, \emph{Existence and uniqueness of
+  solutions for the equations of nonlinear {DC} networks}, SIAM J. Appl. Math.
+  \textbf{22} (1972), 173--186, (uses implicit function theorem approach).
+
+\bibitem[TW90]{TrajWillNDR}
+L.~Trajkovi\`{c} and A.~N. {Willson, Jr.}, \emph{Complementary two-transistor
+  circuits and negative differential resistance}, IEEE Trans. Circ. Syst.
+  \textbf{CAS--37} (1990), 1258--1266.
+
+\bibitem[VC80]{VandewalleChua}
+J.~Vandewalle and L.~O. Chua, \emph{The colored branch theorem and its
+  applications in circuit theory}, IEEE Trans. Circuits Syst. \textbf{CAS--27}
+  (1980), no.~9, 816--825.
+
+\bibitem[Wel76]{Welsh}
+D.~J.~A. Welsh, \emph{Matroid theory}, Addison-Wesley, 1976.
+
+\bibitem[{Wil}70]{W0APPLpaper}
+A.~N. {Willson, Jr.}, \emph{New theorems on the equations of nonlinear dc
+  transistor networks}, Bell Syst. Tech. J. \textbf{49} (1970), 1713--1738.
+
+\bibitem[{Wil}75]{WillsonNoGain}
+A.~N. {Willson, Jr.}, \emph{The no-gain property for networks containing
+  three-terminal elements}, IEEE Trans. Circuits Syst. \textbf{CAS--22} (1975),
+  no.~8, 678--687.
+
+\bibitem[WP84]{WyattTele}
+J.~L. {Wyatt, Jr.} and G.~Papadopoulos, \emph{{K}irchhoff's laws and
+  {T}ellegen's theorem for networks and continuous media}, IEEE Trans. Circuits
+  and Syst. \textbf{CAS--31} (1984), no.~7, 657--661.
+
+\end{thebibliography}
