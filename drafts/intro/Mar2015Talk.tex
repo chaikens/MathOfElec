@@ -133,7 +133,7 @@ Future: Memistor?
 \cite{MaxR} 
 The equivalent resistance PROBLEM IS SOLVED
 by the Matrix Tree Theorem. (1) POSE! the \Remph{VARIABLES} or 
-\Remph{COORDINATES}
+\Remph{COORDINATES}}
 
 \framebox{\begin{minipage}{.47\textwidth}
 \framebox{\Remph{$v_e, i_e : e\in E$}}
@@ -162,7 +162,7 @@ sign convention)
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(2) Let's POSE the problem: EQUATIONS}
+\begin{frame}{(2) POSE: EQUATIONS.  \Remph{Preview the consequences.}}
 \begin{itemize}
 \item 
 (KCL) $(i_e)_{e\in S}$ is a cycle (a flow).
@@ -174,8 +174,13 @@ non-linear, usually monotonic increasing $R\rightarrow R$.\\
 (Sometimes use Ohm's approximation $i_e=g_ev_e$)
 \end{itemize}
 \begin{block}{Combinatorics!}
-The signs $\{ +, -, 0\}$ have oriented matroid structure
+The signs $\{ +, -, 0\}$ have a \Remph{DUAL-PAIR ORIENTED MATROID} structure
 (combinatorial, geometric, topological).
+\end{block}
+\begin{block}{Engineering with amplifiers!}
+There's good unique solvablility due to STRUCTURE,
+when the \Remph{NON-DUAL PAIR} (for voltages and currents)
+is ALMOST DUAL: No common covectors.
 \end{block}
 \end{frame}
 
@@ -196,7 +201,7 @@ EQUALS a Ratio of Spanning Tree Enumerators!
 \begin{itemize}
 \item
 ``Maxwell's rule'' uses MatrTreeT on 2 DIFFERENT GRAPHS\\
-\begin{center}($G/p$ and $G\backslash p$)\end{center}
+\begin{center}($G/p$ and $G\backslash p$) (Sorry, amplifiers come later.) \end{center}
 \item
 Weighted Tree Sum (WTS) is a colored Tutte function:
 \[
@@ -214,7 +219,8 @@ g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Benefits of Multiple Ports}
+\begin{frame}{Multiple Ports. 
+(your stereo: power plug \& 2 speakers) }
 
 \begin{itemize}
 \item One formula expresses $\binom{2|P|}{|P|}$ different Matrix Tree 
@@ -274,7 +280,7 @@ easily prove Rayleigh inequalities.
 \Remph{Result:} 
 An oriented matroid pair model
 for some non-linear problem
-well-posedness.
+\Remph{(AMPLIFIER!)} well-posedness.
 \end{itemize}
 \end{minipage}
 \end{frame}
