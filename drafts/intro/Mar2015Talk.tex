@@ -331,17 +331,8 @@ $\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
 $\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$}
 \end{frame}
 
-\begin{frame}{(Part 2) Common Covector Model}
-\input{commonCovectorModel.pspdftex}
-\end{frame}
 
-\begin{frame}{Return to the Part 1 Equation $MX=0$}
-\[
-M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
-0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
-;
-\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
-\]
+\begin{frame}{Contracting means ``Eliminate variables''}
 ELIMINATE the variables indexed by $E$, leaving $2|P|$ variables
 labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} $A$ IS:
 
@@ -359,7 +350,7 @@ labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} $A$ IS:
 All the other $C_k$'s have similar interpretations.
 
 {\bf $\binom{2|P|}{|P|}$ Matr. Tree Theorems:}
-Each $C_k(N)$ (a PRINCIPAL MINOR of $M$ ABOVE!)
+Each $C_k(N)$ (a PRINCIPAL MINOR of $M_E$ ABOVE!)
 $= 
 g_e C_k(N/e) + r_e C_k(N\backslash e)$ ($e\not\in P$, $e$ not (co)loop).
 
@@ -427,6 +418,10 @@ In fact,
 T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
 \]
 $T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+\end{frame}
+
+\begin{frame}{(Part 2) Common Covector Model}
+\input{commonCovectorModel.pspdftex}
 \end{frame}
 
 \begin{frame}
