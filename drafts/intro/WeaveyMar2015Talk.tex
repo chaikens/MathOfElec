@@ -343,7 +343,8 @@ M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
 \mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
 \]
 ELIMINATE the variables indexed by $E$, leaving $2|P|$ variables
-labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} $A$ IS:
+labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} 
+$\mathbf{M_E}$ IS:
 
 \[
 \mathbf{M}_E = \bigwedge^{\text{Exterior}}_{\text{JOIN over rows}} \left[\begin{array}{c|c} A_{I,I}  &  A_{I,V}   \\  \hline
@@ -359,7 +360,7 @@ labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} $A$ IS:
 All the other $C_k$'s have similar interpretations.
 
 {\bf $\binom{2|P|}{|P|}$ Matr. Tree Theorems:}
-Each $C_k(N)$ (a PRINCIPAL MINOR of $M_e$ ABOVE!)
+Each $C_k(N)$ (a PRINCIPAL MINOR of MATRIX \textbf{\Remph{$A$}} ABOVE!)
 $= 
 g_e C_k(N/e) + r_e C_k(N\backslash e)$ ($e\not\in P$, $e$ not (co)loop).
 
