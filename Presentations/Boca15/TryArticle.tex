@@ -1,0 +1,790 @@
+\documentclass{article}
+\usepackage{beamerarticle}
+\usepackage{graphicx}
+%\mode<presentation>
+\usepackage{cite}
+\usepackage{amsmath}
+\title{Ported or Relative Oriented Matroids and Electric Circuits}
+\author{Seth Chaiken\\
+Dept. of Computer Science\\
+Univ. at Albany\\
+\url{schaiken@albany.edu}
+}
+\date{March 2, 2015}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialized Symbols
+%
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+%{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip0.45em$\cdot$\hskip-0.44em$\cup$\hskip0.2em}}}
+%{\mbox{\hbox{\hskip0.45em$+$\hskip-0.70em$\cup$\hskip0.3em}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+%\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+%\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%
+%   Put a symbol for a matroid in a box, or brackets
+%\newcommand{\MVAR}[1]{{\boxed{#1}\;}}
+\newcommand{\MVAR}[1]{{[#1]\;}}
+%
+\newcommand{\UNION}{\cup} %try to make this bold.
+%
+%Emphasize in color!
+\newcommand{\Remph}[1]{{\color{red}#1}}
+%
+%%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+\begin{frame}
+ \titlepage
+\end{frame}
+
+\note{(here we go, geronimo)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Why Electricity, EE?}
+\begin{itemize}
+\item Scholarly topic suggested by G.-C. Rota $\approx$ 1980?.
+\item $\approx 100$ yrs. geometry-like intuition of
+circuit configurations known by engineers, EE books:
+``Intuitive Analog Circuit Design (2013)''
+\cite{intuitAna}; ``Non-linear Circuits'' \cite{HaslerNeirynck}
+translates to our Oriented Matroid pair model.
+
+\item Geometry of linear spaces and oriented matroids;
+Tutte decomp. w/
+techniques from Barnabi, Brini and Rota's Exterior Calculus 
+\cite{exteriorCalc})
+
+\item
+Real behavior $\approx$ ideal plus perturbations,
+ideal constraints predict intended real behavior,
+%???? RISK THIS?? \Remph{applied everyday geometry:}
+
+\item 
+Interesting, accessible, intuitively understandable
+intentential designs, applicable,
+easy to both simulate and build physically, dimension
+$\approx$
+12 or 24, depending on formulation
+\item
+Analogs to chemical (and real algebraic geometry 
+\cite{signsInChemRAG}), biological, mechanical, etc., random walks ...
+\item
+Merely one scalar non-linearity can cause chaos.
+\end{itemize}
+\end{frame}
+
+\note{
+(nonframe)Analogies:
+\begin{enumerate}
+\item Electric: Voltage, Resistance, Current, Capacitance, Inductance
+\item Mech. Dyn: Force, Viscous friction, Velocity, Elasticity, Mass
+\item Statics: Displacement, Elasticity, Force,  ???, ???
+\item Random Walk: First hit probability, transition probability, flow, ???, ??? \\
+Doyle and Snell \cite{DoyleSnellRandom},
+Lyons and Peres \cite{ProbOnTreesNetworks}
+(ref? Thanks, David G. Wagner's course notes).
+\item Traffic: Time, Clogginess (travel time/flow ratio), flow, ???, ???\\
+Condition: All vehicles reach their destinations in equal times regardless of 
+route (ref? Thanks, Peter Shor).
+\item Knot theory: ???, $\pm 1$ crossing sign, ???, ???, ???\\
+Equivalent resistance ``Conductance Invariant'' of rational tangles is a 
+Reinmeister move 
+invariant\cite{RationalTangles} (Thanks, Jay Goldman).
+\end{enumerate}
+
+KCL+KVL+Ohms=(one of KCL)+Ohms+(min power)
+
+Future: Memistor?
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Kirchhoff (1847)
+\cite{Kirchhoff}
+ Maxwell (1891)
+\cite{MaxR} 
+The equivalent resistance problem IS SOLVED
+by the Matrix Tree Theorem. (1) Let's POSE the problem: the VARIABLES}
+
+\framebox{\begin{minipage}{.47\textwidth}
+\framebox{\Remph{$v_e, i_e : e\in E$}}
+\input{resistor.pspdftex}
+(Use \textbf{voltage drops along the flow}, 
+not potentials $V_1$, $V_2$.)
+\begin{center}\textbf{ordinary, resistor edge} $e\in E$
+\end{center}
+
+(IF linear Ohm's law use $|E|$ 
+variables ($g_ev_e=r_ei_e$) ELSE
+use $2|E|$ variables.)
+
+\end{minipage}}
+\framebox{\begin{minipage}{.47\textwidth}
+\framebox{\Remph{$v_p, i_p : p\in P$}}
+\input{portWithEnviron.pspdftex}
+\begin{center}\textbf{DISTINGUISHED, PORT edge} $p\in P$
+\end{center}
+The interface to an environment is modelled with
+$2|P|$ variables.
+\begin{center}(math, not EE 
+sign convention)
+\end{center}
+\end{minipage}}\\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(2) Let's POSE the problem: EQUATIONS}
+\begin{itemize}
+\item 
+(KCL) $(i_e)_{e\in S}$ is a cycle (a flow).
+\item
+(KVL) $(v_e)_{e\in S}$ is a cocycle
+\item
+(constituitive Law) $i_e=g_e(v_e)$
+non-linear, usually monotonic increasing $R\rightarrow R$.\\ 
+(Sometimes use Ohm's approximation $i_e=g_ev_e$)
+\end{itemize}
+\begin{block}{Combinatorics!}
+The signs $\{ +, -, 0\}$ have oriented matroid structure
+(combinatorial, geometric, topological).
+\end{block}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{SOLUTION: Equiv. Resistance $ :\equiv -(v_p/i_p)$
+observed at a port $p$ by the environment
+EQUALS a Ratio of Spanning Tree Enumerators!
+(Port edge $p$ locates the \textit{2 terminals}.)}
+
+\[
+-(\frac{v_p}{i_p})=\frac{\mbox{WTS}(G/p)}
+{\mbox{WTS}(G\backslash p)} 
+= \frac{\mbox{Matrix-Tree Det}(G/p)}
+       {\mbox{Matrix-Tree Det}(G\backslash p)}
+\]
+\begin{itemize}
+\item
+``Maxwell's rule'' uses MatrTreeT on 2 DIFFERENT GRAPHS\\
+\begin{center}($G/p$ and $G\backslash p$)\end{center}
+\item
+Weighted Tree Sum (WTS) is a colored Tutte function:
+\[
+\mbox{WTS}(G') =
+g_e \mbox{WTS}(G'/e) + r_e \mbox{WTS} (G \backslash e)
+\text{\ for all\ }e \not\in P
+\]
+\[
+\mbox{WTS}(\text{coloop}(e)) = g_e
+\]
+\[
+\mbox{WTS}(\text{loop}(e)) = r_e
+\]
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Benefits of Multiple Ports}
+
+\begin{itemize}
+\item One formula expresses $\binom{2|P|}{|P|}$ different Matrix Tree 
+Theorems...
+\item
+... long vertex-based proofs are shortened; Rayleigh inequalities too.
+\item
+Interesting \textbf{non-commutative ranges} of
+new ORIENTED MATROID Tutte invariants with pattern:
+\[
+\text{TF}(N(P\dunion E)) = F(N(P\dunion E)/E)
+\]
+(They distinguish DIFFERENT ORIENTATIONS of the SAME MATROID.)
+\item
+Formalize composition of systems\cite{NarayananDecompVS1986}, 
+Tutte poly. splitting formulas.
+\item
+Label variables to observe
+\item
+Model practical devices (transistors, op amps)
+\item 
+Align EE applications with knots (Ported = ``Relative'')
+and combinatorial geometry (Ported = ``Set Pointed'').  
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Constraint/Generator Duals and 2 Results.}
+\begin{minipage}{0.48\textwidth}
+
+\begin{itemize}
+\item
+(Part 1) Technique:
+\begin{center}$\text{Solution Space}$\end{center}
+\begin{center}$=$\end{center}
+\begin{center}$\bigcap \text{Constraint Subspaces}$\end{center}
+\item
+\Remph{Result:} An
+exterior algebraic Tutte function: Every
+Pl\:{u}cker coordinate of it satisfies a Matrix
+Tree Theorem.\\
+ 
+This and det. formulas
+easily prove Rayleigh inequalities.
+\end{itemize}
+
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+
+\begin{itemize}
+\item
+(Part 2) Combine with:
+\begin{center}$\text{Solution Space}$ \end{center}
+\begin{center}$=$ \end{center}
+\begin{center}$\text{Closure}(\text{Set of Generators})$\end{center}
+\item
+\Remph{Result:} 
+An oriented matroid pair model
+for some non-linear problem
+well-posedness.
+\end{itemize}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+{Part 1) Coef. Matrix $M$ in CONSTRAINTS $MX=0$}
+\begin{center}
+The Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$:
+\end{center}
+
+Given $N$ (matrix), construct $N^\perp$ 
+with orthog. comp. row space.
+
+Construct:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+\]
+with columns labelled by $P_I\dunion P_V\dunion E$.
+
+Extensor $\mathbf{M}$ over $k[g_e, r_e](P_V\dunion P_I \dunion E)$
+is the product of $M$'s \textbf{row vectors}. The contraction result
+$\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
+\[
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+
+$\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
+\end{frame}
+
+\begin{frame}{(Part 2) Common Covector Model}
+\input{commonCovectorModel.pspdftex}
+\end{frame}
+
+\begin{frame}{Return to the Part 1 Equation $MX=0$}
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+;
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+ELIMINATE the variables indexed by $E$, leaving $2|P|$ variables
+labelled by $P_I$ and $P_V$.  ie, CONTRACT $E$. \textbf{Answer} $A$ IS:
+
+\[
+\mathbf{M}_E = \bigwedge^{\text{Exterior}}_{\text{JOIN over rows}} \left[\begin{array}{c|c} A_{I,I}  &  A_{I,V}   \\  \hline
+    A_{V_I}  & A_{V,V} \end{array}\right] 
+[\mathbf{p_{I_1}, \cdots, p_{I_p}; p_{V_1}, \cdots, p_{V_p}}]^{\mathbf{t}} 
+\]
+
+\[
+ = \ldots + C_i\mbox{\bf XXX} + \ldots; \text{Equiv. Resistance} = 
+\text{certain}\;\; C_i/C_j
+\]
+
+All the other $C_k$'s have similar interpretations.
+
+{\bf $\binom{2|P|}{|P|}$ Matr. Tree Theorems:}
+Each $C_k(N)$ (a PRINCIPAL MINOR of $M$ ABOVE!)
+$= 
+g_e C_k(N/e) + r_e C_k(N\backslash e)$ ($e\not\in P$, $e$ not (co)loop).
+
+Each $C_k$ is a signed weighted enumerator of
+forests satisfying \textbf{conditions ...}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conditions (what sets $F$ are enumerated by one det. $C_i$)
+}
+The \textbf{conditions ...}
+are on the rank, nullity of $F$ and, WHAT ORIENTED MINOR is \
+$G/F\setminus (E\setminus F)$, the minor
+with ONLY PORT EDGES from contracting $F$
+and deleting the other resistor edges, leaving the
+ports.
+
+The conditions for a given $C_k$ \textit{sometimes}
+make all the signs the same (eg: $C_i$ and 
+$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
+
+\textit{Othertimes}, the oriented \textbf{P-minors}
+in the completed Tutte decomposition of $C_k$ determine
+some + and some - signs.
+
+\begin{center}
+\begin{minipage}{0.3\textwidth}
+\begin{tabular}{c}
+When $[G/F|P]$ is \\
+\input{c2plus.pspdftex} \\
+the term is \\
+\Remph{{\LARGE\bf +}}$g_Fr_{E\setminus F}$ \\
+\end{tabular}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\begin{tabular}{c}
+When $[G/F|P]$ is\\
+\input{c2minus.pspdftex}\\
+the term is\\
+\Remph{{\LARGE\bf -}}$g_Fr_{E\setminus F}$\\
+\end{tabular}
+\end{minipage}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Application: Rayleigh Identity, ``Neg. Spanning Tree Correlation''}
+\[
+\Gamma_e(G)\text{ is equivalent conductance across }e.
+\text{ Rayleigh: }0 \le \frac{\partial \Gamma_{p}}{\partial g_f} =
+\frac{\partial \frac{T_G}{T_{G/e}}}{\partial g_f}
+\]
+is equivalent to 
+\[
+0 \le \frac{\partial T_G}{\partial g_f}T_{G/e} - 
+       T_G\frac{\partial T_{G/e}}{\partial g_f} 
+=
+T_{G/f}T_{G/e} - T_GT_{G/e/f}
+\]
+In fact,
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+\end{frame}
+
+\begin{frame}
+\frametitle{Known Partial and Full Combinatorial Proofs}
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+
+\vfill
+Choe (2004) 
+proved essentially this using the vertex-based all-minors matrix tree theorem,
+combinatorial cases and Jacobi's theorem relating the minors of a matrix to
+the minors of its inverse..
+
+\vfill
+Cibulka, Hladky, Lacroix and Wagner (2008) gave a completely bijective proof
+that utilizes some natural 2:2 and 2:1 correspondances.
+
+\vfill
+\Remph{Difficulty:} Some terms on the left \Remph{cancel} and some
+reduce to terms with coefficients $\pm 2$.
+\vfill
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Linear Alg./Oriented Matroid Proof of Rayleigh's Identity}
+Let $R$ be the transfer resistance matrix for 2 ports across $e$ and $f$.
+Our result implies that
+\[
+\det R = \left|\begin{array}{cc} R_{ee} & R_{ef} \\ R_{fe} & R_{ff} \end{array}\right|
+= \alert{+} \frac{T_{G/e/f}}{T_G}
+\]
+It and better-known results tell us
+\[
+R_{ee} = \frac{T_{G/e}}{T_G};\;\;R_{ff} = \frac{T_{G/f}}{T_G};\;\;
+R_{ef}=R_{fe}=\frac{ T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} }{T_G}
+\]
+%Rayleigh's identity 
+$T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2$
+is immediate after substituting these into
+\[
+\det R = R_{ee}R_{ff}-(R_{ef})^2
+\]
+\alert{The $+$ follows from physical grounds if the $g_e, r_e \geq 0$.  Our
+characterization and proof are combinatorial.}
+\end{frame}
+
+\begin{frame}
+\frametitle{New Rayleigh's Identities!}
+
+The same method generates identities and inequalities from
+\[
+\left|
+\begin{array}{ccc} R_{ee} & R_{ef} & R_{eg} \\ 
+                   R_{fe} & R_{ff} & R_{fg} \\
+                   R_{ge} & R_{gf} & R_{gg}
+\end{array}\right|
+= \alert{+} \frac{T_{G/e/f/g}}{T_G} \ge 0
+\]
+when all $r_{..}, g_{..} \ge 0$, ETC...
+
+\vfill
+
+(Applications???)
+
+\vfill
+
+\Remph{Might the same methods address a much harder problem:
+The same inequality for } forests \Remph{ instead of 
+spanning trees?}
+
+\vfill
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(Part 2) Common Covector Model}
+\input{commonCovectorModel.pspdftex}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Voltage and Current graphs $G_V$, $G_I$}
+
+\framebox{\begin{minipage}{0.52\textwidth}
+``Voltage graph'' $G_V$ (EE\cite{HaslerNeirynck,PathologicalAct}, NOT Gross, ...) represents KVL
+$\mathbf{v}\in \text{Cocycles}$ W/ SOME $v_e \equiv 0$
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.4\textwidth}
+``Current graph'' $G_I$ represents KCL
+$\mathbf{i}\in \text{Cycles}$ WITH SOME FLOWS $\equiv 0$
+\end{minipage}}
+
+\begin{itemize}
+\item 
+They are EQUAL GRAPHS for resistor networks.
+
+\item
+For networks with idealized amplifiers, they are not 
+equal.  
+
+\input{idealAmp.pspdftex}
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\item
+(More) realistic amp. model $=$ idealized amp. $+$ 
+resistors.
+
+\end{itemize}
+
+
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{open}
+\[
+G_v = G\backslash e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{short}
+\[
+G_v = G/e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{nullator}
+\input{nullator.pspdftex}
+\[
+G_v = G/e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{norator}
+\input{norator.pspdftex}
+\[
+G_v = G\backslash e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
+
+The Bollobos/Riordan/Zaslavsky\cite{BollobasRiordanTuttePolyColored,MR93a:05047}, Traldi-Ellis-Monaghan\cite{Ellis-Monaghan-Traldi}, (sdc unpub)
+BRZ theory for well-definedness
+of ``Relative Tutte Polynomials for Colored Graphs'' ALL GOES THROUGH 
+(Diao and Hetyei \cite{RelTuttePoly}):
+The 3 BRZ conditions on (colors,initial values) GENERALIZE TO 5;
+activity theory WORKS TOO, when
+based on linear orders on the non-port-elements.
+
+\begin{block}{In a nutshell}
+The 5 conditions $\Longrightarrow$ activities define an 
+unambiguous Tutte function 
+from the deletion/contraction and initial value formulas.\\
+
+Additional conditions $\Longrightarrow$ the Tutte function has a rank-nullity
+expansion.\\
+
+\Remph{
+(The rank-nullity conditions are satisfied in our application.)}
+\end{block}
+
+\begin{block}{To specify the activity/deletion-contraction linear 
+order GLOBALLY is 
+UNNECESSARY.}
+The Gordon/McMahon computation-tree-based 
+activity theory also generalizes. (sdc).
+\end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]{References}
+\bibliographystyle{plain}
+\bibliography{../../bib/MathOfElec}{}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%spare slides
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(15)}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(16)}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(17)}
+
+
+Our Tutte-like function $\mathbf{M}_E(\mathbf{N}):\text{Extensors}\rightarrow\text{Extensors}$.
+
+Given $N$ (matrix), construct $N^\perp$ 
+with orthog. comp. row space.
+
+Construct:  ($G=\mbox{diag}(g_e)$, $R=\mbox{diag}(r_e)$)
+\[
+M = \left[\begin{array}{c|c|c} N(P)  &  0  &  N(E)G \\  \hline
+0  & N^{\perp}(P)  &  N^{\perp}(E)R \end{array}\right]
+\]
+with columns labelled by $P_I\dunion P_V\dunion E$.
+
+Extensor $\mathbf{M}$ over $k[g_e, r_e](P_V\dunion P_I \dunion E)$
+is the product of $M$'s \textbf{row vectors}. The contraction result
+$\mathbf{M}_E(\mathbf{N}) = \mathbf{M}/E$ appears:
+\[
+\mathbf{M} = \mathbf{M}_E(\mathbf{N})\mathbf{e_1}\mathbf{e_2}\cdots\mathbf{e}_{|E|} + (\cdots) 
+\]
+
+$\mathbf{M}_E(\mathbf{N})$ is our Tutte function $\mathbf{N}\rightarrow \text{Ext. Alg.}$
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{What are the conditions like?}
+
+\[
+\text{Extensor\ }= \sigma(C)(a_1\vee a_2\vee \ldots \vee a_d)
+\]
+\[
+C = \ldots + t + \ldots
+\]
+$t \leftrightarrow \text{\ sets of (``contractible'' non-port edges} 
+E_1, E_2$ for which
+\[
+N_V/E_1\backslash(E\setminus E_1) = \text{\ certain OMs on\ } P
+\]
+AND
+\[
+N_I/E_2\backslash(E\setminus E_2) = \text{\ certain OMs on\ } P
+\]
+
+Transfer resistance might be 0 and might be $\neq 0$ iff
+\[
+\exists E_1, E_2 \text{so (diag) and (diag)}
+\]
+
+($K_4$ Wheatstone bridge diagram)
+
+\[
+\frac{R_1}{R_2} > \frac{R_3}{R_4} 
+\text{\ neg\ }
+\frac{R_1}{R_2} < \frac{R_3}{R_4} 
+\text{\ pos\ }
+\]
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Equivalent resistance is a coefficient ratio in an 
+implicitly defined linear function}
+
+(diagram)
+
+In other words
+\[
+R_pi_p + v_p = 0
+\]
+or dually,
+\[
+\mathcal{B} = \{(i_p,v_p)\}
+= \{ t(-1, R_p) | t\in R\}
+\]
+
+\end{frame}
+
+\note{nonframe(linear subspace over the $R^{\mathbf{P}}$)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The $2\times d$ port variable constraint space, 
+and its solution spaces, are $d$-dimensional.}
+
+We represent these spaces by carefully defined
+\textbf{extensors}, as Barnabei, Brini and Rota \cite{exteriorCalc}
+term ``decomposible antisymmetric tensors''
+
+The solution extensor (not a ray) satisfies:
+
+\[
+E(N) = \text{sign}(...)(g_e E(N/e) + r_e E(N\backslash e)
+\text{\ for\ }e\not\in P
+\]
+
+\end{frame}
+
+
+\note{
+(nonframe) 
+The port elements represent the basis chosen so coordinates correspond
+to voltages and currents belonging to network edges.  Geometric aspects
+of extensors are surveyed by 
+Barnabei and Brini \cite{exteriorCalc}.
+
+Cordovil\cite{CommAlgOMs} 
+presented a \textbf{commutative algebraic} function of 
+oriented matroids in which monomial signs encode orientation information.
+The analogy to our \textbf{exterior algebraic} functions must be explored. 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Coefs}
+\[
+E(N) = \ldots + C_i\mbox{\bf XXX} + \ldots
+\]
+\[
+R = C_i/C_j
+\]
+All the other $C_k$'s have similar interpretations.
+
+Each $C_k$ is a determinant.
+
+Each $C_k$ is a signed weighted enumerator of
+forests satisfying \textbf{conditions ...}
+
+Each $C_k$ satisfies
+\[
+C_k(N) = g_e C_k(N/e) + r_e C_k(N\backslash e)
+\text{\ for\ }e\not\in {P}
+\]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Conditions}
+What is the nature of the conditions?  We state them using the 
+network's graphic oriented matroid.
+
+(diagram--glob w/ ports)
+
+\end{frame}
+
+
+
+
+
+\note{
+nonframe \textbf{port} (sdc, engineering literature), 
+\textbf{distinguished element}, 
+element of the restriction's set (Diao and Hetyei), 
+a element in the set of points (Las Vergnas).
+}
+
+
+
+
+
+
+
+
+
+
+\end{document}
