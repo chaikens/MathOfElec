@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{cite}
+\title{What to Model ... }
+\author{Seth Chaiken}
+\begin{document}
+\maketitle
+
+Of a circuit:
+\begin{itemize}
+\item Resistive port behavior; OM characterizes of 
+forest term sign.
+\item Monotone non-linear well-posedness.
+\item OM of solution states.
+\item OM of transients.
+\item Signs of transients that might not be OM modelled.
+\item Laplace transform polynomials.
+\begin{itemize}
+\item Bode diagram approx.
+\item Stability
+\item Phase margin.
+\end{itemize}
+
+\item Imaginary frequency $s=i\omega$.
+\item Anderson's complex OM (after learning it properly.)
+\item Cones of possible phases.  Is that what Anderson did?
+\item Orders or levels of resistance, etc. magnitudes; as
+in symbolic simulation.
+\item Laplacian eigenvalues (what are the good for in elec. circuit
+study?
+\item Effect or information transfer directionality due to impedance
+differences, ``half-resistors'',  \textbf{Bond graphs}.
+\item Hamiltonian generalized position and momentum; that Frankel stuff.
+\end{itemize}
+
+\section{From other document..}
+
+
+(a functional transformation, function $->$ function)
+
+(a complex, more specifically, analytic function)
+
+(a generating function, analog with $\int dt$ in place of $\sum$)
+
+(approximation relations with dicrete generating functions, 
+aka ``$z$-transform''. Digital signal processing implements or
+is approximately related to analog signal processing.)
+
+(a formal ratio of an extensor's Plucker coordinates)
+
+(eigenvalue of eigenvector $e^{s t}$ under a differential operator eg 
+$(a\frac{d}{dx}^2 + b\frac{d}{dx} + c)(e^{st}) = (as^2 +bs + c)e^{st}$
+
+(formal expression for impedances $R$, $1/Cs$, $Ls$)
+
+(linear differential operator $s(f) = \frac{d}{dx}f$)
+
+(deletion/contraction, 
+``capacitor shorts out on high $s$, inductor opens on low $s$'' 
+\cite{intuitAna})
+
+(characterization of ``responses'' defined among port variables)
+
+(?? Indicator of a step respone)
+
+(asymptotic expansions as $s\rightarrow\infty$
+and $s\rightarrow 0$)
+
+\noindent\textbf{More and more}
+
+(asymptotic behavior of a generating function's coefficients, which are
+the generated function's values, determined by analytic properties of the
+generated function.  Relate EE, circuits and signals literature to 
+statistical mechanics and combinatorics.  
+\cite{statMechForGraphers,multivarHalfPlane,AnalyticCombinatoricsBook})
+
+(random generation: \cite{BoltzmanSampRandCombGen})
+
+(geometry of phase shifts)
+
+(risetime related to basic topology, graph theory, topology of lumped
+networks expressed by oriented matroids)
+
+(FUTURE hopefully not too much: Complex oriented matroids of Anderson, et.
+al. \cite{complexOM})
+
+
+
+
+\bibliography{../../bib/MathOfElec}{}
+\bibliographystyle{plain}
+
+\end{document}
