@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{cite}
+\title{Tutte Activities based on More General Element Orders}
+\author{Seth Chaiken\\
+Gary Gordon\\
+Elizabeth McMahon}
+\begin{document}
+\maketitle
+In 1997 Gordon and McMahon\cite{GordonMcMachonGreedoid} 
+extended from matroids to greedonds
+the internal and external 
+element activities and the resulting subset-interval 
+partition analysis for the Tutte polynomial.  They found it necessary
+to abandon the traditional definition of activities based on a 
+single (but arbitrary) linear element order.  Instead, the internal and 
+external, active versus inactive element classification was based on 
+properties each individual root-to-leaf path down any computation tree
+for the Tutte polynomial.  Independence of element order was generalized to
+independence of the computation tree.
+
+We report that these results (for matroids) naturally generalize when both (1) 
+the deletion/contraction and loop/coloop removal operations, for each element,
+are \textbf{parametrized} or 
+\textbf{colored}, and (2) a subset of \textbf{port} elements 
+$P$ is given and the resulting \textbf{restricted} or \textbf{ported}
+Tutte functions satisfy $T(M) = g_e T(M/e) + r_e T(M\backslash e)$ 
+\textbf{only for} $e\not\in P$.
+
+After they are extended include initial values $T(M')$ for 
+\textbf{$P$-minors} $M'$, the Bollobas/Riordan/Zaslavsky 
+conditions on the parameters are quite easily 
+shown to be necessary and sufficient for the Tutte polynomial to be
+well-defined.
+
+(note in this abstract draft: I guess it will be easy to extend everything
+to ported, parametrized greedoid Tutte functions, but I have not 
+begun to work on that.)
+
+
+\bibliographystyle{plain}
+\bibliography{../../bib/MathOfElec}
+\end{document}
+
