@@ -11,3 +11,11 @@ bibtex laplace1
 pdflatex laplace1
 pdflatex laplace1
 
+
+
+pdflatex whatToModel.tex
+bibtex whatToModel
+pdflatex whatToModel
+pdflatex whatToModel
+
+
