@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{cite}
+\title{How Combinatorics Improves Tree Enumeration}
+\begin{document}
+\maketitle
+
+\section{Graph Coloring Counting}
+
+Definition
+
+The chromatic function is a polynomial proved by deletion/contraction
+induction.
+
+\section{Inclusion/Exclusion and Whitney's Solution}
+
+\[
+\chi(G,n) = \sum_{k=0}^{k=|E|}(-1)^k \text{\# }n\text{ colorings violating at least }
+k\text{ edges}
+\]
+
+\[
+\chi(G,n) = \sum_{A\subseteq E}(-1)^k 
+(\text{\# }n\text{ colorings violating at least the edges }A)
+\]
+
+\[
+\chi(G,n) = \sum_{A\subseteq E}(-1)^k 
+n^{|V(G/A)|} = n^{|V(G)|} + (\text{polynomial in } n \text{ of degree } < |V(G)|)
+\]
+which establishes that $\chi$ is a polynomial function.  
+
+Whitney observed that many pairs of terms, those for which $A$ contains at least 
+one \textbf{broken circuit}, may be cancelled.
+
+If $A$ contains circuit $C$ and $e\in C$, then $k(G/A) = k(G/(A\setminus e))$
+
+So Whitney's idea was to impose a linear order on a subset $\mathcal{B}$
+of the $A$'s occurring 
+in the sum so that a pairing $\{A,A'\}$ of the members of $\mathcal{B}$ 
+is defined for which $\{A,A'\}=\{A'\cup e, A'\}$, $e\not\in A'$ for some $e$
+and $k(G/A) = k(G/(A\setminus e))$.  Two benefits result:
+\begin{enumerate}
+\item Many of the terms may be omitted.
+\item The subsets $A$ for the remaining terms all have a simple form with the 
+result $k(G/A) = k(G) - |A| $.
+
+\section{Posets, Inclusion/Exclusion and the Mobius Function}
+
+The Mobius function emerges when the principle of inclusion/exclusion is
+applied to enumerations on elements of general posets.
+
+(I'll try a tutorial that directly relates the M\"{o}bius defining recurrance to
+solving $g(x) = \sum_{z\le x}f(z)$ for $f()$.)
+
+(The resulting mathematical abstraction is Stanley's 
+\textbf{Incidence Algebra} of a poset.)
+
+Stanley: ``Hence M\"{o}bius inversion results in a simplification
+of Inclusion-Exclusion under appropriate circumstances. However, we shall also see that
+the applications of M\"{o}bius inversion are much 
+further-reaching than as a generalization of
+Inclusion-Exclusion.''
+
+\section{The Broken Circuit Complex}
+
+\section{Activities}
+
+(Goal: Get at the facts about activities being h-vectors of broken-circuit complexes or 
+something.)
+
+(Bigger Goal: Extend that to GM activities, based on a computation tree.  Try to find 
+the more generalized broken circuit complex, if possible!)
+
+
+
+
+
+
+\end{enumerate}
+\bibliographystyle{plain}
+\bibliography{../../bib/MathOfElec}
+\end{document}
+
