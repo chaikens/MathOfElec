@@ -73,6 +73,15 @@ something.)
 (Bigger Goal: Extend that to GM activities, based on a computation tree.  Try to find 
 the more generalized broken circuit complex, if possible!)
 
+\section{Applications}
+
+Why are general computation tree orders better?  Suppose an electrical network has resistors
+A, B, and C.  Properties of $N/A$ may depend more on $B$ than $C$, while properties of
+$N\setminus A$ may depend more on $C$ than $B$. EG: $N=(A \text{ ser } B) \text{ par } C$.
+$N/A = B \text{ par } C$, but $N\setminus A = C$.  If $g(B) >> g(C)$, 
+$g(N/A) = g(B) + g(C) \approx g(B)$
+but $g(N\setminus A) = g(C)$ 
+
 
 
 \section{Literature}
