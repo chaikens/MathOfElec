@@ -82,11 +82,31 @@ $N/A = B \text{ par } C$, but $N\setminus A = C$.  If $g(B) >> g(C)$,
 $g(N/A) = g(B) + g(C) \approx g(B)$
 but $g(N\setminus A) = g(C)$ 
 
+\[
+R(N) = \frac{g(A)+g(B)}{g(A)g(B)+g(A)g(C)+g(B)g(C)}
+\]
+
+\[
+R(N/A) = \lim_{g(A)\rightarrow\infty}R(N) = \frac{1}{g(B)+g(C)}
+\]
+
+\[
+R(N\setminus A) = \lim_{g(A)\rightarrow 0}R(N) = \frac{g(B)}{g(B)g(C)} = \frac{1}{g(C)}
+\]
+
+
+
+
+
 
 
 \section{Literature}
 
 New! Doman and Trinks \cite{DohmenTrinksAbsWitBrok}
+
+Maybe an application clue from Urschel (who's also into football) et. al.
+because the abstract mentions a ``heavy edge coarsening scheme''
+\cite{UrschelFiedlerGraphLaplac}.
 
 \end{enumerate}
 \bibliographystyle{plain}
