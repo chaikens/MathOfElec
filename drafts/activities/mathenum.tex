@@ -20,12 +20,12 @@ k\text{ edges}
 \]
 
 \[
-\chi(G,n) = \sum_{A\subseteq E}(-1)^k 
+\chi(G,n) = \sum_{A\subseteq E}(-1)^{|A|} 
 (\text{\# }n\text{ colorings violating at least the edges }A)
 \]
 
 \[
-\chi(G,n) = \sum_{A\subseteq E}(-1)^k 
+\chi(G,n) = \sum_{A\subseteq E}(-1)^{|A|}
 n^{|V(G/A)|} = n^{|V(G)|} + (\text{polynomial in } n \text{ of degree } < |V(G)|)
 \]
 which establishes that $\chi$ is a polynomial function.  
@@ -34,7 +34,7 @@ Whitney\cite{WhitLogExpMath} observed that
 many pairs of terms, those for which $A$ contains at least 
 one \textbf{broken circuit}, may be cancelled.
 
-If $A$ contains circuit $C$ and $e\in C$, then $k(G/A) = k(G/(A\setminus e))$
+If $A$ contains circuit $C$ and $e\in C$, then $V(G/A) = V(G/(A\setminus e))$
 
 So Whitney's idea was to impose a linear order on a subset $\mathcal{B}$
 of the $A$'s occurring 
@@ -44,11 +44,11 @@ and $k(G/A) = k(G/(A\setminus e))$.  Two benefits result:
 \begin{enumerate}
 \item Many of the terms may be omitted.
 \item The subsets $A$ for the remaining terms all have a simple form with the 
-result $k(G/A) = k(G) - |A| $.
+result $|V(G/A)| = |V(G)| - |A| $.
 
 \section{Posets, Inclusion/Exclusion and the Mobius Function}
 
-The Mobius function emerges when the principle of inclusion/exclusion is
+The M\"{o}bius function emerges when the principle of inclusion/exclusion is
 applied to enumerations on elements of general posets.
 
 (I'll try a tutorial that directly relates the M\"{o}bius defining recurrance to
@@ -62,6 +62,30 @@ of Inclusion-Exclusion under appropriate circumstances. However, we shall also s
 the applications of M\"{o}bius inversion are much 
 further-reaching than as a generalization of
 Inclusion-Exclusion.'' \cite[ch.~3]{StanleyEC1}.
+
+
+\section{Broken Circuits in the Tutte Computation Tree}
+
+Every GM computation tree partitions $2^{E(G)}$ into 
+boolean intervals\cite{GordonMcMachonGreedoid}.  The boolean
+intervals correspond to the leaves of the tree.  Each leaf is
+characterized by subsets of externally active elements
+EA and internally active elements IA.
+(not explained yet here at all).
+Each interval has cardinality $2^{|\text{IA}|+|\text{EA}|}$.
+The broken-circuit-free subsets are those in the intervals for which
+$\text{EA}=\emptyset$.  Thus the subsets with broken circuits are partitioned
+among the intervals with $\text{EA}\neq\emptyset$.  
+
+Consider an interval with $\text{EA}\neq\emptyset$. It has the
+form $[A, A\cup\text{IA}\cup\text{EA}]$.  Let's further partition
+it into the $2^{|\text{IA}|}$ subintervals $[A\cup I, A\cup I\cup \text{EA}]$, 
+$I\subseteq\text{IA}$.    
+%We now observe, similarly to what Whitney observed, that
+We now observe, like Whitney observed, that
+$v=V(G/S)$ is the same for all $S\in[A\cup I, A\cup I\cup \text{EA}]$.  The
+contribution of these $S$ to $\chi(G,n)$ is $n^v\sum_S(-1)^{|S|}$ $=$
+$n^v(-1)^{|A\cup I|}(1-1)^{|EA|}$.
 
 \section{The Broken Circuit Complex}
 
