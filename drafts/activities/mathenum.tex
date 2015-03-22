@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{cite}
-\title{How Combinatorics Improves Tree Enumeration}
+\title{Notes on How Combinatorics Improves Tree Enumeration}
 \begin{document}
 \maketitle
 
@@ -123,6 +123,12 @@ leaf.
 
 \cite{BrokenCctComplexBryl}
 
+The ``broken-circuit complex'' is the simplicial complex of sets that do not contain
+any broken circuits.  The $f$-vector codes the number of faces of each dimension, ie., 
+cardinality $-1$.
+The coefficients of the chromatic polynomial (characteristic poly in general)
+are the $f$-vector of the broken-circuit complex.
+
 \section{Activities}
 
 (Goal: Get at the facts about activities being h-vectors of broken-circuit complexes or 
@@ -160,7 +166,8 @@ R(N\setminus A) = \lim_{g(A)\rightarrow 0}R(N) = \frac{g(B)}{g(B)g(C)} = \frac{1
 
 \section{Literature}
 
-New! Doman and Trinks \cite{DohmenTrinksAbsWitBrok}
+New! Doman and Trinks \cite{DohmenTrinksAbsWitBrok}, paper citing
+Doman's proof \cite{DohIndProofMatroids}.
 
 Maybe an application clue from Urschel (who's also into football) et. al.
 because the abstract mentions a ``heavy edge coarsening scheme''
