@@ -12,6 +12,29 @@ Definition
 The chromatic function is a polynomial proved by deletion/contraction
 induction.
 
+\section{Tutte Polynomial}
+
+\[
+T(G,x,y) = \left\{ \begin{array}{ll}
+  x^{\text{\# isthmuses}}y^{\text{\# loops}} & \text{if }G\text{ contains loops or isthmuses only,}\\
+  T(G/e,x,y)+T(G\setminus e,x,y) & \text{if }e\in E(G)
+     \text{ is neither a loop nor an isthmus.}
+  \end{array}
+  \right\}
+\]
+
+Chromatic specialization:
+
+\[
+\chi(G,n) = (-1)^{|V(G)|-k(G)}n^{k(G)}T(G,(1-n),0)
+\]
+
+Tutte's activities expansion:
+\[
+T(G,x,y) = \sum_{\text{Bases A}}x^{|IA(A)|}y^{|EA(A)|}
+\]
+
+
 \section{Inclusion/Exclusion and Whitney's Solution}
 
 \[
