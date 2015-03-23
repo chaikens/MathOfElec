@@ -7,12 +7,17 @@
 
 \section{Graph Coloring Counting}
 
-Definition
+\noindent Definition
 
-The chromatic function is a polynomial proved by deletion/contraction
+\noindent The chromatic function is a polynomial proved by deletion/contraction
 induction.
 
-\section{Tutte Polynomial}
+\noindent Combinatorics gives us counting interpretations of the \textit{coefficients}
+of the chromatic polynomial.  So the chromatic polynomial is a case of 
+a \textbf{generating function} whose \textit{values} $\chi(G,n)$ are interesting.  
+
+
+\section{Tutte Polynomial--Delection/Contraction}
 
 \[
 T(G,x,y) = \left\{ \begin{array}{ll}
@@ -87,6 +92,38 @@ further-reaching than as a generalization of
 Inclusion-Exclusion.'' \cite[ch.~3]{StanleyEC1}.
 
 
+\subsection{Characteristic Polynomial}
+
+\[
+\chi(G,n) = \sum_{\textbf{0}\le z\le \textbf{1}}\mu(\textbf{0}, z)n^{|V(G)|-\text{rank}(z)}
+\]
+where the sum is over the geometric lattice of flats (closed subsets of edges)
+in the graphic matroid of $G$.  
+
+Proof.  Each flat $z$ corresponds to a graph $G/A$ obtained by 
+contracting some
+subset $A$ of edges and then removing the loops. 
+(The edges in the flat are $A$ plus those removed loops.)
+The number of unrestricted colorings of $G/A$ is $n^{V(G/A)-\text{rank}(z)}$.
+The number of legal colorings of each $G/A'$ is of course $\chi(G/A',n)$.
+Each unrestricted coloring of $G/A$ corresponds to a unique legal coloring of
+the graph obtained from $G/A$ by contracting the violated edges of $G/A$.  
+Therefore 
+\[
+n^{V(G/A)-\text{rank}(z)} = \sum_{z'\ge z}\chi(G/A',n).
+\]
+The formula for $\chi(G,n)$ is the result of M\"{o}bius inversion because
+$G$ (with no edges contracted) corresponds to the bottom flat $\textbf{0}$.
+
+Factoring out $n^{k(G)}$ gives us a polynomial function that generalizes 
+to all finite lattices.
+$\chi(G,n)=n^{k(G)}\text{char}(\mathcal{L},n)$ where
+
+\[
+\text{char}(\mathcal{L},n) = 
+\sum_{z\in\mathcal{L}}\mu(z,\mathbf{1})n^{\text{rank}(\mathbf{1}) - \text{rank}(z)}.
+\]
+
 \section{Broken Circuits in the Tutte Computation Tree}
 
 Every GM computation tree partitions $2^{E(G)}$ into 
@@ -133,6 +170,52 @@ are the $f$-vector of the broken-circuit complex.
 
 (Goal: Get at the facts about activities being h-vectors of broken-circuit complexes or 
 something.)
+
+
+\[
+\sum_{i=0}^d f_i(x-1)^{d-i}
+=
+\sum_{i=0}^d h_i(x)^{d-i}
+\]
+
+??What expansion of $\chi$ in $n$ = expansion of $\chi$ in $n-1$?
+
+ 
+
+Tutte's expansion:
+\[
+T(G,x,y) = \sum_{\text{Bases} A\subseteq E(G)}x^{|IA(A)|}y^{|EA(A)|}
+\]
+
+Set expansion:
+\[
+T(G,x,y) = \sum_{A\subseteq E(G)}(x-1)^{k(A)-k(E)}(y-1)^{k(A) + |A| - |V|}
+\]
+
+\[
+\chi(G,n) = (-1)^{|V|-k(G)}n^{k(G)}T(G,1-n,0)
+\]
+
+\[
+\chi(G,n) = \sum_{A \text{ contains no broken circuits}}
+            (-1)^{|A|}n^{|V|-|A|}
+\]
+
+
+\[
+\chi(G,n) = (-1)^{|V|-k(G)}n^{k(G)}\sum_{A\subseteq E(G)}(-n)^{k(A)-k(E)}(-1)^{k(A) + |A| - |V|}
+\]
+
+\[
+\chi(G,n) = (-1)^{|V|}(-1)^{k(G)}n^{k(G)}\sum_{A\subseteq E(G)}(-n)^{k(A)}(-n)^{-k(E)}(-1)^{k(A)}(-1)^{|A|}(-1)^{|V|}
+\]
+
+We get from ... Whitney's starting point for inclusion/exclusion:
+\[
+\chi(G,n) = \sum_{A\subseteq E(G)}n^{k(A)}(-1)^{|A|}
+\]
+
+
 
 (Bigger Goal: Extend that to GM activities, based on a computation tree.  Try to find 
 the more generalized broken circuit complex, if possible!)
