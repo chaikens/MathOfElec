@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{cite}
+\setlength{\textwidth}{7.0in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+
+\title{Tutte Activities Based on More General Element Orders (draft)}
+\author{Seth Chaiken\\
+Gary Gordon\\
+Elizabeth McMahon}
+\begin{document}
+\maketitle
+In 1997 Gordon and McMahon\cite{GordonMcMachonGreedoid} 
+extended from matroids to greedoids
+the internal and external 
+element activities and the resulting subset-interval 
+partition analysis for the Tutte polynomial.  They found it necessary
+to abandon the traditional definition of activities based on a 
+single (but arbitrary) linear element order.  Instead, the internal and 
+external, active versus inactive element classification was based on 
+properties of each individual root-to-leaf path down any computation tree
+for the Tutte polynomial.  Independence of element order was generalized to
+independence of the computation tree.
+
+We report that these results (for matroids) naturally generalize when both (1) 
+the deletion/contraction and loop/coloop removal operations, for each element,
+are \textbf{parametrized} or 
+\textbf{colored}, and (2) a subset of \textbf{port} elements 
+$P$ is given and the resulting \textbf{restricted} or \textbf{ported}
+Tutte functions satisfy $T(M) = g_e T(M/e) + r_e T(M\backslash e)$ 
+\textbf{only for} $e\not\in P$.
+
+After they are extended to involve the initial values $T(M')$ for 
+the \textbf{$P$-minors} $M'$, the Bollobas/Riordan/Zaslavsky 
+conditions on the parameters are quite easily 
+shown to be necessary and sufficient for the Tutte polynomial to be
+well-defined.
+
+\newpage
+
+\LARGE
+
+\section{Brief History of Tutte Functions}
+\begin{enumerate}
+\item Well-defined invariants like the chromatic (poly.) function 
+and the count of spanning trees were shown to satisfy
+\[
+T(G) = T(G/e) \pm T(G\setminus e).
+\]
+\item
+Alternative expansions for some Tutte functions, like Whitney's
+\[
+\chi(G,\lambda) = \sum_{A\subseteq E(G)}(-1)^{|A|}\lambda^{k(G|A)}\text{\ \ \ }2^{|E|}
+\text{ terms}
+\]
+$\sum$ could be SHORTENED to ``broken-circut-free'' subsets $A$, based on
+an \textit{arbitrary linear ordering of }$E(G)$
+\item
+Tutte and Brylawski's universal 2-variable solution to 
+\[
+T(G) = T(G/e) \pm T(G\setminus e).
+\]
+expressed by
+\[
+T(G) = \sum_{\text{Bases}B\subseteq E}x^{|IA(B)|}y^{|EA(B)|}
+\]
+\textit{ internally ($IA$) and externally ($EA$)
+active elements based on a arbitrary linear ordering of $E$}
+\end{enumerate}
+
+Tutte's and others proved
+\textbf{every computation tree} computes every Tutte function
+value \textbf{correctly BECAUSE} the Tutte eq. have a unique solution.
+
+But \textit{independence of the linear ordering defining the activities} 
+HAD TO BE PROVED FIRST.
+
+\newpage
+
+\section{GM's Computation Tree Approach}
+
+Sets $IA$ and $EA$ are assoc. to \textbf{leaves} of an 
+\textbf{arbitrary computation tree} $\mathcal{T}_j$
+
+\noindent
+$IA(\text{leaf}) = $ isthmuses at leaf's graph or matroid.
+
+\noindent
+$EA(\text{leaf}) = $ loops at leaf's graph or matroid.
+
+\noindent Routine induction (``Let $\mathcal{T}_1$, 
+$\mathcal{T}_2$ be two trees of a smallest 
+counterexample. ... Contradiction!\footnote{Technical lemmas 
+about series and parallel elements are applied.}'') proves:
+
+\[
+\sum_{\text{leaf of }\mathcal{T}_1}
+x^{IA_1(\text{leaf})}y^{EA_1(\text{leaf})}
+=
+\sum_{\text{leaf of }\mathcal{T}_2}
+x^{IA_2(\text{leaf})}y^{EA_2(\text{leaf})}
+\]
+
+
+
+\newpage
+\section{What generalizes to GM computation tree approach}
+
+\noindent \textbf{Greedoids (GM 1997)}
+
+\noindent Sometimes the \textbf{only computation trees
+that exist} are NOT BASED ON A LINEAR element ORDER!
+
+\vfill
+
+
+\noindent 2 Interval partitions of the boolean lattice
+$2^{E}$ defined using \textbf{one part for each computation tree leaf}.
+
+\vfill
+
+
+\noindent \textbf{Zaslavsky-Riordan-Bollobas, Traldi}
+on weight (or color) pairs ($x_e,y_e$) on labelled edges
+and initial values ($X_e,Y_e$) on loops and insthuses -- necessary and 
+sufficient for the weighted or colored Tutte equations to have a 
+solution.
+
+\vfill
+
+
+\noindent \textbf{$P$-ported or restricted or set-pointed} Tutte functions
+$T$ with weights or colors.  
+(Diao-Hetyei, computation tree proofs by sdc)  
+TWO more ZBR-type conditions re. \textbf{initial values of $T$ on 
+the $P$-quotients} are needed besides ZBR's original three.
+
+\vfill
+
+
+\noindent \textbf{ORIENTED matroids}
+ INCLUDING DISTINCT $P$-quotients.(sdc)
+
+\newpage
+\section{What DOES NOT Go Through}
+
+Given a linear element order, $B\subset E$ is a broken-circuit if there
+exists $e\not\in E$ so $B\cup e$ is a circuit and $e$ is the (FOR US!) 
+GREATEST element in $B\cup e$.
+
+\textbf{Given a computation tree} (unless it's from a linear order) 
+``$B\subseteq E$ is a broken-circuit'' \textbf{is not well-defined}.  
+
+
+
+\vfill
+
+\section{What does go through}
+
+
+What's a broken circuit $B$, COMPUTATIONALLY?  ANSWER:  There is a 
+root-to-leaf path down which which each element of $B$ is contracted, and
+a \textbf{LOOP IS PRODUCED} when contracting the last element of $B$.
+
+
+
+When the tree is from a linear order, 
+``$A\subseteq E$ is broken-circuit free'' \textbf{if and only if}
+``the leaf of $\mathcal{T}$ gotten to by searching for $A$ has no loops
+(ie., $EA(\text{leaf})=\emptyset$).
+
+AND Whitney's expansion generalizes to those sets $A$ leading to loop-free
+leaves in an arbitrary computation tree.
+
+
+
+
+
+
+
+
+
+
+
+%}%Large
+\newpage
+\bibliographystyle{plain}
+\bibliography{../../bib/MathOfElec}
+\end{document}
+
