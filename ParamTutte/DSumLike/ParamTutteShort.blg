@@ -1,0 +1,45 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: ParamTutteShort.aux
+The style file: abbrv.bst
+Database file #1: ParamTutte.bib
+You've used 33 entries,
+            2118 wiz_defined-function locations,
+            731 strings with 8438 characters,
+and the built_in function-call counts, 9527 in all, are:
+= -- 954
+> -- 334
+< -- 8
++ -- 144
+- -- 101
+* -- 610
+:= -- 1599
+add.period$ -- 105
+call.type$ -- 33
+change.case$ -- 140
+chr.to.int$ -- 0
+cite$ -- 33
+duplicate$ -- 374
+empty$ -- 841
+format.name$ -- 101
+if$ -- 1988
+int.to.chr$ -- 0
+int.to.str$ -- 33
+missing$ -- 35
+newline$ -- 173
+num.names$ -- 69
+pop$ -- 161
+preamble$ -- 1
+purify$ -- 115
+quote$ -- 0
+skip$ -- 241
+stack$ -- 0
+substring$ -- 646
+swap$ -- 53
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 116
+warning$ -- 0
+while$ -- 104
+width$ -- 35
+write$ -- 372

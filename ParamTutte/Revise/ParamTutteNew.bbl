@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{OMBOOK}
+A.~Bj{\"o}rner, M.~Las~Vergnas, B.~Sturmfels, N.~White, and G.~M. Ziegler.
+\newblock {\em Oriented matroids}, volume~46 of {\em Encyclopedia of
+  Mathematics and its Applications}.
+\newblock Cambridge University Press, Cambridge, second edition, 1999.
+
+\bibitem{BollobasRiordanTuttePolyColored}
+B.~Bollob\'{a}s and O.~Riordan.
+\newblock A {T}utte polynomial for colored graphs.
+\newblock {\em Combin. Probab. Computat.}, 8(1--2):45--93, 1999.
+
+\bibitem{BSST}
+R.~L. Brooks, C.~A.~B. Smith, A.~H. Stone, and W.~T. Tutte.
+\newblock The dissection of rectangles into squares.
+\newblock {\em Duke Math. J.}, 7(1):312--340, 1940.
+
+\bibitem{BrylawskiPointed}
+T.~H. Brylawski.
+\newblock A combinatorial model for series-parallel networks.
+\newblock {\em Trans. Amer. Math. Soc.}, 154:1--22, 1971.
+
+\bibitem{sdcPorted}
+S.~Chaiken.
+\newblock The {T}utte polynomial of a {$P$}-ported matroid.
+\newblock {\em J. Combin. Theory Ser. B}, 46:96--117, 1989.
+
+\bibitem{TutteEx}
+S.~Chaiken.
+\newblock Ported tutte functions of extensors and oriented matroids.
+\newblock \verb|http://arXiv.org/abs/0605707|, August 2006.
+
+\bibitem{RelTuttePoly}
+Y.~Diao and G.~Hetyei.
+\newblock Relative tutte polynomials for coloured graphs and virtual knot
+  theory.
+\newblock {\em Combinatorics, Probability and Computing}, First View:1--27,
+  2009.
+
+\bibitem{DoyleSnellBook}
+P.~G. Doyle and J.~L. Snell.
+\newblock {\em Random walks and electric networks}, volume~22 of {\em Carus
+  Mathematical Monographs}.
+\newblock Mathematical Association of America, Washington, DC, 1984.
+\newblock \verb|http://arxiv.org/abs/math/0001057| \verb|[math.CO]|.
+
+\bibitem{Ellis-Monaghan-Traldi}
+J.~A. Ellis-Monaghan and L.~Traldi.
+\newblock Parametrized {T}utte polynomials of graphs and matroids.
+\newblock {\em Combinatorics, Probability and Computing}, 15:835--854, 2006.
+
+\bibitem{JoAndTom}
+J.~A. Ellis-Monaghan and T.~Zaslavsky.
+\newblock Personal Communication.
+
+\bibitem{Garey-Johnson}
+M.~R. Garey and D.~S. Johnson.
+\newblock {\em Computers and intractability. A guide to the theory of
+  {NP}-completeness}.
+\newblock W. H. Freeman and Co., San Francisco, Calif., 1979.
+
+\bibitem{GordonMcMachonGreedoid}
+G.~Gordon and E.~McMahon.
+\newblock Interval partitions and activities for the greedoid {T}utte
+  polynomial.
+\newblock {\em Adv. Appl. Math.}, 18(1):33--49, Jan. 1997.
+
+\bibitem{Kirchhoff}
+G.~Kirchhoff.
+\newblock \:{U}ber die aufl\:{o}sung der gleichungen, auf welshe man bei der
+  untersuchung der linearen verteilung galvanischer str\:{o}me gefuhrt wird.
+\newblock {\em Ann. Physik Chemie}, pages 497--508, 1847.
+\newblock On the solution of the equations obtained from the investigation of
+  the linear distribution of Galvanic currents, (J. B. O'Toole, tr.)
+  \textit{IRE Trans. Circuit Theory}, 5, 1958, pp. 238--249.
+
+\bibitem{MR0419272}
+M.~Las~Vergnas.
+\newblock Extensions normales d'un matro\"\i de, polyn\^ome de {T}utte d'un
+  morphisme.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. A-B}, 280(22):Ai, A1479--A1482,
+  1975.
+
+\bibitem{SetPointedLV}
+M.~Las~Vergnas.
+\newblock The {T}utte polynomial of a morphism of matroids. {I}. {S}et-pointed
+  matroids and matroid perspectives.
+\newblock {\em Ann. Inst. Fourier (Grenoble)}, 49(3):973--1015, 1999.
+\newblock Symposium \`a la M\'emoire de Fran\c cois Jaeger (Grenoble, 1998).
+
+\bibitem{NegamiPoly}
+S.~Negami.
+\newblock Polynomial invariants of graphs.
+\newblock {\em Trans. Amer. Math. Soc.}, 299(2):601--622, Feb. 1987.
+
+\bibitem{TutteDich}
+W.~T. Tutte.
+\newblock A contribution to the theory of dichromatic polynomials.
+\newblock {\em Canad. J. Math.}, 6:80--91, 1954.
+
+\bibitem{TutteGraphBook}
+W.~T. Tutte.
+\newblock {\em Graph theory}, volume~21 of {\em Encyclopedia of Mathematics and
+  its Applications}.
+\newblock Cambridge University Press, Cambridge, 2001.
+\newblock With a foreword by Crispin St. J. A. Nash-Williams, Reprint of the
+  1984 original.
+
+\bibitem{MR93a:05047}
+T.~Zaslavsky.
+\newblock Strong {T}utte functions of matroids and graphs.
+\newblock {\em Trans. Amer. Math. Soc.}, 334(1):317--347, 1992.
+
+\bibitem{TomJul09}
+T.~Zaslavsky, July 2010.
+\newblock Personal conversation.
+
+\end{thebibliography}

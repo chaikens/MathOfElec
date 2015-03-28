@@ -1,0 +1,144 @@
+\documentclass[12pt,leqno]{amsart}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{eucal,graphicx}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.4in}
+
+%\renewcommand{\baselinestretch}{2}     % Activate for double spacing.
+%\renewcommand{\baselinestretch}{1.6}   % Activate for 1-1/2 spacing.
+
+
+\newcommand \comment[1]{}			%  Silent version.
+%\renewcommand \comment[1]{\emph{#1}}		%  Comment revealed.
+\newcommand \dateadded[1]{\comment{[Date added: #1.]}}
+\newcommand \mylabel[1]{\label{#1}\comment{{\rm \{#1\} }}}
+\newcommand \myref[1]{\ref{#1}\comment{{\{#1\}}}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+
+
+\theoremstyle{remark}
+\newtheorem{exam}{Example}%[section]
+\newcommand \myexam[1]{\smallskip\begin{exam}[\emph{#1}]}
+
+\renewcommand{\phi}{\varphi}
+\newcommand\eset{\varnothing}
+\newcommand\inv{^{-1}}
+\newcommand\setm{\setminus}
+\newcommand\chiz{\chi^\bbZ}
+\newcommand\bbR{\mathbb{R}}
+\newcommand\bbZ{\mathbb{Z}}
+\newcommand\cH{\mathcal{H}}
+
+\allowdisplaybreaks
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Ported, Restricted, Set Pointed Parametrized Tutte Functions}
+
+\author{Seth Chaiken}
+\address{Computer Science Department\\
+The University at Albany (SUNY)\\
+Albany, NY 12222, U.S.A.}
+\email{\tt sdc@cs.albany.edu}
+
+
+
+\begin{abstract}
+ \end{abstract}
+
+\subjclass[2000]{...}
+
+
+
+\keywords{Tutte function, Tutte polynomial}
+
+\thanks{Version of \today.}
+
+\maketitle
+\pagestyle{headings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introduction}
+
+The Tutte polynomial is a well-known invariant of graphs and matroids.  Several
+related polynomials have applications that involve graphs whose edges each bear
+one or more weights and/or some of whose edges (or vertices) are distinguished.
+In this context, the additive parametrized Tutte identity applied to graph $M$
+with edge set $S(M)$
+\begin{equation}
+\label{A-P-T-identity}
+T(M) = x_e T(M/e) + y_e T(M\setminus e) \text{ if $e\in S(M)$ is neither a loop nor a coloop in $M$}
+\end{equation}
+is assumed only when $e$ is \emph{not} a distinguished edge.  (A distinguished vertex
+remains an identifyable element within a set of collapsed original vertices
+during each contraction of edges.)  The applications, questions
+and results have natural generalizations to matroids.  So, for now, we will
+use matroid language and refer to graphs via their graphic matroids.
+
+The purpose of this paper is to extend, to matroids and graphs
+a set of distinguished elements $P$,  known results and methods pertaining
+to solutions to \ref{A-P-T-identity} together with the multiplicative
+identities
+\begin{equation}
+\label{M-P-T-identities}
+T(M)=X_e T(M/e) \text{ if $e\in S(M)$ is a coloop}\\
+T(M)=Y_e T(M\setminus e) \text{ if $e\in S(M)$ is a loop}\\
+T(M_1\oplus M_2)=T(M_1)T(M_2)
+\end{equation}
+when these identities are restricted to apply only when
+$e\not\in P$.  
+
+When all the $x_e, y_e$ parameters are $0$ and,
+independently of $e$, each coloop multiplier $X_e=z$
+and each loop multiplier $Y_e=t$, and $T(\emptyset)=1$, 
+the solutions have been characterized by Las Vergnas .... .
+The theory is ...
+
+Interesting complications arise with other the parameter and multiplier
+values.  We extend known results about this to the case when $P\neq\emptyset$.
+
+
+When the Tutte identities are parametrized, it is especially important to carefully
+distinguish between solutions (functions of matroids that satisfy all the relevent
+identities) and formal polynomials that result from using a subset of the 
+identities to try to calculate $T(M)$ for one $M$.  Unlike in the non-parametrized
+case, even without distinguished elements, different formal polynomials
+result from different calculations.  These formal polynomials
+are in the parameters, values for $T$ of loops, coloops and the initial value $T(\emptyset)$.
+Additional polynomial identities in these
+values must be satisfied in order for the values together with the to have 
+a solution.  A solution of course means that $T(M')$ for all the (matroid) minors of $M$
+satisfy all the Tutte identities; equivalently, all calculation sequences give
+the same result.  When the parameters are all $1$, the value for each loop is
+$t$, the value for each coloop is $z$ and the initial value $T(\emptyset)=1$,
+it is well-known that the identities have a unique solution which is a 
+polynomial in $z$ and $t$.  That is the famous Tutte polynomial.  It is well-known
+as a universal Tutte invariant $U(M)(t,z)$--all Tutte invariants $F(M)$ are obtained
+as $F(M)=U(M)(F(U_{0,1}),F(U_{1,1})$, where $U_{0,1}$ is the loop matroid on 
+any ground set $\{e\}$ and $U_{1,1}$ is the coloop matroid.
+Since additional
+conditions involving parameters, loop/coloop, and empty matroid values are
+needed for a solution, we will avoid the term ``Tutte polynomial'' for now
+and use the term Tutte function to denote any solution to the parametrized Tutte equations.
+
+Several recent papers have demonstrated the essential equivalences between most
+different, seemingly incompatible forms for solutions of parametrized Tutte equations
+(which have been called ``Tutte polynomials'').  Their conclusions are that, like
+for Tutte invariants, universal solutions can be given.
+
+
+
+
+
+\end{document}

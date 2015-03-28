@@ -1,0 +1,1308 @@
+\documentclass[12pt,leqno]{amsart}
+
+
+
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{eucal,graphicx}
+\usepackage{color}
+\usepackage[pdftex]{hyperref}
+
+
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.4in}
+
+%\renewcommand{\baselinestretch}{2}     % Activate for double spacing.
+%\renewcommand{\baselinestretch}{1.6}   % Activate for 1-1/2 spacing.
+%\renewcommand{\baselinestretch}{1.3}   % Activate for 1-1/3 spacing.
+
+
+\newcommand \comment[1]{}			%  Silent version.
+%\renewcommand \comment[1]{\emph{#1}}		%  Comment revealed.
+\newcommand \dateadded[1]{\comment{[Date added: #1.]}}
+\newcommand \mylabel[1]{\label{#1}\comment{{\rm \{#1\} }}}
+\newcommand \myref[1]{\ref{#1}\comment{{\{#1\}}}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{definition}[lem]{Definition}
+
+
+\theoremstyle{remark}
+\newtheorem{exam}{Example}%[section]
+\newcommand \myexam[1]{\smallskip\begin{exam}[\emph{#1}]}
+
+\renewcommand{\phi}{\varphi}
+\newcommand\eset{\varnothing}
+\newcommand\inv{^{-1}}
+\newcommand\setm{\setminus}
+\newcommand\chiz{\chi^\bbZ}
+\newcommand\bbR{\mathbb{R}}
+\newcommand\bbZ{\mathbb{Z}}
+\newcommand\cH{\mathcal{H}}
+
+
+\newcommand\Ueloop{\ensuremath{U^e_{0}}}
+\newcommand\Uecoloop{\ensuremath{U^e_{1}}}
+\newcommand\Uefdyad{\ensuremath{U^{ef}_{1}}}
+\newcommand\Uefgtriad{\ensuremath{U^{efg}_{1}}}
+\newcommand\Uefgtriangle{\ensuremath{U^{efg}_{2}}}
+
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+%\newcommand{\scomp}[1]{\ensuremath{\;\overline{#1}\;}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\genfrac{}{}{}{}{}{#1}}}
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+
+\allowdisplaybreaks
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[Direct Sums and Other Objects with Matroids]
+{Direct Sums and Tutte Functions of Graphs and Other Objects
+with Matroids}
+
+
+\author{Seth Chaiken}
+\address{Computer Science Department\\
+The University at Albany (SUNY)\\
+Albany, NY 12222, U.S.A.}
+\email{\tt sdc@cs.albany.edu}
+
+
+
+\begin{abstract}
+
+The polynomials expressing the conditions that
+a parametrized $P$-ported Tutte function is well-defined
+for matroids
+each have one factor $I(Q)$, where $Q$ is a $P$-quotient.  
+Since the elements are 
+labelled, the methodology applies
+to objects such as graphs with ports
+for which similar theorems can be proven.  
+We abstract graphs to objects that have 
+ported Tutte functions
+because they have matroids, but might
+have different Tutte function values
+on two objects with the same matroid.
+Two new theorems are given
+and are used to generalize known conditions
+for graphs without port edges to graphs with port edges.
+In some cases, the condition becomes
+$I(Q)r+I(Q')s=0$, where $r,s$ are 
+polynomials in $x,y,X,Y$.
+The abstraction is then used to
+characterize ported Tutte functions
+of an object or a combination of two
+objects, whose matroid or oriented 
+matroid is a direct matroid or
+oriented matroid sum.  
+This extends with ports some 
+known strong Tutte 
+function and multiplicative 
+Tutte function results.
+\end{abstract}
+
+\subjclass[2000]{Primary 05B35; Secondary 05C99, 05C15, 57M25, 94C05}
+
+
+
+\keywords{Tutte function, Tutte polynomial}
+
+\thanks{Version of \today.}
+
+\maketitle
+\pagestyle{headings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+When $P=\emptyset$, the facts about separator-strong Tutte functions
+of matroid direct sums easily follow from the formula
+$T(M^1\oplus M^2)T(\emptyset)=T(M^1)T(M^2)$.  For example,
+$T$ is strong if and only if $T(\emptyset)=T(\emptyset)^2$.
+The theory of separator-strong Tutte functions of graphs covered
+in \cite{Ellis-Monaghan-Traldi}  follows from the fact that any
+minor closed family of graphs (see below) $\mathcal{G}$ is partitioned into
+subfamilies $\mathcal{G}_k$, each with just one indecomposible,
+$E_k$, the edgeless graph with $k$ unlabelled vertices, 
+if $\mathcal{G}_k\neq\emptyset$.
+Tutte function formulas for disjoint and one-point graph unions, 
+and the conditions for strongness (defined $T(G^1)T(G^2)=T(G)$ if
+matroids $M(G^1)\oplus M(G^2)=M(G)$) are then 
+derived \cite{Ellis-Monaghan-Traldi}
+in terms of the values $\alpha_k=I(E_k)$.  Life is simple because
+matroid $M(E_k)=\emptyset$ for all $k$.
+
+The corresponding facts become more complex when the definitions
+are naturally extended to $P$-ported matroids and graphs
+or to vertex labelled graphs.  As with
+matroids, a $P$-ported graph $G$ has some of the edges in $P$ and the rest,
+$E(G)$, satisfy $E(G)\cap P=\emptyset$.  Deletion, contraction,
+$P$-minors, $P$-families and $P$-quotients (i.e., indecomposibles)
+are also defined as they are for $P$-ported matroids or oriented matroids.
+As in \cite{Ellis-Monaghan-Traldi},
+deletion of an isthmus (i.e., coloop in the matroid) and
+contraction of a loop is forbidden within Tutte equations.
+
+The main difficulty is illustrated by the following example.
+Let
+$G$ be the circle graph of the five edges
+ordered $(e,p,f,q,r)$ and take $P=\{p,q,r\}$.  
+So, $e$ and $f$ are a series pair connected to $P$, but
+the $P$-quotient graphs $Q_1=G/e\setminus f$ and 
+$Q_2=G/f\setminus e$ are different graphs, even though they have 
+the same matroid.  $Q_1$ is the path $qrp$ and $Q_2$ is the path $pqr$.
+Function $T$ might satisfy \eqref{TA}
+and \eqref{TSSM} even if $T(Q_1)=I(Q_1)\neq I(Q_2)=T(Q_2)$.
+So, if this $G\in\mathcal{G}$, a necessary condition 
+for $T$ to be a $P$-ported
+(separator-strong, as always) Tutte function would be
+\[
+I(Q_1)(x_ey_f - y_fX_e) = I(Q_2)(x_fy_e - y_eX_f).
+\]
+This equation does not have the form of 
+those in the ZBR theorem for graphs \cite{Ellis-Monaghan-Traldi}
+because the latter's equations, like the equations in
+Theorem \ref{BigTheorem}, each has a single factor 
+$I(Q)$ depending on one indecomposible.
+
+
+The example relies on the elements of $P$ being labelled.
+This leads us to formulate a extension of Tutte function theory
+for vertex labelled graphs.  
+When the outcome, Theorem \ref{ZBRWellBehaved} is applied to graphs as in 
+\cite{Ellis-Monaghan-Traldi}, we get Corollary \ref{PZBRGraphCor2}
+which demonstrates that the above example illustrates the
+\emph{only} situation where the $P$-ported ZBR equations
+of Theorem \ref{BigTheorem} must be modified.
+
+Figure \ref{c4p2TwoFigure} illustrates 
+the same phenonemon as the first, in a smaller graph, when
+the objects in $\mathcal{G}$ are graphs whose vertices are 
+labelled by disjoint sets.  Again, two different graphs have the
+same oriented matroid.
+
+\begin{figure}
+\input{c4p2Two.pdf_t}
+\caption{\label{c4p2TwoFigure}
+Two Tutte computation trees for the same graph with set labelled
+vertices.  The indecomposibles at the bottom of the first tree
+are named $Q_1$, $Q_2$ and $Q_3$ from left to right.  For non-separators,
+contraction 
+edges are slanted left and  deletion edges are slanted right.  An edge
+representing a separator is drawn vertically.}
+\end{figure}
+
+The expressions from the two Tutte computation trees in Figure
+\ref{c4p2TwoFigure}
+are 
+\[
+I(Q_1)x_ex_f+I(Q_2)x_ey_f+I(Q_3)y_eX_f
+\]
+and
+\[
+I(Q_1)x_ex_f+I(Q_3)x_fY_e+I(Q_2)y_fX_e=
+I(Q_1)x_ex_f+I(Q_2)y_fX_e+I(Q_3)x_fY_e,
+\]
+which are equal if and only if
+\begin{equation}
+\label{BadZBRExampleEq}
+I(Q_2)(y_fX_e - x_ey_f)=
+I(Q_3)(y_eX_f - x_fY_e).
+\end{equation}
+$Q_2$ and $Q_3$ are isomorphic as edge-labelled graphs
+but are different when the vertex
+labels are present.
+
+There are two  complications introduced
+into $P$-families of matroids when $P\neq\emptyset$.
+First, one matroid 
+might have more than one $P$-quotient, i.e., indecomposible.
+The most simple 
+example is a dyad matroid composed of one port and one
+non-port element; and its $P$-minors.
+Therefore, minimal $P$-minor closed families might have 
+more than one indecomposible.  Some will share
+matroids or oriented matroids and others will not.
+The second, which also occurs with the 
+minor closed families of graphs \cite{Ellis-Monaghan-Traldi}
+in the original $P=\emptyset$ form, is that
+the family is partitioned into disjoint $P$-minor closed
+subfamilies.  Each subclass has its own indecomposibles,
+$E_k$ in the case of graphs.  Again, 
+indecomposibles in different subclasses 
+share matroids as do
+the $E_k$ all of whose matroids are $\emptyset$.
+When $P\neq 0$, the indecomposibles of different 
+subclasses might or might not share matroids
+or oriented matroids.
+
+The ZBR theorem for graphs in \cite{Ellis-Monaghan-Traldi}
+has conditions analogous to those in Corollary \ref{ZBRmatroids},
+except the factor $\alpha$ is replaced by $\alpha_k=I(E_k)$
+depending on the subfamily.  
+
+$P$-ported matroids or oriented matroids can be combined 
+by matroid direct sum $\oplus$.  Graphs can be combined
+by disjoint union $\amalg$ or by a one-point union;
+then each such combination $G$ of $G^1$ and $G^2$, if defined,
+satisfies $M(G)=M(G^1)\oplus M(G^2)$.  
+Zaslavsky's definition\cite{MR93a:05047} for 
+matroids is immediately extended:
+
+
+\begin{definition}
+A \textbf{strong} $P$-ported Tutte function $T$ on a $P$-family 
+$\mathcal{C}$ of matroids
+or oriented matroids satisfies $T(M^1)T(M^2)=T(M^1\oplus M^2)$
+when $M^1, M^2$ and $M^1\oplus M^2$ are all in $\mathcal{C}$.
+\end{definition}
+
+Note that such a strong Tutte function is a separator-strong
+Tutte function with $X_e=T(U^e_1)$ and
+$Y_e=T(U^e_0)$ for all $e\in E(\mathcal{N})$.
+
+We will give extensions of definitions of strong Tutte functions
+and of multiplicative Tutte functions of graphs below when
+we define $P$-families of objects with matroids or oriented 
+matroids.
+
+
+
+\section{Objects with Matroids or Oriented Matroids}
+
+It is useful to think that a $P$-ported Tutte computation tree may have
+objects $N$ for its node labels such as graphs.
+Each object $N$ has an associated
+a $P$-ported matroid or oriented matroid $M(N)$.
+Elements are defined $S(N)=S(M(N))$, 
+each $p\in S(N)\cap P$ is called a port, and
+$E(N)=S(N)\setminus P$.  Loops, coloops and non-separators of $N$
+are characterized by their status in $M(N)$.  So we
+say $N$ is an \emph{object with a matroid or an oriented matroid}.
+Often, but not always, $N$ will be some matroid or oriented
+matroid representation.
+
+
+Contraction $N/e$ and deletion $N\setminus e$ 
+of object $N$ are defined when $e\in E(N)$, and
+$e$ is not a coloop in $M(N)$ and 
+$e$ is not a loop in $M(N)$, respectively.
+Under those conditions, $M(N/e)=M(N)/e$ and 
+$M(N\setminus e)=M(N)\setminus e$ (as matroids or
+oriented matroids).
+Thus $P$-minors are defined,
+and an indecomposible or $P$-quotient
+is a $P$-minor $Q$ for which $S(Q)=S(M(Q))\subseteq P$.
+
+\begin{definition}
+\label{OMOMdef}
+An $P$-ported object $N$ with a matroid or oriented matroid 
+is described above together with $M(N)$, $E(N)$, $S(N)$,
+$P$-minors, etc.
+A \textbf{$P$-family of objects $\mathcal{N}$}
+is a $P$-minor closed class of 
+objects with matroid or oriented matroids.
+\end{definition}
+
+Tutte computation trees are defined for such $N$.
+The matroid $M(N)$ of course
+constrains the structure of these trees.  
+It is possible
+(as when the edgeless graphs $G_k$ have different vertex sets but all
+$M(G_k)=\emptyset$)
+for different objects, 
+even different indecomposibles, to have the same 
+matroid or oriented matroid.  It also natually occurs 
+that
+$N/e\setminus f$ $\neq$ 
+$N/f\setminus e$ (as objects) even though 
+$M(N)/e\setminus f$ $=$ 
+$M(N)/f\setminus e$.  The latter equation when 
+$e,f$ are in parallel or in series (see Proposition
+\ref{SameMinorProp}) is critical to the matroid ZBR theorems.
+It is also conceivable that $N/e/f\neq N/f/e$ or
+$N\setminus e\setminus f\neq N\setminus f\setminus e$.
+
+Since every $P$-minor $N'$ of $N$ has matroid
+or oriented matroid $M(N')$ the same as the corresponding
+minor of $M(N)$, we observe:
+
+\begin{lem}
+\label{ObjectTreeValueLemma}
+The Tutte computation trees for $M(N)$ are in a one-to-one
+correspondance with the 
+Tutte computation trees for $N$ 
+where corresponding trees are isomorphic.  In each
+isomorphism,
+corresponding
+branches have the same labels ``$e$-contracted'' or
+``$e$-deleted'' with $e\in E(N)=E(M(N))$, and a node
+labelled $N_i$ in the tree for $N$ corresponds to 
+a node labelled $M(N_i)$ in the tree for $M(N)$.
+
+Each computation tree value is given by
+the activities expansion \eqref{PAE} reinterpreted for
+objects.
+\end{lem}
+
+
+We can still talk about Tutte decompositions and a
+Tutte computation tree for $N$ even  without 
+a Tutte function.  If we are given values $I(Q)$
+for the indecomposibles, each Tutte computation tree 
+for $N$ yields a value in the $R$-module generated by
+the $I(Q)$.
+The Tutte decompositions, and the universal
+Tutte polynomial (if it exists!)
+of each $N\in \mathcal{N}$
+are determined by $M(N)$ and the indecomposibles, i.e., $P$-quotients
+$Q$ in $N$, which of course satisfy $Q \in \mathcal{N}$.
+This generalizes Zaslavsky's discussion\cite{MR93a:05047}.
+
+\begin{definition}[Separator-strong $P$-ported Tutte function on objects]
+
+Function
+$T$ on $\mathcal{N}$
+is a $P$-ported separator-strong Tutte function
+on $\mathcal{N}$ into 
+the ring $R$ 
+containing parameters $x_e, y_e, X_e, Y_e$,
+or an $R$-module containing the initial values
+$T(Q)=I(Q)$ for indecomposibles,
+when for all $N\in\mathcal{N}$,
+\eqref{TA} and \eqref{TSSM} are
+satisfied for each
+$e\in E(N)$.
+\end{definition}
+
+Therefore:
+
+\begin{prop}
+$T$ is a $P$-ported separator-strong Tutte function
+on $\mathcal{N}$ if and only if for each $N\in\mathcal{N}$,
+all Tutte computation trees for $T(N)$ yield polynomial expressions
+that are equal in the range ring or $R$-module.
+\end{prop}
+
+We develop our first ZBR-type theorem for $P$-ported objects
+with matroids or oriented matroids.  It is the
+generalization of the ZBR theorem for graphs as given
+by Ellis-Monaghan and Traldi\cite{Ellis-Monaghan-Traldi}.  
+It depends on a lemma similar to one of theirs.
+
+
+\begin{lem}
+\label{DisjSubclassLem}
+Suppose $P$-family $\mathcal{N}$ is partitioned into
+disjoint $P$-minor closed subfamilies $\{\mathcal{N}_{\pi}\}$.
+Then $T$ is a Tutte function on $\mathcal{N}$ if and
+only if $T$ restricted to $\mathcal{N}_{\pi}$ is
+a Tutte function for each $\mathcal{N}_{\pi}$.
+\end{lem}
+
+\begin{thm}
+\label{ZBRWildFamily}
+Suppose $P$-family $\mathcal{N}$ is partitioned into
+disjoint $P$-minor closed subfamilies $\{\mathcal{N}_{\pi}\}$,
+and each initial value $I(Q)$ depends only on
+the matroid or oriented matroid $M(Q)$ and on the
+$\pi$ for which $Q\in\mathcal{N}_{\pi}$,
+
+Then $T$ is a Tutte function with given parameters $(x,y,X,Y)$
+and initial values $I(Q)$ if and only if it satisfies
+the equations of Theorem \ref{BigTheorem}, interpreted
+for families of objects with matroids or oriented matroids.
+\end{thm}
+
+\begin{proof}
+As in \cite{Ellis-Monaghan-Traldi}, lemma
+\ref{DisjSubclassLem} lets us prove the
+theorem for each $\pi$ separately.
+
+
+By Lemma \ref{ObjectTreeValueLemma}, $T$ is a 
+$P$-ported Tutte function of family
+of objects $\mathcal{N}_{\pi}$ if and only
+if function $T'(M(N))=T(N)$ on the $P$-family 
+$\mathcal{C}^{\pi}=\{M(N)\mid N\in\mathcal{N}_{\pi}\}$ is a $P$-ported Tutte 
+function, since by hypothesis 
+$I'(M(Q))=I(Q)=I(M(Q))$ for corresponding
+indecomposibles $Q\in\mathcal{N}_{\pi}$ and 
+$M(Q)\in\mathcal{C}^{\pi}$.
+The conclusion follows
+from Theorem \ref{BigTheorem} applied to $\mathcal{C}^{\pi}$.
+\end{proof}
+
+
+Ellis-Monaghan and Traldi's ZBR theorem for graphs 
+refers to one initial value $\mathcal{\alpha}_k=I(E_k)$
+for each non-empty subclass of graphs, with unlabelled vertices, that
+have $k$ graph components.  One natural ported generalization
+is to partition the $P$-ported graphs $G$
+according to (1) how many
+graph components $k$, (2) $P'=P\cap S(G)$ and (3)
+$\nu:P'\rightarrow\{1,\ldots,k\}$, where $\nu(p)$ is which
+component contains edge $p$.  Theorem
+\ref{ZBRWildFamily} tells us:
+
+\begin{cor}
+\label{PZBRGraphCor1}
+
+Let a $P$-minor closed collection $\mathcal{G}$ of graphs with unlabelled
+vertices be partitioned into $\mathcal{G}_{k,P',\nu}$.  Suppose initial
+values $I(G)=I_{k,P',\nu}(M(G))$ are given that depend only on the 
+part and the matroid or oriented matroid of $G\in\mathcal{G}_{k,P',\nu}$.
+Then there is $T$, 
+a $P$-ported separator-strong parametrized Tutte function
+of graphs $\mathcal{G}$ satisfying $T(Q)=I(Q)=I_{k,P',\nu}(M(Q))$ whenever
+$P$-quotient $Q\in\mathcal{G}_{k,P',\nu}$ if and only if the identities
+of Theorem \ref{BigTheorem}, interpreted for graphs, are satisfied with 
+the given $I(Q)$.
+\end{cor}
+
+The next ZBR-type theorem  addresses the problem 
+illustrated by equation \eqref{BadZBRExampleEq}. It requires that
+the $P$-family satisfy the following:
+
+\begin{definition}
+Object $N\in\mathcal{N}$ is \textbf{well-behaved} when
+for every independent set $C\subseteq E(N)$ and
+coindependent set $D\subseteq E(N)$ for which
+$C\cap D=\emptyset$, each of the
+$|C\dunion D|!$ orders 
+of contracting $C$ and deleting $D$ produces the
+same $P$-minor (which is an object) of $N$.
+
+Specifically, let 
+$C=\{c_1,\ldots,c_j\}$,
+$D=\{d_{j+1},\ldots,d_k\}$
+and $R_i(N')=N'/c_i$ if $1\le i \le j$
+and $N'\setminus d_i$ if $j+1\le i \le k$.
+The condition is 
+$R_1\circ\cdots\circ R_k(N) = R_{\sigma_1}\circ\cdots\circ R_{\sigma_k}(N)$
+for every permutation $\sigma$ of $\{1,\ldots,k\}$.
+
+$\mathcal{N}$ is \textbf{well-behaved} when 
+each $N\in\mathcal{N}$ is well-behaved.
+
+\end{definition}
+
+By definition \ref{OMOMdef} 
+all the minors are defined and
+$M(R_1\circ\cdots\circ R_k(N)) = M(R_{\sigma_1}\circ\cdots\circ R_{\sigma_k}(N))$
+independently of whether $N$ is well-behaved or not.
+The point is that the objects themselves are the same.
+We give two examples.
+
+\begin{definition}[Graphs with set-labelled vertices]
+\label{GSLVDefinition}
+The elements of such a graph $S(G)=E(G)\dunion(P\cap S(G))$ are edges.
+The vertices are labelled with non-empty
+finite sets so the two sets labelling distinct vertices in one
+graph are disjoint.  Only non-loop edges $e\not\in P$
+can be contracted; when an edge is contracted, its two endpoints
+are replaced by one vertex whose label is the union of the 
+labels of the two endpoints.  Only non-isthmus edges $e\not\in P$
+can be deleted; deletion doesn't change labels.  The graph
+has its graphic matroid if it is undirected and its
+oriented graphic matroid if it is directed.
+\end{definition}
+
+A graph with set-labelled vertices is well-behaved because
+the minor obtained  by contracting forest $C$
+and deleting $D$ is determined by merging all the vertex labels
+of each graph component of $C$ and removing edges $C\cup D$.  
+The deletions do not affect the vertex labels.  Hence
+the vertex labels are not affected by the order
+of the operations.
+
+
+\begin{definition}[Graphs with set-labelled components]
+\label{GSLCDefinition}
+The elements of such a graph $S(G)=E(G)\dunion(P\cap S(G))$ are edges.
+The path-connected components are labelled by
+non-empty finite sets so two components in the same
+graph always have disjoint labels.  In other words,
+the set labels of the components are a partition $\pi_V$.
+Only non-loop edges $e\not\in P$
+can be contracted and only non-isthmus edges 
+$e\not\in P$
+can be deleted.
+The component labels are unchanged by these minor operations.
+Definition \ref{GSLVDefinition} specifies the
+matroids or oriented matroids.
+\end{definition}
+
+
+A non-well-behaved $P$-family $\mathcal{C}!$
+can be constructed from
+any $P$-family of matroids $\mathcal{C}$ with
+some $M\in\mathcal{C}$ with $|E(M)|\geq 2$.  
+Each member of $\mathcal{C}!$ is formed from
+some $M\in\mathcal{C}$ together with some
+history of deletions and contractions that
+can be applied to $M$.  Let $c_e$ and $d_e$ be symbols
+for contracting and deleting $e\in E(\mathcal{C})$
+respectively; a history $h$ is a string of
+such symbols.  
+Let $M|h$ be the $P$-minor obtained by 
+performing history $h$ on $M$, assuming each step
+is defined.  The objects of $\mathcal{C}!$
+are all pairs $(M,h)$ for which 
+$P$-minor $M|h\in\mathcal{C}$ is defined.
+The matroid of $(M,h)$ is $M|h$, which
+determines the element set, loops and coloops.
+If $e\in E(M|h)$ is not
+a loop, then define $(M,h)/e=(M,hc_e)$.
+Similarly, if $e\in E(M|h)$ is not
+a coloop, $(M,h)\setminus e=(M,hd_e)$.
+
+The point of this example is that even if
+the $P$-family is not well-behaved and so the
+indecomposibles do carry information about their
+history, Theorem \ref{ZBRWildFamily} tells 
+us that the Tutte function
+is still well defined if the initial values depend only
+on the matroid, or the oriented matroid, of the 
+indecomposible. (See Questions, \ref{Qsubsection}.)
+
+
+The examples forced us to recognize that
+for $N$ an object with a matroid or oriented matroid $M(N)$
+with
+${e,f}\in E(N)$ in series or in parallel,  it might
+happen that $N/e\setminus f\neq N/f\setminus e$ even though,
+by Proposition \ref{SameMinorProp}, 
+$M(N)/e\setminus f= M(N)/f\setminus e$.  Note that 
+Proposition \ref{SameMinorProp} is about 
+$\cdot/e\setminus f$ and 
+$\cdot/f\setminus e$ which are not commutations
+of the same two operations.
+
+\begin{thm}[ZBR Theorem for well-behaved 
+$P$-families of objects with matroids or
+oriented matroids]
+\label{ZBRWellBehaved}
+
+Supposed $\mathcal{N}$ is well-behaved.
+The following two statements are equivalent.
+\begin{enumerate}
+\item $T$ from $\mathcal{N}$ to $R$ or an $R$-module is a $P$-ported 
+separator-strong parametrized
+$P$-ported Tutte function with $R$-parameters $(x, y, X, Y)$ whose values 
+$T(Q)$ on $P$-quotients $Q\in\mathcal{N}$ are the initial
+values $I(Q)$.
+\item
+For every $N\in\mathcal{N}$:
+\begin{enumerate}
+\item 
+If $M(N)=U^{ef}_1\oplus M(Q)=U^{ef}_1\oplus M(Q')$ with 
+$P$-quotients $Q=N/e\setminus f$ and $Q'=N/f\setminus e$,
+\[
+I(Q)(x_e Y_f - y_f X_e ) = 
+I(Q')(x_f Y_e - y_e X_f).
+\]
+\item
+If $M(N)=U^{efg}_2\oplus M(Q)=U^{efg}_2\oplus M(Q')$ with 
+$P$-quotients $Q=N/e\setminus f/g$ 
+and $Q'=N/f\setminus e/g$,
+\[
+I(Q)X_g(x_e y_f - y_f X_e ) = 
+I(Q')X_g(x_f y_e - y_e X_f ).
+\]
+\item
+If $M(N)=U^{efg}_1\oplus M(Q)=U^{efg}_1\oplus M(Q')$ with 
+$P$-quotients $Q=N/e\setminus f\setminus g$  
+and $Q'=N/f\setminus e\setminus g$,
+\[
+I(Q)Y_g(x_e Y_f - y_f x_e) = 
+I(Q')Y_g(x_f Y_e - y_e x_f).
+\]
+\item
+If $\{e,f\}=E(M(N))$ is a parallel pair connected to $P$, 
+\[
+I(Q)(x_e Y_f - y_f x_e) = 
+I(Q')(x_f Y_e - y_e x_f)
+\]
+where $P$-quotients $Q=N/e\setminus f$
+and $Q'=N/f\setminus e$.
+\item
+If $\{e,f\}=E(M(N))$ is a series pair connected to $P$, 
+\[
+I(Q)(x_e y_f - y_f X_e) = 
+I(Q')(x_f y_e - y_e X_f)
+\]
+where $P$-quotients
+$Q=N/e\setminus f$ 
+and $Q'=N/f\setminus e$.
+\end{enumerate}
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+All the steps of the proof given for 
+Theorem \ref{BigTheorem} can be adapted.
+The hypothesis the $\mathcal{N}$ is well-behaved
+means that $N'/e/f = N'/f/e$, $N'/e\setminus f = N'\setminus f/e$, etc.,
+(equalities of objects) are true respectively whenever a step of the
+form 
+$M'/e/f = M'/f/e$, $M'/e\setminus f = M'\setminus f/e$, etc.,
+respectively occurs for matroids or oriented matroids.
+
+The calculations done in all cases of Theorem \ref{BigTheorem}
+of where 
+Proposition \ref{SameMinorProp} is applied to write
+$Q = M'/e\setminus f = M'/f\setminus e$ when $e,f$ are in
+series or parallel are replaced by 
+$Q = N'/e\setminus f$ and $Q' = N'/f\setminus e$.  
+Matroids or oriented matroids are replaced
+by objects with matroids or oriented matroids in 
+the calculations.
+Notes to guide the reader appear in the proof.
+\end{proof}
+
+
+
+\begin{cor}
+\label{IVEqualSerParCor}
+A $P$-family of objects with matroids satisfies a ZBR-type theorem
+with the identities given in Theorem \ref{BigTheorem} if, 
+in 
+addition $\mathcal{N}$ being well-behaved,
+the initial values $I$ satisfy
+$I(N/e\setminus f)=I(N/f\setminus e)$ when $\{e,f\}=E(N)$ is a series
+or parallel pair,
+$I(N/e\setminus f/g)=I(N/f\setminus e/g)$ when $\{e,f,g\}=E(N)$ is a 
+triangle and 
+$I(N/e\setminus f\setminus g)=I(N/f\setminus e\setminus g)$ 
+when $\{e,f,g\}=E(N)$ 
+is a triad.
+\end{cor}
+
+
+\begin{cor}
+A $P$-family of objects with matroids satisfies a ZBR-type theorem
+with the identities given in Theorem \ref{BigTheorem} if, in 
+addition to $\mathcal{N}$ being well-behaved,
+the object $P$-quotients 
+$N/e\setminus f=N/f\setminus e$ when $\{e,f\}=E(N)$ is a series
+or parallel pair,
+$N/e\setminus f/g=N/f\setminus e/g$ when $\{e,f,g\}=E(N)$ is a 
+triangle and 
+$N/e\setminus f\setminus g=N/f\setminus e\setminus g$ when $\{e,f,g\}=E(N)$ 
+is a triad.
+\end{cor}
+
+\begin{proof}
+Clearly, if $N/e\setminus f=N/f\setminus e$ then 
+$I(N/e\setminus f)=I(N/f\setminus e)$, etc.
+\end{proof}
+
+We conclude with second ported generalization of 
+Ellis-Monaghan and Traldi's ZBR theorem for graphs,
+besides Corollary \ref{PZBRGraphCor1}.
+
+\begin{cor}
+\label{PZBRGraphCor2}
+Let $\mathcal{G}$ be a ported $P$-family of graphs with
+unlabelled vertices, as in Corollary \ref{PZBRGraphCor1}.
+Then there is $T$, $P$-ported separator-strong parametrized Tutte function
+of graphs $\mathcal{G}$ satisfying $T(Q)=I(Q)$ 
+for all $P$-quotients $Q\in\mathcal{G}$ if and only if 
+for every $G\in\mathcal{G}$, each case applies:
+\begin{enumerate}
+\item[a-d]
+Revise the corresponding case of Theorem \ref{ZBRWellBehaved}
+by writing $Q'=Q$, i.e., replace $Q'$ by $Q$.
+\item[e]
+If $E(G)=\{e,f\}$ is a series pair connected to $P$, 
+\[
+I(Q)(x_e y_f - y_f X_e) = 
+I(Q')(x_f y_e - y_e X_f)
+\]
+where $P$-quotients
+$Q=G/e\setminus f$ 
+and $Q'=G/f\setminus e$.  (This is case (e) of Theorem \ref{ZBRWellBehaved}
+\emph{verbatim}.)
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+$\mathcal{G}$ is a well-behaved $P$-family of ported objects
+with matroids or oriented matroids, so Theorem \ref{ZBRWellBehaved}
+applies.
+In all cases of Theorem \ref{ZBRWellBehaved} but the
+last, the two object minors are the same graph 
+because the contracted edges are path-connected,
+so the equations of Theorem \ref{ZBRWellBehaved} are simplified.
+\end{proof}
+
+Both Corollaries \ref{PZBRGraphCor1} and \ref{PZBRGraphCor2} reduce
+to the ZBR theorem for graphs when $P=\emptyset$.  The first
+uses the property that $\mathcal{G}$ is partitioned into
+minor-closed subclasses with indecomposibles $E_k$ 
+for which the
+initial values depend only on the matroid or oriented matroid to generalize
+the original ZBR equations.  As with matroids, we find again that
+the Tutte functions can distinguish different orientations of the 
+the same undirected graphs.
+The second relies on the 
+commutivity of the graph minor operations and generalizes
+the fact that different initial values may be assigned to
+different indecomposibles, but then the 
+conditions sufficient for the initial values to
+extend to a Tutte function must be stronger.
+
+
+
+
+
+\section{Direct and Other Sums}
+
+\label{DirectSec}
+
+It is a common situation that $\{N^1,N^2,N\}\subseteq\mathcal{N}$
+and their matroids or oriented matroids 
+satisfy $M(N^1)\oplus M(N^2)=M(N)$.
+Tutte computation trees help.  The proposition below applies
+even to non-well-behaved $N$ when the symbols
+$/B^j_i|P_j$ refer to sequences of deletions and contractions.
+
+\begin{definition}
+If $\mathcal{T}_1$ and $\mathcal{T}_2$ are Tutte computation trees then
+$\mathcal{T}_1\cdot \mathcal{T}_2$ is the tree obtained by appending
+a separate copy of $\mathcal{T}_2$ at each leaf of $\mathcal{T}_1$.
+The root is the root of the expanded $\mathcal{T}_1$.
+\end{definition}
+
+\begin{prop}
+\label{SumProp2}
+
+Suppose $N$, $N^1$ and $N^2$ are all in $\mathcal{N}$
+and $M(N^1)\oplus M(N^2)=M(N)$.  Then if
+$\mathcal{T}_1$ and $\mathcal{T}_2$ are Tutte computation
+trees for $N^1$ and $N^2$ respectively with values given
+by \eqref{DS1} and \eqref{DS2}, then there is a Tutte
+computation tree for $N$ that yields the value given
+by \eqref{DS}.
+
+\begin{equation}
+\label{DS1}
+\tag{DS1}
+\sum_{Q^1_i}I(Q^1_{i})c_1(Q^1_{i})\text{ where }Q^1_i=N/B^1_i|P_1.
+\end{equation}
+\begin{equation}
+\label{DS2}
+\tag{DS2}
+\sum_{Q^2_j}I(Q^2_{j})c_2(Q^2_{j})\text{ where }Q^2_j=N/B^2_j|P_2.
+\end{equation}
+\begin{equation}
+\tag{DS}
+\label{DS}
+\sum_{Q^1_i,Q^2_j}I(Q_{i,j})c_1(Q^1_{i})c_2(Q^2_{j})
+\text{ where }Q_{i,j}=N/B^1_i|(P_1\cup S(N^2))/B^2_j|P_2.
+\end{equation}
+
+Furthermore, if $T$ is a Tutte function on $\mathcal{N}$
+and $T(N^1)$ and $T(N^2)$ equal the Tutte polynomials
+given by \eqref{DS1} and \eqref{DS2} then 
+$T(N)$ equals the polynomial given by \eqref{DS}.
+\end{prop}
+
+\begin{proof}
+
+We show how to relabel $\mathcal{T}_1\cdot\mathcal{T}_2$ to obtain 
+a Tutte computation tree for $N$.  $M(N^1)\oplus M(N^2)=M(N)$ is defined
+means $S(M(N^1))\cap S(M(N^2))=\emptyset$ and 
+$S(M(N))=S(M(N^1))\cup S(M(N^2))$.   Each node of 
+$\mathcal{T}_1\cdot\mathcal{T}_2$ is determined by 
+by deleting and/or contracting some elements of
+$E(M(N^1))\cup E(M(N^2))$.  Relabel that node with the 
+$P$-minor of $N$ obtaining deleting and/or contracting the
+same elements respectively in the same order, those in $N^1$
+preceding those in $N^2$.  The result is a computation tree for $N$
+because $M(N^1)\oplus M(N^2)=M(N)$.  Assume $P\subseteq S(M(N))$
+(otherwise, take a smaller $P$) and let $P^1=S(M(N^1))\cap P$
+and $P^2=S(M(N^2))\cap P$.
+At a leaf of the relabelled
+tree, there will be the $P$-quotient $N/B_1/B_2|P$ where
+$B_1$ is a $P^1$-subbasis of $M(N^1)$ and $B_2$ is a $P^2$-subbasis
+of $M(N^2)$.  
+
+\end{proof}
+
+\subsection{Strong Tutte Functions}
+
+Let us extend the definition of strong parametrized Tutte function
+to $P$-families $\mathcal{N}$ of objects with matroids and oriented matroids,
+in the way that abstracts the known notion of strong Tutte functions
+on minor closed families of graphs\cite{Ellis-Monaghan-Traldi}.
+We can then specialize 
+$\mathcal{N}$ to $\mathcal{C}$, a $P$-family  of 
+matroids or oriented matroids.
+There might still be indecomposibles besides or instead of $\emptyset$.
+
+\begin{definition}
+A $P$-ported separator-strong Tutte function $T$ on a $P$-family of 
+objects $\mathcal{N}$
+with matroids is called \textbf{strong} if
+whenever $\{N^1, N^2, N\}\subseteq\mathcal{N}$
+and 
+$M(N^1)\oplus M(N^2)=M(N)$, 
+then $T(N^1)T(N^2)=T(N)$.
+\end{definition}
+
+We now generalize to $P\neq\emptyset$
+the $T(\emptyset)T(\emptyset)=T(\emptyset)$ 
+characterization of strong Tutte functions.
+
+\begin{thm}
+\label{StrongTheorem}
+A $P$-ported separator-strong Tutte function $T$ on a $P$-family of 
+objects 
+with matroids or oriented matroids $\mathcal{N}$ 
+is strong if and only if
+$T$ restricted to the indecomposibles of 
+$\mathcal{N}$ is strong; i.e.,
+whenever $Q^1$, $Q^2$ and 
+$Q$ are indecomposibles and $M(Q^1)\oplus M(Q^2)=M(Q)$ then
+$T(Q^1)T(Q^2)=T(Q)$.
+\end{thm}
+
+\begin{proof}
+Every $P$-quotient is in $\mathcal{N}$, so clearly $T$ restricted
+to the $P$-quotients is strong.
+
+Conversely, suppose $N^1$, $N^2$ and $N$ are in $\mathcal{N}$ and
+$M(N^1)\oplus M(N^2)=M(N)$, so Proposition \ref{SumProp2} applies.
+
+Since $M(N^1)\oplus M(N^2)=M(N)$, 
+$M(N/(B_1\cup B_2)|P)$ $=$ $(M(N^1)/B_1|P)\oplus (M(N^2)/B_2|P)$
+$=$ $M(N^1/B_1|P)\oplus M(N^2/B_2|P)$.  
+We now use the fact
+that $Q_{ij}=N/B_1/B_2|P$, $Q^1_i=N^1/B_1|P$ and $Q^2_j=N^2/B_2|P$ are 
+$P$-quotients and the hypothesis to
+write $I(Q_{ij})=I(Q^1_i)I(Q^2_j)$.  
+
+
+We therefore conclude $T(N)=T(N^1)T(N^2)$
+from \eqref{DS1}, \eqref{DS2} and  \eqref{DS}.
+
+\end{proof}
+
+\subsection{Multiplicative Tutte Functions}
+
+Graphs can be combined in several ways all so
+the matroid of the combination is the direct
+sum of the matroids of the parts. This motivates:
+
+\begin{definition}
+A partially defined binary operation ``$*$'' on
+a $P$-family of objects with matroids or oriented matroids
+$\mathcal{N}$ is \textbf{a matroidal direct sum} if 
+whenever $N^1*N^2\in\mathcal{N}$ is defined for
+$\{N^1,N^2\}\subseteq\mathcal{N}$, the 
+matroids or oriented matroids satisfy
+$M(N^1)\oplus M(N^2) = M(N^1*N^2)$.
+\end{definition}
+
+Proposition \ref{SumProp2} applies
+when $N^1*N^2=N$ is defined.
+It gives a general recipe for $T(N^1*N^2)$ which generalizes
+the identity \cite{Ellis-Monaghan-Traldi}
+$T(M^1\oplus M^2)T(\emptyset)=T(M^1)T(M^2)$ 
+for separator-strong Tutte functions of
+matroids.
+The $P$-ported generalization is more complicated and generally cannot
+be expressed by a product in the domain ring of $T$.  
+
+\begin{prop}
+\label{SumProp}
+Suppose $*$ is a matroidal direct sum and
+$N^1$, $N^2$ and $N^1*N^2$ are each members of a $P$-family
+for which $T$ is a Tutte function.
+
+If for $P$-quotients $Q^j_i$ and $R$-coefficients $c_j(Q^j_i)$, $j=1$ and $2$,
+\begin{equation*}
+%\label{MD1}
+%\tag{MD1}
+T(N^1) = \sum_{Q^1_i}T(Q^1_{i})c_1(Q^1_{i})
+\end{equation*}
+and
+\begin{equation*}
+%\label{MD2}
+%\tag{MD2}
+T(N^2) = \sum_{Q^2_j}T(Q^2_{i})c_2(Q^2_{j})
+\end{equation*}
+then
+\begin{equation*}
+%\label{MD}
+%\tag{MD}
+T(N^1 * N^2) = \sum_{Q^1_i,Q^2_j}T(Q^1_{i}*Q^2_{j})c_1(Q^1_{i})c_2(Q^2_{j}).
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Substitute $Q_{i,j}=Q^1_i*Q^2_j$ in \eqref{DS} of Proposition \ref{SumProp2}.
+\end{proof}
+
+
+When $\mathcal{N}$ is a $P$-family of matroids or oriented matroids,
+direct matroid or oriented matroid sum is obviously a matroidal direct
+sum operation, and so Proposition \ref{SumProp} is applicable.
+
+\begin{cor}\cite{Ellis-Monaghan-Traldi}
+Let $P=\emptyset$.
+$T(M^1\oplus M^2)T(\emptyset) = T(M^1)T(M^2)$ for Tutte
+function $T$ of matroids.
+\end{cor}
+
+\begin{proof}
+Our proof demonstrates how Proposition \ref{SumProp}
+generalizes this formula to $P$-families.
+The expansions \ref{DS1} and \ref{DS2} take the one-term form
+$T(M^j) = T(\emptyset) c_j(\emptyset)$, $j$ $=$ $1,2$,
+so $T(M^1)T(M^2)=T(\emptyset)^2 c_1(\emptyset) c_2(\emptyset)$.
+Expansion \ref{DS} is then
+$T(M^1\oplus T^2)=T(\emptyset) c_1(\emptyset) c_2(\emptyset)$.
+\end{proof}
+
+Following the definitions for graphs in \cite{Ellis-Monaghan-Traldi}, we write:
+
+\begin{definition}
+Given a matroidal direct sum $*$ on $\mathcal{N}$, 
+a Tutte function $T$ on $\mathcal{N}$ is
+\textbf{multiplicative} (with respect to ``$*$'')
+if whenever $N^1*N^2$ is defined
+for $\{N^1,N^2\}\subseteq \mathcal{N}$, the Tutte
+function values satisfy 
+$T(N^1)T(N^2)=T(N^1*T^2)$.
+\end{definition}
+
+A strong Tutte function is certainly multiplicative
+for any ``$*$'', but not conversely.
+
+\begin{cor}
+A $P$-ported Tutte function $T$ on $P$-family $\mathcal{N}$ 
+is multiplicative with respect to matroidal direct product
+``$*$'' if and only if 
+for every pair of indecomposibles $\{Q_i, Q_j\}\in\mathcal{N}$ for which 
+$Q_i*Q_j\in\mathcal{N}$ is defined, $T(Q_i)T(Q_j)=T(Q_i*Q_j)$.
+\end{cor}
+
+\begin{proof} 
+When $N^1*N^2$ is defined, Proposition \ref{SumProp2}
+applies because $M(N^1)\oplus  M(N^2)=M(N^1*N^2)$.
+$T(N^1*N^2)=T(N^1)T(N^2)$ is then a consequence
+of $T(Q_i*Q_j)=T(Q_i)T(Q_j)$.
+\end{proof}
+
+\begin{cor}
+Suppose $T$ is parametrized Tutte function on a minor-closed class
+of graphs $\mathcal{G}$ with unlabelled vertices
+and $P=\emptyset$.
+$T$ is strong if and only if 
+there is an idempotent $\alpha=\alpha^2\in R$ and $T(E_k)=\alpha$
+whenever $\mathcal{G}_k\neq\emptyset$.
+\end{cor}
+
+
+\begin{proof}
+$M(E_k)=\emptyset$ for all $k\geq 1$ and 
+$\emptyset\oplus\emptyset=\emptyset$, so 
+$T(E_i)T(E_j)=T(E_k)$ whenever $\mathcal{G}_i$,
+$\mathcal{G}_j$ and 
+$\mathcal{G}_k$ are all non-empty.  Hence, if
+$\mathcal{G}_k\neq\emptyset$ then $T(E_k)T(E_k)=T(E_k)=\alpha$.
+Further, if $\mathcal{G}_j\neq\emptyset$ with $j\neq k$,
+$\alpha=T(E_k)=T(E_k)T(E_k)=T(E_j)$.
+\end{proof}
+
+This
+strengthens part of Corollary 3.13 in \cite{Ellis-Monaghan-Traldi}.
+The other part does require its 
+additional conditions to establish strongness of 
+a Tutte function on graphs given as multiplicative on
+both disjoint union $\amalg$ and one-point unions.
+Consider $\mathcal{N}=\{E_3, E_4, E_5,  \ldots \}$,
+$T(E_k)=1$ for $k\geq 3$, $k\neq 5$ and 
+$T(E_5)=0$.  $T(E_3)T(E_4)=1\neq T(E_5)$, so 
+$T$ is not strong, but $T$ is multiplicative
+on disjoint and one-point unions because $E_5$ cannot be expressed
+as either kind of union of graphs in $\mathcal{G}$.  The other conditions
+are that $\mathcal{G}_k\neq\emptyset$ for all $k$ and that 
+$\mathcal{G}$ is closed under one-point unions and removal of isolated
+vertices.
+
+\part{Remarks, Background, Problems, and References}
+
+\section{Non-commutativity}
+We presented in  \cite{TutteEx}
+a new kind of strong Tutte-like function on $P$-ported oriented graphic
+matroids (more generally, unimodular, i.e. regular oriented matroids)
+whose values vary with the orientation.   
+Each function value $F(G)$ is
+in the exterior algebra over $R^{2p}$, where $R$ is
+the reals extended by the $x_e, y_e$ 
+and $|P|=p$.  The function
+obeys an \emph{anti-commutative} variant of \eqref{TSM}
+with exterior multiplication $\wedge$.  
+(When $P=\emptyset$, $F$ is
+the reduced Laplacian determinant in the
+famous Matrix Tree Theorem \cite{HararyBook,sdcMTT}.)  
+It is the first example we know
+of
+``the possibility of making use of a noncommutative generalization of the Tutte
+polynomial at some point in the future.'' mentioned by Bollob\'{a}s and
+Riordan in \cite{BollobasRiordanTuttePolyColored}.  We won't say
+more beyond that (1) each of the $\binom{2p}{p}$
+Pl\"{u}cker coodinates of $F(G)$ is a $P$-ported Tutte function
+of the kind we covered; and (2) that quadratic inequalities among
+some of them express negative correlation between edges in spanning trees,
+results also known as 
+Rayleigh's inequality\cite{ChoeRayleigh,SempleWelshNegCorr08,HalfPlaneStuff}.
+
+A second non-commutative possibility might be found in 
+section \ref{DirectSec}.
+The abstraction applies to situations where
+an object represents an initial matroid, graph, etc. plus
+a history of deletions and contractions.  
+The key feature is that the Tutte decompositions
+of an object are identical to the Tutte decompositions
+of that object's matroid.
+The initial value
+on indecomposible object $Q$
+might then depend on the order of the deletion and contractions
+reductions to 
+to obtain it from $N$.  This helps us understand the
+theory, but whether objects with minors that depend on reduction 
+order have useful applications remains to be seen.
+
+\section{Background and Other Related Work}
+\label{BackgroundSec}
+
+Besides Brylawski's 
+work,  another early appearance of Tutte decomposition
+of a matroid or graph with a basepoint is \cite{SmithPatroids}.
+Ellis-Monaghan and Traldi \cite{Ellis-Monaghan-Traldi}
+explain that by leaving the reduction
+by $e_0$ to last so $e_0$ is always contracted as a coloop or deleted
+as a loop, the Tutte function value can be expressed by
+$T(M) = (rX_{e_o} + sY_{e_0})T(\emptyset)$ were $r, s$ are 
+not-necessarilly-unique elements in $R$.  As one application,
+they 
+give a formula for the parametrized Tutte polynomial
+for the parallel connection across $e_0$
+which generalized Brylawski's.
+These $r,s$ appear in
+the $P$-ported Tutte function expression 
+$rT(U^{e_0}_1)$ $+$ $sT(U^{e_0}_0)$ when $P=\{e_0\}$.  They
+are parametrized generalizations of the coefficients of
+$z'$ and $x'$ in Brylawski's four variable Tutte polynomial.
+
+Las Vergnas defined and gave basic properties of ``set-pointed'' Tutte
+polynomials (with no parameters) and used them to study matroid perspectives.
+The polynomial given in \cite{MR0419272,SetPointedLV} has a variable
+$\xi_l$ for each subset in a collection of $k$ subsets
+$P_l\subseteq P$, $l=1,\ldots,k$.  Each term in \eqref{PAE} had
+$\prod\xi_l^{r_i(P_l)}$ for $[Q_i]$ where $r_i$ is the rank function 
+of matroid $Q_i$.  Therefore \eqref{TSM} was satisfied and the association of the
+term to (non-oriented) $Q_i$ could be assured by taking all
+$2^{|P|}$ subsets for the $P_l$.  The matroid perspective is the 
+strong map $M\setminus E(M)\rightarrow M/E(M)$ given by the identity on
+$P$.  
+
+In \cite{sdcPorted}, we
+reproduced Las Vergnes' theory with explicit $P$-quotient (matroid)
+variables (see the $[Q_i]$ symbols in Corollary \ref{UniversalCor}
+in sec. \ref{UniversalSec}) in place of 
+$\prod\xi_l^{r_i(P_l)}$.  We then
+gave formulas for the $P$-ported Tutte polynomial for the
+union and its dual of matroids whose common elements are in $P$.
+These formulas  work in a way similar to what appears in
+sec. \ref{UniversalSec}.
+We extend to algebras
+the $\mathbb{Z}[u,w]$-module
+generated by the $[Q_i]$ by defining multiplications 
+$\tilde{*}$ with the rules
+$[Q_i]\tilde{*}[Q_j]=r_{ij}[Q_{i,j}]$, with $r_{i,j}\in\mathbb{Z}[u,w]$ and
+$Q_{i,j}=Q_i*Q_j$ depending on $(Q_i,Q_j)$ and whether $*$ represents 
+union or its dual.  It is not often recognized that series and parallel
+connection of matroids across basepoint $p$ 
+is equivalent to matroid union and its dual on matroids with only
+element $p$ in common.  We plan to investigate whether the formulas
+for parametrized Tutte polynomials of parallel connections
+in \cite{Ellis-Monaghan-Traldi} can be generalized to the dual
+of union when $|P|>1$, and to detail the relationship when $|P|=1$.
+
+Recent work on a different generalization, weak Tutte functions
+(see sec. \ref{Complications}), has been done by 
+Ellis-Monaghan and Zaslavsky \cite{ZaslavskyOct18}.
+The distinction between weak Tutte functions (satisfying
+an additive identity only)
+and strong Tutte functions
+(which satisfy \eqref{TSM} and \eqref{TA}) seems first to
+have been made by Zaslavsky\cite{MR93a:05047}, for matroids.
+That paper also defined weak and strong Tutte functions of
+graphs.  However, we use using Ellis-Monaghan and Traldi's
+definition of strong Tutte functions of 
+graphs\cite{Ellis-Monaghan-Traldi}.
+The latter restricts \eqref{TA} to non-separators (not just 
+non-loops);  and it 
+requires $T(G^1)T(G^2)=T(G)$ whenever 
+matroids $M(G^1)\oplus M(G_2)=M(G)$ 
+(which we sometimes interpret as oriented), not just when
+$G$ is the disjoint union of $G^1$ and $G^2$.
+The term separator-strong 
+(I learned\cite{JoAndTom} 
+after \cite{Ellis-Monaghan-Traldi} appeared.)
+is used for Tutte functions of matroids and graphs 
+as defined in \cite{Ellis-Monaghan-Traldi}; recall that
+they satisfy \eqref{TA} and \eqref{TSSM}.
+Normal is used in the same way as in\cite{MR93a:05047}.
+
+
+We introduced $P$-ported parametrized Tutte polynomials
+for normal strong Tutte functions
+in \cite{TutteEx}, i.e., 
+those with
+corank-nullity polynomial expressions.
+Most of the results in the current paper, when so restricted
+appeared in \cite{TutteEx}
+or can be derived by adding parameters and oriented matriod considerations
+to material in \cite{sdcPorted}.  
+These include computation tree\cite{GordonMcMachonGreedoid} based activities 
+expansions 
+with terms corresponding to $P$-subbases (which are called
+``contracting sets'' in \cite{RelTuttePoly}).
+%The one non-elementary fact about
+%oriented matroids needed is that two subsets $B,B'\in E(M)$ that span
+%the same flat define the same $\emph{oriented}$ minor
+%$M/B|P=M/B'|P$.  See \cite{OMBOOK}.  
+In the normal case, the initial values can be assigned arbitrarilly.
+We used this to show the our extensor-valued Tutte-like function 
+\cite{sdcPorted} is expressible
+by assigning extensors as the initial values.  In this
+electrical network application, the indecomposibles are oriented 
+graphic matroids
+and different values \emph{are} assigned to different orientations of
+the same matroid.  
+
+\subsection{Questions}
+\label{Qsubsection}
+Diao and Hetyei's work \cite{RelTuttePoly} is part of a
+larger literature on knot invariants which
+leads us to ask if the $P$-ported objects with matroids abstraction, 
+and its related Tutte computation tree expansions for parametrized
+Tutte functions (sec. \ref{DirectSec}), can be usefully
+applied to objects besides graphs or directed graphs, such
+as various kinds of knot diagrams.
+
+Another open project is to classify the solutions to
+the conditions of Theorem \ref{BigTheorem} (about separator-strong
+$P$-ported Tutte functions) and 
+Theorem  \ref{StrongTheorem} (about the strong ones) for rings and
+for fields along the lines of 
+\cite{MR93a:05047} and \cite{BollobasRiordanTuttePolyColored}.
+
+Finally, the theory of objects with matroids or oriented
+matroids compared with $P$-ported Tutte functions of 
+oriented matroids
+raises the question of what role orientation plays in 
+$P$-ported Tutte
+function theory.  An oriented matroid can be considered to
+be an object with a non-oriented matroid.  In other
+words, the orientation is a property of the object
+that is constrained by, but not uniquely determined by 
+the object's non-oriented 
+matroid.  However, our results show that when the initial
+values
+depend only on the orientations in addition
+to depending on the matroids, the Tutte function is 
+characterized by 
+the equations of Theorem \ref{BigTheorem}, not
+Theorem \ref{ZBRWellBehaved}.
+The reason is that when interchanging the elements
+when deleting and contracting a series or parallel pair, 
+both the resulting matroids and 
+their orientations are the same.  The question we raise
+is whether there are interesting objects with matroids
+and certain other properties besides matroid orientation
+such that Theorem \ref{BigTheorem}
+characterizes the Tutte functions, when the initial
+values depend only on the matroids and those other properties.
+
+\section{Acknowledgements}
+
+I thank
+the Newton Institute for Mathematical Sciences
+of Cambridge University for hospitality and support of my
+participation in the Combinatorics and Statistical Mechanics
+Programme, January to July 2008, during which some of this
+work and many related subjects were reviewed and discussed.
+
+I thank the organizers of 
+the Thomas H. Brylawsky Memorial Conference, Mathematics Department of
+The University of North Carolina, Chapel Hill, October 2008, 
+Henry Crapo, Gary Gordon and James Oxley
+for
+fostering collaboration beween people who carry
+on the memory of Prof. Brylawsky and editing this journal
+issue.  
+
+I thank Lorenzo Traldi for bringing to my attention and
+discussing Diao and Hetyei's work, as well as
+Joanne Ellis-Monaghan, Gary Gordon, Elizabeth McMahon
+and Thomas Zaslavsky for helpful conversations and communications
+at the Newton Institute and elsewhere, and
+my University at Albany colleague Eliot Rich for mutual assistance with
+writing.
+
+This work is also supported by a Sabbatical leave granted
+by the University at Albany, Sept. 2008 to Sept. 2009.
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{DSumLike}
+
+\end{document}
+
+

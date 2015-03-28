@@ -1,0 +1,1226 @@
+\documentclass[12pt,leqno]{amsart}
+
+
+
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{eucal,graphicx}
+\usepackage{color}
+\usepackage[pdftex]{hyperref}
+
+
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.4in}
+
+%\renewcommand{\baselinestretch}{2}     % Activate for double spacing.
+%\renewcommand{\baselinestretch}{1.6}   % Activate for 1-1/2 spacing.
+%\renewcommand{\baselinestretch}{1.3}   % Activate for 1-1/3 spacing.
+
+
+\newcommand \comment[1]{}			%  Silent version.
+%\renewcommand \comment[1]{\emph{#1}}		%  Comment revealed.
+\newcommand \dateadded[1]{\comment{[Date added: #1.]}}
+\newcommand \mylabel[1]{\label{#1}\comment{{\rm \{#1\} }}}
+\newcommand \myref[1]{\ref{#1}\comment{{\{#1\}}}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{definition}[lem]{Definition}
+
+
+\theoremstyle{remark}
+\newtheorem{exam}{Example}%[section]
+\newcommand \myexam[1]{\smallskip\begin{exam}[\emph{#1}]}
+
+\renewcommand{\phi}{\varphi}
+\newcommand\eset{\varnothing}
+\newcommand\inv{^{-1}}
+\newcommand\setm{\setminus}
+\newcommand\chiz{\chi^\bbZ}
+\newcommand\bbR{\mathbb{R}}
+\newcommand\bbZ{\mathbb{Z}}
+\newcommand\cH{\mathcal{H}}
+
+
+\newcommand\Ueloop{\ensuremath{U^e_{0}}}
+\newcommand\Uecoloop{\ensuremath{U^e_{1}}}
+\newcommand\Uefdyad{\ensuremath{U^{ef}_{1}}}
+\newcommand\Uefgtriad{\ensuremath{U^{efg}_{1}}}
+\newcommand\Uefgtriangle{\ensuremath{U^{efg}_{2}}}
+
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+\newcommand{\dunionsubscript}
+{\mbox{\scriptsize\hbox{\hskip4pt$\cdot$\hskip-4.35pt$\cup$\hskip2pt}}}
+
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+%\newcommand{\scomp}[1]{\ensuremath{\;\overline{#1}\;}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\genfrac{}{}{}{}{}{#1}}}
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+
+\allowdisplaybreaks
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[Ported Separator-Strong Parametrized Tutte Functions]
+{Ported Separator-Strong 
+Parametrized Tutte Functions}
+
+\author{Seth Chaiken}
+\address{Computer Science Department\\
+The University at Albany (SUNY)\\
+Albany, NY 12222, U.S.A.}
+\email{\tt sdc@cs.albany.edu}
+
+
+
+\begin{abstract}
+We discuss Tutte functions of parametrized matroids in which
+certain ``port'' elements have been distinguished.
+The port elements are held back from deletion and contraction
+during Tutte decompositions.  Conditions on the parameters
+and the values for matroids or oriented matroids on port elements
+necessary and sufficient for a ported Tutte function $T$ to be well-defined
+are proved.  Activities based expressions and the corresponding
+interval partitions of the boolean lattice of subsets
+without port elements are 
+given, for all recursive computations of $T(M)$, not just those
+based on an element order.  These are then specialized to
+a corank-nullity and a geometric lattice expansion for the ported
+generalization of normal Tutte functions.
+\end{abstract}
+
+\subjclass[2000]{Primary 05B35; Secondary 05C99, 05C15, 57M25, 94C05}
+
+
+
+\keywords{Tutte function, Tutte polynomial}
+
+\thanks{Resubmitted Version of \today.}
+
+\maketitle
+\pagestyle{headings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Two of the natural, known and useful generalizations
+of the Tutte equations and the resulting
+Tutte polynomials and decompositions occur when:
+\begin{enumerate}
+\item A set $P$ of distinguished elements, which
+we call ``ports'', is specified.  The
+operations of deleting and contracting 
+non-separator $e$,
+and the factoring out of a separator $e$
+so $T(G\oplus e)=XT(G)$ or $YT(G)$ depending
+on whether $e$ is a coloop or loop, are then
+restricted only to $e\not\in P$.  See \cite{SetPointedLV,MR0419272}
+where the Tutte polynomials are called ``set-pointed'',
+\cite{sdcPorted}, and Brylawsky's early work 
+\cite{BrylawskiPointed} on the $|P|=1$ case.
+\item
+Four parameters $x_e, y_e, X_e, Y_e$ are 
+given for each element $e$.  $x_e$ and $y_e$
+are coefficients in the additive Tutte 
+equation for contracting and deleting
+$e$ when $e$ is a non-separator.  $X_e$
+and $Y_e$ generalize the common $X$ and $Y$
+above to different parameters for
+different $e$.  When combined with (1), 
+parameters are given only for $e\not\in P$.
+See \cite{MR93a:05047,BollobasRiordanTuttePolyColored,Ellis-Monaghan-Traldi}.
+\end{enumerate}
+In this note, we give common generalizations
+for matroids of pertinent definitions and methods,
+and prove the results.
+Our synthesis began with
+\cite{TutteEx}, where the term ``port'' is
+motivated by an application;
+but this application requires only those Tutte 
+functions that are both {\bf strong} 
+($T(M^1\oplus M^2)=T(M^1)T(M^2)$) and {\bf normal}
+(have a corank-nullity generating function expression)
+\cite{MR93a:05047}.  Additional progress is reported
+in \cite{RelTuttePoly} where the functions
+are called ``relative'' Tutte polynomials; and 
+they have a very different application.
+The Tutte functions we treat are those only required,
+in addition to the parametrized additive identity,
+to satisfy $T(M)=X_eT(M\setminus e)$ or
+$T(M)=Y_eT(M\setminus e)$ for separators $e\not\in P$,
+rather than $T(M^1\oplus M^2)=T(M^1)T(M^2)$.  
+They are called {\bf separator-strong}\cite{JoAndTom}.
+$E(M)$ denotes $S(M)\setminus P$, the
+elements of $M$ not in $P$.
+We present
+two principal outcomes:
+\begin{enumerate}
+\item
+The extension is straighforward
+but has the novel feature that the resulting
+Tutte functions might depend on the orientation
+of an oriented matroid $M$, not just on the
+underlying matroid.  The Tutte function
+depends on $I(Q)$, the initial values on
+minors $Q = $ $M/A\setminus (E\setminus A)$
+$=$ $M/A|P$ which are called {\bf $P$-quotients},
+in addition to the parameters.  The three known
+\cite{MR93a:05047,BollobasRiordanTuttePolyColored,Ellis-Monaghan-Traldi}
+families
+of polynomial conditions necessary and sufficient 
+for the Tutte function to be well-defined 
+are generalized to five; the two new ones involve
+pairs $\{e,f\}\subseteq E$ connected to $P$.  
+
+We were surprised that although each condition
+is polynomial in parameters for 2 or 3 elements of $E$,
+each polynomial is \emph{a multiple of
+$I(Q)$} for \emph{only one} $Q$.
+
+\item
+When the conditions are satisfied, all recursive
+computations based on the ported Tutte equations give the
+same result.  The Tutte computation tree formalism 
+\cite{GordonMcMachonGreedoid}
+enables us to 
+define an activities-type expansion for every such
+computation, not just those based on a linear
+ordering of $E$.  The known theory generalizes to
+the ported case, including for example, interval
+partitions of the Boolean lattice $2^{E}$.  
+There is 
+one term and boolean interval for
+each independent subset $F\subseteq E$ for
+which $F\cup P$ is spanning; such $F$ specialize
+to bases when $P=\emptyset$.
+The blocks
+of such interval partitions are then partitioned according
+to the common $Q=M/A|P$ for $A$ in each block.
+\end{enumerate}
+
+The conditions, similar to ours, on the parameters 
+only given in \cite{RelTuttePoly}
+are necessary and sufficient
+for the Tutte function to be well-defined
+\emph{for all} choices of initial values $I(Q)$.
+Our conditions are derived without
+this universal quantification.  Hence a factor $I(Q)$
+appears in each.  They reveal 
+exactly which polynomials involving any $I(Q)$
+must vanish depending on the structure of 
+the family on which the Tutte function is
+well-defined.  Also, our proof technique is
+different; it generalizes that 
+in \cite{Ellis-Monaghan-Traldi}.
+
+We only address 
+\emph{separator-strong}
+Tutte functions of matroids.
+Ported generalizations of 
+the 
+formula
+$T(\emptyset) T(M^1\oplus M^2) 
+= T(M^1) T(M^2))$
+and related results about strong Tutte functions\cite{MR93a:05047},
+direct sums 
+and graphs (based on 
+\cite{MR93a:05047,BollobasRiordanTuttePolyColored,Ellis-Monaghan-Traldi}) are 
+left for future publication.
+
+\section{Matroid Tutte Function Characterization}
+\label{ParamTutteSec}
+
+\begin{definition}
+\label{SSTMDefinition}
+Let $P$ be a set of \textbf{ports} and $\mathcal{C}$ be a class of matroids or
+oriented matroids closed under taking minors or oriented minors
+by deleting or contracting only elements $e\not\in P$.
+Such a $\mathcal{C}$ is called a \textbf{$P$-family}.  
+Suppose $\mathcal{C}$ is
+given with four parameters $(x_e,y_e,X_e,Y_e)$
+in a commutative ring $R$, for each $e\not\in P$ that is an element
+in some $M\in\mathcal{C}$.
+
+A \textbf{separator-strong parametrized $P$-ported Tutte function}
+$T$ maps $\mathcal{C}$ to $R$ or to an $R$-module and satisfies 
+conditions 
+\eqref{TA} and \eqref{TSSM} below for all $M\in\mathcal{C}$ and
+all $e$ in $E(M)$.
+
+\begin{equation}
+\label{TA}
+\tag{TA}
+\begin{gathered}
+T(M) = x_e T(M/e) + y_e T(M\setminus e) \\
+\text{ if $e\not\in P$ and $e$ is a non-separator, 
+       i.e., neither a loop nor a coloop.}
+\end{gathered}
+\end{equation}
+
+
+\begin{equation}
+\label{TSSM}
+\tag{TSSM}
+\begin{gathered}
+\text{If } e\not\in P\text{ is a coloop in }M\text{ then }
+T(M)=X_e T(M/e).\\
+\text{If } e\not\in P\text{ is a loop in }M\text{ then }
+T(M)=Y_e T(M\setminus e).
+\end{gathered}
+\end{equation}
+
+\end{definition}
+
+The ground set of $M\in\mathcal{C}$ is denoted by $S(M)$ and
+$E(M) = S(M)\setminus P$, the ground set elements of $M$ that are 
+not ports.  $U^{ef\ldots}_r$ denotes the uniform rank $r$ matroid 
+on $\{e,f,\ldots\}\subseteq E$.
+The $Q\in \mathcal{C}$ for which neither \eqref{TA} nor
+\eqref{TSSM} apply, equivalently, $E(Q)=\emptyset$,
+are called the \textbf{indecomposibles} or
+\textbf{$P$-quotients} in $\mathcal{C}$.
+
+
+\begin{prop}
+\label{SameMinorProp}
+Suppose $e,f$ are in series, or are in parallel, in matroid or
+oriented matroid $M$.
+%\begin{enumerate}
+%\item 
+(1) The minors $M/e\setminus f=M/f\setminus e$
+are equal as matroids.
+%\item 
+(2) If $M$ is oriented, the oriented minors 
+$M/e\setminus f=M/f\setminus e$ are equal as oriented matroids.
+%\end{enumerate}
+\end{prop}
+
+\begin{proof}
+If $e,f$ are in series, note that $M/e\setminus f$ $=$
+$M\setminus f/e$.  $e$ is a coloop in $M\setminus f$,
+so $M\setminus f/e$ $=$ $M\setminus\{e,f\}$, which is
+clearly the same matroid or oriented matroid if $e,f$
+are interchanged.  The relevant theory of minors of oriented matroids
+can be found in \cite{OMBOOK}.
+
+If $e,f$ are in parallel, $e,f$ are in series in 
+the matroid or oriented matroid dual $M^*$ of $M$.
+By the first case, $M^*\setminus e/ f$ $=$
+$M^*\setminus f/e$ as matroids or as oriented matroids.
+Thus $M/e\setminus f$ $=$ $(M^*\setminus e/ f)^*$ $=$
+$(M^*\setminus f/ e)^*$ $=$ $M/f\setminus e$ as matroids or
+as oriented matroids.
+\end{proof}
+
+
+
+\begin{thm}[Ported Matroid ZBR Theorem]
+\label{BigTheorem}
+The following two statements are equivalent.
+\begin{enumerate}
+\item $T$ from $\mathcal{C}$ to $R$ or an $R$-module is a $P$-ported 
+separator-strong parametrized
+Tutte function with $R$-parameters $(x, y, X, Y)$ whose values 
+$T(Q)$ on $P$-quotients $Q\in\mathcal{C}$ are the initial
+values $I(Q)$.
+\item
+\begin{enumerate}
+\item For every $M=U^{ef}_1\oplus Q\in\mathcal{C}$ with 
+$P$-quotient $Q$ ($U^{ef}_1$ is a dyad), 
+\[
+I(Q)(x_e Y_f + y_e X_f) = 
+I(Q)(x_f Y_e + y_f X_e).
+\]
+\item
+For every $M=U^{efg}_2\oplus Q\in\mathcal{C}$ with 
+$P$-quotient $Q$ ($U^{efg}_2$ is a triangle), 
+\[
+I(Q)X_g(x_e y_f + y_e X_f) = 
+I(Q)X_g(x_f y_e + y_f X_e).
+\]
+\item
+For every $M=U^{efg}_1\oplus Q\in\mathcal{C}$ with 
+$P$-quotient $Q$  ($U^{efg}_1$ is a triad), 
+\[
+I(Q)Y_g(x_e Y_f + y_e x_f) = 
+I(Q)Y_g(x_f Y_e + y_f x_e).
+\]
+\item
+If $\{e,f\}=E(M)$ is a parallel pair connected to $P$, 
+\[
+I(Q)(x_e Y_f + y_e x_f) = 
+I(Q)(x_f Y_e + y_f x_e)
+\]
+where $P$-quotient $Q=M/e\setminus f=M/f\setminus e$.
+\item
+If $\{e,f\}=E(M)$ is a series pair connected to $P$, 
+\[
+I(Q)(x_e y_f + y_e X_f) = 
+I(Q)(x_f y_e + y_f X_e)
+\]
+where $P$-quotient $Q=M/e\setminus f=M/f\setminus e$.
+\end{enumerate}
+\end{enumerate}
+\end{thm}
+
+When $P=\emptyset$, this reduces to the
+Zaslavsky-Bollob\'{a}s-Riordan theorem 
+for matroids\cite{Ellis-Monaghan-Traldi}:
+Only $Q=\emptyset$ occurs and the last two conditions become
+vacuous.
+
+\begin{proof}
+Our proof is the immediate result of adding considerations of ports to the
+proof in \cite{Ellis-Monaghan-Traldi}, there described
+as ``a straightforward adaption of the proof of Theorem 3.3 of 
+\cite{MR93a:05047}.''
+We sketch the proof with a few details, pointing out differences from
+\cite{Ellis-Monaghan-Traldi}.
+
+As in \cite{Ellis-Monaghan-Traldi}, 
+the necessary relations are easy to deduce by 
+applying \eqref{TA} and \eqref{TSSM} in two different
+orders to a general configuration in each of the five families.
+
+Now on to the converse.
+As in \cite{Ellis-Monaghan-Traldi}, the strategy
+is to first verify
+that the conditions imply $T(M)$ is well-defined for 
+$n = \Card{E(M)} = 0, 1$ and $2$.  Note that
+for us, $n$ does not count $|P\cap S(M)|$.
+Second, we rely on the hypothesis the $\mathcal{C}$ is closed under
+$P$-minors in order to verify
+that in a larger minimum $n$ counterexample, the elements of
+$E(M)$ are either all in series or all in parallel, 
+and then the conditions
+imply that all calculation orders give the same result.  All the cases involve
+two different combinations of deleting and contracting of several elements
+in $E(M)$ where both combinations produce the same $P$-quotient matroids
+or oriented matroids.  
+
+Let $M\in\mathcal{C}$ be a counterexample with minimum $n=|E(M)|$.
+Therefore, whenever $M'$ is a proper $P$-minor of $M$,
+$T(M')$ is well-defined.  \eqref{TA} and \eqref{TSSM}
+have the property that given $M$ and $e\in E(M)$, exactly one equation
+applies.  Therefore, 
+calculations that yield different values for $T(M)$ must start with
+reducing by different elements of $E(M)$.  Since $T(M)$ is given 
+unambiguously by the initial value $I(M)$ when $n=0$, we can assume
+$n\geq 2$.
+
+$M$ cannot contain a separator $e\in E(M)$, because
+this $e$ is a separator in every $P$-minor of $M$ containing $e$.
+Therefore, as observed in \cite{Ellis-Monaghan-Traldi}, every
+computation has the same result $X_e T(M/e)$ or $Y_e T(M\setminus e)$ 
+depending on whether $e$ is a coloop or a loop.
+
+Let $e$ be one element in $E(M)$.  Since no element in $E(M)$ is a 
+separator, $V=x_{e} T(M/{e}) + y_{e} T(M\setminus {e})$ is well-defined, 
+and so is $x_{e'} T(M/{e'}) + y_{e'} T(M\setminus {e'})$ 
+for each other $e'\in E$.
+We follow \cite{Ellis-Monaghan-Traldi} and define
+$D=\{e'\in E(M) \mid V=x_{e'} T(M/{e'}) + y_{e'} T(M\setminus {e'})\}$.  The 
+induction
+hypothesis then tells us 
+that there is at least 
+one  $f\in E(M)\setminus D$.  
+(Recall $e, e', f\not\in P$.)
+
+Suppose that $e$ is a separator in both $M\setminus f$ and 
+$M/f$ and $f$ is a separator in both 
+$M\setminus e$ and $M/e$.  Then, 
+$T$ would
+be well-defined for all four of these $P$-minors and so
+we can write 
+\[
+T(M)=x_e x_f T(M/\{e,f\}) + x_e y_f T(M/e\setminus f)
++ y_e x_f T(M\setminus e/f)
++ y_e y_f T(M\setminus\{e,f\}).
+\]
+Both computations give the same value because in this situation
+the reductions by $e$ and $f$ commute. 
+So, for $M$ to be a counterexample, there must be $e\in D$
+and $f\not\in D$ ($e, f\not\in P$)
+to which one case of the following lemma applies:
+
+\begin{lem}
+\cite{MR93a:05047}
+Let $e , f$ be nonseparators in a matroid $M$. Within each column the
+statements are equivalent:
+
+\begin{minipage}{0.5\textwidth}
+\begin{enumerate}
+\item
+$e$ is a separator in $M\setminus f$.
+\item
+$e$ is a coloop in $M\setminus f$.
+\item
+$e$ and $f$ are in series in $M$.
+\item
+$f$ is a separator in $M\setminus e$.
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{enumerate}
+\item
+$e$ is a separator in $M/ f$.
+\item
+$e$ is a loop in $M/ f$.
+\item
+$e$ and $f$ are in parallel in $M$.
+\item
+$f$  is a separator in $M/e$.
+\end{enumerate}
+\end{minipage}
+\end{lem}
+
+We claim that one of the following five cases must be satisfied:
+\begin{enumerate}
+\item 
+$n=2$ and $E(M)=\{e,f\}$ is a dyad.
+\item
+$n\geq 3$ and $E(M)$ is a circuit not connected to $P$.
+\item
+$n\geq 3$ and $E(M)$ is a cocircut not connected to $P$.
+\item
+$n\geq 2$ and for some $\emptyset\neq P'\subseteq P$,
+$P'\cup E(M)$ is a cocircuit.
+\item
+$n\geq 2$ and for some $\emptyset\neq P'\subseteq P$,
+$P'\cup E(M)$ is a circuit.
+\end{enumerate}
+
+As in  \cite{Ellis-Monaghan-Traldi}, we draw the conclusion that
+if $e\in D$ and $f\not\in D$ then $e, f$ are either series or parallel. 
+It was further proven that a series pair and a parallel pair cannot
+have exactly one element in common.  Therefore, the pairs $e,f$ satisfying 
+the conditions are either all series pairs or all parallel pairs.  By 
+minimality of $n$, $E(M)$ is either an $n$-element parallel class or an 
+$n$-element series class.  The last two cases are distinguished from
+the first three according to whether or not $E(M)$ is disconnected or not
+from elements of $P$ in matroid $M$.  We now use \eqref{TA} and \eqref{TSSM}
+to show that, in each case, the calculations that start with $e$ and 
+those that start with $f$
+have the same result, which contradicts $e\in D$ and $f\not\in D$.
+
+We give the details for case (d).  By hypothesis, 
+each of $T(M/e)$, $T(M\setminus e)$, $T(M/f)$, $T(M\setminus f)$,
+$T(M/f/e)=T(M/e/f)$, $T(M/e\setminus f)$ and 
+$T(M/f\setminus e)$ is well-defined.  (Remark:
+By Proposition \ref{SameMinorProp},
+$M\setminus f/e$ $=$ 
+$M\setminus e/f$.  
+
+Starting with $e$ and with $f$, \eqref{TA} gives the two expressions:
+\[
+V= x_e T(M/e) + y_e x_f T(M\setminus e /f) + y_e y_f T(M\setminus e\setminus f)
+\]
+\[
+V\neq 
+   x_f T(M/f) + y_f x_e T(M\setminus f /e) + y_f y_e T(M\setminus f\setminus e)
+\]
+Let $M'$ be the $P$-minor obtained by deleting each element
+in $E(M)$ except for $e$ and $f$ ($M'=M$ if $n=2$.)
+Since 
+$E(M')=\{e,f\}$ and $e,f$ are in parallel connected to $P$ within
+$M'$, (d) of the hypotheses  tells us that
+\[
+I(Q) (x_e Y_f - y_f x_e) =
+I(Q') (x_f Y_e - y_e x_f ),
+\]
+where $Q=M'/e \setminus f$, $Q'=M'/f \setminus e$.  
+Since $e,f$ are in parallel within $M'$,
+matroids
+or oriented matroids $Q=Q'$ by Proposition \ref{SameMinorProp}.
+Since $A=E(M)\setminus\{e,f\}$ is a set of loops ($\emptyset$ if $n=2$)
+in
+$M/e\setminus f$ ($N/e\setminus f$) and 
+in $M/f\setminus e$ ($N/f\setminus e$), we 
+write $Y_A=\prod_{a\in A}Y_a$ ($1$ if $A=\emptyset$)
+and use \eqref{TSSM} to write
+\[
+T(M/e\setminus f) = Y_A I(Q ),\;\;
+T(M/f\setminus e) = Y_A I(Q' ),
+\]
+\[
+T(M/e) = Y_f Y_A I(Q ),\;\;\text{ and }\;\;
+T(M/f) = Y_e Y_A I(Q' ).
+\]
+So, since $M\setminus f\setminus e=M\setminus e\setminus f$,
+\[
+x_e T(M/e) + y_e x_f T(M\setminus e /f)
+=
+x_f T(M/f) + y_f x_e T(M\setminus f /e)
+\]
+contradicts 
+$V\neq 
+x_f T(M/f) + y_f x_e T(M\setminus f /e) + y_f y_e T(M\setminus f\setminus e)$
+The remaining cases can be completed analogously.  It might be
+noted that our proof differs slightly from \cite{Ellis-Monaghan-Traldi}
+in that the cases of $n=3$ and $n\ge 4$ are not distinguished.
+\end{proof}
+
+\subsection{Universal Tutte Polynomial}
+\label{UniversalSec}
+It is easy to follow 
+\cite{BollobasRiordanTuttePolyColored,Ellis-Monaghan-Traldi} to define
+a universal, i.e., most general $P$-ported parametrized
+Tutte function $T^{\mathcal{C}}$ for $\mathcal{C}$.
+We take indeterminates $x_e, y_e, X_e, Y_e$ for each $e\in E(M), 
+M\in\mathcal{C}$
+and an indeterminate $[Q]$ for each $P$-quotient $Q\in\mathcal{C}$.
+Let $\mathbb{Z}[x,y,X,Y]$ denote the integer polynomial ring generated by
+the $x_e,y_e,X_e,Y_e$ indeterminates, and define $\widetilde{\mathbb{Z}}$
+to be the $\mathbb{Z}[x,y,X,Y]$-module generated by the $[Q]$.  
+Let $I^{\mathcal{C}}$ denote the ideal of $\widetilde{\mathbb{Z}}$ 
+generated by the identities of Theorem \ref{BigTheorem}, comprising 
+for example $[Q](x_eY_f+y_eX_f-x_fY_e-y_fX_e)$ for each instance of
+case (a), etc.  The universal Tutte function has values in the
+quotient module $\widetilde{\mathbb{Z}}/I^{\mathcal{C}}$.  Finally,
+observe that the range of Tutte function $T$  can be considered to be the
+$R$-module generated by the values $I(Q)$ where ring $R$ contains the
+$x,y,X,Y$ parameters. If the $I(Q)\in R$, consider
+the ring $R$ to be the $R$-module generated by $R$.
+We follow \cite{Ellis-Monaghan-Traldi} to write
+the corresponding consequence of Theorem \ref{BigTheorem}:
+
+\begin{cor}
+\label{UniversalCor}
+Let $\mathcal{C}$ be a $P$-minor closed class of matroids or 
+oriented matroids.  Then there is a 
+$\widetilde{\mathbb{Z}}/I^{\mathcal{C}}$-valued function 
+$T^{\mathcal{C}}$ on $\mathcal{C}$ with $T^{\mathcal{C}}(Q)=[Q]$ for each $P$-quotient
+$Q\in\mathcal{C}$ that is a $P$-ported parametrized Tutte function
+on $\mathcal{C}$ where the parameters are the 
+$x, y, X, Y \in \widetilde{\mathbb{Z}}$.  Moreover, if $T$ is any $R$-parametrized
+Tutte function with parameters $x'_e, y'_e, X'_e, Y'_e$, then $T$ is the
+composition of $T^{\mathcal{C}}$ with the homomorphism determined by
+$[Q]\rightarrow I(Q)=T(Q)$ for $P$-quotients $Q$ and 
+$x_e\rightarrow x'_e$, etc., for each $e\in E(\mathcal{C})$.
+\end{cor}
+
+\section{Tutte Computation Trees and Activities}
+\label{Activity}
+
+Zaslavsky\cite{MR93a:05047} noted that the 
+\emph{basis} or \emph{activities}
+expansion, introduced by Tutte
+\cite{TutteDich,TutteGraphBook} for graphs, applies
+to all well-defined parametrized 
+Tutte functions whereas the 
+parametrized corank-nullity generating function
+expresses only a proper subset of them, which he called
+normal.  We show
+how to give activities-type expansions comprised of
+one expansion for every recursive computation of
+a ported Tutte function value, not just those
+determined by a linear element ordering.
+We apply to 
+ported matroids the expansions based on
+Tutte computation trees which were formalized
+by 
+McMahon and Gordon \cite{GordonMcMachonGreedoid}
+for the purpose of analyzing Tutte polynomials
+of greedoids.
+Unlike matroids, some greedoids
+do not have activities expansions for their Tutte polynomials
+that derive from element orderings.
+
+Ellis-Monaghan and 
+Traldi \cite{Ellis-Monaghan-Traldi} remarked that the Tutte equation
+approach appears to give a shorter proof of the ZBR theorem
+than the activities expansion approach. 
+The proofs by induction on $|E|$
+demonstrate that every calculation of $T(M)$ from Tutte equations
+produces the same result when the conditions on the parameters
+and initial values are satisfied.  We then know immediately that
+the polynomial expression
+resulting from
+a particular calculation equals the Tutte function value.
+We suggest a heuristic reason why
+the Tutte equation approach is more succinct:
+The induction assures that
+\emph{every} computation
+with smaller $|E|$ gives the same result, not just those 
+computations that are determined by linear orders on $E$.
+%
+Proofs of activities expansions for matroids, and their generalizations
+for $P$-ported matroids, seem more informative and certainly
+no harder when the expansions are derived from a general Tutte
+computation tree, than when the expansions are only those
+that result from an element order.   
+From the retrospective that the Tutte equations
+specify a non-deterministic recursive computation
+\cite{Garey-Johnson}, it seems artificial to start with
+element-ordered computations and then prove
+first that all linear orders give the same result and 
+second that it 
+satisfies the Tutte equations, in order prove that 
+all recursions give the same result.
+We therefore
+take advantage of the Tutte computation tree formalism
+and the more general expansions it enables.
+
+\subsection{Computation Tree Expansion}
+\begin{definition}
+Given $P$-ported matroid or oriented matroid $M$,
+a \textbf{$P$-subbasis} $F$
+is an independent set  with $F\subseteq E(M)$
+(so $F\cap P=\emptyset$) for which $F\dunion P$ is a spanning set
+for $M$
+(in other words, $F$ spans $M/P$).
+$\mathcal{B}_P(M)$ denotes the set of $P$-subbases.
+\end{definition}
+
+Equivalent definitions were given in \cite{SetPointedLV}
+and in \cite{RelTuttePoly}.   The following is immediate and
+useful:
+
+\begin{prop}
+For every $P$-subbasis $F$ there exists an independent set $Q\subseteq P$
+that extends $F$ to a basis $F\dunion Q\in \mathcal{B}(M)$ of $M$.
+Conversely, if $B\in\mathcal{B}(M)$ then $F=B\cap E=B\setminus P$
+is a $P$-subbasis.
+\end{prop}
+
+\begin{definition}[Computation Tree, following \cite{GordonMcMachonGreedoid}]
+\label{CompTreeDef}
+A $P$-ported (Tutte) computation tree for $M$ is a
+binary tree whose root is labeled by $M$ and which satisfies:
+\begin{enumerate}
+\item If $M$ has non-separating elements not in $P$, then 
+the root has two subtrees and there exists one such element $e$ for which 
+one subtree is a computation tree
+for $M/e$ and the other subtree is a computation tree for 
+$M\setminus e$.
+
+The branch to $M/e$ is labeled with ``$e$ contracted'' and 
+the other branch is labeled ``$e$ deleted''.
+\item Otherwise (i.e., every element in $E(M)$
+is separating) the root is a leaf.  
+
+Each leaf is labelled with a $P$-quotient $Q$ plus a direct sum
+of loop or coloop matroids on elements respectively $e$ or $f$ in $E$, 
+expressed
+as $[Q]\prod X_e \prod Y_f$.
+\end{enumerate}
+\end{definition}
+
+%Figure \ref{c4p2TwoFigure} illustrates two computation trees; it 
+%is conventional to slant contraction edges to the left and
+%deletion edges to the right.
+
+\begin{definition}[Activities with respect to a leaf]
+\label{ActivityTreeDef}
+For a $P$-ported Tutte computation tree for $M$,
+a given leaf, and the path from the root to this leaf:
+\begin{itemize}
+\item Each $e\in E(M)$ labeled ``contracted'' along this path
+is called \textbf{internally passive}.
+\item Each coloop $e\in E(M)$ in the leaf's matroid is
+called \textbf{internally active}.
+\item Each $e\in E(M)$ labeled ``deleted'' along this path
+is called \textbf{externally passive}.
+\item Each loop $e\in E(M)$ in the leaf's matroid is
+called \textbf{externally active}.
+\end{itemize}
+\end{definition}
+
+\begin{prop}
+Given a leaf of a $P$-ported Tutte computation tree for $M$,
+the set of internally active or internally passive elements 
+constitutes a 
+$P$-subbasis of $M$ which we say 
+\textbf{belongs to the leaf}.  
+Furthermore, every $P$-subbasis $F$ of $N$ belongs to a unique leaf.
+\end{prop}
+
+\begin{proof}
+For the purpose of this proof, let us extend Definition \ref{ActivityTreeDef}
+so that, given a computation tree with a given node $i$ 
+labeled by matroid $M_i$,
+$e\in E$ is called internally passive when $e$ is labeled 
+``contracted'' along the path from root $M$ to
+node $i$.  Let $IP_i$ denote the set of such internally passive 
+elements.
+
+It is easy to prove by induction on the length of the root to node $i$ path
+that
+(1) $IP_i\cup S(M_i)$ spans $M$ and 
+(2) $IP_i$ is an independent set in $M$.  The proof
+of (1) uses the fact that elements labeled deleted are non-separators.  The
+proof of (2) uses the fact that for each non-separator 
+$f\in M/IP_i$, $f\cup IP_i$ is independent in $M$.
+
+These properties applied to a leaf demonstrate the first conclusion,
+since each $e\in E$ in the leaf's matroid must be a separator by Definition 
+\ref{CompTreeDef}.
+
+Given a $P$-subbasis $F$, we can find the unique leaf with the
+algorithm below.  Note that it also operates on arbitrary subsets of $E$.
+
+\textbf{Tree Search Algorithm:} Beginning
+at the root, descend the tree according to the rule: At each branch node,
+descend along the edge labeled ``$e$-contracted'' if $e\in F$ and along
+the edge labeled ``$e$-deleted'' otherwise (when $e\not\in F$).
+\end{proof}
+
+We leave the reader to check that 
+the classsical element-order based activities
+expansion, as extended with ports explicitly
+in\cite{RelTuttePoly}, is reproduced with 
+the unique $P$-ported
+computation tree in which the greatest non-separator $e\in E$ is
+deleted and contracted in the matroid at each tree node,
+when the elements are ordered
+so $p\in P$ is 
+before each $e\not\in P$.
+
+\begin{definition}
+\label{ActivitySymbolsDef}
+Given a computation tree for 
+$P$-ported (oriented) matroid $M$,
+each $P$-subbasis $F\subseteq E$
+is associated with the following subsets of non-port elements
+defined according to Definition \ref{ActivityTreeDef}
+from the unique leaf determined by the algorithm given above.
+\begin{itemize}
+\item $IA(F)\subseteq F$ denotes the set of internally active elements,
+\item $IP(F)\subseteq F$ denotes the set of internally passive elements,
+\item $EA(F)\subseteq E\setminus F$ 
+denotes the set of externally active elements,
+and 
+\item $EP(F)\subseteq E\setminus F$ denotes the set of externally
+passive elements.
+\item $A(F)=IA(F)\dunion EA(F)$ denotes the set of active elements.
+\end{itemize}
+\end{definition}
+
+\begin{prop}
+\label{PartitionProposition}
+Given a $P$-ported Tutte computation tree for
+$M$, 
+the boolean lattice of subsets of $E=E(M)$
+is partitioned by the collection of
+intervals $[IP(F),F\dunion EA(F)]$ 
+determined from the collection
+of $P$-subbases $F$, which correspond to the leaves.
+(Note $F\dunion EA(F)=IP(F)\dunion A(F)$.)
+
+Each $A\in [IP(F),F\dunion EA(F)]$ in one interval determines the
+same matroid or oriented matroid  $P$-quotient
+by $M/A|P=M/IP(F)|P$.
+
+The boolean lattice of subsets of $E=E(M)$
+is also partitioned by the collection of
+intervals $[EP(F),(E\setminus F)\dunion IA(F)]$.
+(Note $(E\setminus F)\dunion IA(F)$ $=$ $EP(F)\dunion A(F)$.)
+
+Each $A'\in [EP(F), (E\setminus F)\dunion IA(F)]$ of one of these
+intervals determines the same matroid or oriented matroid
+$P$-quotient by $M\setminus B'/(E\setminus B')$
+$=$ $M/F|P$.
+
+For a given $F\in\mathcal{B}_P(M)$, $A\subseteq E$ satisfies
+$A\in [IP(F),F\dunion EA(F)]$ if and only if 
+$(E\setminus A)\in [EP(F),(E\setminus F)\dunion IA(F)]$. 
+\end{prop}
+
+\begin{proof}
+Every subset $A\subseteq E=E(M)\setminus P$ belongs to the
+unique interval corresponding to the unique leaf found by the tree search 
+algorithm given at the end of the previous proof.  
+
+$P$-quotient $M/A|P$ is independent of the order of the
+deletions and contractions.  So let $IP(F)\subseteq A$ be contracted
+and $(E\setminus EA(F))\subseteq (E\setminus A)$ be deleted first.
+The remaining elements of $E$ are loops or coloops, so the $P$-quotient
+is independent of whether they are deleted or contracted.
+
+The dual of that tree search algorithm, which descends along
+the edge labelled ``$e$-deleted'' if $e\in A'$, etc., will find the
+unique leaf whose interval $[EP(F),E\setminus F\cup IA(F)]$ contains
+$A'$.
+
+When $A\in[IP(F),F\cup EA(F)]$, the dual algorithm applied to
+$A'=E\setminus A$ will find the same leaf.  The $P$-quotient is
+determined by $IP(F)$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The following generalizes the activities expansion expression given
+in \cite{MR93a:05047} to ported (oriented) matroids, as well as 
+Theorem 8.1 of \cite{SetPointedLV}. 
+
+\begin{prop}
+\label{TuttePolyExpression}
+Given parameters $x_e$, $y_e$, $X_e$, $Y_e$, and 
+$P$-ported matroid or oriented matroid $M$
+the Tutte polynomial expression
+determined by the sets in Definition 
+\ref{ActivitySymbolsDef} 
+from a computation tree is 
+given by
+\begin{equation}
+\tag{PAE}
+\label{PAE}
+\sum_{F\in \mathcal{B}_P}[M/F|P]
+\;X_{IA(F)}\;x_{IP(F)}\;Y_{EA(F)}\;y_{EP(F)}.
+\end{equation}
+\end{prop}
+
+\begin{proof}
+\eqref{PAE} is an expression constructed by applying some of the
+Tutte equations.  One monomial results from each leaf.
+In that leaf's matroid,
+each active element is a separator, and the active elements
+contribute $X_{IA(F)}Y_{EA(F)}$ to the monomial.
+The passive elements which contribute
+$x_{IP(F)}y_{EP(F)}$
+are the tree
+edge labels in the path from the root to the leaf.
+Each $M/F|P$ denotes a $P$-quotient of $M$, so the
+expression is a polynomial in the parameters and in the
+initial values.  
+Therefore, \eqref{PAE} expressions the result of
+the calculation when one substitutes
+$[M/F|P]=I(M/F|P)$.
+\end{proof}
+
+From Corollary \ref{UniversalCor} we conclude:
+\begin{thm}
+\label{ActivitiesTheorem}
+For every $P$-ported parametrized Tutte function $T$ 
+on $\mathcal{C}$ into 
+ring $R$ or an $R$-module,
+for every computation tree for $M\in\mathcal{C}$,
+(and so for every ordering of $E(M)$), 
+the polynomial expression \eqref{PAE} equals 
+$T^{\mathcal{C}}(M)$ of Corollary \ref{UniversalCor}.
+\end{thm}
+
+
+\subsection{Expansions of Normal Tutte Functions}
+\label{NormalSubSec}
+After a notational translation, 
+Zaslavsky's \cite{MR93a:05047} definition of {\bf normal} Tutte 
+functions becomes
+those for which $T(\emptyset)=1$, and for which there exist
+$u$, $v\in R$ so that for each $e\in E(M)$,
+
+\begin{equation}
+\tag{CNF}
+\label{CNF}
+X_e = x_e + uy_e \text{ and } Y_e = y_e + vx_e.
+\end{equation}
+
+The equations of
+Theorem \ref{BigTheorem} are readily verified and
+so we naturally extend this definition, with the
+$T(\emptyset)=1$ condition dropped, to 
+ported separator-strong parametrized Tutte functions.
+All the expressions for normal Tutte
+functions are therefore in the ring freely generated by
+$u$, $v$, the $x_e, y_e$ and the $[Q]$.
+We can now generalize some known 
+expansions for the Tutte polynomial $T^{\mathcal{C}}$
+after the \eqref{CNF} substitution.
+The rank function for $M$ is denoted by $r$.
+
+
+\begin{cor}[Boolean Interval Expansion]
+\label{NormalActProp}
+The following activities and boolean interval expansion formula
+is universal for normal Tutte functions:
+\[
+T^{\mathcal{C}}(M)=
+\sum_{F\in \mathcal{B}_P}[M/F|P]
+%\left(
+\Big(
+\sum_{\substack{
+       IP(F)\subseteq K \subseteq F\\
+       EP(F)\subseteq L \subseteq E\setminus F
+      }}
+ x_{K\cup (E\setminus F\setminus L)}\;
+ v^{\Card{E\setminus F\setminus L}}\;
+ y_{L\cup (F\setminus K)}\;
+ u^{\Card{F\setminus K}}\;\;
+%\right)
+\Big)
+\]
+\end{cor}
+
+\begin{proof} 
+Substitute 
+\eqref{CNF} 
+into $T^{\mathcal{C}}(M)$
+and use
+$IP(F)\dunion IA(F) =F$ and 
+$EP(F)\dunion EA(F)=E\setminus F$
+from
+Definition \ref{ActivitySymbolsDef}.
+\end{proof}
+
+\begin{lem}
+\label{KLAlemma}
+Given $F\in\mathcal{B}_P$,
+$IP(F)$ spans $EA(F)$.
+
+The pairs $(K,L)$ for which 
+       $IP(F)\subseteq K \subseteq F$ and 
+       $EP(F)\subseteq L \subseteq E\setminus F$
+are in a one-to-one correspondance
+with the $A$ satisfying $IP(F)\subseteq A\subseteq F\dunion EA(F)$
+given by $A=K\dunion (E\setminus F)\setminus L$.
+
+
+For every such $A$, 
+\[
+\Card{F\setminus K}=r(M)-r(M/F|P)-r(A)
+\]
+and
+\[
+\Card{E\setminus F\setminus L} = \Card{A}-r(A).
+\]
+\end{lem}
+
+\begin{proof}
+(See Figure \ref{Venn} in Appendix.) By our definition of activities,
+after all the elements of $IP(F)$ are contracted, all elements 
+in $EA(F)$ are loops.
+(Note none of these elements are ports.)
+
+Let 
+$A=K\dunion (E\setminus F\setminus L)$.
+By our definition of activities,
+$IP(F)\dunion IA(F)=F$, so $IP(F)\subseteq A$.
+Similarly,  
+$EP(F)\dunion EA(F)=E\setminus F$, so 
+$A\cap(E\setminus F)\subseteq EA(F)$.
+Hence 
+$IP(F)\subseteq A\subseteq F\dunion EA(F)$.
+Conversely, given such an $A$, 
+take $K=A\cap F$ and $L=(E\setminus F)\setminus A$.
+
+Since $IP(F)$ spans $EA(F)$ and $K\supseteq IP(F)$, $K$ spans $EA(F)$.
+Since $A\subseteq K\dunion EA(F)$, $K$ spans $A$.
+$K\subseteq F$, $F$ is a $P$-subbasis, so $K$ and $F$ are independent,
+hence $\Card{K}=r(K)=r(A)$ and $\Card{F}=r(F)$.  
+Therefore, $\Card{F\setminus K}=r(F)-r(A)$.
+
+Since $F$ is a $P$-subbasis, $r(F\cup P)=r(M)$.
+By definition of contraction, $r(M/F|P)=r(F\cup P) - r(F)$,
+so $r(M/F|P)=r(M)-r(F)$.  We conclude 
+$\Card{F\setminus K}=r(M)-r(M/F|P)-r(A)$.
+
+$E\setminus F\setminus L = A\setminus K$, so
+$\Card{E\setminus F\setminus L} = \Card{A}-\Card{K}$.
+As above, $\Card{K}=r(A)$, so the last equation follows.
+\end{proof}
+
+
+\begin{cor}
+\begin{equation}
+\label{FIntervalExpansion}
+T^{\mathcal{C}}(M)=
+\sum_{F\in \mathcal{B}_P}[M/F|P]
+%\left(
+\Big(
+\sum_{IP(F)\subseteq A \subseteq (F\!\dunionsubscript\! EA(F))}
+ x_{A}
+ y_{E\setminus A}
+ u^{r(M)-r(M/F|P)-r(A)}
+ v^{\Card{A}-r(A)}
+%\right)
+\Big)
+\end{equation}
+\end{cor}
+
+\begin{proof}
+Apply Lemma \ref{KLAlemma} to the inner sum in
+Proposition \ref{NormalActProp}.
+\end{proof}
+
+\begin{thm}[Corank-nullity expansion]
+\begin{equation}
+\tag{PGF}
+\label{PGF}
+T^{\mathcal{C}}(M) = \sum_{A\subseteq E(M)}[M/A \mid P]x_A y_{E\setminus A}
+u^{r(M)-r(M/A\mid P)-r(A)}
+v^{|A|-r(A)}.
+\end{equation}
+\end{thm}
+
+Remark: This extends to separator-strong ported Tutte functions
+with parameters on possibly oriented matroids
+an expression from \cite{MR0419272} reproduced in \cite{sdcPorted}.  It can
+also be proved by corank-nullity generating function methods.
+
+\begin{proof}
+By Proposition \ref{PartitionProposition}, given any Tutte computation tree,
+the lattice of subsets of $E(M)$ is partitioned
+into intervals corresponding to $P$-subbases $\mathcal{B}_P$.  
+In each interval, 
+$P$-quotient $M/F|P$ is equal to 
+$M/A|P$ (as a matroid or oriented matroid)
+for 
+$A\in [IP(F),F\cup EA(F)]$.
+Hence we can 
+interchange the summations in \eqref{FIntervalExpansion} and write
+\eqref{PGF}.
+\end{proof}
+
+
+\begin{prop}[Geometric Lattice Flat Expansion]
+\label{GFlatProp}
+Let $M$ be an oriented or unoriented.
+In the formula below,
+$F$ and $G$ range over the geometric lattice of flats 
+$\mathcal{L}=\mathcal{L}(M|E)$ contained
+in $M$ restricted to $E = E(M)$.  
+($E$ is the top of $\mathcal{L}$ and $\le$
+is its partial order.)
+\[
+T^{\mathcal{C}}(M) = \sum_{Q} [Q]
+      \sum_{\substack{F\leq E\\
+                     [M/F|P]=[Q]
+           }}
+                   u^{r(M)-r(Q)-r(F)}
+                   v^{-r(F)}
+                   \sum_{G\le F}
+                   \mu(G,F)
+                   \prod_{e\in G}
+                    (y_e+x_ev)
+\]
+\end{prop}
+
+\begin{proof}
+This 
+generalizes and 
+follows the steps for theorem 8 in \cite{sdcPorted}.  (See Appendix.)
+\end{proof}
+
+
+\section{Acknowledgements}
+
+I thank
+the Newton Institute for Mathematical Sciences
+of Cambridge University for hospitality and support of my
+participation in the Combinatorics and Statistical Mechanics
+Programme, January to July 2008, during which some of this
+work and many related subjects were reviewed and discussed.
+
+I thank the organizers of 
+the Thomas H. Brylawsky Memorial Conference, Mathematics Department of
+The University of North Carolina, Chapel Hill, October 2008, 
+Henry Crapo, Gary Gordon and James Oxley
+for
+fostering collaboration beween people who carry
+on the memory of Prof. Brylawsky and editing this journal
+issue.   I also thank the referee for comments that
+lead to a much improved presentation.
+
+I thank Lorenzo Traldi for bringing to my attention and
+discussing Diao and Hetyei's work, as well as
+Joanne Ellis-Monaghan, Gary Gordon, Elizabeth McMahon
+and Thomas Zaslavsky for helpful conversations and communications
+at the Newton Institute and elsewhere.
+
+This work is also supported by a Sabbatical leave granted
+by the University at Albany, Sept. 2008 to Sept. 2009.
+
+\bibliographystyle{abbrv}
+\bibliography{ParamTutteRev}
+
+\appendix
+
+\begin{figure}
+\input{Venn.pdf_t}
+\caption{\label{Venn} Illustration for proof of Lemma \ref{KLAlemma}.}
+\end{figure}
+
+
+
+\section{Proof of Proposition \ref{GFlatProp}}
+
+For each subset $A\subseteq E$, 
+$[Q] = [M/A|P] = [M/F|P]$ is determined by the unique flat $F$
+in $L(E)$ spanned by $A\subseteq E$.  So, we write \eqref{PGF}
+by
+\[
+T^{\mathcal{C}}(M) = 
+     \sum_{Q} [Q] \sum_{\substack{
+                     F\in \mathcal{L}\\
+                     [M/F|P]=[Q]
+                      }}
+      \sum_{\substack{
+             A\subseteq F\\
+             A\text{ spans }F
+          }}
+      x_A y_{E\setminus A}
+      u^{r(M)-r(M/A\mid P)-r(A)}
+      v^{|A|-r(A)}.
+\]
+Factoring, we get
+\[
+T^{\mathcal{C}}(M) = 
+     \sum_{Q} [Q] \sum_{\substack{
+                     F\in \mathcal{L}\\
+                     [M/F|P]=[Q]
+                      }}
+      u^{r(M)-r(Q)-r(F)}
+      v^{-r(F)}
+      \sum_{\substack{
+             A\subseteq F\\
+             A\text{ spans }F
+          }}
+      x_A y_{E\setminus A}
+      v^{|A|}.
+\]
+$A$ is summed over the spanning sets of $F$.  Let $Z(F)$ denote
+this last sum.  Since every subset of $F$ spans some flat
+in $\mathcal{L}$,
+\[
+\sum_{0\le G \le F}Z(G) = \sum_{e\in F}(y_e + x_ev).
+\]
+M\"{o}bius inversion gives
+\[
+Z(F)= \sum_{0\le G\le F}\mu(G,F)(y_e +  x_ev).
+\]
+
+\end{document}
+
+
