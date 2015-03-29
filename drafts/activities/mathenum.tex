@@ -242,6 +242,51 @@ R(N\setminus A) = \lim_{g(A)\rightarrow 0}R(N) = \frac{g(B)}{g(B)g(C)} = \frac{1
 \]
 
 
+\section{Topology, $f$\&$h$ vectors and all that}
+
+FROM 
+``Monomial Bases for Broken Circuit Complexes''
+by Jason Brown and  Bruce Sagan
+\cite{MonBasesBrkCircCompBrownSagan}
+\begin{quote}
+Let E be a finite set and let $\Delta$
+be an abstract simplicial complex on E, ...
+
+Let $f_i = f_i(\Delta)$ be the number of $S \in \Delta$ with
+$|S| = i$. Then $\Delta$ has f-vector
+$f = f(\Delta) = (f_0, f_1, . . . , f_r)$
+as well as f-polynomial
+$f(x) = f_{\Delta}(x) = f_0 + f_1x + · · · + f_rx^r$
+where $x$ is a variable. 
+
+...
+
+Another important invariant of $\Delta$ is its $h$-vector. Define a polynomial
+\[
+h(x) := (1 - x)^r f(\frac{x}{1-x})
+\]
+\[
+= f_0(1 - x)^r + f_1x(1 - x)^{r-1} + f_2x^2(1-x)^{r-2} + ... + f_rx^r. 
+\]
+
+Let $h_i$ be the coefficient of $x_i$ in h(x) so that 
+
+...
+\end{quote}
+
+Jason Brown and  Bruce Sagan go on to give an combinatorial interpretation
+of $h_i$ when $f(-\lambda)=\pm$chromatic polynomial's Whitney's expansion.
+It uses that Cohen-Macauly stuff.
+
+Bruce and R. Bloka did a line of research following Las Vergnas' 
+\cite{ActOrdersMatrBasesLasVergnas} on 
+topology of complexes defined in terms of linearly-defined activities
+\cite{ActTopPropBlokaSagan}.  In his paper, 
+Las Vergnas did 3 different complexes? 
+and a lattice ordering of matroid bases, 
+and wondered why M\"{o}bius function values in the lattice were zero.
+
+
 
 
 
