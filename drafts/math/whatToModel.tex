@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{cite}
+\usepackage{amsmath}
 \title{What to Model ... }
 \author{Seth Chaiken}
 \begin{document}
@@ -148,6 +149,25 @@ statistical mechanical microscopic models to our macroscopic models.)
 
 The Boltzmann factor in interplay between combinatorics and statistical
 mechanics (after reading Feynman's Lectures on Physics account).
+
+The Boltzmann factor is 
+$p_{\beta}(x)= C\alpha^{-x}$ $=$ $Ce^{-\beta x}$ is the probability 
+or probability density of the exponential distribution.
+Its origin in statistical mechanics:  $E_\beta = x + (E_\beta-x)$ where the 
+number of equally probable states of an environment (heat bath) 
+is $Ce^{E_\beta - x}$ and so the probability of one state of a 
+(system+environment) is proportional to $e^{-\beta x}$.
+
+Partition and generating function:
+\[
+Z = \sum_{s\in\text{states}}e^{-\beta x(s)} = \sum_{x}N(x)e^{-\beta x} 
+\]
+where $N(x)= $ number of states $s$ with $x(s) = x$.
+\[
+\frac{\partial{\log Z}}{\partial\beta}
+=
+\text{Expected Value}(x)
+\]
 
 Multiple interacting transport phenomena in transistors and other 
 engineered systems (natural too!).
