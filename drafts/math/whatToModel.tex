@@ -1,12 +1,13 @@
 \documentclass{article}
 \usepackage{cite}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \title{What to Model ... }
 \author{Seth Chaiken}
 \begin{document}
 \maketitle
 
-Of a circuit:
+\section{Of a circuit:}
 \begin{itemize}
 \item Resistance and other port quantities within the theory of 
 \textbf{random walks}\cite{DoyleSnellRandom,ProbOnTreesNetworks}.
@@ -45,6 +46,35 @@ differences, ``half-resistors'',  \textbf{Bond graphs}.
 \item Voltages and currents are orthogonal under a bilinear form that 
 represents power.  What's behind this?
 \end{itemize}
+
+
+\section{Electric Analogies}
+
+\begin{enumerate}
+\item inductance=mass, capacitance=spring stiffness, ...
+\item Traffic flow: voltage=trip time, current=flow, resistance=route-time 
+per unit flow, KVL=each driver adjusts his route to minimize his time.
+
+Braess paradox: Removing an edge reduces travel time. (Thanks, Michael 
+Sattinger.)
+Simplest example [on Wikipedia] occurs with a \textit{voltage source}, an edge
+with constant travel time.  Is related to Nash equilibrium.
+
+\url{http://homepage.ruhr-uni-bochum.de/Dietrich.Braess/#paradox}
+is a bibliography including 
+C.M. Penchina and L.J. Penchina,
+   ``The Braess paradox in mechanical, traffic, and other networks.''
+\cite{BraessAJPhy}
+   Amer. J. Phys. 71, 479 - 482 (2003)
+
+\textbf{non-linear monotonic constituitive functions} might be more applicable
+here, like when the flow saturates, the time becomes $\infty$ when the capacity
+is reached (or exceeded?).  Maybe try to write a note on necessary 
+conditions for a Braess paradox, which is in contrast to Raleigh's 
+inequalities.
+ 
+\item Spider web: voltage=position, current=force, resistance=spring constant.
+\end{enumerate}
 
 \section{Benefits of Formal Expression}
 
@@ -156,7 +186,14 @@ or probability density of the exponential distribution.
 Its origin in statistical mechanics:  $E_\beta = x + (E_\beta-x)$ where the 
 number of equally probable states of an environment (heat bath) 
 is $Ce^{E_\beta - x}$ and so the probability of one state of a 
-(system+environment) is proportional to $e^{-\beta x}$.
+(system+environment) is proportional to $e^{-\beta x}$.  It is the probability
+of one system state with energy $x$ when the systema and environment are
+in \textbf{thermal equilibrium}.  Then, $\beta$ is defined as 
+\textbf{temperature}.
+
+Caticha: This is a special case of maximizing \textbf{Shannon entropy}
+subject to constraints on the expectations of one or more functions, such as 
+$x(s)$.  Then temperature like quantities emerge as Lagrange multipliers.
 
 Partition and generating function:
 \[
