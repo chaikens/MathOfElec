@@ -70,10 +70,12 @@ Univ. at Albany\\
 \begin{frame}{Outline}
 \begin{enumerate}
 \item Spanning trees and equivalent (linear) resistance.
-\item An extensor valued Tutte function and\\
+\item An exterior algebra (extensor) Tutte function and\\
  a (linear) resistance network's
-behavior projected on fixed distinguished coordinates.
+behavior projected on distinguished coordinates.
+\item Rayleigh's inequalities.
 \item Tutte polynomials on pairs and (linear) amplifier networks.
+\item Distinguished graph vertices and splitting formulas.
 \end{enumerate}
 \end{frame}
 
@@ -153,10 +155,11 @@ are restricted to $e\not\in P$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Example}
-Matrix $M$ of the electrical network equations $Mx=0$.   Kirchhoff's laws
+Here's $M$ of the electrical network equations $Mx=0$.   Kirchhoff's laws
 apply to all cycles and cocyles with $r_ix_{e_i}$ as voltage and 
-and $g_ix_{e_i}$ as current of resistor (not port) edges.  SEPARATE voltage and
-current variables for each port edge.
+and $g_ix_{e_i}$ as current of resistor (not port) edges.  TWO SEPARATE 
+voltage and
+current variables are used for each port edge.
 \[
 \begin{array}{|cc|cccccccc|cc|}
 ip_1 & ip_2  & e_1 & e_2 & e_3 & e_4 & e_5 & e_6 & e_7 & e_8 & vp_1 & vp_2 \\ \hline
@@ -179,10 +182,212 @@ Bot 6 rows: Basis for cycle space. Represents cographic matroid.\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{The Tutte Decomposition}
 For all choices denoted by ?? of the $\binom{2|P|}{|P|}$ size $|P|$ subsets of
-the $2|P|$ columns $\{ip_k, vp_k\}$, the equation holds for all $e_i\not\in P$:
+the $2|P|$ columns $\{ip_k, vp_k\}$, the matrices in the equation below are
+square.\\
+So the elementary multilinearity of determinants
+means Tutte decompostion holds for all $e_i\not\in P$:
   
 \input{portmatrec.pspdftex}
+
+(Technical detail:  Define the Tutte function on all graphs with 
+distinguished or port subset $P$ so the det. signs are consistent 
+with the decomposition.)
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Rayleigh Identity which $\Rightarrow$ inequality, 
+``Neg. Spanning Tree Correlation''}
+\[
+\Gamma_e(G)\text{ is equivalent conductance across }e.
+\text{ Rayleigh: }0 \le \frac{\partial \Gamma_{p}}{\partial g_f} =
+\frac{\partial \frac{T_G}{T_{G/e}}}{\partial g_f}
+\]
+is equivalent to 
+\[
+0 \le \frac{\partial T_G}{\partial g_f}T_{G/e} - 
+       T_G\frac{\partial T_{G/e}}{\partial g_f} 
+=
+T_{G/f}T_{G/e} - T_GT_{G/e/f}
+\]
+\begin{theorem}
+\[
+T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2
+\]
+$T^{\pm}_{G/e \text{ \& } G/f}$ enumerate the $\pm$ common spanning trees.
+\end{theorem}
+Choe, Cibulka, Hladky, Lacroix and Wagner gave bijective proofs; 
+we give det. based proofs and generalizations.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Linear Alg./Oriented Matroid Proof of Rayleigh's Identity}
+Let $R$ be the transfer resistance matrix for 2 ports across $e$ and $f$.
+Our result implies that
+\[
+\det R = \left|\begin{array}{cc} R_{ee} & R_{ef} \\ R_{fe} & R_{ff} \end{array}\right|
+= \alert{+} \frac{T_{G/e/f}}{T_G}
+\]
+It and better-known results tell us
+\[
+R_{ee} = \frac{T_{G/e}}{T_G};\;\;R_{ff} = \frac{T_{G/f}}{T_G};\;\;
+R_{ef}=R_{fe}=\frac{ T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} }{T_G}
+\]
+%Rayleigh's identity 
+$T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2$
+is immediate after substituting these into
+\[
+\det R = R_{ee}R_{ff}-(R_{ef})^2
+\]
+\alert{The $+$ follows from physical grounds if the $g_e, r_e \geq 0$.  Our
+characterization and proof are combinatorial.}
+\end{frame}
+
+\begin{frame}
+\frametitle{New Rayleigh's Identities!}
+
+The same method generates identities and inequalities from
+\[
+\left|
+\begin{array}{ccc} R_{ee} & R_{ef} & R_{eg} \\ 
+                   R_{fe} & R_{ff} & R_{fg} \\
+                   R_{ge} & R_{gf} & R_{gg}
+\end{array}\right|
+= \alert{+} \frac{T_{G/e/f/g}}{T_G} \ge 0
+\]
+when all $r_{..}, g_{..} \ge 0$, ETC...
+
+\vfill
+
+(Applications???)
+
+\vfill
+
+\Remph{Might the same methods address a much harder problem:
+The same inequality for } forests \Remph{ instead of 
+spanning trees?}
+
+\vfill
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Pairs: The Common Covector Model}
+\input{commonCovectorModel.pspdftex}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Voltage and Current graphs $G_V$, $G_I$}
+
+\framebox{\begin{minipage}{0.52\textwidth}
+``Voltage graph'' $G_V$ (EE\cite{HaslerNeirynck,PathologicalAct}, NOT Gross, ...) represents KVL
+$\mathbf{v}\in \text{Cocycles}$ W/ SOME $v_e \equiv 0$
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.4\textwidth}
+``Current graph'' $G_I$ represents KCL
+$\mathbf{i}\in \text{Cycles}$ WITH SOME FLOWS $\equiv 0$
+\end{minipage}}
+
+\begin{itemize}
+\item 
+They are EQUAL GRAPHS for resistor networks.
+
+\item
+For networks with idealized amplifiers, they are not 
+equal.  
+
+\input{idealAmp.pspdftex}
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\item
+(More) realistic amp. model $=$ idealized amp. $+$ 
+resistors.
+
+\end{itemize}
+
+
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{open}
+\[
+G_v = G\backslash e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{short}
+\[
+G_v = G/e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{nullator}
+\input{nullator.pspdftex}
+\[
+G_v = G/e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{norator}
+\input{norator.pspdftex}
+\[
+G_v = G\backslash e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+
+\end{frame}
+
+
+\begin{frame}{Distinguished graph vertices and splitting formulas}
+Let $Q$ be a set of distinguished, labelled graph VERTICES, analogous to the
+distinguished port edges $P$
+
+\begin{theorem}
+Given graph $G(V\dunion Q, E\dunion P)$ let $T(G,P,Q)$ be the Tutte polynomial 
+determined by restricting $/e$ and $\backslash e$ to $e\not\in P$ AND 
+carrying along the partition of $Q$ defined by the components of the contracted edges.\\
+Construct $G^{Q}(V\dunion Q, E\dunion P\dunion P_Q)$ by 
+adding to $G$ a new vertex $Z$ and the $|Q|$ new port edges
+from $Z$ to each vertex in $Q$.\\
+Then $T(G,P,Q)$ and $T(G^{Q},P\dunion P_Q)$ (the ported Tutte polynomial) 
+determine each other by substitutions.
+\end{theorem}
+
+So we can use ported Tutte polys to express 
+splitting formulas for Tutte polynomials of graph, beginning with Crapo 
+\cite{CrapoChromJoining} 
+and continuing with Andrzejak\cite{andrzejak97splitting},
+Bonin and de Meir \cite{BonindeMierTutteGenParConn}, 
+and Narayanan \cite{NarayananDecompVS1986,NaraGenMinorENet}.
+\end{frame}
+
+\begin{frame}{etc}
+\begin{center}
+Extra slides...
+\end{center}
+\end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -535,143 +740,6 @@ reduce to terms with coefficients $\pm 2$.
 \end{frame}
 
 
-
-\begin{frame}
-\frametitle{Linear Alg./Oriented Matroid Proof of Rayleigh's Identity}
-Let $R$ be the transfer resistance matrix for 2 ports across $e$ and $f$.
-Our result implies that
-\[
-\det R = \left|\begin{array}{cc} R_{ee} & R_{ef} \\ R_{fe} & R_{ff} \end{array}\right|
-= \alert{+} \frac{T_{G/e/f}}{T_G}
-\]
-It and better-known results tell us
-\[
-R_{ee} = \frac{T_{G/e}}{T_G};\;\;R_{ff} = \frac{T_{G/f}}{T_G};\;\;
-R_{ef}=R_{fe}=\frac{ T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} }{T_G}
-\]
-%Rayleigh's identity 
-$T_{G/f}T_{G/e} - T_GT_{G/e/f} = \left( T^+_{G/e \text{ \& } G/f} - T^-_{G/e \text{ \& } G/f} \right)^2$
-is immediate after substituting these into
-\[
-\det R = R_{ee}R_{ff}-(R_{ef})^2
-\]
-\alert{The $+$ follows from physical grounds if the $g_e, r_e \geq 0$.  Our
-characterization and proof are combinatorial.}
-\end{frame}
-
-\begin{frame}
-\frametitle{New Rayleigh's Identities!}
-
-The same method generates identities and inequalities from
-\[
-\left|
-\begin{array}{ccc} R_{ee} & R_{ef} & R_{eg} \\ 
-                   R_{fe} & R_{ff} & R_{fg} \\
-                   R_{ge} & R_{gf} & R_{gg}
-\end{array}\right|
-= \alert{+} \frac{T_{G/e/f/g}}{T_G} \ge 0
-\]
-when all $r_{..}, g_{..} \ge 0$, ETC...
-
-\vfill
-
-(Applications???)
-
-\vfill
-
-\Remph{Might the same methods address a much harder problem:
-The same inequality for } forests \Remph{ instead of 
-spanning trees?}
-
-\vfill
-\end{frame}
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{(Part 2) Common Covector Model}
-\input{commonCovectorModel.pspdftex}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Voltage and Current graphs $G_V$, $G_I$}
-
-\framebox{\begin{minipage}{0.52\textwidth}
-``Voltage graph'' $G_V$ (EE\cite{HaslerNeirynck,PathologicalAct}, NOT Gross, ...) represents KVL
-$\mathbf{v}\in \text{Cocycles}$ W/ SOME $v_e \equiv 0$
-\end{minipage}}
-\framebox{
-\begin{minipage}{0.4\textwidth}
-``Current graph'' $G_I$ represents KCL
-$\mathbf{i}\in \text{Cycles}$ WITH SOME FLOWS $\equiv 0$
-\end{minipage}}
-
-\begin{itemize}
-\item 
-They are EQUAL GRAPHS for resistor networks.
-
-\item
-For networks with idealized amplifiers, they are not 
-equal.  
-
-\input{idealAmp.pspdftex}
-
-The output voltage and current are whatever makes the input
-voltage and current BOTH BE zero.
-
-\item
-(More) realistic amp. model $=$ idealized amp. $+$ 
-resistors.
-
-\end{itemize}
-
-
-\framebox{
-\begin{minipage}{0.2\textwidth}
-\Remph{open}
-\[
-G_v = G\backslash e
-\]
-\[ 
-G_I = G\backslash e
-\]
-\end{minipage}}
-\framebox{\begin{minipage}{0.2\textwidth}
-\Remph{short}
-\[
-G_v = G/e
-\]
-\[
-G_I = G/e
-\]
-\end{minipage}}
-\framebox{
-\begin{minipage}{0.2\textwidth}
-\Remph{nullator}
-\input{nullator.pspdftex}
-\[
-G_v = G/e
-\]
-\[ 
-G_I = G\backslash e
-\]
-\end{minipage}}
-\framebox{\begin{minipage}{0.2\textwidth}
-\Remph{norator}
-\input{norator.pspdftex}
-\[
-G_v = G\backslash e
-\]
-\[
-G_I = G/e
-\]
-\end{minipage}}
-
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{``Colors'' are parameters on every Tutte decomposition step}
