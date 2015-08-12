@@ -1,0 +1,14 @@
+Resistive Networks, Linear Spaces and Tutte Polynomials
+
+Seth Chaiken
+
+
+We survey how 
+combinatorial theory emerges when quantities or relations
+of linear electrical network analysis are expressed as lines or more
+generally affine linear subspaces.  Our story ranges over
+Thevenin and Norton's theorems, load line analysis, exterior algebra
+and linear dependence
+of network behavior on parameters expressed as Tutte recursion, and a role of
+oriented matroids in the analysis of jump phenomena of non-linear systems.
+

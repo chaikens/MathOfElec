@@ -1,0 +1,33 @@
+\begin{picture}(0,0)%
+\includegraphics{k5_pspdftex}%
+\end{picture}%
+\setlength{\unitlength}{2960sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFontNFSS\undefined%
+\gdef\SetFigFontNFSS#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(5420,5183)(1791,-5706)
+\put(1902,-4270){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
+}}}}
+\put(5102,-1642){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_4$}%
+}}}}
+\put(5816,-3013){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_6$}%
+}}}}
+\put(4445,-5242){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_8$}%
+}}}}
+\put(4431,-2785){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_7$}%
+}}}}
+\put(6102,-1456){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_2$}%
+}}}}
+\put(2916,-1456){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_1$}%
+}}}}
+\put(3031,-3042){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_5$}%
+}}}}
+\put(6831,-4128){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_2$}%
+}}}}
+\put(3673,-1742){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_3$}%
+}}}}
+\end{picture}%

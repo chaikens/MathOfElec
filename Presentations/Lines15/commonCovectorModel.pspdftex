@@ -1,0 +1,49 @@
+\begin{picture}(0,0)%
+\includegraphics{commonCovectorModel_pspdftex}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFontNFSS\undefined%
+\gdef\SetFigFontNFSS#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(4999,4074)(876,-4723)
+\put(3451,-886){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}The cycle space of $G_I$ GENERATES}%
+}}}}
+\put(3451,-1111){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}the covectors of an}%
+}}}}
+\put(3451,-1336){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\textbf{oriented matroid} over ($E \dunion P_I$).}%
+}}}}
+\put(4801,-1636){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}(by $P_I$)}%
+}}}}
+\put(3226,-1636){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}(signs indexed by $E$)}%
+}}}}
+\put(3376,-1936){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Non-linear monotone resistors CONSTRAIN SIGNS of }%
+}}}}
+\put(3376,-2161){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}voltage drops (from $\downarrow$) and flows (from $\uparrow$)}%
+}}}}
+\put(3376,-2386){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}TO BE EQUAL}%
+}}}}
+\put(3226,-2686){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}(signs indexed by $E$)}%
+}}}}
+\put(5401,-2686){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}(by $P_V$)}%
+}}}}
+\put(3451,-3286){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}the covectors of an}%
+}}}}
+\put(3526,-3511){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}oriented matroid over $E \dunion P_V$.}%
+}}}}
+\put(3376,-3886){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$G_V$ }%
+}}}}
+\put(3376,-4111){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}SOMETIMES EQUALS}%
+}}}}
+\put(3376,-4336){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$G_I$}%
+}}}}
+\put(4801,-4561){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$0$}%
+}}}}
+\put(5401,-1261){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$0$}%
+}}}}
+\put(3451,-3061){\makebox(0,0)[b]{\smash{{\SetFigFontNFSS{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}The cocycle space of $G_V$ GENERATES}%
+}}}}
+\end{picture}%
