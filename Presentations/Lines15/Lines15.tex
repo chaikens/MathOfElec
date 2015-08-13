@@ -76,7 +76,7 @@ Univ. at Albany\\
 
 \begin{frame}
 Old hat: A 1-dimensional linear subspace of $\Reals^n$ \textbf{is the line} 
-$\Reals [a_1, a_2, \ldots a_n]$.
+$\Reals (a_1, a_2, \ldots a_n)$.
 
 New hat: Explain exterior algebra and Grassmanians in 4 words?
 \end{frame}
@@ -86,9 +86,24 @@ New hat: Explain exterior algebra and Grassmanians in 4 words?
 
 The row space of an $r \times n$ full rank matrix $M$ is uniquely determined by
 the \textbf{line} of $\Reals$ multiples of the 
-$\binom{n}{r}$-tuple of determinants of the $r\times r$ submatrices.  
+$\binom{n}{r}$-tuple of determinants $[T]$ 
+of the $r\times r$ submatrices.\\
+ ($T$ is a sequence of $r$ columns.)
 
 Row operations multiply all by a common $\neq 0$ factor.
+
+\textbf{SPARSENESS:}
+The space of these lines which represent $d$-dim spaces is a
+$n(r-n)$-dimensional manifold called the Grassmannian.
+
+The $\binom{n}{d}$ coordinates are constrained by the
+\textbf{Grassmann-Pl\"{u}cker relations}:
+\[
+[s_1 s_2 ... s_d][t_1 t2 ... t_d] = 
+\sum_{i=1}^d [t_i s_2 ... s_d][t_1 t_2 ... \hat{t_i} s_i ... t_d]
+\]
+
+
 \end{frame}
   
 
@@ -97,7 +112,10 @@ Row operations multiply all by a common $\neq 0$ factor.
 
 
 \begin{frame}[fragile]
-The $\pm 1$ vertex-edge incidence matrix of a graph fixes 
+\frametitle{Electrical current is a network flow}
+
+The $\pm 1$ vertex-edge incidence matrix $M$
+of a graph $\mathcal{N}$ fixes 
 an arbitrary direction of each edge.
 
 \[
@@ -139,10 +157,10 @@ matroid whose bases are the spanning trees.
 \frametitle{Electrical network problem: Solve for $i,v\in\Reals^n$}
 
 \[
-M_Vi = 0 \Leftarrow\text{equivalently}\Rightarrow i\in\text{Row space}{(M_I)},flows.
+M_Vi = 0 \Leftarrow\text{equivalently}\Rightarrow i\in\text{Row space}{(M_I)},flows or 1-cycles.
 \]
 \[
-M_Iv = 0 \Leftarrow\text{equivalently}\Rightarrow v\in\text{Row space}{(M_V)},bonds.
+M_Iv = 0 \Leftarrow\text{equivalently}\Rightarrow v\in\text{Row space}{(M_V)},bonds or 1-cocycles.
 \]
 \[
 F(i,v) = 0 \;\;\text{locally rank}\;\;n.
@@ -170,8 +188,8 @@ or $v_p = 1$ then solve for $i_p=$ \textbf{equivalent conductance} ... .
 observed at a port $p$ by the environment
 }
 
-\begin{theorem}
-(Kirchhoff, called ``Maxwell's rule'') Let $g_T$ denote $\prod_{e\in T}g_e$, etc.
+\begin{theorem}[Kirchhoff 1850's, called ``Maxwell's rule'']
+Let $g_T$ denote $\prod_{e\in T}g_e$, etc.\\
 $G/p$ is $G$ with edge $p$ \textbf{contracted} (vertices identified).\\
 $G\setminus p$ is $G$ with edge $p$ \textbf{deleted}.\\
 \[
