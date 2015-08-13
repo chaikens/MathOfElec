@@ -4,9 +4,12 @@
 \usepackage{amsmath}
 %\usepackage{mathtools}
 \title{
-Resistive Networks, Linear Spaces and Tutte Polynomials}
+Resistive Networks, Linear Spaces and Tutte Polynomials\\
+for Systems of Lines: Applications of Algebraic Combinatorics Workshop\\
+Worcester Polytechnic Institute}
 \author{Seth Chaiken\\
 Dept. of Computer Science\\
+College of Engineering and Applied Science\\
 Univ. at Albany\\
 \url{schaiken@albany.edu}
 }
@@ -79,36 +82,85 @@ Old hat: A 1-dimensional linear subspace of $\Reals^n$ \textbf{is the line}
 $\Reals (a_1, a_2, \ldots a_n)$.
 
 New hat: Explain exterior algebra and Grassmanians in 4 words?
+
+
+Hint:  The rank $r$ grade of the exterior algebra over $\Reals^n$ has 
+basis the $\binom{n}{r}$ (multilinear, alternating) products
+of the $r$ coordinate vectors $e_{i_1}\wedge e_{i_2}\wedge \ldots \wedge e_{i_d}$
+with $i_1<i_2<\cdots < i_d$.
+
 \end{frame}
 
 \begin{frame}
-\frametitle{Linear subspaces are lines.}
+\frametitle{Linear subspaces are (certain exterior algebra) lines.}
+
+\begin{block}{extensors code subspaces}
+The subspace of $\Reals^n$ spanned by independent vectors 
+$v_1, v_2, \ldots, v_d$ is coded by the \textbf{line}
+$\Reals(v_{i_1}\wedge v_{i_2}\wedge \ldots \wedge v_{i_d})$.
+\end{block}
 
 The row space of an $r \times n$ full rank matrix $M$ is uniquely determined by
 the \textbf{line} of $\Reals$ multiples of the 
-$\binom{n}{r}$-tuple of determinants $[T]$ 
+$\binom{n}{r}$-tuple of determinants $M[T]$ 
 of the $r\times r$ submatrices.\\
- ($T$ is a sequence of $r$ columns.)
+($T$ is a sequence of $r$ columns.)
 
 Row operations multiply all by a common $\neq 0$ factor.
 
 \textbf{SPARSENESS:}
-The space of these lines which represent $d$-dim spaces is a
-$n(r-n)$-dimensional manifold called the Grassmannian.
 
-The $\binom{n}{d}$ coordinates are constrained by the
+The space of these lines which represent $d$-dim spaces is a
+$n(r-n)$-dimensional non-linear manifold called the Grassmannian.
+
+The $\binom{n}{d}$ coordinates are constrained by the (quadratic)
 \textbf{Grassmann-Pl\"{u}cker relations}:
 \[
-[s_1 s_2 ... s_d][t_1 t2 ... t_d] = 
-\sum_{i=1}^d [t_i s_2 ... s_d][t_1 t_2 ... \hat{t_i} s_i ... t_d]
+[s_1 s_2 ... s_d][t_1 t_2 ... t_d] = 
+\sum_{i=1}^d [t_i s_2 ... s_d][t_1 t_2 ... \hat{t_i} s_1 ... t_d]
 \]
+(swap column $s_1$ with column $t_i$ for $i=1, ..., n$)
 
 
 \end{frame}
   
 
+\begin{frame}
+\frametitle{A basis exchange axiom for matroids}
 
+\[
+[s_1 s_2 ... s_d][t_1 t_2 ... t_d] = 
+\sum_{i=1}^d [t_i s_2 ... s_d][t_1 t_2 ... \hat{t_i} s_1 ... t_d]
+\]
 
+\begin{block}{Axiom}
+If $B_1= \{s_1, s_2, \ldots, s_d\}$ and 
+$B_2= \{t_1, t_2, \ldots, t_d\}$ are bases, 
+then
+there exists
+$i$, $1 \le i \le d$ for which both sets
+$B_1\setminus s_i \cup t_1$ $=$ 
+$\{t_1, s_2, \ldots,  s_d\}$ 
+and 
+$B_2 \setminus t_1 \cup s_i$ $=$ 
+$\{t_1, t_2, \ldots, \hat{t_i}, s_i, \ldots, t_d\}$ 
+are bases.
+\end{block}
+
+\begin{block}{A Matroid Definition (one out of dozens)}
+A matroid coded by its bases is any 
+finite collection of $d$-sized sets that satisfies the
+above axiom.
+\end{block}
+
+\begin{block}{Exercise}
+Discover (chirotope) axioms that define \textbf{oriented matroids} by 
+deriving the necessary conditions on the signs of the 
+brackets (determinants) in the Grassmann-Pl\"{u}cker
+relation.
+\end{block}
+
+\end{frame}
 
 
 \begin{frame}[fragile]
@@ -125,7 +177,8 @@ current)}
 
 Let's make $M$ full row rank by removing redundant rows.
 
-Let $T\subset E$ be any spanning tree.  $E\setminus T$ is a cotree.
+Let $T\subset E$ be any spanning tree.  $T^c = E\setminus T$ is a 
+\textbf{cotree}.
 
 Each $\{i_e\}_{e\not\in T} \in \Reals^{T^c}$ extends to a unique flow 
 $\{i_e\}_{e\in E}$. 
@@ -147,7 +200,7 @@ That is: Row operations transform $M$ to
 if and only if $T$ is a spanning tree.
 \end{center}
 
-$M$ \textbf{represents} the (graphic) 
+$M$ \textbf{represents} by its \textbf{columns} the (graphic) 
 matroid whose bases are the spanning trees.
 
 \end{frame}
@@ -157,17 +210,20 @@ matroid whose bases are the spanning trees.
 \frametitle{Electrical network problem: Solve for $i,v\in\Reals^n$}
 
 \[
-M_Vi = 0 \Leftarrow\text{equivalently}\Rightarrow i\in\text{Row space}{(M_I)},flows or 1-cycles.
+M_Vi = 0 \Leftarrow\text{equivalently}\Rightarrow i\in\text{Row space}{(M_I)},
+\text{flows or 1-cycles}.
 \]
 \[
-M_Iv = 0 \Leftarrow\text{equivalently}\Rightarrow v\in\text{Row space}{(M_V)},bonds or 1-cocycles.
+M_Iv = 0 \Leftarrow\text{equivalently}\Rightarrow v\in\text{Row space}{(M_V)},
+\text{bonds or 1-cocycles}.
 \]
 \[
 F(i,v) = 0 \;\;\text{locally rank}\;\;n.
 \]
 
 First two are Kirchhoff's two laws:  Combinatorial, assumed exact in electrical 
-network applications.
+network applications (geometrical for $\ge 1$ dim. elastic networks).  
+Total rank $= n$. 
 
 Second are the \textbf{constitutive} constraints.
 
@@ -177,7 +233,7 @@ For the one \textbf{port edge} $p$, demarking a pair of
 \textbf{terminal vertices},\\
 either
 $i_p = 1$ then solve for $v_p=$ \textbf{equivalent resistance}
-by say eliminating the $v_e$, $i_e$ for the resistors.\\
+by say eliminating the $v_e$, $i_e$ for the $n-1$ resistors.\\
 or $v_p = 1$ then solve for $i_p=$ \textbf{equivalent conductance} ... .
 
 \end{frame}
@@ -185,10 +241,11 @@ or $v_p = 1$ then solve for $i_p=$ \textbf{equivalent conductance} ... .
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Equiv. Resistance $ :\equiv -(v_p/i_p)$
-observed at a port $p$ by the environment
+observed at a port $p$ 
+%by the environment
 }
 
-\begin{theorem}[Kirchhoff 1850's, called ``Maxwell's rule'']
+\begin{theorem}[Kirchhoff 1847, called ``Maxwell's rule'']
 Let $g_T$ denote $\prod_{e\in T}g_e$, etc.\\
 $G/p$ is $G$ with edge $p$ \textbf{contracted} (vertices identified).\\
 $G\setminus p$ is $G$ with edge $p$ \textbf{deleted}.\\
@@ -207,9 +264,15 @@ It's usually proved
 via the Matrix Tree Thm. on 2 DIFFERENT GRAPHS
 $G/p$ and $G\backslash p$.  
 
+\begin{theorem}[Matrix Tree]
+Every $n-1 \times n-1$ subdeterminant of a graph's Laplacian
+matrix enumerates the graph's spanning trees.
+\end{theorem}
+
 \end{frame}
 
 \begin{frame}
+\frametitle{A liney consequence of Kirchhoff's solution}
 Pick any (resistor) edge $e$; factor the sums:
 ($T^c = E\setminus e \setminus T$ below)
 \[
@@ -243,9 +306,6 @@ g_e(\mbox{WTS}((G/e)/p),\mbox{WTS}((G/e)\setminus p))
 
 \end{frame}
 
-
-
-
 \begin{frame}
 \frametitle{Multiport Linear electrical network problem}
 
@@ -254,10 +314,12 @@ Edge set $S= E\dunion P$. $2|E|+2|P|$ variables $i,e\in \Reals^S$.
 Flow (current) and bond (voltage) eqs. have rank 
 $|E|+|P|$:
 \[
-M_Vi = 0 \Leftarrow\text{equivalently}\Rightarrow i\in\text{Row space}{(M_I)},flows.
+M_Vi = 0 \Leftarrow\text{equivalently}\Rightarrow i\in\text{Row space}{(M_I)},
+\text{cycles or flows}\;\mathcal{C}.
 \]
 \[
-M_Iv = 0 \Leftarrow\text{equivalently}\Rightarrow v\in\text{Row space}{(M_V)},bonds.
+M_Iv = 0 \Leftarrow\text{equivalently}\Rightarrow v\in\text{Row space}{(M_V)},
+\text{cocycles}\;\mathcal{C}^{\perp}.
 \]
 For the $|E| $ non-port, resistor edges,
 \[
@@ -265,17 +327,165 @@ g_ev_e = r_ei_e
 \]
 So, the linear solution space has dim. $|P|$.
 
-We project this into port voltage and current coordinate space $\Reals^{2|P|}$.
+Project solutions into port voltage and current coordinate space $\Reals^{2|P|}$.
+
+\end{frame}
 
 
-  
+\begin{frame}{Our exterior algebra valued Tutte function}
+We've seen how a $|P|$-dim linear space of $\Reals^{2|P|}$ \textbf{is a line}.
+
 \begin{theorem}
-aaa
+(After careful definitions...) For fixed $P$,\\
+\begin{center}
+\hfill
+\begin{minipage}{0.80in}
+each Pl\"{u}cker coordinate
+\end{minipage}
+\hfill
+and
+\hfill
+\begin{minipage}{1.7in}
+this extensor in the exterior algebra, coding the 
+row space of the $p \times 2p$ $p$-port network 
+solution matrix
+\end{minipage}
+\hfill
+\end{center}
+satisfy weighed Tutte recursion, when $/e$ and $\backslash e$
+are restricted to $e\not\in P$:
+\[
+\text{Sol}(G) = r_e \text{Sol}(G\setminus e) + g_e \text{Sol}(G/e).
+\]
 \end{theorem}
+
+\begin{block}{This result is about \textbf{a line of lines}.}
+As as one of the linear resistance values varies from $0$ to $\infty$, 
+the whole network solution ranges over a suitably defined \textbf{line}.
+\end{block}
+
+
+
 \end{frame}
 
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example}
+\input{k5.pspdftex}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Example}
+$|E|+|P|$ 
+simplified electrical network equations $Nx=0$.   
+Kirchhoff's laws
+apply to all cycles and cocyles with $r_ix_{e_i}$ as voltage and 
+and $g_ix_{e_i}$ as current of resistor (not port) edges.  TWO 
+voltage $vp$ and
+current $ip$ variables are used for each port edge.
+\[
+\begin{array}{|cc|cccccccc|cc|}
+ip_1 & ip_2  & e_1 & e_2 & e_3 & e_4 & e_5 & e_6 & e_7 & e_8 & vp_1 & vp_2 \\ \hline
+ 1   &  0   &  0  &  0  &+g_3 &  0  &  0  &-g_6 &  0  &-g_8 &      &      \\
+-1   &  0   &-g_1 &  0  &  0  &  0  &+g_5 &  0  &+g_7 &  0  &      &      \\
+ 0   & +1   &  0  &  0  &  0  &+g_4 &-g_5 &  0  &  0  &+g_8 &      &      \\
+ 0   & -1   &  0  &-g_2 &  0  &  0  &  0  & g_6 &+g_7 & g_8 &      &   \\ \hline
+     &      &+r_1 &  0  &-r_3 &  0  &  0  &  0  &  0  &  0  &  1   &  0   \\
+     &      &  0  &+r_2 &  0  &-r_4 &  0  &  0  &  0  &  0  &  0   &  1   \\
+     &      &-r_1 &  0  &  0  &+r_4 &+r_5 &  0  &  0  &  0  &  0   &  0   \\
+     &      &  0  &-r_2 &+r_3 &  0  &  0  &+r_6 &  0  &  0  &  0   &  0   \\
+     &      &-r_1 &+r_2 &  0  &  0  &  0  &  0  &+r_7 &  0  &  0   &  0   \\
+     &      &  0  &  0  &+r_3 &+r_4 &  0  &  0  &  0  &+r_8 &  0   &  0\\ \hline 
+\end{array}
+\]
+Top 4 rows: Basis for cocycle space. Represents graphic matroid.\\
+Bot 6 rows: Basis for cycle space. Represents cographic matroid.\\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{How Tutte Decomposition Emerges}
+For all choices denoted by ?? of the $\binom{2|P|}{|P|}$ size $|P|$ subsets of
+the $2|P|$ columns $\{ip_k, vp_k\}$, the matrices in the equation below are
+square.\\
+So the elementary multilinearity of determinants
+means Tutte decompostion holds for all $e_i\not\in P$:
+  
+\input{portmatrec.pspdftex}
+
+(Technical detail:  Define the Tutte function on all graphs with 
+distinguished or port subset $P$ so the det. signs are consistent 
+with the decomposition.)
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Non-linear situations}
+Relaxation oscillator built with a piecewise linear resistor.  The lines 
+The $(v,i)$ locus is contained in two Thevenin theorem (affine) lines.
+$(v,i)$ 
+
+($v=-C\int i dt$, circuit diagram)
+
+($v$ waveform,  dynamical system direction field) 
+\end{frame}
+
+\begin{frame}
+\frametitle{Op. amplifier or comparator implementation}
+
+(circuit diagram, limit cycle diagram)
+
+Positive feedback implements the some negative linear resistance.
+
+The inductor models parasitic inductance and/or amplifier delay needed to
+resolve mathematically the dynamics at the \textbf{impasse} points.
+\end{frame}
+
+\begin{frame}
+\frametitle{Oriented matroid (= combinatorics of dependency signs) 
+conditions}
+
+Why must the solution of a network with monotone 
+increasing non-linear resistors be unique (Bott and Duffin, 1960's) ?
+
+Immediately for linear resistors only: The Matrix Tree Theorem coefficients
+are all $+1$.
+
+
+Suppose there are two solutions.  On each resistor's curve there are two
+points joined by a positive slope line.
+
+(figure with $\Delta v_e$ and $\Delta i_e$)
+\end{frame}
+
+\begin{frame}
+\frametitle{A better reason:}
+
+$\Delta v \in \text{linear cycle space}\; \mathcal{C}$,
+$\Delta i \in \mathcal{C}^{\perp}$, so $\Delta v \cdot \Delta i = 0$.  
+Monotonicity $\Leftrightarrow$ 
+$\text{sign}(\Delta i_e) = \text{sign}(\Delta v_e) \in \{0, +, -\}$ so
+$\Delta v \cdot \Delta i > 0$ for non-zero $\Delta v$ or $\Delta i$, which 
+is \textbf{impossible}.
+
+What if an amplifier structure makes $\mathcal{C}_I$ and $\mathcal{C}_V$ be
+non-orthogonal?  Uniquess is still guaranteed for there are no
+$\Delta i\in \mathcal{C}_I$ and $\Delta v \in \mathcal{C}_V$ with
+$\text{signs}(\Delta i) = \text{signs}(\Delta v) \neq (0, ..., 0)$
+
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{An amplifying subsystem simulates a negative resistance; 
+how uniqueness fails}
+
+(diagram)
+
+\end{frame}
 
 
 
@@ -317,75 +527,8 @@ $((v_p, i_p))$ $\rightarrow$ p-dim subspace of $k^{2|P|}$.
 exterior algebra, i.e., anti-symmetric tensor) with $\binom{2p}{p}$ Plucker
 coordinates (determinants).
 \end{enumerate}
-\begin{theorem}
-(After careful definitions...) For fixed $P$,\\
-\begin{center}
-\hfill
-\begin{minipage}{0.80in}
-each Plucker coordinate
-\end{minipage}
-\hfill
-and
-\hfill
-\begin{minipage}{1.7in}
-this extensor in the exterior algebra
-\end{minipage}
-\hfill
-\end{center}
-satisfy weighed Tutte recursion, when $/e$ and $\backslash e$
-are restricted to $e\not\in P$.
-\end{theorem}
 \end{frame}
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Example}
-\input{k5.pspdftex}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Example}
-Here's $M$ of the electrical network equations $Mx=0$.   Kirchhoff's laws
-apply to all cycles and cocyles with $r_ix_{e_i}$ as voltage and 
-and $g_ix_{e_i}$ as current of resistor (not port) edges.  TWO SEPARATE 
-voltage and
-current variables are used for each port edge.
-\[
-\begin{array}{|cc|cccccccc|cc|}
-ip_1 & ip_2  & e_1 & e_2 & e_3 & e_4 & e_5 & e_6 & e_7 & e_8 & vp_1 & vp_2 \\ \hline
- 1   &  0   &  0  &  0  &+g_3 &  0  &  0  &-g_6 &  0  &-g_8 &      &      \\
--1   &  0   &-g_1 &  0  &  0  &  0  &+g_5 &  0  &+g_7 &  0  &      &      \\
- 0   & +1   &  0  &  0  &  0  &+g_4 &-g_5 &  0  &  0  &+g_8 &      &      \\
- 0   & -1   &  0  &-g_2 &  0  &  0  &  0  & g_6 &+g_7 & g_8 &      &   \\ \hline
-     &      &+r_1 &  0  &-r_3 &  0  &  0  &  0  &  0  &  0  &  1   &  0   \\
-     &      &  0  &+r_2 &  0  &-r_4 &  0  &  0  &  0  &  0  &  0   &  1   \\
-     &      &-r_1 &  0  &  0  &+r_4 &+r_5 &  0  &  0  &  0  &  0   &  0   \\
-     &      &  0  &-r_2 &+r_3 &  0  &  0  &+r_6 &  0  &  0  &  0   &  0   \\
-     &      &-r_1 &+r_2 &  0  &  0  &  0  &  0  &+r_7 &  0  &  0   &  0   \\
-     &      &  0  &  0  &+r_3 &+r_4 &  0  &  0  &  0  &+r_8 &  0   &  0\\ \hline 
-\end{array}
-\]
-Top 4 rows: Basis for cocycle space. Represents graphic matroid.\\
-Bot 6 rows: Basis for cycle space. Represents cographic matroid.\\
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{The Tutte Decomposition}
-For all choices denoted by ?? of the $\binom{2|P|}{|P|}$ size $|P|$ subsets of
-the $2|P|$ columns $\{ip_k, vp_k\}$, the matrices in the equation below are
-square.\\
-So the elementary multilinearity of determinants
-means Tutte decompostion holds for all $e_i\not\in P$:
-  
-\input{portmatrec.pspdftex}
-
-(Technical detail:  Define the Tutte function on all graphs with 
-distinguished or port subset $P$ so the det. signs are consistent 
-with the decomposition.)
-\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
