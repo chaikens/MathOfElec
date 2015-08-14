@@ -422,25 +422,39 @@ with the decomposition.)
 
 
 \begin{frame}
-\frametitle{Non-linear situations}
-Relaxation oscillator built with a piecewise linear resistor.  The lines 
+\frametitle{Non-linear situations (Chua et. al.) }
+Relaxation oscillator built with a piecewise linear resistor.
 The $(v,i)$ locus is contained in two Thevenin theorem (affine) lines.
-$(v,i)$ 
 
-($v=-C\int i dt$, circuit diagram)
+%\begin{center}
+\input{relaxPrimative.pspdftex}
+\begin{minipage}[t]{1.6in}
+(After Chua, DeSoer and Kuh's 1987 textbook)
+\end{minipage}
+%\end{center}
 
-($v$ waveform,  dynamical system direction field) 
+\input{relaxPrimativePlot.pspdftex}
+%($v=-C\int i dt$, circuit diagram)
+
+%($v$ waveform,  dynamical system direction field) 
 \end{frame}
 
 \begin{frame}
-\frametitle{Op. amplifier or comparator implementation}
+\frametitle{Operational amplifier realization}
 
-(circuit diagram, limit cycle diagram)
+Positive feedback via $r_A$ and $r_B$ 
+implements the sometimes \textbf{negative resistance} driving the capacitor.
 
-Positive feedback implements the some negative linear resistance.
+\input{relaxOpAmp.pspdftex}
 
+
+
+\begin{minipage}[b]{1.5in}
 The inductor models parasitic inductance and/or amplifier delay needed to
-resolve mathematically the dynamics at the \textbf{impasse} points.
+resolve the dynamics at the \textbf{impasse} points.
+\end{minipage}
+\input{relaxOpPlot.pspdftex}
+
 \end{frame}
 
 \begin{frame}
@@ -448,7 +462,7 @@ resolve mathematically the dynamics at the \textbf{impasse} points.
 conditions}
 
 Why must the solution of a network with monotone 
-increasing non-linear resistors be unique (Bott and Duffin, 1960's) ?
+increasing non-linear resistors be unique (Duffin, 1947).
 
 Immediately for linear resistors only: The Matrix Tree Theorem coefficients
 are all $+1$.
@@ -457,18 +471,26 @@ are all $+1$.
 Suppose there are two solutions.  On each resistor's curve there are two
 points joined by a positive slope line.
 
-(figure with $\Delta v_e$ and $\Delta i_e$)
+\input{nonLinMono.pspdftex}
+%(figure with $\Delta v_e$ and $\Delta i_e$)
 \end{frame}
 
 \begin{frame}
-\frametitle{A better reason:}
+\frametitle{A better reason:(1980s EE results abstracted to OM)}
 
+\begin{itemize}
+\item
 $\Delta v \in \text{linear cycle space}\; \mathcal{C}$,
-$\Delta i \in \mathcal{C}^{\perp}$, so $\Delta v \cdot \Delta i = 0$.  
+$\Delta i \in \mathcal{C}^{\perp}$, \\
+so $\Delta v \cdot \Delta i = 0$.  
+\item
 Monotonicity $\Leftrightarrow$ 
-$\text{sign}(\Delta i_e) = \text{sign}(\Delta v_e) \in \{0, +, -\}$ so
-$\Delta v \cdot \Delta i > 0$ for non-zero $\Delta v$ or $\Delta i$, which 
-is \textbf{impossible}.
+$\text{sign}(\Delta i_e) = \text{sign}(\Delta v_e) \in \{0, +, -\}$\\
+so
+$\Delta v \cdot \Delta i > 0$ for non-zero $\Delta v$ or $\Delta i$,\\
+which is a contradiction.
+\end{itemize}
+
 
 What if an amplifier structure makes $\mathcal{C}_I$ and $\mathcal{C}_V$ be
 non-orthogonal?  Uniquess is still guaranteed for there are no
@@ -483,10 +505,25 @@ $\text{signs}(\Delta i) = \text{signs}(\Delta v) \neq (0, ..., 0)$
 \frametitle{An amplifying subsystem simulates a negative resistance; 
 how uniqueness fails}
 
-(diagram)
+\input{opSingularBridge.pspdftex}
+
+
+\input{singularBridge.pspdftex}
+\begin{minipage}[b]{2.3in}
+The ideal amplifier makes $\mathcal{C}_V$ and
+$\mathcal{C}_I$ contain a common non-zero sign pattern.
+Positive resistance values can be chosen (for example, all 1) so 
+in all 4 resistor edges, $\Delta v$ $=$ $\Delta i$ $=$ $\Delta$.
+\end{minipage}
+
+
 
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Time for the ball game!}
+\end{frame}
 
 
 \begin{frame}
