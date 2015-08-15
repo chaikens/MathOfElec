@@ -86,8 +86,8 @@ New hat: Explain exterior algebra and Grassmanians in 4 words?
 
 Hint:  The rank $r$ grade of the exterior algebra over $\Reals^n$ has 
 basis the $\binom{n}{r}$ (multilinear, alternating) products
-of the $r$ coordinate vectors $e_{i_1}\wedge e_{i_2}\wedge \ldots \wedge e_{i_d}$
-with $i_1<i_2<\cdots < i_d$.
+of the $r$ coordinate vectors $e_{i_1}\wedge e_{i_2}\wedge \ldots \wedge e_{i_r}$
+with $i_1<i_2<\cdots < i_r$.
 
 \end{frame}
 
@@ -96,8 +96,8 @@ with $i_1<i_2<\cdots < i_d$.
 
 \begin{block}{extensors code subspaces}
 The subspace of $\Reals^n$ spanned by independent vectors 
-$v_1, v_2, \ldots, v_d$ is coded by the \textbf{line}
-$\Reals(v_{i_1}\wedge v_{i_2}\wedge \ldots \wedge v_{i_d})$.
+$v_1, v_2, \ldots, v_r$ is coded by the \textbf{line}
+$\Reals(v_{i_1}\wedge v_{i_2}\wedge \ldots \wedge v_{i_r})$.
 \end{block}
 
 The row space of an $r \times n$ full rank matrix $M$ is uniquely determined by
@@ -110,14 +110,14 @@ Row operations multiply all by a common $\neq 0$ factor.
 
 \textbf{SPARSENESS:}
 
-The space of these lines which represent $d$-dim spaces is a
+The space of these lines which represent $r$-dim spaces is a
 $n(r-n)$-dimensional non-linear manifold called the Grassmannian.
 
-The $\binom{n}{d}$ coordinates are constrained by the (quadratic)
+The $\binom{n}{r}$ coordinates are constrained by the (quadratic)
 \textbf{Grassmann-Pl\"{u}cker relations}:
 \[
-[s_1 s_2 ... s_d][t_1 t_2 ... t_d] = 
-\sum_{i=1}^d [t_i s_2 ... s_d][t_1 t_2 ... \hat{t_i} s_1 ... t_d]
+[s_1 s_2 ... s_r][t_1 t_2 ... t_r] = 
+\sum_{i=1}^d [t_i s_2 ... s_r][t_1 t_2 ... \hat{t_i} s_1 ... t_r]
 \]
 (swap column $s_1$ with column $t_i$ for $i=1, ..., n$)
 
@@ -129,27 +129,27 @@ The $\binom{n}{d}$ coordinates are constrained by the (quadratic)
 \frametitle{A basis exchange axiom for matroids}
 
 \[
-[s_1 s_2 ... s_d][t_1 t_2 ... t_d] = 
-\sum_{i=1}^d [t_i s_2 ... s_d][t_1 t_2 ... \hat{t_i} s_1 ... t_d]
+[s_1 s_2 ... s_r][t_1 t_2 ... t_r] = 
+\sum_{i=1}^d [t_i s_2 ... s_r][t_1 t_2 ... \hat{t_i} s_1 ... t_r]
 \]
 
 \begin{block}{Axiom}
-If $B_1= \{s_1, s_2, \ldots, s_d\}$ and 
-$B_2= \{t_1, t_2, \ldots, t_d\}$ are bases, 
+If $B_1= \{s_1, s_2, \ldots, s_r\}$ and 
+$B_2= \{t_1, t_2, \ldots, t_r\}$ are bases, 
 then
 there exists
-$i$, $1 \le i \le d$ for which both sets
+$i$, $1 \le i \le r$ for which both sets
 $B_1\setminus s_i \cup t_1$ $=$ 
-$\{t_1, s_2, \ldots,  s_d\}$ 
+$\{t_1, s_2, \ldots,  s_r\}$ 
 and 
 $B_2 \setminus t_1 \cup s_i$ $=$ 
-$\{t_1, t_2, \ldots, \hat{t_i}, s_i, \ldots, t_d\}$ 
+$\{t_1, t_2, \ldots, \hat{t_i}, s_i, \ldots, t_r\}$ 
 are bases.
 \end{block}
 
 \begin{block}{A Matroid Definition (one out of dozens)}
 A matroid coded by its bases is any 
-finite collection of $d$-sized sets that satisfies the
+finite collection of $r$-sized sets that satisfies the
 above axiom.
 \end{block}
 
