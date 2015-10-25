@@ -9,6 +9,23 @@
 
 \section{Of a circuit:}
 \begin{itemize}
+\item KVL and KCL defined spaces and dependencies of edge voltages and currents,
+in a (1) graph-based network and more generally an orthogonal complemetary
+decomposition of a linear space.
+\item Equivalances to avoid circuits of voltage sources and capacitors
+and cocircuits of current sources and inductors, in order to better (how?)
+choose state variables (generalized coordinates?); existance of tree containing
+all the voltage sources and capacitors whose cotree contains all the 
+current sources and inductors.    (Starting point
+of \cite{ChuaMcPhersonLagrange}; find early references ??)
+Benefits of this concretely and for Lagrangian formulations.
+Generalizes of course.
+\item Basic Lagrange and Hamiltonian formulation: 
+\cite{ChuaMcPhersonLagrange}.
+\item Capacitor and inductor flux ($\phi = \int v(t) dt$) and
+charge ($q = \int i(t) dt$).
+General nonlinear laws: $L(i) = \phi$ and $C(v) = q$.
+\item Transforms of linear circuit functions.
 \item Resistance and other port quantities within the theory of 
 \textbf{random walks}\cite{DoyleSnellRandom,ProbOnTreesNetworks}.
 \item Electricity as statistics mechanincs of electron transfer.  Relate to 
@@ -168,8 +185,40 @@ CMOS\cite{CMOSLatchUpTINote}
 
 \section{Topology}
 
-EEs mean ``circuit shape'', the network graph decorated with 
-element types.
+Engineers use the term topology to  mean ``circuit shape'', 
+the network graph decorated with element types, which determines
+its instance of Kirchhoff law equations with a choice of constituitive laws.
+Topologists and mathematical physicists (\cite{Frankel} especially Appendix
+B, citing 
+Eckmann\footnote{
+From MR: ``Let numerical values $f(x_i)$ be assigned on the vertices
+$x_i$ of a subgraph R of a linear graph K. It is required to find f in
+$Q=K−R$ so that $f(x_i)$ for vertices $x_i$ in Q equals the mean of
+its values on the vertices joined to $x_i$ by an edge. It is shown
+that f always exists, and is unique if and only if R has at least one
+vertex in each component of K. This is a generalization of a finite
+version of the Dirichlet problem. A similar theorem is given in n
+dimensions. The proof is based on the unique representation of a chain
+with real coefficients as a sum of a harmonic chain (which is both a
+cycle and a cocycle), a boundary and a coboundary.  Reviewed by
+H. Whitney''}
+(\cite{Eckmann}--perhaps \cite{EckmannWorks}, 
+Bott\cite{BottInducedRep} and a book by Bamberg and 
+Sternberg\cite{BambergSternbergBookII})
+recognize this first as a case for homology and cohomology theory of a 
+1-dimensional chain complex, and then as a source of analogies for more 
+general spaces.  Going beyond the formulated (generally) differential 
+and transform space equations, the dynamical system solutions have been
+studied by topologists in their relation to the network topology
+\cite{MathFoundElecSmale}.
+   
+Some authors pursued the topological view in terms of 
+Lagrangian and Hamiltonian formulations\cite{ChuaMcPhersonLagrange}.
+
+The Laplacian generalizes to chain complexes 
+(among others,\cite{Frankel,DuvalKlivansMartin}).
+
+
 
 Each network graph vertex models a conducting region of physical space, 
 ignoring electromagnetics...
