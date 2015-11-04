@@ -55,8 +55,21 @@ forest term sign.
 \item Cones of possible phases.  Is that what Anderson did?
 \item Orders or levels of resistance, etc. magnitudes; as
 in symbolic simulation.
-\item Laplacian eigenvalues (what are the good for in elec. circuit
-study?
+\item Laplacian eigenvalues and eigenvectors  (what are the good for in elec. circuit
+study?) 
+
+Spectral analysis of a graph laplacian matrix has more applications today than
+spectral analysis of the adjacency matrix; see \cite{ChungSpectralGraphTheory}.
+
+Let $L$ be the (non-normalized) Laplacian matrix.  Its eigenvalues have the 
+following electrical interpretation:  
+Consider the graph to be a network of unit resistors with an added ground 
+node $0$ and a unit capacitor between each original node and the ground node.  
+Let the function of time $v_k(t)$, $k\neq 0$ be the voltage of node $k$ 
+relative to 
+the ground node.  Then $d\bf{v}/dt = -L\bf{v}$, so the eigenvalue $\lambda_i$
+corresponds to the solution $\bf{v}_i(t) = \bf{v}_i(0)e^{-\lambda_i t}$.
+
 \item Effect or information transfer directionality due to impedance
 differences, ``half-resistors'',  \textbf{Bond graphs}.
 \item Hamiltonian generalized position and momentum; that Frankel stuff.
