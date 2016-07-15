@@ -1,8 +1,7 @@
 head	1.28;
 access;
 symbols;
-locks
-	seth:1.28; strict;
+locks; strict;
 comment	@% @;
 
 

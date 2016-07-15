@@ -39,6 +39,33 @@ forest term sign.
 \begin{enumerate}
 \item How orthogonality with an OM vector predicts one sign from others.
 \item How OM covector elimination predicts a zero value is possible.
+\item (Possible application of ``fourientation'') 
+Suppose voltage and current source edges are specified with a source 
+direction for each.  A source directions is specified by an orientation, that
+may one direction to specify a non-zero source, or (perhaps) none to specify a
+zero source.  The (1) resistor values and, in the case of two or more sources,
+(2) the source values determine a solution; the solution determines another 
+orientation on all the edges, called the solution orientation.  Rules for the
+solution orientation (SO):
+\begin{enumerate}
+\item SO is defined on all the edges.
+\item SO on one edge may to in one direction for non-zero current and voltage 
+in a resistor edge, or non-zero current or voltage in a voltage or current edge
+respectively, or none to indicate those solution quantities are zero.
+\item SO on a source edge may be the same or different from the given source 
+direction.
+\end{enumerate}
+Questions:
+\begin{enumerate}
+\item Characterize the solution orientations; maybe there is Tutte-like function
+whose evaluation is the number of them.
+\item Can a graph be derived so that a fourientation determines the set of 
+solution orientations?  
+\item How do these questions differ when the resistor values vary and the 
+sources values are constant, versus constant resistances and variable sources.
+Are the problems of both varying any good?
+\end{enumerate}
+Geometry questions:  What about the space of solutions with given sign pattern?
 \end{enumerate}
 \item OM of transients.
 \item Signs of transients that might not be OM modelled.

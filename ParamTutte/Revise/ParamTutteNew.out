@@ -1,16 +1,16 @@
-\BOOKMARK [1][-]{section.1}{1. Introduction}{}
-\BOOKMARK [2][-]{subsection.1.1}{1.1. ZBR conditions and indecomposibles}{section.1}
-\BOOKMARK [2][-]{subsection.1.2}{1.2. Tutte functions depending on orientations}{section.1}
-\BOOKMARK [2][-]{subsection.1.3}{1.3. Tree-based activity expressions}{section.1}
-\BOOKMARK [2][-]{subsection.1.4}{1.4. Ported normal Tutte functions}{section.1}
-\BOOKMARK [1][-]{section.2}{2. Matroid Tutte Function Characterization}{}
-\BOOKMARK [2][-]{subsection.2.1}{2.1. Paramaters and Initial Values}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{2.2. Ported Matroid ZBR Theorem}{section.2}
-\BOOKMARK [2][-]{subsection.2.3}{2.3. Universal Tutte Polynomial}{section.2}
-\BOOKMARK [1][-]{section.3}{3. Tutte Computation Trees and Activities}{}
-\BOOKMARK [2][-]{subsection.3.1}{3.1. Computation Tree Expansion}{section.3}
-\BOOKMARK [2][-]{subsection.3.2}{3.2. Expansions of Normal Tutte Functions}{section.3}
-\BOOKMARK [1][-]{section.4}{4. Proof of the Ported ZBR Theorem}{}
-\BOOKMARK [1][-]{section.5}{5. Acknowledgements}{}
-\BOOKMARK [1][-]{section*.6}{References}{}
-\BOOKMARK [1][-]{appendix.A}{Appendix A. Proof of Proposition 18}{}
+\BOOKMARK [1][-]{section.1}{1. Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{1.1. ZBR conditions and indecomposibles}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{1.2. Tutte functions depending on orientations}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{1.3. Tree-based activity expressions}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{1.4. Ported normal Tutte functions}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{2. Matroid Tutte Function Characterization}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{2.1. Paramaters and Initial Values}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{2.2. Ported Matroid ZBR Theorem}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{2.3. Universal Tutte Polynomial}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{3. Tutte Computation Trees and Activities}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{3.1. Computation Tree Expansion}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{3.2. Expansions of Normal Tutte Functions}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{4. Proof of the Ported ZBR Theorem}{}% 13
+\BOOKMARK [1][-]{section.5}{5. Acknowledgements}{}% 14
+\BOOKMARK [1][-]{section*.6}{References}{}% 15
+\BOOKMARK [1][-]{appendix.A}{Appendix A. Proof of Proposition 18}{}% 16
