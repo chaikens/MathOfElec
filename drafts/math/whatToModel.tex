@@ -28,9 +28,31 @@ General nonlinear laws: $L(i) = \phi$ and $C(v) = q$.
 \item Transforms of linear circuit functions.
 \item Resistance and other port quantities within the theory of 
 \textbf{random walks}\cite{DoyleSnellRandom,ProbOnTreesNetworks}.
-Greens function \cite{ChungYaoDiscreteGreensFn}.
+Given a graph on states (as with Markov chains)
+the discrete Greens function is defined
+in \cite{ChungYaoDiscreteGreensFn}
+to be the inverse of $\Delta|_S$  where
+\[
+\Delta f(x)=\sum_y(f(x)-f(y)p_{xy}
+\]
+is the discrete Laplace equation
+when $p_{xy}$ is the transition probability from $x$ to $y$, and
+$S$ is a connected subset with non-empty boundary
+$\{y\not\in S | p_{xy}\not= 0 \ \text{for some }\ x\in S\}$.
+\cite{ChungYaoDiscreteGreensFn} treats Dirichlet eigenvalues
+determining Greens functions,
+heat kernels, expected hitting times
+and Greens functions for paths, lattices and distance regular graphs.  
+
+  Spanning tree counting was done by these methods in
+  \cite{ChungYaoCovHeatKSpTrees}.
+
+
 \item Electricity as statistics mechanincs of electron transfer.  Relate to 
-random walk models.
+  random walk models.
+
+  The normalized Laplacian is the symmetric matrix of weights.
+
 \item Resistive port behavior; OM characterizes of 
 forest term sign.
 \item Monotone non-linear well-posedness.
