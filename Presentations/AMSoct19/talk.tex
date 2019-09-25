@@ -1,0 +1,189 @@
+\documentclass{beamer}
+%\mode<presentation>
+\usepackage{cite}
+\usepackage{amsmath}
+\title{Restricted or Ported Tutte Decomposion and Analogs
+  of All-Minors Laplacian Expansions}
+\author{Seth Chaiken\\
+  Assoc. Prof. Emeritus Dept. of Computer Science\\
+Univ. at Albany\\
+\url{schaiken@albany.edu}
+}
+\date{October 13, 2019}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialized Symbols
+%
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}{\coprod}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+%{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%best choice: {\mbox{\hbox{\hskip0.45em$\cdot$\hskip-0.44em$\cup$\hskip0.2em}}}
+%{\mbox{\hbox{\hskip0.45em$+$\hskip-0.70em$\cup$\hskip0.3em}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+%\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+%\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%
+%   Put a symbol for a matroid in a box, or brackets
+%\newcommand{\MVAR}[1]{{\boxed{#1}\;}}
+\newcommand{\MVAR}[1]{{[#1]\;}}
+%
+\newcommand{\UNION}{\cup} %try to make this bold.
+%
+%Emphasize in color!
+\newcommand{\Remph}[1]{{\color{red}#1}}
+%
+%%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+\begin{frame}
+ \titlepage
+\end{frame}
+
+\note{(here we go, geronimo)}
+
+\begin{frame}
+  \begin{itemize}
+  \item
+    Matrices $N_1$, $N_2$; full row rank, columns indexed by
+    $P\dunion E$.  $P_1,P_2\leftrightarrow P$, $P_1\cap P_2=\emptyset$.
+  \item
+    Weight (parameter) matrices\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_1 \dunion P_2 \dunion E$
+    \[
+M = \left[\begin{array}{c|c|c} N_1(P)  &  0  &  N_1(E)G \\  \hline
+0  & N_2(P)  &  N_2(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(M)=((\binom{2p}{p})-\text{tuple of determinants\ } M[Q_1Q_2E])
+  \]
+  where $Q_1\subseteq P_1$, $Q_2\subseteq P_2, |Q_1Q_2|=p=|P|$.
+    
+\end{frame}
+
+\begin{frame}
+  Column $e$ of $M$ is
+\[
+\left[\begin{array}{c}
+    N_{1,1,e}g_e\\
+    N_{1,2,e}g_e\\
+    ...\\
+    N_{1,r_1,e}g_e\\
+    N_{2,1,e}r_e\\
+    N_{2,2,e}r_e\\
+    ...\\
+    N_{2,r_2,e}r_e
+  \end{array}\right]
+=
+\left[\begin{array}{c}
+    N_{1,1,e}\\
+    N_{1,2,e}\\
+    ...\\
+    N_{1,r_1,e}\\
+    0\\
+    0\\
+    ...\\
+    0
+  \end{array}\right]g_e
++
+\left[\begin{array}{c}
+    0\\
+    0\\
+    ...\\
+    0\\
+    N_{2,1,e}\\
+    N_{2,2,e}\\
+    ...\\
+    N_{2,r_2,e}
+  \end{array}\right]r_e
+\]
+So, using $M\left(\begin{array}{c} N_1\\ N_2 \end{array} \right)$
+to denote how $M$ is formed from the $N_i$,
+\[
+F(M)_{Q_1Q_2E} = M[Q_1Q_2E] =
+\]
+\[
+g_eM\left(\begin{array}{c} N_1/e\\ N_2\backslash e \end{array} \right)[Q_1Q_2E]
++
+r_eM\left(\begin{array}{c} N_1\backslash e\\ N_2/e \end{array} \right)[Q_1Q_2E].
+\]
+\end{frame}
+
+\begin{frame}
+  Each determinant $M[Q_1Q_2E]$ is one of $\binom{2p}{p}$ components, so
+  \[
+  F(M) =
+  g_eM\left(\begin{array}{c} N_1/e\\ N_2\backslash e \end{array} \right)
++
+r_eM\left(\begin{array}{c} N_1\backslash e\\ N_2/e \end{array} \right)
+\]
+where
+\[
+N_i/e \text{\ means remove the\ } g_e \text{\ or\ } r_e \text{\ but otherwise keep column\ }e
+\]
+\[
+N_i\backslash e \text{\ means replace column\ }e\text{\ by\ }0.
+\]
+\end{frame}
+
+\begin{frame}
+    \[
+  F(M) =
+  g_eM\left(\begin{array}{c} N_1/e\\ N_2\backslash e \end{array} \right)
++
+r_eM\left(\begin{array}{c} N_1\backslash e\\ N_2/e \end{array} \right)
+\]
+Real deletion/contraction removes $e$ from the ground set of the matroid or other
+object, but $N_i/e,N_i\backslash e$ still have column $e$.  But (*) holds for all $e\in E$, so
+we have a basis expansion:
+\[
+M[Q_1Q_2E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}N_1[Q_1A]N_2[Q_2\overline{A}]
+\epsilon(Q_1A,Q_2\overline{A})
+\]
+The $A$ term is $\neq 0$ iff $Q_1A$ is a column basis for $N_1$\\
+and $Q_2\overline{A}$ is a column basis for $N_2$.
+So, for each $Q_1Q_2$ (all $|A|$ for non-zero terms are equal)
+\[
+M[Q_1Q_2E] = \pm\sum_{A\subseteq E}g_Ar_{\overline{A}}N_1[Q_1A]N_2[Q_2\overline{A}]
+\epsilon(A,\overline{A})
+\]
+
+
+\end{frame}
+
+
+
+
+
+\end{document}
