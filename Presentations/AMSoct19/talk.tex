@@ -1,3 +1,5 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
 \documentclass{beamer}
 %\mode<presentation>
 \usepackage{cite}
@@ -61,17 +63,94 @@ Univ. at Albany\\
 
 
 \begin{document}
+
+
 \begin{frame}
  \titlepage
 \end{frame}
 
-\note{(here we go, geronimo)}
+\begin{frame}{What is a parametrized strong Tutte function?}
+  Tutte equations are satisfied in a very general setup:
+  \begin{enumerate}
+  \item Elements $\{e\}$ each with parameters $g_e, r_e$.
+  \item A category $\mathcal{N}$
+    of objects $\ext{N}$ each with ground set $S=S(\ext{N})$
+    of elements.
+  \item For some \emph{decomposible}
+    $\ext{N}$, for one or more \emph{separators} $e\in S(\ext{N})$, the
+    \emph{contraction} and \emph{deletion} operations are defined with
+    results $\ext{N}/e$ and $\ext{N}\backslash e$ in $\mathcal{N}$,
+    with ground sets
+    $S(\ext{N})\backslash\{e\}$
+  \item Some $\ext{N}=\ext{N}_1\oplus\ext{N_2}$ are direct sums, where
+    $S(\ext{N}_1)\cap S(\ext{N}_2)=\emptyset$.
+  \item For each indecomposible $\ext{N}$ with no separators there is
+    an additional parameter $i_{\ext{N}}$ called the \emph{initial value}.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Tutte equations, functions and Good Questions}
+  \begin{enumerate}
+  \item For all $\ext{N}$ with separator $e\in S(\ext{N})$,
+    \[
+    F(\ext{N}) = g_eF(\ext{N}/e) + r_e(\ext{N}\backslash e)
+    \]
+  \item When $\ext{N}=\ext{N_1}\oplus\ext{N_2}$,
+    \[
+    F(\ext{N}) = F(\ext{N_1})F(\ext{N_2})
+    \]
+  \item When $\ext{N}$ is indecomposible,
+    \[
+    F(\ext{N}) = i_{\ext{N}}
+    \]
+  \end{enumerate}
+  $F$ is Tutte function when all the Tutte equations are satisfied.
+
+  This MEANS $F(\ext{N})$ is what is computed by applying Tutte
+  equations \emph{in any order they are applicable}.
+  
+  Good Questions: When does $\mathcal{N}$ and parameters ACTUALLY
+  HAVE a Tutte function?  If so, what is a \emph{universal} Tutte function?
+
+\end{frame}
+
+\begin{frame}{Some answers--for Graphs and Matroids}
+
+  \begin{block}{Only loops and coloops need initial values}
+    The only
+    $\ext{N}$ with no separators and no $\ext{N}=\ext{N}_1\oplus\ext{N_2}$
+    for $\ext{N}_i\neq\emptyset$ are $\mathbf{loop}(e)$
+    and $\mathbf{coloop}(e)$.
+  \end{block}
+
+
+  \begin{block}{The famous Tutte Polynomial}
+  Adding all $g_e=r_e=1$, the Tutte polynomial $F(\ext{N})(x,y)$
+  obtained from $i_{\mathbf{loop}(e)}=x$, 
+  $i_{\mathbf{coloop}(e)}=y$ and $i_{\mathbf{\emptyset}}=1$.
+  is a universal Tutte function.
+  \end{block}
+  
+  \begin{block}{Normal Tutte Functions}
+    (Zaslavsky) With arbitrary $g_e,r_e$, the \emph{normal} Tutte functions are
+  obtained with $i_{\mathbf{coloop(e)}}=g_ey + x$,
+  $i_{\mathbf{loop(e)}}=r_ex + y$ and  $i_{\mathbf{\emptyset}}=1$.
+  (Zas. result abt. normal Tutte fun here.)
+  \end{block}
+
+\end{frame}
+
+      
+ 
+    
+  
 
 \begin{frame}
   \begin{itemize}
   \item
     Matrices $N_1$, $N_2$; full row rank, columns indexed by
-    $P\dunion E$.  $P_1,P_2\leftrightarrow P$, $P_1\cap P_2=\emptyset$.
+    $P\dunion E$. $\text{rank}(N_1)+\text{rank}(N_2)=|E|+|P|$.\\
+    $P_1,P_2\leftrightarrow P$, $P_1\cap P_2=\emptyset$.
   \item
     Weight (parameter) matrices\\
     $G=\text{diag}\{g_e\}_{e\in E} $,
