@@ -141,55 +141,57 @@ Univ. at Albany\\
 \end{frame}
 
       
- 
-    
-  
+\newcommand{\Nal}{\ensuremath{N_{\alpha}}}
+\newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
 
-\begin{frame}
+
+\begin{frame}{Our setup}
   \begin{itemize}
   \item
-    Matrices $N_1$, $N_2$; full row rank, columns indexed by
-    $P\dunion E$. $\text{rank}(N_1)+\text{rank}(N_2)=|E|+|P|$.\\
-    $P_1,P_2\leftrightarrow P$, $P_1\cap P_2=\emptyset$.
+    Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
+    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
   \item
     Weight (parameter) matrices\\
     $G=\text{diag}\{g_e\}_{e\in E} $,
     $R=\text{diag}\{r_e\}_{e\in E} $.
   \item
-    Matrix with columns $P_1 \dunion P_2 \dunion E$
+    Matrix with columns $P_\alpha \dunion P_2 \dunion E$
     \[
-M = \left[\begin{array}{c|c|c} N_1(P)  &  0  &  N_1(E)G \\  \hline
-0  & N_2(P)  &  N_2(E)R \end{array}\right]
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
     \]
   \end{itemize}
 
   Define
   \[
-  F(M)=((\binom{2p}{p})-\text{tuple of determinants\ } M[Q_1Q_2E])
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_1Q_2E])
   \]
-  where $Q_1\subseteq P_1$, $Q_2\subseteq P_2, |Q_1Q_2|=p=|P|$.
+  indexed by sequences $Q_\alpha Q_\beta \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $Q_\beta\subseteq P_\beta, |Q_\alpha Q_\beta|=p=|P|$.
     
 \end{frame}
 
 \begin{frame}
-  Column $e$ of $M$ is
+  Column $e$ of $L$ when $e\not\in P$ is
 \[
 \left[\begin{array}{c}
-    N_{1,1,e}g_e\\
-    N_{1,2,e}g_e\\
+    N_{\alpha,1,e}g_e\\
+    N_{\alpha,2,e}g_e\\
     ...\\
-    N_{1,r_1,e}g_e\\
-    N_{2,1,e}r_e\\
-    N_{2,2,e}r_e\\
+    N_{\alpha,r_1,e}g_e\\
+    N_{\beta,1,e}^\perp r_e\\
+    N_{\beta,2,e}^\perp r_e\\
     ...\\
-    N_{2,r_2,e}r_e
+    N_{\beta,r_2,e}^\perp r_e
   \end{array}\right]
 =
 \left[\begin{array}{c}
-    N_{1,1,e}\\
-    N_{1,2,e}\\
+    N_{\alpha,1,e}\\
+    N_{\alpha,2,e}\\
     ...\\
-    N_{1,r_1,e}\\
+    N_{\alpha,r_1,e}\\
     0\\
     0\\
     ...\\
@@ -201,68 +203,151 @@ M = \left[\begin{array}{c|c|c} N_1(P)  &  0  &  N_1(E)G \\  \hline
     0\\
     ...\\
     0\\
-    N_{2,1,e}\\
-    N_{2,2,e}\\
+    N_{\beta,1,e}^\perp \\
+    N_{\beta,2,e}^\perp\\
     ...\\
-    N_{2,r_2,e}
+    N_{\beta,r_2,e}^\perp
   \end{array}\right]r_e
 \]
-So, using $M\left(\begin{array}{c} N_1\\ N_2 \end{array} \right)$
-to denote how $M$ is formed from the $N_i$,
+So, 
 \[
-F(M)_{Q_1Q_2E} = M[Q_1Q_2E] =
+F(L)_{Q_\alpha Q_\beta } = L[Q_\alpha Q_\beta E ] =
 \]
 \[
-g_eM\left(\begin{array}{c} N_1/e\\ N_2\backslash e \end{array} \right)[Q_1Q_2E]
+g_eL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)[Q_\alpha Q_\beta E]
 +
-r_eM\left(\begin{array}{c} N_1\backslash e\\ N_2/e \end{array} \right)[Q_1Q_2E].
+r_eL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)[Q_\alpha Q_\beta E].
 \]
 \end{frame}
 
 \begin{frame}
-  Each determinant $M[Q_1Q_2E]$ is one of $\binom{2p}{p}$ components, so
+  Each determinant $L[Q_\alpha Q_\beta E]$ is one of $\binom{2p}{p}$ components, so
   \[
-  F(M) =
-  g_eM\left(\begin{array}{c} N_1/e\\ N_2\backslash e \end{array} \right)
+  F(L) =
+  g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
 +
-r_eM\left(\begin{array}{c} N_1\backslash e\\ N_2/e \end{array} \right)
+r_eFL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)
 \]
 where
 \[
-N_i/e \text{\ means remove the\ } g_e \text{\ or\ } r_e \text{\ but otherwise keep column\ }e
+N/e \text{\ means remove the\ } g_e \text{\ or\ } r_e \text{\ but otherwise keep column\ }e
 \]
 \[
-N_i\backslash e \text{\ means replace column\ }e\text{\ by\ }0.
+N\backslash e \text{\ means replace column\ }e\text{\ by\ }0.
 \]
 \end{frame}
 
 \begin{frame}
     \[
-  F(M) =
-  g_eM\left(\begin{array}{c} N_1/e\\ N_2\backslash e \end{array} \right)
+  FL(M) =
+  g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
 +
-r_eM\left(\begin{array}{c} N_1\backslash e\\ N_2/e \end{array} \right)
+r_eFL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)
 \]
 Real deletion/contraction removes $e$ from the ground set of the matroid or other
-object, but $N_i/e,N_i\backslash e$ still have column $e$.  But (*) holds for all $e\in E$, so
-we have a basis expansion:
+object, but $N/e,N\backslash e$ still have column $e$.  But (*) holds for all $e\in E$, so
+Laplace's expansion is
+%we have
+a basis expansion:
 \[
-M[Q_1Q_2E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}N_1[Q_1A]N_2[Q_2\overline{A}]
-\epsilon(Q_1A,Q_2\overline{A})
+L[Q_\alpha Q_\beta E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[Q_\beta\overline{A}]
+\epsilon(Q_\alpha A,Q_\beta\overline{A})
 \]
-The $A$ term is $\neq 0$ iff $Q_1A$ is a column basis for $N_1$\\
-and $Q_2\overline{A}$ is a column basis for $N_2$.
-So, for each $Q_1Q_2$ (all $|A|$ for non-zero terms are equal)
+The $A$ term is $\neq 0$ iff $Q_\alpha A$ is a column basis for $\Nal$\\
+and $Q_\beta \overline{A}$ is a column basis for $\NbePe$.
+So, for each $Q_\alpha Q_\beta $
 \[
-M[Q_1Q_2E] = \pm\sum_{A\subseteq E}g_Ar_{\overline{A}}N_1[Q_1A]N_2[Q_2\overline{A}]
+L[Q_\alpha Q_\beta E] =
+\pm\sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[Q_\beta\overline{A}]
 \epsilon(A,\overline{A})
 \]
-
-
+(The non-zero terms all have $|A|=\text{rank}(\Nal)-|Q_\alpha|$.)
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{Quick and dirty fix}
+  \begin{enumerate}
+  \item Drag column $e$ to the far right.\\
+    Changes sign of $F(L)$ by $\epsilon(E'e)$.
+  \item Left multiply by a determinant 1 matrix that sends the last column
+    to $(0,...,1g_e,0,...,1r_e)^{\mathbf{t}}$ (if the top or bottom submatrix has just 1 row,
+    do the hack: $\mathbf{N}/e$ is number $\mathbf{N}_{1,e}$ that acts like a matrix with
+    columns $E'$ and no rows.)
+  \item Drag the row with the $1g_e$ to the bottom.\\
+    Changes sign of $F(L)$ by $(-1)^{\rank{\mathbf{\NbePe}}}$
+  \item With $e$ deleted/contracted from the $\mathbf{N}$s defining $L$, define $F$ by
+    $FL_{Q_\alpha Q_\beta} = L[Q_\alpha Q_\beta E']$
+  \end{enumerate}
+  \begin{block}{Result}
+    \[
+    FL\left( \begin{array}{cc} \Nal \\ \NbePe \end{array} \right)
+    =
+    \epsilon(E'e)\left(
+    g_e (-1)^{\rank(\NbePe)}FL \left( \begin{array}{cc} \Nal/e \\ \NbePe\backslash e \end{array} \right)  +
+    r_e FL \left( \begin{array}{cc} \Nal\backslash e \\ \NbePe/e \end{array} \right) \right)
+    \]
+  \end{block}
+\end{frame}
 
+
+\begin{frame}
+  \frametitle{Simplify calculations /w minors via Exterior Algebra}
+  \[
+  \begin{array}{cc}
+     \begin{minipage}{2in}Full $r$-row minors of matrix $N$ with columns indexed by $S$: 
+     \end{minipage}
+    &
+     \begin{minipage}{2.3in}Coefficients when the exterior product of $N$'s row vectors $\ext{N}$
+       are expressed in basis\\
+       $\{\ext{e}_{i_1}\wedge\ext{e}_{i_2}\cdots\ext{e}_{i_r}|i_1<i_2\cdots<i_r\}$:
+     \end{minipage}\\
+%    \\
+    \begin{array}{ccl}
+      (e_1) & (e_2) & (e_3) \\ 
+      a_1 & a_2 & a_3 \\
+      b_1 & b_2 & b_3 \\ \hline
+      \multicolumn{3}{c}{\ext{N}[e_1e_3]=(a_1b_3-a_3b_1)}
+    \end{array} 
+    &
+    \begin{array}{cc}
+             & (a_1\mathbf{e}_1+a_2\mathbf{e}_2+a_3\mathbf{e}_3) \\
+      \wedge & (b_1\mathbf{e}_1+b_2\mathbf{e}_2+b_3\mathbf{e}_3) \\ \hline
+ %   \multicolumn{2}{c}{((a_1b_2-a_2b_1)\mathbf{e}_1\mathbf{e}_2 +
+ %   (a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3 +
+ %     (a_2b_3-a_3b_2)\mathbf{e}_2\mathbf{e}_3)}
+      \multicolumn{2}{c}{( 
+      (a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3 +
+      \cdots
+      )}
+    \end{array} 
+  \end{array}
+  \]
+  We will omit the $\wedge$ and we can always write:
+  \[
+  \text{(Exterior product)} \ext{N} = \sum_{A\subseteq S; |E|=r}\ext{N}[A]\ext{A}
+  \]
+  Each subset $A$ is ordered $a_1 a_2 \ldots a_r$ \textbf{arbitrarilly} but $\ext{A}$
+  is the exterior product of (row coordinate vectors) \textbf{in the same order}
+  \[
+  \ext{A} = \ext{a}_1\ext{a_2}\ldots\ext{a_r}
+  \]
+\end{frame}
+
+\begin{frame}{Catalog of Oriented Matroid operations on matrix $N$ \& $\ext{N}=\wedge(\text{rows}(N))$}
+    \[
+    \begin{array}{ccc}
+\text{type of representation} &  \text{chirotope}            & \wedge(S) \text{product} \\
+\text{value}                & \chi(B)=\text{sign}(N[B]) & \ext{N},\text{components\ }\ext{N}[B] \\
+\text{deletion\ } \bullet\backslash e  & \chi'=\chi|S\backslash e  & \ext{N\backslash e}[B] = \ext{N}[B], e\not\in B \\
+\text{contraction\ }\bullet / e              & \chi'(B) = \chi(Be) & \ext{N/e}[B] = \ext{N}[Be] \\
+\text{type of value}                   & \text{sign}\in\{0,+,-\} &  \text{\bf field value; number}\\
+
+\text{duality\ }\bullet^{\perp} & \chi^{\perp}(B) = \chi(\overline{B})\epsilon(\overline{B}B) &
+                             \ext{N}^{\perp}[B] = \ext{N}[\overline{B}]\epsilon(\overline{B}B) \\   
+    \end{array}
+    \]
+\end{frame}
 
 
 \end{document}
