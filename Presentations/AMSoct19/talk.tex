@@ -58,6 +58,14 @@ Univ. at Albany\\
 %Emphasize in color!
 \newcommand{\Remph}[1]{{\color{red}#1}}
 %
+
+% Subscripts denoting Current and Voltage
+%\newcommand{\Is}{\ensuremath{I}}
+%\newcommand{\Vs}{\ensuremath{V}}
+\newcommand{\Is}{\ensuremath{\iota}}
+\newcommand{\Vs}{\ensuremath{\upsilon}}
+
+
 %%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -143,6 +151,8 @@ Univ. at Albany\\
       
 \newcommand{\Nal}{\ensuremath{N_{\alpha}}}
 \newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
+\newcommand{\eNal}{\ensuremath{\ext{N}_{\alpha}}}
+\newcommand{\eNbePe}{\ensuremath{\ext{N}_{\beta}^{\perp}}}
 
 
 \begin{frame}{Our setup}
@@ -166,7 +176,7 @@ Univ. at Albany\\
 
   Define
   \[
-  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_1Q_2E])
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha Q_\beta E])
   \]
   indexed by sequences $Q_\alpha Q_\beta \subseteq P_\alpha P_\beta$ where
   $Q_\alpha\subseteq P_\alpha$, $Q_\beta\subseteq P_\beta, |Q_\alpha Q_\beta|=p=|P|$.
@@ -238,12 +248,12 @@ N\backslash e \text{\ means replace column\ }e\text{\ by\ }0.
 \end{frame}
 
 \begin{frame}
-    \[
+    \begin{equation*}\tag{*}
   FL(M) =
   g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
 +
 r_eFL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)
-\]
+    \end{equation*}
 Real deletion/contraction removes $e$ from the ground set of the matroid or other
 object, but $N/e,N\backslash e$ still have column $e$.  But (*) holds for all $e\in E$, so
 Laplace's expansion is
@@ -253,8 +263,8 @@ a basis expansion:
 L[Q_\alpha Q_\beta E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[Q_\beta\overline{A}]
 \epsilon(Q_\alpha A,Q_\beta\overline{A})
 \]
-The $A$ term is $\neq 0$ iff $Q_\alpha A$ is a column basis for $\Nal$\\
-and $Q_\beta \overline{A}$ is a column basis for $\NbePe$.
+The $A$ term is $\neq 0$ iff $Q_\alpha A$ is a column basis for $\Nal$ and \\
+$Q_\beta \overline{A}$ is a column basis for $\NbePe$.
 So, for each $Q_\alpha Q_\beta $
 \[
 L[Q_\alpha Q_\beta E] =
@@ -323,31 +333,134 @@ L[Q_\alpha Q_\beta E] =
     \end{array} 
   \end{array}
   \]
-  We will omit the $\wedge$ and we can always write:
+  We sometimes omit the $\wedge$ and we can always write:
   \[
   \text{(Exterior product)} \ext{N} = \sum_{A\subseteq S; |E|=r}\ext{N}[A]\ext{A}
   \]
   Each subset $A$ is ordered $a_1 a_2 \ldots a_r$ \textbf{arbitrarilly} but $\ext{A}$
-  is the exterior product of (row coordinate vectors) \textbf{in the same order}
+  denotes the exterior product of (row coordinate vectors) \textbf{in the same order}
   \[
   \ext{A} = \ext{a}_1\ext{a_2}\ldots\ext{a_r}
   \]
 \end{frame}
 
-\begin{frame}{Catalog of Oriented Matroid operations on matrix $N$ \& $\ext{N}=\wedge(\text{rows}(N))$}
-    \[
-    \begin{array}{ccc}
-\text{type of representation} &  \text{chirotope}            & \wedge(S) \text{product} \\
-\text{value}                & \chi(B)=\text{sign}(N[B]) & \ext{N},\text{components\ }\ext{N}[B] \\
-\text{deletion\ } \bullet\backslash e  & \chi'=\chi|S\backslash e  & \ext{N\backslash e}[B] = \ext{N}[B], e\not\in B \\
-\text{contraction\ }\bullet / e              & \chi'(B) = \chi(Be) & \ext{N/e}[B] = \ext{N}[Be] \\
-\text{type of value}                   & \text{sign}\in\{0,+,-\} &  \text{\bf field value; number}\\
+\begin{frame}{Catalogs of Oriented Matroid operations on the OM of matrix $N$ and on
+    %THE EXTERIOR PRODUCT
+    $\ext{N}=\wedge(\text{rows}(N))$}
 
-\text{duality\ }\bullet^{\perp} & \chi^{\perp}(B) = \chi(\overline{B})\epsilon(\overline{B}B) &
-                             \ext{N}^{\perp}[B] = \ext{N}[\overline{B}]\epsilon(\overline{B}B) \\   
+\hspace*{-0.35in}$
+    \begin{array}{ccc}
+\text{domain $D$ of operations:} &  \text{chirotopes}            & \ext{\wedge} \FieldK^Ss \\
+\text{$D$ is which functions:}                & \pm\chi:B\mapsto\text{sign}(N[B]) & \ext{N}:B\mapsto\ext{N}[B] \\
+\text{deletion\ } \bullet\backslash e  & \pm\chi':B\mapsto\chi(B),e\not\in B & \ext{N}\backslash e:B\mapsto\ext{N}[B], e\not\in B \\
+\text{contraction\ }\bullet / e              & \pm\chi':B\mapsto\chi(Be) & \ext{N}/e:B\mapsto\ext{N}[Be] \\
+\text{iterated\ }\bullet / E              & \pm\chi':B\mapsto\chi(BE) & \ext{N}/E:B\mapsto\ext{N}[BE_{\text{rev}}] \\
+\text{type of fun. value}                   & \text{sign}\in\{0,+,-\} &  \text{\bf field value; number}\\
+
+\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
+\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B) \\ \\
+\multicolumn{3}{c}{\parbox{\textwidth}{We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
+    \\
+    $\epsilon$ is an alternating sign function on all finite sequences of elements. }}\\ \\ 
+\text{This implies} & \multicolumn{2}{c}{(\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)}  \\
+\text{commutations} & \multicolumn{2}{c}{(\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)}\\
+
     \end{array}
-    \]
+    $
 \end{frame}
 
+
+\begin{frame}{Our setup}
+  \begin{itemize}
+  \item
+    Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
+    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_2 \dunion E$
+    \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_1Q_2E])
+  \]
+  indexed by sequences $Q_\alpha Q_\beta \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $Q_\beta\subseteq P_\beta, |Q_\alpha Q_\beta|=p=|P|$.
+    
+\end{frame}
+
+\begin{frame}
+
+\hspace{-0.2in}{\small
+    $
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    $\ \ \ \
+    $
+    F(L)=\text{tuple\ } (L[Q_\alpha Q_\beta E])
+    $
+}
+\[
+\begin{split}
+  \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
+   & = (\Is(\eNal)(P_\alpha) + \Is_G\eNal(E))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
+  &  = (\Is(\eNal)\wedge\Vs(\eNbePe))
+\end{split}
+\]
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L})& = \ext{L}/E = \sum_{Q_\alpha,Q_\beta}\ext{L}[Q_\alpha Q_\beta E]\ext{Q}_\alpha\ext{Q}_\beta \\
+  & =   ((\Is(\eNal)\backslash   e + g_e(\Is(\eNal)/e)\wedge\ext{e})                   \\
+  & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e + r_e(\Vs(\eNbePe)/e)\wedge \ext{e}) ) / E \\
+  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \ext{e} \\
+  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \ext{e}\Big) / E 
+  \end{split}
+\]
+ 
+
+  %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha Q_\beta E])
+\end{frame}
+
+\begin{frame}
+
+\hspace{-0.2in}{\small
+    $
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    $\ \ \ \
+    $
+    F(L)=\text{tuple\ } (L[Q_\alpha Q_\beta E])
+    $
+}
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L}) = \ext{L}/E 
+   = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
+   \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big) / E \\
+%  =  \Big( r_e  \Is(\eNal\backslash e)\wedge & (\Vs(\eNbePe/e))      
+%  + g_e (-1)^{r(\eNbePe)}(\Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \Big) \\
+   %  & \wedge  \ext{e} / E \\
+\end{split}
+\]
+\[  = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
+\]
+
+\end{frame}
 
 \end{document}
