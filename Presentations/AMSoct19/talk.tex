@@ -463,4 +463,37 @@ L[Q_\alpha Q_\beta E] =
 
 \end{frame}
 
+\begin{frame}{sdc06 results}
+\end{frame}
+
+\begin{frame}{Things w/ natural vertices, edges and adjacency-like matrices}
+
+  Whenever matrices $N_\alpha = ( I(P) A_\alpha(E))$ and $N_\beta= (I(P) A_\beta(E))$,
+  ie., $E$ is the column label set of matrix $A_i$, and all $r_e\neq 0$,
+   \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} I  &  0  &  A_\alpha  G \\  \hline
+0  & -A_\beta^t  &  IR \end{array}\right], \text{so}
+    \]
+
+   \[
+    \left(\begin{array}{cc} I & -A_\alpha  G R^{-1} \\
+      0 & R^{-1} \end{array} \right) L
+    = \left(\begin{array}{ccc}
+        I & A_\alpha GR^{-1}A_\beta^t& 0 \\
+        0 & -R^{-1}A_\beta ^t    & I
+        \end{array} \right), \text{and therefore}
+    \]
+
+    \[
+    \ext{F}_E(\ext{L})[Q_\alpha Q_\beta] = \frac{1}{r_E}\sum_{B\in E}g_B r_{\overline{B}} A_\alpha[Q_\alpha B] A_\beta[\overline{Q_\beta}B]
+    \epsilon(\overline{Q_\beta}Q_\beta)
+    \]
+    has this Cauchy-Binet expansion.
+\end{frame}
+
+
+
+
+
 \end{document}
