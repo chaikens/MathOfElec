@@ -432,6 +432,9 @@ L[Q_\alpha Q_\beta E] =
   %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha Q_\beta E])
 \end{frame}
 
+
+\newcommand{\eNbe}{\ensuremath{\ext{N}_\beta}}
+
 \begin{frame}
 
 \hspace{-0.2in}{\small
@@ -459,41 +462,140 @@ L[Q_\alpha Q_\beta E] =
     \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
    g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
     \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
+   \]
+   
+\hspace*{-0.3in}
+\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
+         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
+
+
+\[  = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    \eNbe\backslash e  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    \eNbe / e \end{array} \right) \wedge \ext{e} /E \right))
 \]
 
 \end{frame}
 
+
+
+
 \begin{frame}{sdc06 results}
+  With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
+    \begin{definition}
+      For a $E$, $P$ sets written as ordered sequences,
+      \[
+      \ext{F}_E(\eNal\;\;\eNbe) = \ext{L}(\eNal\;\;\eNbe)/E
+      \]
+    \end{definition}
+    \begin{theorem}
+      \begin{multline*}
+        \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=\\
+        \epsilon(PE')
+        \left(g_e\ext{F}_{E'}(\eNal/e\;\; \eNbe/e) +
+      r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
+      \end{multline*}
+  \end{theorem}
 \end{frame}
 
-\begin{frame}{Things w/ natural vertices, edges and adjacency-like matrices}
+\begin{frame}{Vertices, edges and adjacency-like matrices}
 
-  Whenever matrices $N_\alpha = ( I(P) A_\alpha(E))$ and $N_\beta= (I(P) A_\beta(E))$,
-  ie., $E$ is the column label set of matrix $A_i$, and all $r_e\neq 0$,
+  Take $P=\{\text{vertices}\}$, $E=\{\text{edges}\}$, and let's
+  generalize incidence matrices, with $P$ labelling rows and
+  $Q$ labelling columns, and every $r_e\neq 0$. Then,
+  $N_\alpha = ( I(P)\;\; A_\alpha(E))$ and $N_\beta= (I(P)\;\; A_\beta(E))$, and
+  \vspace{-0.1in}
    \[
     L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
     = \left[\begin{array}{c|c|c} I  &  0  &  A_\alpha  G \\  \hline
-0  & -A_\beta^t  &  IR \end{array}\right], \text{so}
+0  & -A_\beta^t  &  IR \end{array}\right], \text{\ so}
     \]
-
-   \[
+    \vspace{-0.1in}
+    \[
     \left(\begin{array}{cc} I & -A_\alpha  G R^{-1} \\
       0 & R^{-1} \end{array} \right) L
     = \left(\begin{array}{ccc}
         I & A_\alpha GR^{-1}A_\beta^t& 0 \\
         0 & -R^{-1}A_\beta ^t    & I
-        \end{array} \right), \text{and therefore}
+        \end{array} \right), \text{\ and therefore}
     \]
 
     \[
-    \ext{F}_E(\ext{L})[Q_\alpha Q_\beta] = \frac{1}{r_E}\sum_{B\in E}g_B r_{\overline{B}} A_\alpha[Q_\alpha B] A_\beta[\overline{Q_\beta}B]
-    \epsilon(\overline{Q_\beta}Q_\beta)
+    \epsilon(Q_\alpha\overline{Q_\alpha})\ext{F}_E(\ext{L})[Q_\alpha Q_\beta] =
+       \frac{1}{r_E} \sum_{B\in E}g_B r_{\overline{B}} A_\alpha[\overline{Q_\alpha} B] A_\beta[{Q_\beta}B]  
     \]
-    has this Cauchy-Binet expansion.
+    is the Cauchy-Binet expansion of any  minor $(\overline{Q_\alpha},Q_\beta)$ of the
+    Laplacian matrix $A_\alpha GR^{-1}A_\beta^t$, generalizing a graph's weighted
+    discrete Laplacian.  (Note $\frac{1}{r_E}r_{\overline B}=(r^{-1})_B$.)
+\end{frame}
+
+\begin{frame}{Examples}
+  
+ \hspace*{-0.25in}$
+  \begin{array}{lc}
+    \begin{array}{c}
+      N_\alpha=N_\beta=N; A = \text{\ graph's}\\
+      \text{incidence matrix w/ columns}\\
+      (0,..0,1,0,..,-1,0,..,0)^t\text{ for}\\
+      \text{each edge; reps. graphic matroid.}
+    \end{array}
+    &
+    \begin{array}{c}
+      \text{The all-minors}\\
+      \text{Matrix Tree Theorem}\\
+    \text{for weighted undirected graphs}
+    \end{array}
+    \\ \\
+    \begin{array}{c}
+      A_\alpha, N_\alpha \text{ as above. }A_\beta=\\
+      +1\text{\ entries of\ }A\text{ for a}\\
+      \text{directed graph, so }+1\text{\ is for}\\
+      \text{an edge head on a vertex.}\\
+    \end{array}
+    &
+    \begin{array}{c}
+      \text{The all-minors}\\
+      \text{ Matrix Tree Theorem} \\
+    \text{for weighted directed graphs}
+    \end{array}
+  \\ \\
+    \begin{array}{c}
+      N_\alpha=N_\beta=N; A = \text{\ gain graph's}\\
+      \text{incidence matrix w/ columns}\\
+      (0,..,0,1,0,..,-\gamma_e,0,..,0)^t\text{ for}\\
+      e\text{ with gain } \gamma_e \in \mathbf{C}.
+    \end{array}
+    &
+    \begin{array}{c}
+      \text{All-minors expansions of}\\
+      \text{the gain graph's Laplacian}
+    \end{array}\\
+    \multicolumn{2}{c}{\text{NB: Edge Gains\ }\gamma_e\text{\ are DIFFERENT ATTRIBUTES}}\\
+    \multicolumn{2}{c}{\text{from weights/parameters\ }g_e,r_e}
+  \end{array}
+  $
 \end{frame}
 
 
+\begin{frame}{Known to EEs: Linear electrical networks with IDEAL AMPLIFIERS}
+
+  $N_\alpha i(P,E)=0$  expresses Kirchhoff's current law on currents $i_e$ in the network edges (along edge direction)
+  and currents $i_p$ into vertices from external connections.\\[.1in]
+  $N_\beta^\perp v(P,E)=0$ expresses Kirchoff's voltage law: The voltage rise along a network edge 
+  $v_e=v_h-v_t$ is the difference of the head and tail vertex potentials.  (Sometimes the vertex potentials are
+  imposed by external connections.)\\[0.1in]
+  $N_\alpha=N_\beta$ in ordinary resistor networks.
+
+  \begin{block}{Different Graphs for $N_\alpha$ and $N_\beta$}
+    W. K. Chen models networks with ideal amplifiers by $N_\alpha$ by one graph on $(P,E)$ called the
+    \textbf{Current Graph} and another graph also on $(P,E)$ called the \textbf{Voltage Graph}.
+  \end{block}
+
+\end{frame}
+    
 
 
 
 \end{document}
+ 
+
