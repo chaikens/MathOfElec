@@ -434,6 +434,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
 
 
 \newcommand{\eNbe}{\ensuremath{\ext{N}_\beta}}
+\newcommand{\Nbe}{\ensuremath{N_\beta}}
 
 \begin{frame}
 
@@ -469,11 +470,14 @@ L[Q_\alpha \overline{Q_\beta} E] =
          ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
 
 
-\[  = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
-    \eNbe\backslash e  \end{array} \right)  \wedge \ext{e} /E \right) +
+%\vspace{0.3in}
+\begin{block}{Result}
+\hspace*{-0.3in}  \mbox{\begin{minipage}{6in}$ = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    (\eNbe\backslash e)^\perp  \end{array} \right)  \wedge \ext{e} /E \right) +
    g_e\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
-    \eNbe / e \end{array} \right) \wedge \ext{e} /E \right))
-\]
+    (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right))
+   $\end{minipage}}
+\end{block}
 
 \end{frame}
 
@@ -498,6 +502,8 @@ L[Q_\alpha \overline{Q_\beta} E] =
   \end{theorem}
 \end{frame}
 
+
+
 \begin{frame}{Vertices, edges and adjacency-like matrices}
 
   Take $P=\{\text{vertices}\}$, $E=\{\text{edges}\}$, and let's
@@ -508,7 +514,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
    \[
     L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
     = \left[\begin{array}{c|c|c} I  &  0  &  A_\alpha  G \\  \hline
-0  & -A_\beta^t  &  IR \end{array}\right], \text{\ so}
+0  & -A_\beta^t  &  IR \end{array}\right] = L\left( \Nal\;\;\; \Nbe \right), \text{\ so}
     \]
     \vspace{-0.1in}
     \[
