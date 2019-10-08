@@ -176,10 +176,10 @@ Univ. at Albany\\
 
   Define
   \[
-  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha Q_\beta E])
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha \overline{Q_\beta} E])
   \]
-  indexed by sequences $Q_\alpha Q_\beta \subseteq P_\alpha P_\beta$ where
-  $Q_\alpha\subseteq P_\alpha$, $Q_\beta\subseteq P_\beta, |Q_\alpha Q_\beta|=p=|P|$.
+  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|= q \le = |P|$.
     
 \end{frame}
 
@@ -221,17 +221,17 @@ Univ. at Albany\\
 \]
 So, 
 \[
-F(L)_{Q_\alpha Q_\beta } = L[Q_\alpha Q_\beta E ] =
+F(L)_{Q_\alpha \overline{Q_\beta} } = L[Q_\alpha \overline{Q_\beta} E ] =
 \]
 \[
-g_eL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)[Q_\alpha Q_\beta E]
+g_eL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)[Q_\alpha \overline{Q_\beta} E]
 +
-r_eL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)[Q_\alpha Q_\beta E].
+r_eL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)[Q_\alpha \overline{Q_\beta} E].
 \]
 \end{frame}
 
 \begin{frame}
-  Each determinant $L[Q_\alpha Q_\beta E]$ is one of $\binom{2p}{p}$ components, so
+  Each determinant $L[Q_\alpha \overline{Q_\beta} E]$ is one of $\binom{2p}{p}$ components, so
   \[
   F(L) =
   g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
@@ -260,15 +260,15 @@ Laplace's expansion is
 %we have
 a basis expansion:
 \[
-L[Q_\alpha Q_\beta E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[Q_\beta\overline{A}]
-\epsilon(Q_\alpha A,Q_\beta\overline{A})
+L[Q_\alpha \overline{Q_\beta} E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[\overline{Q_\beta}\overline{A}]
+\epsilon(Q_\alpha A,\overline{Q_\beta}\overline{A})
 \]
 The $A$ term is $\neq 0$ iff $Q_\alpha A$ is a column basis for $\Nal$ and \\
-$Q_\beta \overline{A}$ is a column basis for $\NbePe$.
-So, for each $Q_\alpha Q_\beta $
+$\overline{Q_\beta} \overline{A}$ is a column basis for $\NbePe$.
+So, for each $Q_\alpha \overline{Q_\beta} $
 \[
-L[Q_\alpha Q_\beta E] =
-\pm\sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[Q_\beta\overline{A}]
+L[Q_\alpha \overline{Q_\beta} E] =
+\pm\sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[\overline{Q_\beta}\overline{A}]
 \epsilon(A,\overline{A})
 \]
 (The non-zero terms all have $|A|=\text{rank}(\Nal)-|Q_\alpha|$.)
@@ -287,7 +287,7 @@ L[Q_\alpha Q_\beta E] =
   \item Drag the row with the $1g_e$ to the bottom.\\
     Changes sign of $F(L)$ by $(-1)^{\rank{\mathbf{\NbePe}}}$
   \item With $e$ deleted/contracted from the $\mathbf{N}$s defining $L$, define $F$ by
-    $FL_{Q_\alpha Q_\beta} = L[Q_\alpha Q_\beta E']$
+    $FL_{Q_\alpha \overline{Q_\beta}} = L[Q_\alpha \overline{Q_\beta} E']$
   \end{enumerate}
   \begin{block}{Result}
     \[
@@ -391,10 +391,10 @@ L[Q_\alpha Q_\beta E] =
 
   Define
   \[
-  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_1Q_2E])
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha\overline{Q_\beta}E])
   \]
-  indexed by sequences $Q_\alpha Q_\beta \subseteq P_\alpha P_\beta$ where
-  $Q_\alpha\subseteq P_\alpha$, $Q_\beta\subseteq P_\beta, |Q_\alpha Q_\beta|=p=|P|$.
+  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
     
 \end{frame}
 
@@ -407,7 +407,7 @@ L[Q_\alpha Q_\beta E] =
 0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
     $\ \ \ \
     $
-    F(L)=\text{tuple\ } (L[Q_\alpha Q_\beta E])
+    F(L)=\text{tuple\ } (L[Q_\alpha \overline{Q_\beta} E])
     $
 }
 \[
@@ -420,7 +420,7 @@ L[Q_\alpha Q_\beta E] =
 
 \[
 \begin{split}
-  \ext{F}_E(\ext{L})& = \ext{L}/E = \sum_{Q_\alpha,Q_\beta}\ext{L}[Q_\alpha Q_\beta E]\ext{Q}_\alpha\ext{Q}_\beta \\
+  \ext{F}_E(\ext{L})& = \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
   & =   ((\Is(\eNal)\backslash   e + g_e(\Is(\eNal)/e)\wedge\ext{e})                   \\
   & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e + r_e(\Vs(\eNbePe)/e)\wedge \ext{e}) ) / E \\
   & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \ext{e} \\
@@ -429,7 +429,7 @@ L[Q_\alpha Q_\beta E] =
 \]
  
 
-  %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha Q_\beta E])
+  %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha \overline{Q_\beta} E])
 \end{frame}
 
 
@@ -444,7 +444,7 @@ L[Q_\alpha Q_\beta E] =
 0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
     $\ \ \ \
     $
-    F(L)=\text{tuple\ } (L[Q_\alpha Q_\beta E])
+    F(L)=\text{tuple\ } (L[Q_\alpha \overline{Q_\beta} E])
     $
 }
 
@@ -480,7 +480,7 @@ L[Q_\alpha Q_\beta E] =
 
 
 
-\begin{frame}{sdc06 results}
+\begin{frame}
   With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
     \begin{definition}
       For a $E$, $P$ sets written as ordered sequences,
@@ -502,7 +502,7 @@ L[Q_\alpha Q_\beta E] =
 
   Take $P=\{\text{vertices}\}$, $E=\{\text{edges}\}$, and let's
   generalize incidence matrices, with $P$ labelling rows and
-  $Q$ labelling columns, and every $r_e\neq 0$. Then,
+  $E$ labelling columns, and every $r_e\neq 0$. Then,
   $N_\alpha = ( I(P)\;\; A_\alpha(E))$ and $N_\beta= (I(P)\;\; A_\beta(E))$, and
   \vspace{-0.1in}
    \[
@@ -521,10 +521,10 @@ L[Q_\alpha Q_\beta E] =
     \]
 
     \[
-    \epsilon(Q_\alpha\overline{Q_\alpha})\ext{F}_E(\ext{L})[Q_\alpha Q_\beta] =
-       \frac{1}{r_E} \sum_{B\in E}g_B r_{\overline{B}} A_\alpha[\overline{Q_\alpha} B] A_\beta[{Q_\beta}B]  
+    \epsilon(Q_\alpha\overline{Q_\alpha})\ext{F}_E(\ext{L})[Q_\alpha \overline{Q_\beta}] =
+       \frac{1}{r_E} \sum_{B\in E}g_B r_{\overline{B}} A_\alpha[\overline{Q_\alpha} B] A_\beta[{\overline{Q_\beta}}B]  
     \]
-    is the Cauchy-Binet expansion of any  minor $(\overline{Q_\alpha},Q_\beta)$ of the
+    is the Cauchy-Binet expansion of any  minor $(\overline{Q_\alpha},\overline{Q_\beta})$ of the
     Laplacian matrix $A_\alpha GR^{-1}A_\beta^t$, generalizing a graph's weighted
     discrete Laplacian.  (Note $\frac{1}{r_E}r_{\overline B}=(r^{-1})_B$.)
 \end{frame}
