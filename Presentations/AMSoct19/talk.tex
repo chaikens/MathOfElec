@@ -344,18 +344,18 @@ L[Q_\alpha \overline{Q_\beta} E] =
   \]
 \end{frame}
 
-\begin{frame}{Catalogs of Oriented Matroid operations on the OM of matrix $N$ and on
+\begin{frame}{Catalogs of Oriented Matroid operations\\
+    on the OM of matrix $N$ and on
     %THE EXTERIOR PRODUCT
     $\ext{N}=\wedge(\text{rows}(N))$}
 
 \hspace*{-0.35in}$
     \begin{array}{ccc}
-\text{domain $D$ of operations:} &  \text{chirotopes}            & \ext{\wedge} \FieldK^Ss \\
+\text{domain $D$ of operations:} &  \text{chirotopes}            & \text{exterior products} \\
 \text{$D$ is which functions:}                & \pm\chi:B\mapsto\text{sign}(N[B]) & \ext{N}:B\mapsto\ext{N}[B] \\
-\text{deletion\ } \bullet\backslash e  & \pm\chi':B\mapsto\chi(B),e\not\in B & \ext{N}\backslash e:B\mapsto\ext{N}[B], e\not\in B \\
-\text{contraction\ }\bullet / e              & \pm\chi':B\mapsto\chi(Be) & \ext{N}/e:B\mapsto\ext{N}[Be] \\
-\text{iterated\ }\bullet / E              & \pm\chi':B\mapsto\chi(BE) & \ext{N}/E:B\mapsto\ext{N}[BE_{\text{rev}}] \\
-\text{type of fun. value}                   & \text{sign}\in\{0,+,-\} &  \text{\bf field value; number}\\
+\text{type of fun. value}                   & \text{sign}\in\{0,+,-\} &  \text{\bf field value; number}\\ \hline
+\text{deletion\ } \bullet\backslash A  & \pm\chi':B\mapsto\chi(B) & \ext{N}\backslash A:B\mapsto\ext{N}[B]  \\
+\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA] \\
 
 \text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
 \ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B) \\ \\
@@ -370,7 +370,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
 \end{frame}
 
 
-\begin{frame}{Our setup}
+\begin{frame}{Our setup - again}
   \begin{itemize}
   \item
     Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
@@ -410,21 +410,23 @@ L[Q_\alpha \overline{Q_\beta} E] =
     F(L)=\text{tuple\ } (L[Q_\alpha \overline{Q_\beta} E])
     $
 }
+
+\vspace{0.1in}Translate into exterior algebra definitions:
 \[
 \begin{split}
   \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
-   & = (\Is(\eNal)(P_\alpha) + \Is_G\eNal(E))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
+   & := (\Is(\eNal)(P_\alpha) + \Is_G\eNal(E))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
   &  = (\Is(\eNal)\wedge\Vs(\eNbePe))
 \end{split}
 \]
 
 \[
 \begin{split}
-  \ext{F}_E(\ext{L})& = \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
+  \ext{F}_E(\ext{L})& := \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
   & =   ((\Is(\eNal)\backslash   e + g_e(\Is(\eNal)/e)\wedge\ext{e})                   \\
   & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e + r_e(\Vs(\eNbePe)/e)\wedge \ext{e}) ) / E \\
-  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \ext{e} \\
-  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \ext{e}\Big) / E 
+\text{2 of 4 terms}  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \ext{e} \\
+\text{vanish}  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \ext{e}\Big) / E 
   \end{split}
 \]
  
@@ -514,7 +516,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
    \[
     L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
     = \left[\begin{array}{c|c|c} I  &  0  &  A_\alpha  G \\  \hline
-0  & -A_\beta^t  &  IR \end{array}\right] = L\left( \Nal\;\;\; \Nbe \right), \text{\ so}
+0  & -A_\beta^t  &  IR \end{array}\right] = L\left( \Nal\;\;\; \Nbe \right). \text{\ Do row ops:}
     \]
     \vspace{-0.1in}
     \[
