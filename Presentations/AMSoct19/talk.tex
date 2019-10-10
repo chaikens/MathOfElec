@@ -504,11 +504,11 @@ L[Q_\alpha \overline{Q_\beta} E] =
 
 
 
-\begin{frame}{Vertices, edges and adjacency-like matrices}
+\begin{frame}{Weighted Laplacian-like matrices}
 
-  Take $P=\{\text{vertices}\}$, $E=\{\text{edges}\}$, and let's
-  generalize incidence matrices, with $P$ labelling rows and
-  $E$ labelling columns, and every $r_e\neq 0$. Then,
+  Generalize a graph's incidence matrix: Make $P$ label the rows,
+  $E$ the columns of any matrices $A_\alpha,A_\beta$.  Take all $r_e\neq 0$.
+  Then,
   $N_\alpha = ( I(P)\;\; A_\alpha(E))$ and $N_\beta= (I(P)\;\; A_\beta(E))$, and
   \vspace{-0.1in}
    \[
@@ -531,8 +531,8 @@ L[Q_\alpha \overline{Q_\beta} E] =
        \frac{1}{r_E} \sum_{B\in E}g_B r_{\overline{B}} A_\alpha[\overline{Q_\alpha} B] A_\beta[{\overline{Q_\beta}}B]  
     \]
     is the Cauchy-Binet expansion of any  minor $(\overline{Q_\alpha},\overline{Q_\beta})$ of the
-    Laplacian matrix $A_\alpha GR^{-1}A_\beta^t$, generalizing a graph's weighted
-    discrete Laplacian.  (Note $\frac{1}{r_E}r_{\overline B}=(r^{-1})_B$.)
+    weighted graph Laplacian-like matrix $A_\alpha GR^{-1}A_\beta^t$.\\
+    (Note $\frac{1}{r_E}r_{\overline B}=(r^{-1})_B$.)
 \end{frame}
 
 \begin{frame}{Examples}
@@ -554,7 +554,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
     \\ \\
     \begin{array}{c}
       A_\alpha, N_\alpha \text{ as above. }A_\beta=\\
-      +1\text{\ entries of\ }A\text{ for a}\\
+      \text{only the\ } +1\text{\ entries of\ }A\text{ for a}\\
       \text{directed graph, so }+1\text{\ is for}\\
       \text{an edge head on a vertex.}\\
     \end{array}
