@@ -698,7 +698,11 @@ L[Q_\alpha \overline{Q_\beta} E] =
   \end{center}
 \end{frame}
 
+\newcommand{\COEF}{\Reals}
 
+\begin{frame}{Chain Complexes Vies (Alg. Topology, Homological Alg.)}
+
+\end{frame}
 
 
 
@@ -725,4 +729,18 @@ L[Q_\alpha \overline{Q_\beta} E] =
 
 \end{document}
  
+
+
+  A graph is a $k$-dim simplicial complex $X$ with $k=1$.\\
+  In general, for us,
+  the $k$-chains $C_k=Z[P\dunion E]$ $=\{ \sum_{x\in P\dunion E} c_e e\}$ are
+  the free abelian group with basis $P\dunion E$.\\
+  The $k$-cochains $C^k = \text{Hom}(C_k,\COEF)$ is the space of linear maps
+  from $C_k$ to a coefficient ring $\Reals$.\\
+  The $k$-complex $X=\dunion_{i=0}^{k}X_k$ ($X_k$ is the set of $k$-simplices) determines,
+  (or the chain complex might just be subspaces given with)
+  \textbf{boundary maps} $\partial_j:C_j\rightarrow C_{j-1}$ for $j=0,...,k$ that satisfy
+  $\partial_{j-1}\circ\partial_{j}=0$ for each $j$.\\
+  The dual $\partial^{j}:C^{j}\rightarrow C^{j+1}$ is defined by
+  %  $(\partial^j(u^*))(v)=u^*(\partial^
 
