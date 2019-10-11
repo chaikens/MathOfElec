@@ -139,12 +139,29 @@ Univ. at Albany\\
   is a universal Tutte function.
   \end{block}
   
-  \begin{block}{Normal Tutte Functions}
-    (Zaslavsky) With arbitrary $g_e,r_e$, the \emph{normal} Tutte functions are
-  obtained with $i_{\mathbf{coloop(e)}}=g_ey + x$,
+  \begin{block}{Normal Tutte Functions for Matroids}
+    (Zaslavsky, Bollob\'{a}s/Riordan) With arbitrary $g_e,r_e$, and $x$,$y$, the \emph{normal} Tutte functions
+    for matroids are obtained with $i_{\mathbf{coloop(e)}}=g_ey + x$,
   $i_{\mathbf{loop(e)}}=r_ex + y$ and  $i_{\mathbf{\emptyset}}=1$.
-  (Zas. result abt. normal Tutte fun here.)
+    They are exactly the ones with a weighted rank-nullity generating function.\\
+    There's a big story about what relationships among the
+    $g_e, r_e, i_{\mathbf{coloop(e)}} ,i_{\mathbf{loop(e)}}, i_\emptyset$ give others.
   \end{block}
+
+\end{frame}
+
+\begin{frame}{Hopf Alg. from Minor Systems (Krajewski, Moffatt, Tanasa 2017)}
+  \begin{definition}[Minor System]
+    \begin{itemize}
+      \item
+    Finite combinatorial objects $\{N\}$  w/ ground sets $E(N)$, graded by
+    $|E(N)|$; unique $1$ with $E(1)=\emptyset$; $E(N)$ consists of objects at level $|E(N)|$.
+  \item
+    For distinct $e,f\in E(N)$, deletion \& contraction ops so both ($\backslash\backslash e$ or $// e$) commute
+    with both ($\backslash\backslash f$ or $// f$).
+    \end{itemize}.
+  \end{definition}
+
 
 \end{frame}
 
@@ -155,7 +172,7 @@ Univ. at Albany\\
 \newcommand{\eNbePe}{\ensuremath{\ext{N}_{\beta}^{\perp}}}
 
 
-\begin{frame}{Our setup}
+\begin{frame}{Tutte Functions using determinants: Our setup}
   \begin{itemize}
   \item
     Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
@@ -168,7 +185,7 @@ Univ. at Albany\\
   \item
     Matrix with columns $P_\alpha \dunion P_2 \dunion E$
     \[
-    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    L = L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
     = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
 0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
     \]
@@ -176,10 +193,10 @@ Univ. at Albany\\
 
   Define
   \[
-  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha \overline{Q_\beta} E])
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha \overline{Q_\beta} \alert{E(\text{all of }E)}])
   \]
-  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
-  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|= q \le = |P|$.
+  indexed by length $p=|P|$ sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$ and $\overline{Q_\beta}\subseteq P_\beta$.
     
 \end{frame}
 
@@ -219,7 +236,7 @@ Univ. at Albany\\
     N_{\beta,r_2,e}^\perp
   \end{array}\right]r_e
 \]
-So, 
+So, for all $e\in E$\alert{, that is $e\not\in P$}:
 \[
 F(L)_{Q_\alpha \overline{Q_\beta} } = L[Q_\alpha \overline{Q_\beta} E ] =
 \]
@@ -231,7 +248,14 @@ r_eL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)[Q_\al
 \end{frame}
 
 \begin{frame}
-  Each determinant $L[Q_\alpha \overline{Q_\beta} E]$ is one of $\binom{2p}{p}$ components, so
+  \begin{block}{Since deletion and contraction are done only for $e\not\in P$}
+    we get a \textbf{Ported} (sdc) or \textbf{Set-pointed} (Las Vergnas) or
+    \textbf{restricted} (Dao and Hetyei) Tutte Function.
+  \end{block}
+
+  
+  %  Each determinant $L[Q_\alpha \overline{Q_\beta} E]$ is one of $\binom{2p}{p}$ components, so
+  $|Q_\alpha\overline{Q_\beta}|=p$, so $\binom{2p}{p}$ determinants $L[Q_\alpha \overline{Q_\beta} E]$ make the tuple:
   \[
   F(L) =
   g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
@@ -245,11 +269,16 @@ N/e \text{\ means remove the\ } g_e \text{\ or\ } r_e \text{\ but otherwise keep
 \[
 N\backslash e \text{\ means replace column\ }e\text{\ by\ }0.
 \]
+\begin{block}{Pl\"{u}cker coordinates}
+  These determinants can be considered an \emph{affine} version of the
+  (projective) Pl\"{u}cker coordinates for the row space of $L$ projected
+  into $K^{P_\alpha\dunion P_\beta}$.  We need affine so Tutte's $\mathbf{+}$ identity makes sense.
+\end{block}
 \end{frame}
 
 \begin{frame}
     \begin{equation*}\tag{*}
-  FL(M) =
+  FL\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right) =
   g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
 +
 r_eFL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)
@@ -315,19 +344,19 @@ L[Q_\alpha \overline{Q_\beta} E] =
 %    \\
     \begin{array}{ccl}
       (e_1) & (e_2) & (e_3) \\ 
-      a_1 & a_2 & a_3 \\
-      b_1 & b_2 & b_3 \\ \hline
-      \multicolumn{3}{c}{\ext{N}[e_1e_3]=(a_1b_3-a_3b_1)}
+      \alert{a_1} & a_2 & \alert{a_3} \\
+      \alert{b_1} & b_2 & \alert{b_3} \\ \hline
+      \multicolumn{3}{c}{\ext{N}[e_1e_3]=(\alert{a_1b_3-a_3b_1})}
     \end{array} 
     &
     \begin{array}{cc}
-             & (a_1\mathbf{e}_1+a_2\mathbf{e}_2+a_3\mathbf{e}_3) \\
-      \wedge & (b_1\mathbf{e}_1+b_2\mathbf{e}_2+b_3\mathbf{e}_3) \\ \hline
+             & (\alert{a_1\mathbf{e}_1}+a_2\mathbf{e}_2+\alert{a_3\mathbf{e}_3}) \\
+      \wedge & (\alert{b_1\mathbf{e}_1}+b_2\mathbf{e}_2+\alert{b_3\mathbf{e}_3}) \\ \hline
  %   \multicolumn{2}{c}{((a_1b_2-a_2b_1)\mathbf{e}_1\mathbf{e}_2 +
  %   (a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3 +
  %     (a_2b_3-a_3b_2)\mathbf{e}_2\mathbf{e}_3)}
       \multicolumn{2}{c}{( 
-      (a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3 +
+      \alert{(a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3} +
       \cdots
       )}
     \end{array} 
@@ -415,18 +444,18 @@ L[Q_\alpha \overline{Q_\beta} E] =
 \[
 \begin{split}
   \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
-   & := (\Is(\eNal)(P_\alpha) + \Is_G\eNal(E))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
-  &  = (\Is(\eNal)\wedge\Vs(\eNbePe))
+   & := (\Is(\eNal)(P_\alpha) + \Is_G(\eNal(E)))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
+  &  = (\Is_G(\eNal)\wedge\Vs_R(\eNbePe))
 \end{split}
 \]
 
 \[
 \begin{split}
   \ext{F}_E(\ext{L})& := \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
-  & =   ((\Is(\eNal)\backslash   e + g_e(\Is(\eNal)/e)\wedge\ext{e})                   \\
-  & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e + r_e(\Vs(\eNbePe)/e)\wedge \ext{e}) ) / E \\
-\text{2 of 4 terms}  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \ext{e} \\
-\text{vanish}  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \ext{e}\Big) / E 
+  & =   ((\Is(\eNal)\backslash   e\alert{(\text{no\ }\ext{e})} + g_e(\Is(\eNal)/e)\wedge\alert{\ext{e}})                   \\
+  & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e\alert{(\text{no\ }\ext{e})} + r_e(\Vs(\eNbePe)/e)\wedge \alert{\ext{e}}) ) / E \\
+\alert{\text{2 of 4 terms}}  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \alert{\ext{e}} \\
+\alert{\text{vanish}}  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \alert{\ext{e}}\Big) / E 
   \end{split}
 \]
  
@@ -489,7 +518,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
 \begin{frame}
   With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
     \begin{definition}
-      For a $E$, $P$ sets written as ordered sequences,
+      For $E$, $P$ sets written as ordered sequences,
       \[
       \ext{F}_E(\eNal\;\;\eNbe) = \ext{L}(\eNal\;\;\eNbe)/E
       \]
@@ -502,6 +531,49 @@ L[Q_\alpha \overline{Q_\beta} E] =
       r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
       \end{multline*}
   \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+  \begin{corollary}
+    \begin{enumerate}
+      \item
+       $
+       \ext{F}=\ext{F}_E(\eNal\;\;\eNbe) =
+          \pm\sum_{H\subset E}g_H r_{\overline{H}}
+       \ext{F}_\emptyset
+       (\ext{N}_\alpha /H \backslash\overline{H} \;\;
+        \ext{N}_\beta/H\backslash\overline{H})
+        $
+     \item
+       Componentwise, $\sum_{Q_\alpha,Q_\beta} \ext{F}_E[Q_\alpha \overline{Q}_\beta]
+       \ext{Q}_\alpha\overline{\ext{Q}_\beta}=$
+       \[
+       \begin{split}
+       =&\pm\sum_{Q_\alpha,Q_\beta}\sum_{H\in E} g_H r_{\overline{H}}
+       \ext{N}_\alpha[Q_\alpha H]
+       \ext{N}_\beta^\perp[\overline{Q_\beta}\overline{H}]\\
+       =&
+       \pm\sum_{Q_\alpha,Q_\beta}\sum_{H\in E}g_H r_{\overline{H}}
+       \ext{N}_\alpha[Q_\alpha H]
+       \ext{N}_\beta[Q_\beta H]
+       \end{split}
+       \]
+     \item
+       Two expr. for  products of numbers  $\ext{N}_\alpha[Q_\alpha H]
+       \ext{N}_\beta[Q_\beta H]$:
+       \[
+       (\ext{N}_\alpha/Q_\alpha)[H]\cdot (\ext{N}_\beta/Q_\beta)[H]
+       =
+        (\ext{N}_\alpha/H)[Q_\alpha]\cdot (\ext{N}_\beta/H)[Q_\beta]
+       \]
+     \item
+       It's non-zero iff $H$  is a common basis (in the matroids of)
+       $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$\\
+       iff $Q_\alpha$ is a basis in $\ext{N}_\alpha/H$ and
+       $Q_\beta$ is a basis in $\ext{N}_\beta/H$
+    \end{enumerate}
+  \end{corollary}
 \end{frame}
 
 
