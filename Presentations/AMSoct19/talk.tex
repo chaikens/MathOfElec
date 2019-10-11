@@ -657,6 +657,53 @@ L[Q_\alpha \overline{Q_\beta} E] =
 \end{frame}
 
 
+\begin{frame}{All-Minors Digraph Matrix Tree Theorem Example}
+  \begin{center}
+    \input{DirMTTDemo.pspdftex}
+  \end{center}
+  \begin{center}
+    This contributes the term\\
+    ${\color{magenta}g_F r_{\overline{F}}}{\color{blue}\ext{N}_\alpha[Q_\alpha F]}
+    {\color{red}\ext{N}_\beta[Q_\beta F]}$.\\
+    The {$\color{blue}\mathbf{q_{\alpha 1},q_{\alpha 2}}$ port edges} $\cup$  the
+    {$\color{purple}f_i$} elements {\color{blue}as edges in the graphic matroid} comprise
+    a spanning tree.\\
+     The {$\color{red}\mathbf{q_{\beta 1},q_{\beta 2}}$ port arrows} $\cup$  the
+    {$\color{magenta}f_i$} elements {\color{red} as arrows in a partition matroid} comprise
+    a basis.  Each {\color{red}part (a red cirle)} of the partition is the
+    set of {\color{red}arrows} incident to a vertex, except the star vertex.
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \begin{center} \input{DirMTTDemoSmaller.pspdftex}
+  \end{center}
+  \begin{center}
+    \mbox{\begin{minipage}{0.45\textwidth}
+          Contract the ports.\\
+          \input{DirMTTCrPorts.pspdftex}\\
+          Count the bases in common.
+          ${\color{magenta}g_F r_{\overline{F}}}{\color{blue}\ext{N}_\alpha/Q_\alpha[F]}
+    {\color{red}\ext{N}_\beta/Q_\beta[F]}$.
+           \end{minipage}}
+    \mbox{\begin{minipage}{0.35\textwidth}
+        Contract the non-ports.\\
+        \input{DirMTTCrElts.pspdftex}\\
+        $\alpha$ and $\beta$ ports are bases in the
+        contracted $N_\alpha$ and $N_\beta$ matroids.
+              ${\color{magenta}g_F r_{\overline{F}}}{\color{blue}\ext{N}_\alpha/F[Q_\alpha]}
+    {\color{red}\ext{N}_\beta/F[Q_\beta]}$.
+          \end{minipage}}
+  \end{center}
+\end{frame}
+
+
+
+
+
+
+
 \begin{frame}{Known to EEs: Linear electrical networks with IDEAL AMPLIFIERS}
 
   $N_\alpha i(P,E)=0$  expresses Kirchhoff's current law on currents $i_e$ in the network edges (along edge direction)

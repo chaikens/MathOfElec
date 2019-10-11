@@ -1,0 +1,29 @@
+\begin{picture}(0,0)%
+\includegraphics{DirMTTCrPorts_pspdftex}%
+\end{picture}%
+\setlength{\unitlength}{3158sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(2910,2068)(586,-2115)
+\put(1861,-841){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(2161,-661){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(1081,-361){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(3241,-541){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(1921,-1501){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(2761,-1801){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(1501,-1861){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\put(2581,-1081){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{.56,0,.56}$\mathbf{f_i}$}%
+}}}}
+\end{picture}%
