@@ -1,7 +1,7 @@
 \begin{picture}(0,0)%
 \includegraphics{K4Decomp_pspdftex}%
 \end{picture}%
-\setlength{\unitlength}{2368sp}%
+\setlength{\unitlength}{2210sp}%
 %
 \begingroup\makeatletter\ifx\SetFigFont\undefined%
 \gdef\SetFigFont#1#2#3#4#5{%
@@ -9,7 +9,7 @@
   \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
   \selectfont}%
 \fi\endgroup%
-\begin{picture}(8055,4479)(2236,-4325)
+\begin{picture}(9266,5023)(2236,-4325)
 \put(3601,-211){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_3$}%
 }}}}
 \put(3526,-1111){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_4$}%
@@ -63,8 +63,6 @@
 \put(7876,-586){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e_3$}%
 }}}}
 \put(9301,-3436){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_3$}%
-}}}}
-\put(10126,-3811){\makebox(0,0)[rb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_2$}%
 }}}}
 \put(7951,-1711){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_3$}%
 }}}}
@@ -126,10 +124,34 @@
 }}}}
 \put(9976,-2311){\makebox(0,0)[rb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_2$}%
 }}}}
-\put(8926,-3886){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
-}}}}
 \put(9076,-2236){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
 }}}}
 \put(7501,-2311){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
+}}}}
+\put(4801,539){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}The decomposition ends with minors $\ext{N}/F\overline{F}$.}%
+}}}}
+\put(9151,-4036){\makebox(0,0)[lb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_1$}%
+}}}}
+\put(10276,-1711){\makebox(0,0)[lb]{\smash{{\SetFigFont{11}{13.2}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}$-g_1g_4r_2r_3$}%
+}}}}
+\put(10501,-211){\makebox(0,0)[lb]{\smash{{\SetFigFont{11}{13.2}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}$+g_2g_3r_1r_4$}%
+}}}}
+\put(9376,-136){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}$\ext{N}/e_2e_3$}%
+}}}}
+\put(9226,-1411){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}$\ext{N}/e_1e_4$}%
+}}}}
+\put(9076,-3136){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}$\ext{N}/e_1e_2e_4$}%
+}}}}
+\put(9826,-3436){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}which equals }%
+}}}}
+\put(9826,-3631){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}others, one for}%
+}}}}
+\put(10126,-3811){\makebox(0,0)[rb]{\smash{{\SetFigFont{7}{8.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p_2$}%
+}}}}
+\put(6376,314){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}We show component $\ext{L}_E(\ext{N}\;\;\ext{N})[p_{\alpha 1}p_{\beta 1}p_{\alpha 3}]$:}%
+}}}}
+\put(9826,-3961){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}each spanning tree}%
+}}}}
+\put(9826,-4156){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{.82,0,0}in $e_1e_2e_3e_4$}%
 }}}}
 \end{picture}%
