@@ -7,11 +7,14 @@
 \title{Restricted or Ported Tutte Decomposion and Analogs
   of All-Minors Laplacian Expansions}
 \author{Seth Chaiken\\
-  Assoc. Prof. Emeritus Dept. of Computer Science\\
+%  Assoc. Prof. Emeritus Dept. of Computer Science\\
 Univ. at Albany\\
 \url{schaiken@albany.edu}
 }
-\date{October 13, 2019}
+\date{October 13, 2019\\
+  The occasion of Thomas Zaslavsky's 75th Birthday\\
+  Special Session on Algebraic Combinatorics, AMS meeting\\
+at Binghamton University}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Specialized Symbols
 %
@@ -57,6 +60,7 @@ Univ. at Albany\\
 %
 %Emphasize in color!
 \newcommand{\Remph}[1]{{\color{red}#1}}
+\newcommand{\Bemph}[1]{{\color{blue}#1}}
 %
 
 % Subscripts denoting Current and Voltage
@@ -77,29 +81,17 @@ Univ. at Albany\\
  \titlepage
 \end{frame}
 
-\begin{frame}{What is a parametrized strong Tutte function?}
-  Tutte equations are satisfied in a very general setup:
-  \begin{enumerate}
-  \item Elements $\{e\}$ each with parameters $g_e, r_e$.
-  \item A category $\mathcal{N}$
-    of objects $\ext{N}$ each with ground set $S=S(\ext{N})$
-    of elements.
-  \item For some \emph{decomposible}
-    $\ext{N}$, for one or more \emph{separators} $e\in S(\ext{N})$, the
-    \emph{contraction} and \emph{deletion} operations are defined with
-    results $\ext{N}/e$ and $\ext{N}\backslash e$ in $\mathcal{N}$,
-    with ground sets
-    $S(\ext{N})\backslash\{e\}$
-  \item Some $\ext{N}=\ext{N}_1\oplus\ext{N_2}$ are direct sums, where
-    $S(\ext{N}_1)\cap S(\ext{N}_2)=\emptyset$.
-  \item For each indecomposible $\ext{N}$ with no separators there is
-    an additional parameter $i_{\ext{N}}$ called the \emph{initial value}.
-  \end{enumerate}
-\end{frame}
+\begin{frame}{What is a Strong Tutte function?}
+  
+  Some history.
+  Zaslavsky (1992) in ``Strong Tutte Functions of Matroids and Graphs'' showed what happens
+  with Tutte equations (on a field), with 4 parameters (or weights) (Different notation!)
+  $g_e$, $r_e$,
+  $i_{\ext{loop(e)}}$ and $i_{\ext{coloop(e)}}$
+  for element $e$:
 
-\begin{frame}{Tutte equations, functions and Good Questions}
   \begin{enumerate}
-  \item For all $\ext{N}$ with separator $e\in S(\ext{N})$,
+  \item For all $\ext{N}$ with separator (neither loop nor coloop) $e\in S(\ext{N})$,
     \[
     F(\ext{N}) = g_eF(\ext{N}/e) + r_e(\ext{N}\backslash e)
     \]
@@ -107,65 +99,182 @@ Univ. at Albany\\
     \[
     F(\ext{N}) = F(\ext{N_1})F(\ext{N_2})
     \]
-  \item When $\ext{N}$ is indecomposible,
+  \item When $\ext{N}$ is a loop or coloop on $e$, an initial value is given:
     \[
     F(\ext{N}) = i_{\ext{N}}
     \]
+    (Z.'s term: Point values.)
+    This means there are two parameters (besides $g_e$, $r_e$) for each $e$, so
+    \[
+    F(\ext{loop(e)})=i_{\ext{loop(e)}} \text{\ and\ } F(\ext{coloop(e)})=i_{\ext{coloop(e)}}
+     \]
   \end{enumerate}
-  $F$ is Tutte function when all the Tutte equations are satisfied.
-
-  This MEANS $F(\ext{N})$ is what is computed by applying Tutte
-  equations \emph{in any order they are applicable}.
-  
-  Good Questions: When does $\mathcal{N}$ and parameters ACTUALLY
-  HAVE a Tutte function?  If so, what is a \emph{universal} Tutte function?
-
 \end{frame}
 
-\begin{frame}{Some answers--for Graphs and Matroids}
-
-  \begin{block}{Only loops and coloops need initial values}
-    The only
-    $\ext{N}$ with no separators and no $\ext{N}=\ext{N}_1\oplus\ext{N_2}$
-    for $\ext{N}_i\neq\emptyset$ are $\mathbf{loop}(e)$
-    and $\mathbf{coloop}(e)$.
+\begin{frame}{What happens?}
+  \begin{block}{Those equations might not have a solution!}
+    For (typically \emph{lots of}) equations involving a common \emph{function} $F$, for them
+    ``to have a solution'' MEANS there exists a function $F$ on some domain of matroids
+    so all the equations are satisfied with that $F$.\\
+ This MEANS $F(\ext{N})$ is what is computed by applying Tutte
+ equations \emph{in any order they are applicable}.
   \end{block}
-
-
-  \begin{block}{The famous Tutte Polynomial}
-  Adding all $g_e=r_e=1$, the Tutte polynomial $F(\ext{N})(x,y)$
-  obtained from $i_{\mathbf{loop}(e)}=x$, 
-  $i_{\mathbf{coloop}(e)}=y$ and $i_{\mathbf{\emptyset}}=1$.
-  is a universal Tutte function.
-  \end{block}
-  
-  \begin{block}{Normal Tutte Functions for Matroids}
-    (Zaslavsky, Bollob\'{a}s/Riordan) With arbitrary $g_e,r_e$, and $x$,$y$, the \emph{normal} Tutte functions
-    for matroids are obtained with $i_{\mathbf{coloop(e)}}=g_ey + x$,
-  $i_{\mathbf{loop(e)}}=r_ex + y$ and  $i_{\mathbf{\emptyset}}=1$.
-    They are exactly the ones with a weighted rank-nullity generating function.\\
-    There's a big story about what relationships among the
-    $g_e, r_e, i_{\mathbf{coloop(e)}} ,i_{\mathbf{loop(e)}}, i_\emptyset$ give others.
-  \end{block}
-
+  \begin{block}{Z.'s result}
+    Strong Tutte functions are classified into seven types, each given by
+    conditions on the weights and the initial values.\\
+    Amazingly, the conditions for there to be a solution are all derived by
+    requiring all Tutte decompositions of \textbf{2 or 3 point matroids} in the domain
+    to compute \emph{the same value}.
+      \end{block}
 \end{frame}
 
-\begin{frame}{Hopf Alg. from Minor Systems (Krajewski, Moffatt, Tanasa 2017)}
-  \begin{definition}[Minor System]
-    \begin{itemize}
-      \item
-    Finite combinatorial objects $\{N\}$  w/ ground sets $E(N)$, graded by
-    $|E(N)|$; unique $1$ with $E(1)=\emptyset$; $E(N)$ consists of objects at level $|E(N)|$.
-  \item
-    For distinct $e,f\in E(N)$, deletion \& contraction ops so both ($\backslash\backslash e$ or $// e$) commute
-    with both ($\backslash\backslash f$ or $// f$).
-    \end{itemize}.
+
+\begin{frame}{Maybe more history}
+  All things matroids and Tutte polynomial were around Zaslavsky and
+  the rest of the 1970's MIT gang.  \\
+  After a couple of years, I tried my hand at drawing algorithms for planar
+  graphs, and was led to Tutte's ``How to draw a graph'', and Brook, Smith, Stone
+  and Tutte's ``Dissecting a square into squares.''  Both inverted submatrices of
+  a graph's Laplacian; both had the Matrix Tree Theorem to prove this was possible.
+  Harmonic functions on vertices were used to place vertices (after fixing places of
+  some) and to find sizes of squares so they tiled a square in a given combinatorial
+  pattern.  
+ \end{frame}
+\begin{frame}{Solving electrical problems by counting trees}
+   \begin{block}{Very shocking fact-Maxwell's or Kirchhoff's rule}
+    The equivalent resistance $R_{uv}$
+    between nodes $u$ and $v$ of a resistor network $N$
+    with edge conductances $g_e$ ($=r_e^{-1}$ is
+    \[
+    R_{uv}=\frac{\sum_{F\text{\ a spanning tree in\ } N/(uv) \text{\ with\ } u,v \text{\ identified}}\Pi_{e\in F}g_e}
+    {\sum_{F\text{\ a spanning tree in\ } N}\Pi_{e\in F}g_e}
+    \]
+    So weighted tree enumeration don't just tell us some matrices are invertable.
+   \end{block}
+   Thinking matroids, $N/(uv)$ is $N$ with a different kind of edge, an interface
+   edge $p=uv$ added.  Then,
+   \begin{center}
+     Numerator is $\sum g_F$ over $F$ bases in $N/p$.\\
+     Denominator is $\sum g_F$ over $F$ bases in $N\backslash p$.\\
+     BOTH of these sums are weighted Tutte functions.
+   \end{center}
+\end{frame}
+
+\begin{frame}{Why call $(uv)$ a port?}
+
+  \begin{block}{from ``The Tutte Polynomial of a Ported Matroid'' sdc 1989}
+    We have been motivated by electrical network considerations where the
+branches used to connect the network to other networks are distinguished
+from the branches or variables associated with devices such as resistors or
+capacitors..
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Ported/Set Pointed/Relative Tutte Functions}
+  \begin{definition}[sdc 1989]
+     (\alert{easily updated with weights and oriented matroids})
+    Let $M(E,P)$ be a $P$-ported \alert{oriented} matroid with rank function $\rho$.
+    The $P$-ported \alert{weighted} rank generating function $r_P(M)$ is
+    \[
+    r_P(M) = \sum_{A\subseteq E}[M/A|P]\alert{g_Ar_{\overline{A}}}x^{\rho(M)-\rho(M/A|P)-\rho(A)}y^{|A|-\rho(A)}
+    \]
+    Here $S(M)=P(M)\dunion E(M)$\alert{, and $r_e,g_e$ are weights for each $e\in E$.}\\
+    For any \alert{oriented} matroid $M$ for which $E(M)=\emptyset$, $[\emptyset]=1$ and
+    \[
+      [M] = [M_1][M_2]\cdots[M_k]
+      \]
+      where  $M=M_1\oplus M_2 \cdots M_k$ and each $M_i$ is connected.  These bracket
+      \emph{oriented} matroid symbols comprise, with (the well-known) Tutte Polynomial
+      variables $x$ and $y$, the variables in $r_P(M)$.
   \end{definition}
-
-
 \end{frame}
 
-      
+\begin{frame}{$P$-ported parametrized Tutte Equations}
+  They are the usual, except deletion/contraction of $e$ is
+  \alert{forbidden} when $e\in P$.
+  \begin{definition}
+     An \alert{oriented} matroid $M(P,E)$ is $P$-ported when its
+    ground set $S(M)=P\dunion E$.
+    A function $F$ on \alert{oriented} matroids is a 
+    $P$-ported \alert{weighted} Tutte function if
+    \begin{itemize}
+    \item Whenever $e\in E(M)$, and $e$ is a non-separator in $M$,
+      $F(M) = g_eF(M/e)+r_eF(M\backslash e)$.
+    \item Whenever $M=M_1\oplus M_2$, $F(M)=F(M_1)F(M_2)$.
+    \end{itemize}
+    \begin{theorem} 
+     $r_P$ defined above is (such) a Tutte function.
+    \end{theorem}
+  \end{definition}
+\end{frame}
+
+
+
+\begin{frame}{Ported Tutte Decomposition (not all of it)}
+\hspace{-0.2in}\mbox{\input{K4Decomp.pspdftex}}
+\end{frame}
+
+
+
+
+\begin{frame}{Zaslavsky 1992: It doesn't all work. $r_P$ is not universal.}
+  \[
+ \begin{split}
+   & r_P(\ext{loop(e)}) = g_ey + r_e\\
+   & r_P(\ext{coloop(e)}) = r_ex + g_e
+ \end{split}
+  \]
+  The two Tutte decompositions of the circuit $U^1_{ef}$ on $e,f$ to compute a prospective Tutte function $F$ give
+  \[
+  \begin{split}
+    e \text{\ first\ } F(U^1) &= g_e F(loop(f)) + r_e F(coloop(f)) \\
+    f \text{\ first\ } F(U^1) &= g_f F(loop(e)) + r_f F(coloop(e))
+  \end{split}
+  \]
+  We still need those 4 point values, and they can't be chosen independently
+  of the 4 weights.  Zaslavsky called the class where there are arbitrary $x$, $y$ values
+  and the point values are  $g_ey + r_e$ and $r_ex + g_e$ \emph{normal Tutte functions}.
+\end{frame}
+\begin{frame}{Related work.}
+\begin{itemize} 
+\item
+  $|P|=1$ and series/parallel connections on pointed matroids (Brylawsky (1971)), extended
+  to unions and dual-unions over $P$ (also sdc 1989).
+  \item
+    Matroids called set-pointed on $P$ encoded by products of many variables (Las Vergnas 1975).
+  \item
+    Weighs/colors/parameters (Zaslavsky 1992, Bollob\'{a}s and Riordan 1999, Ellis-Monaghan and Traldi 2006.
+    Much motivation from maps on surfaces and knot theory.
+  \item
+    Dao and Hetyei (2012) named carried out BRZs classfication program,
+    called the matroids relative.  Motivated by knots with ports for virtual crossings.
+    Easy to see this extends to oriented matroids.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{What this talk is about.}
+  \begin{center}\large
+    Some ways determinants make Tutte functions.\\
+    How the graph and other Laplacians ACTUALLY ARE Tutte functions, not just
+    a partcular determinant.\\
+    Ported Tutte functions are needed to tell this story.\\
+    The only Tutte function I know valued in a \textbf{non-commutative ring} (the signed
+    commutative exterior algebra).\\
+    Only normal Tutte functions are relevant, and we only need them with
+    $x=y=0$ (which does $P$-subbasis enumeration).
+  \end{center}
+\end{frame}
+
+
+
+
+
+    
+   
+
+
 \newcommand{\Nal}{\ensuremath{N_{\alpha}}}
 \newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
 \newcommand{\eNal}{\ensuremath{\ext{N}_{\alpha}}}
@@ -250,7 +359,7 @@ r_eL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)[Q_\al
 \begin{frame}
   \begin{block}{Since deletion and contraction are done only for $e\not\in P$}
     we get a \textbf{Ported} (sdc) or \textbf{Set-pointed} (Las Vergnas) or
-    \textbf{restricted} (Dao and Hetyei) Tutte Function.
+    \textbf{relative} (Dao and Hetyei) Tutte Function.
   \end{block}
 
   
@@ -536,8 +645,6 @@ L[Q_\alpha \overline{Q_\beta} E] =
 
 \begin{frame}
   \begin{corollary}
-    \begin{enumerate}
-      \item
        $
        \ext{F}=\ext{F}_E(\eNal\;\;\eNbe) =
           \pm\sum_{H\subset E}g_H r_{\overline{H}}
@@ -545,6 +652,27 @@ L[Q_\alpha \overline{Q_\beta} E] =
        (\ext{N}_\alpha /H \backslash\overline{H} \;\;
         \ext{N}_\beta/H\backslash\overline{H})
         $
+  \end{corollary}
+  \begin{block}{Applying the Tutte Polynomial}
+    \begin{itemize}
+      \item
+    THEREFORE:  We can obtain $\ext{F}$ by doing a ported Tutte decomposition, keeping track of the
+    contraction and deletion order $H$,$\overline{H}$. Then, when we get nodes with no more $e\in E$,
+    substitute the exterior product
+     $\ext{F}_\emptyset
+       (\ext{N}_\alpha /H \backslash\overline{H}
+    \ext{N}_\beta/H\backslash\overline{H})$ which is
+    $\ext{N_\alpha}/H|P\wedge\ext{N_\beta}/H|P$
+  \item When the $\ext{N}_\alpha=\ext{N}_\beta$ represent regular matroids by unimodular matrices, we can do the
+    familiar substition of the Tutte function value(s) $F([M/H|P])$ for the matroid variable (product) $[M/H|P]$.
+    (More research needed to develop how to make sure proper $\pm$ signs are maintained everywhere.)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+      \begin{corollary}
+    \begin{enumerate}
      \item
        Componentwise, $\sum_{Q_\alpha,Q_\beta} \ext{F}_E[Q_\alpha \overline{Q}_\beta]
        \ext{Q}_\alpha\overline{\ext{Q}_\beta}=$
@@ -647,8 +775,8 @@ L[Q_\alpha \overline{Q_\beta} E] =
     \end{array}
     &
     \begin{array}{c}
-      \text{All-minors expansions of}\\
-      \text{the gain graph's Laplacian}
+      \text{All-minors expansions of a}\\
+      \text{signed, genr. gain graph's Laplacian}
     \end{array}\\
     \multicolumn{2}{c}{\text{NB: Edge Gains\ }\gamma_e\text{\ are DIFFERENT ATTRIBUTES}}\\
     \multicolumn{2}{c}{\text{from weights/parameters\ }g_e,r_e}
@@ -675,7 +803,6 @@ L[Q_\alpha \overline{Q_\beta} E] =
   \end{center}
 \end{frame}
 
-
 \begin{frame}
   \begin{center} \input{DirMTTDemoSmaller.pspdftex}
   \end{center}
@@ -698,6 +825,207 @@ L[Q_\alpha \overline{Q_\beta} E] =
   \end{center}
 \end{frame}
 
+
+
+
+
+\begin{frame}{Resistive Network style problems Solved by Tutte Functions}
+  With the $\binom{2p}{p}$ tuple of $(p+n)\times(p+n)$
+  minors of $\ext{L}(\ext{N}\;\;\ext{N})$ all including columns $E$, every electrical style
+  problem can be analyzed.
+  \begin{block}{Input}
+    Choose $1\le k\le p$, and choose from among the set of $2p$ variables
+    $\{v_1,...,v_p;i_1,...,i_p\}$ these 4 subsets:
+    \begin{itemize}
+    \item $k$ ``source'' variables $S=\{s_1,...,s_k\}$.
+    \item $p-k$ ``zero'' variables $Z=\{z_1,...,z_{p-k}\}$ so $S\cap Z=\emptyset$, ie. $|S\cup Z|=p$.
+    \item $k'$ ``response'' variables $R=\{r_1,...,r_{k'}\}$
+    \item $p-k'$ ``don't care'' variables $D=\{d_1,...,d_{p-k}\}$ 
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Question and Answer}
+%  \begin{block}{Question}
+    Does there exist a $k'\times k$ matrix $\Xi$ for all source values $s_i$,
+    \[
+    \Xi(s_1,...,s_k)^t = (r_1,...,r_{k'})^t \text{\ is the unique solution in}
+    \]
+    \[
+    \begin{split}    \{ (r_1,...,r_{k'}) |& L( \ext{N}\;\;\ext{N} )(v_1,...,v_p;i_1,...,i_p)^t = 0,\\
+      & s_i \text{\ are given\ }, z_i=0,\\
+      &\text{and there exist\ } d_1,...,d_{p-k'}\}??
+    \end{split}
+    \]
+%  \end{block}
+  \begin{block}{Answer for $S,Z,R,D$}
+    \begin{itemize}
+     \item
+        If $\ext{F}_E(\ext{N}\;\;\ext{N})[SZ]\not=0$, then $\Xi$ exists.
+
+      \item
+        If so, every minor of $\Xi$ is, for some
+        $Q_{\text{Num1}},Q_{\text{Num2}},Q_{\text{Den1}},Q_{\text{Den2}}\subset P_\alpha P_\beta$
+        \[
+        \frac{\sum_{F\subseteq E}\ext{N}[Q_{\text{Num1}}F]\ext{N}[Q_{\text{Num2}}F]g_Fr_{\overline{F}}}
+          {\sum_{F\subseteq E}\ext{N}[Q_{\text{Den1}}F]\ext{N}[Q_{\text{Den2}}F]g_Fr_{\overline{F}}}
+          \]
+          Remember, each (field valued) sum, being a component of
+          $\ext{F}_E(\ext{N}\;\;\ext{N})$,  IS A TUTTE FUNCTION.
+    \end{itemize}
+  \end{block}
+\end{frame}
+          
+
+\begin{frame}{Ported Tutte Decomposition (incomplete)}
+\hspace{-0.2in}\mbox{\input{K4Decomp.pspdftex}}
+\end{frame}
+
+
+
+
+\begin{frame}{Conditions (what sets $F$ are enumerated by one det. $C_i$)
+}
+The \textbf{conditions ...}
+are on the rank, nullity of $F$ and, WHAT ORIENTED MINOR is \
+$G/F\setminus (E\setminus F)$, the minor
+with ONLY PORT EDGES from contracting $F$
+and deleting the other resistor edges, leaving the
+ports.
+
+The conditions for a given $C_k$ \textit{sometimes}
+make all the signs the same (eg: $C_i$ and 
+$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
+
+\textit{Othertimes}, the oriented \textbf{P-minors}
+in the completed Tutte decomposition of $C_k$ determine
+some + and some - signs.
+
+\begin{center}
+\begin{minipage}{0.3\textwidth}
+\begin{tabular}{c}
+When $[G/F|P]$ is \\
+\input{c2plus.pspdftex} \\
+the term is \\
+\Remph{{\LARGE\bf +}}$g_Fr_{E\setminus F}$ \\
+\end{tabular}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\begin{tabular}{c}
+When $[G/F|P]$ is\\
+\input{c2minus.pspdftex}\\
+the term is\\
+\Remph{{\LARGE\bf -}}$g_Fr_{E\setminus F}$\\
+\end{tabular}
+\end{minipage}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Known to EEs: Linear electrical networks with IDEAL AMPLIFIERS}
+
+  $N_\alpha i(P,E)=0$  expresses Kirchhoff's current law on currents $i_e$ in the network edges (along edge direction)
+  and currents $i_p$ into vertices from external connections.\\[.1in]
+  $N_\beta^\perp v(P,E)=0$ expresses Kirchoff's voltage law: The voltage rise along a network edge 
+  $v_e=v_h-v_t$ is the difference of the head and tail vertex potentials.  (Sometimes the vertex potentials are
+  imposed by external connections.)\\[0.1in]
+  $N_\alpha=N_\beta$ in ordinary resistor networks.
+
+  \begin{block}{Different Graphs for $N_\alpha$ and $N_\beta$}
+    W. K. Chen models networks with ideal amplifiers by $N_\alpha$ by one graph on $(P,E)$ called the
+    \textbf{Current Graph} and another graph also on $(P,E)$ called the \textbf{Voltage Graph}.
+  \end{block}
+
+\end{frame}
+    
+
+\begin{frame}
+\frametitle{Voltage and Current graphs $G_V$, $G_I$}
+
+\framebox{\begin{minipage}{0.52\textwidth}
+``Voltage graph'' $G_V$ (EEs Hasler and Neirynck 1986, not Gross, et. al.)
+$\mathbf{v}\in \text{Coboudaries}$ W/ SOME $v_e \equiv 0$
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.4\textwidth}
+``Current graph'' $G_I$ represents KCL
+$\mathbf{i}\in \text{Cycles}$ WITH SOME FLOWS $\equiv 0$
+\end{minipage}}
+
+\begin{itemize}
+\item 
+They are EQUAL GRAPHS for resistor networks.
+
+\item
+For networks with idealized amplifiers, they are not 
+equal.  
+
+\input{idealAmp.pspdftex}
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\item
+(More) realistic amp. model $=$ idealized amp. $+$ 
+resistors.
+
+\end{itemize}
+
+
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{open}
+\vspace{-0.1in}
+\[
+G_v = G\backslash e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{short}
+\vspace{-0.1in}
+\[
+G_v = G/e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{nullator}
+\input{nullator.pspdftex}
+\vspace{-0.1in}
+\[
+G_v = G/e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{norator}
+\input{norator.pspdftex}
+\vspace{-0.1in}
+\[
+G_v = G\backslash e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+
+\end{frame}
+
+
 \newcommand{\COEF}{\Reals}
 
 \begin{frame}{Chain Complexes View (Alg. Topology, Homological Alg.)}
@@ -716,7 +1044,7 @@ L[Q_\alpha \overline{Q_\beta} E] =
   $(\delta^j(u^*))(v)=u^*(\partial_j(v))$.
 \end{frame}
 \begin{frame}
-  In the case $N_\alpha=N_\beta$, generlizing:
+  In the case $N_\alpha=N_\beta$, generalizing:
 
   \begin{itemize}
   \item
@@ -739,30 +1067,20 @@ L[Q_\alpha \overline{Q_\beta} E] =
   
 \end{frame}
 
-
-
-\begin{frame}{Ported Tutte Decomposition (incomplete)}
-\hspace{-0.2in}\mbox{\input{K4Decomp.pspdftex}}
+\begin{frame}{Electribraic Topology--Happy Birthday, have fun Tom.}
+  \begin{minipage}{0.5\textwidth}
+    The left edge is a port containing an electric source.\\
+    \Remph{Red:1-coboundary} Diffs of a potential $\psi$ (0-cobdy).  Coeffs \Remph{$v_e$} are $\ge 0$
+    for the edge $e=u_0u_1$ dirs indicated, so \Remph{$v_e=\psi(u_1)-\psi(u_0)$}.\\
+    \Bemph{Blue:1-cycle} Current (charge flow), $\ge 0$ with arrow. In resistor edge w/ conductance $g_e$,
+    \Bemph{$c_e=g_e(-(\psi(u_1)-\psi(u_0)))$}.\\
+    In the port, either the pot. diff. or the current is set by the source.  Other
+    coefficents are determined by Kirchhoff's and Ohm's laws.
+  \end{minipage}
+  \begin{minipage}{0.40\textwidth}
+    \input{CobCyc.pspdftex}
+  \end{minipage}
 \end{frame}
-
-
-\begin{frame}{Known to EEs: Linear electrical networks with IDEAL AMPLIFIERS}
-
-  $N_\alpha i(P,E)=0$  expresses Kirchhoff's current law on currents $i_e$ in the network edges (along edge direction)
-  and currents $i_p$ into vertices from external connections.\\[.1in]
-  $N_\beta^\perp v(P,E)=0$ expresses Kirchoff's voltage law: The voltage rise along a network edge 
-  $v_e=v_h-v_t$ is the difference of the head and tail vertex potentials.  (Sometimes the vertex potentials are
-  imposed by external connections.)\\[0.1in]
-  $N_\alpha=N_\beta$ in ordinary resistor networks.
-
-  \begin{block}{Different Graphs for $N_\alpha$ and $N_\beta$}
-    W. K. Chen models networks with ideal amplifiers by $N_\alpha$ by one graph on $(P,E)$ called the
-    \textbf{Current Graph} and another graph also on $(P,E)$ called the \textbf{Voltage Graph}.
-  \end{block}
-
-\end{frame}
-    
-
 
 
 \end{document}
@@ -770,4 +1088,98 @@ L[Q_\alpha \overline{Q_\beta} E] =
 
 
  
+
+
+\begin{frame}{Tutte equations, functions and Good Questions}
+  \begin{enumerate}
+  \item For all $\ext{N}$ with separator $e\in S(\ext{N})$,
+    \[
+    F(\ext{N}) = g_eF(\ext{N}/e) + r_e(\ext{N}\backslash e)
+    \]
+  \item When $\ext{N}=\ext{N_1}\oplus\ext{N_2}$,
+    \[
+    F(\ext{N}) = F(\ext{N_1})F(\ext{N_2})
+    \]
+  \item When $\ext{N}$ is indecomposible,
+    \[
+    F(\ext{N}) = i_{\ext{N}}
+    \]
+  \end{enumerate}
+  $F$ is Tutte function when all the Tutte equations are satisfied.
+
+  
+  
+  Good Questions: When does $\mathcal{N}$ and parameters ACTUALLY
+  HAVE a Tutte function?  If so, what is a \emph{universal} Tutte function?
+
+\end{frame}
+
+\begin{frame}{Some answers--for Graphs and Matroids}
+
+  \begin{block}{Only loops and coloops need initial values}
+    The only
+    $\ext{N}$ with no separators and no $\ext{N}=\ext{N}_1\oplus\ext{N_2}$
+    for $\ext{N}_i\neq\emptyset$ are $\mathbf{loop}(e)$
+    and $\mathbf{coloop}(e)$.
+  \end{block}
+
+
+  \begin{block}{The famous Tutte Polynomial}
+  Adding all $g_e=r_e=1$, the Tutte polynomial $F(\ext{N})(x,y)$
+  obtained from $i_{\mathbf{loop}(e)}=x$, 
+  $i_{\mathbf{coloop}(e)}=y$ and $i_{\mathbf{\emptyset}}=1$.
+  is a universal Tutte function.
+  \end{block}
+  
+  \begin{block}{Normal Tutte Functions for Matroids}
+    (Zaslavsky, Bollob\'{a}s/Riordan) With arbitrary $g_e,r_e$, and $x$,$y$, the \emph{normal} Tutte functions
+    for matroids are obtained with $i_{\mathbf{coloop(e)}}=g_ey + x$,
+  $i_{\mathbf{loop(e)}}=r_ex + y$ and  $i_{\mathbf{\emptyset}}=1$.
+    They are exactly the ones with a weighted rank-nullity generating function.\\
+    There's a big story about what relationships among the
+    $g_e, r_e, i_{\mathbf{coloop(e)}} ,i_{\mathbf{loop(e)}}, i_\emptyset$ give others.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Hopf Alg. from Minor Systems (Krajewski, Moffatt, Tanasa 2017)}
+  \begin{definition}[Minor System]
+    \begin{itemize}
+      \item
+    Finite combinatorial objects $\{N\}$  w/ ground sets $E(N)$, graded by
+    $|E(N)|$; unique $1$ with $E(1)=\emptyset$; $E(N)$ consists of objects at level $|E(N)|$.
+  \item
+    For distinct $e,f\in E(N)$, deletion \& contraction ops so both ($\backslash\backslash e$ or $// e$) commute
+    with both ($\backslash\backslash f$ or $// f$).
+    \end{itemize}.
+  \end{definition}
+
+
+\end{frame}
+
+\begin{frame}{Some generalization..}
+  Tutte equations are satisfied in a very general setup:
+  \begin{enumerate}
+  \item Elements $\{e\}$ each with parameters $g_e, r_e$.
+  \item A category $\mathcal{N}$
+    of objects $\ext{N}$ each with ground set $S=S(\ext{N})$
+    of elements.
+  \item For some \emph{decomposible}
+    $\ext{N}$, for one or more \emph{separators} $e\in S(\ext{N})$, the
+    \emph{contraction} and \emph{deletion} operations are defined with
+    results $\ext{N}/e$ and $\ext{N}\backslash e$ in $\mathcal{N}$,
+    with ground sets
+    $S(\ext{N})\backslash\{e\}$
+  \item Some $\ext{N}=\ext{N}_1\oplus\ext{N_2}$ are direct sums, where
+    $S(\ext{N}_1)\cap S(\ext{N}_2)=\emptyset$.
+  \item For each indecomposible $\ext{N}$ with no separators there is
+    an additional parameter $i_{\ext{N}}$ called the \emph{initial value}.
+  \end{enumerate}
+\end{frame}
+
+
+     Weighted/parametrized/colored Tutte fun. by Bollob\'{a}s/Riordan (1999), 
+weighted/parametrized/colored Tutte fun
+
+
 
