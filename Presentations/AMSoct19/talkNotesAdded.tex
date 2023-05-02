@@ -1,0 +1,1185 @@
+%\documentclass{article}
+%\usepackage{beamerarticle}
+\documentclass{beamer}
+%\mode<presentation>
+\usepackage{cite}
+\usepackage{amsmath}
+\title{Restricted or Ported Tutte Decomposion and Analogs
+  of All-Minors Laplacian Expansions}
+\author{Seth Chaiken\\
+%  Assoc. Prof. Emeritus Dept. of Computer Science\\
+Univ. at Albany\\
+\url{schaiken@albany.edu}
+}
+\date{October 13, 2019\\
+  The occasion of Thomas Zaslavsky's 75th Birthday\\
+  Special Session on Algebraic Combinatorics, AMS meeting\\
+at Binghamton University}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialized Symbols
+%
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}{\coprod}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+%{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%best choice: {\mbox{\hbox{\hskip0.45em$\cdot$\hskip-0.44em$\cup$\hskip0.2em}}}
+%{\mbox{\hbox{\hskip0.45em$+$\hskip-0.70em$\cup$\hskip0.3em}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+%\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+%\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\mbox{r}}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%
+%   Put a symbol for a matroid in a box, or brackets
+%\newcommand{\MVAR}[1]{{\boxed{#1}\;}}
+\newcommand{\MVAR}[1]{{[#1]\;}}
+%
+\newcommand{\UNION}{\cup} %try to make this bold.
+%
+%Emphasize in color!
+\newcommand{\Remph}[1]{{\color{red}#1}}
+\newcommand{\Bemph}[1]{{\color{blue}#1}}
+%
+
+% Subscripts denoting Current and Voltage
+%\newcommand{\Is}{\ensuremath{I}}
+%\newcommand{\Vs}{\ensuremath{V}}
+\newcommand{\Is}{\ensuremath{\iota}}
+\newcommand{\Vs}{\ensuremath{\upsilon}}
+
+
+%%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+
+
+\begin{frame}
+ \titlepage
+\end{frame}
+
+\begin{frame}{What is a Strong Tutte function?}
+  
+  Some history.
+  Zaslavsky (1992) in ``Strong Tutte Functions of Matroids and Graphs'' showed what happens
+  with Tutte equations (on a field), with 4 parameters (or weights) (Different notation!)
+  $g_e$, $r_e$,
+  $i_{\ext{loop(e)}}$ and $i_{\ext{coloop(e)}}$
+  for element $e$:
+
+  \begin{enumerate}
+  \item For all $\ext{N}$ with separator (neither loop nor coloop) $e\in S(\ext{N})$,
+    \[
+    F(\ext{N}) = g_eF(\ext{N}/e) + r_e(\ext{N}\backslash e)
+    \]
+  \item When $\ext{N}=\ext{N_1}\oplus\ext{N_2}$,
+    \[
+    F(\ext{N}) = F(\ext{N_1})F(\ext{N_2})
+    \]
+  \item When $\ext{N}$ is a loop or coloop on $e$, an initial value is given:
+    \[
+    F(\ext{N}) = i_{\ext{N}}
+    \]
+    (Z.'s term: Point values.)
+    This means there are two parameters (besides $g_e$, $r_e$) for each $e$, so
+    \[
+    F(\ext{loop(e)})=i_{\ext{loop(e)}} \text{\ and\ } F(\ext{coloop(e)})=i_{\ext{coloop(e)}}
+     \]
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{What happens?}
+  \begin{block}{Those equations might not have a solution!}
+    For (typically \emph{lots of}) equations involving a common \emph{function} $F$, for them
+    ``to have a solution'' MEANS there exists a function $F$ on some domain of matroids
+    so all the equations are satisfied with that $F$.\\
+ This MEANS $F(\ext{N})$ is what is computed by applying Tutte
+ equations \emph{in any order they are applicable}.
+  \end{block}
+  \begin{block}{Z.'s result}
+    Strong Tutte functions are classified into seven types, each given by
+    conditions on the weights and the initial values.\\
+    Amazingly, the conditions for there to be a solution are all derived by
+    requiring all Tutte decompositions of \textbf{2 or 3 point matroids} in the domain
+    to compute \emph{the same value}.
+      \end{block}
+\end{frame}
+
+
+\begin{frame}{Maybe more history}
+  All things matroids and Tutte polynomial were around Zaslavsky and
+  the rest of the 1970's MIT gang.  \\
+  After a couple of years, I tried my hand at drawing algorithms for planar
+  graphs, and was led to Tutte's ``How to draw a graph'', and Brook, Smith, Stone
+  and Tutte's ``Dissecting a square into squares.''  Both inverted submatrices of
+  a graph's Laplacian; both had the Matrix Tree Theorem to prove this was possible.
+  Harmonic functions on vertices were used to place vertices (after fixing places of
+  some) and to find sizes of squares so they tiled a square in a given combinatorial
+  pattern.  
+ \end{frame}
+\begin{frame}{Solving electrical problems by counting trees}
+   \begin{block}{Very shocking fact-Maxwell's or Kirchhoff's rule}
+    The equivalent resistance $R_{uv}$
+    between nodes $u$ and $v$ of a resistor network $N$
+    with edge conductances $g_e$ ($=r_e^{-1}$ is
+    \[
+    R_{uv}=\frac{\sum_{F\text{\ a spanning tree in\ } N/(uv) \text{\ with\ } u,v \text{\ identified}}\Pi_{e\in F}g_e}
+    {\sum_{F\text{\ a spanning tree in\ } N}\Pi_{e\in F}g_e}
+    \]
+    So weighted tree enumeration don't just tell us some matrices are invertable.
+   \end{block}
+   Thinking matroids, $N/(uv)$ is $N$ with a different kind of edge, an interface
+   edge $p=uv$ added.  Then,
+   \begin{center}
+     Numerator is $\sum g_F$ over $F$ bases in $N/p$.\\
+     Denominator is $\sum g_F$ over $F$ bases in $N\backslash p$.\\
+     BOTH of these sums are weighted Tutte functions.
+   \end{center}
+\end{frame}
+
+\begin{frame}{Why call $(uv)$ a port?}
+
+  \begin{block}{from ``The Tutte Polynomial of a Ported Matroid'' sdc 1989}
+    We have been motivated by electrical network considerations where the
+branches used to connect the network to other networks are distinguished
+from the branches or variables associated with devices such as resistors or
+capacitors..
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Ported/Set Pointed/Relative Tutte Functions}
+  \begin{definition}[sdc 1989]
+     (\alert{easily updated with weights and oriented matroids})
+    Let $M(E,P)$ be a $P$-ported \alert{oriented} matroid with rank function $\rho$.
+    The $P$-ported \alert{weighted} rank generating function $r_P(M)$ is
+    \[
+    r_P(M) = \sum_{A\subseteq E}[M/A|P]\alert{g_Ar_{\overline{A}}}x^{\rho(M)-\rho(M/A|P)-\rho(A)}y^{|A|-\rho(A)}
+    \]
+    Here $S(M)=P(M)\dunion E(M)$\alert{, and $r_e,g_e$ are weights for each $e\in E$.}\\
+    For any \alert{oriented} matroid $M$ for which $E(M)=\emptyset$, $[\emptyset]=1$ and
+    \[
+      [M] = [M_1][M_2]\cdots[M_k]
+      \]
+      where  $M=M_1\oplus M_2 \cdots M_k$ and each $M_i$ is connected.  These bracket
+      \emph{oriented} matroid symbols comprise, with (the well-known) Tutte Polynomial
+      variables $x$ and $y$, the variables in $r_P(M)$.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{$P$-ported parametrized Tutte Equations}
+  They are the usual, except deletion/contraction of $e$ is
+  \alert{forbidden} when $e\in P$.
+  \begin{definition}
+     An \alert{oriented} matroid $M(P,E)$ is $P$-ported when its
+    ground set $S(M)=P\dunion E$.
+    A function $F$ on \alert{oriented} matroids is a 
+    $P$-ported \alert{weighted} Tutte function if
+    \begin{itemize}
+    \item Whenever $e\in E(M)$, and $e$ is a non-separator in $M$,
+      $F(M) = g_eF(M/e)+r_eF(M\backslash e)$.
+    \item Whenever $M=M_1\oplus M_2$, $F(M)=F(M_1)F(M_2)$.
+    \end{itemize}
+    \begin{theorem} 
+     $r_P$ defined above is (such) a Tutte function.
+    \end{theorem}
+  \end{definition}
+\end{frame}
+
+
+
+\begin{frame}{Ported Tutte Decomposition (not all of it)}
+\hspace{-0.2in}\mbox{\input{K4Decomp.pspdftex}}
+\end{frame}
+
+
+
+
+\begin{frame}{Zaslavsky 1992: It doesn't all work. $r_P$ is not universal.}
+  \[
+ \begin{split}
+   & r_P(\ext{loop(e)}) = g_ey + r_e\\
+   & r_P(\ext{coloop(e)}) = r_ex + g_e
+ \end{split}
+  \]
+  The two Tutte decompositions of the circuit $U^1_{ef}$ on $e,f$ to compute a prospective Tutte function $F$ give
+  \[
+  \begin{split}
+    e \text{\ first\ } F(U^1) &= g_e F(loop(f)) + r_e F(coloop(f)) \\
+    f \text{\ first\ } F(U^1) &= g_f F(loop(e)) + r_f F(coloop(e))
+  \end{split}
+  \]
+  We still need those 4 point values, and they can't be chosen independently
+  of the 4 weights.  Zaslavsky called the class where there are arbitrary $x$, $y$ values
+  and the point values are  $g_ey + r_e$ and $r_ex + g_e$ \emph{normal Tutte functions}.
+\end{frame}
+\begin{frame}{Related work.}
+\begin{itemize} 
+\item
+  $|P|=1$ and series/parallel connections on pointed matroids (Brylawsky (1971)), extended
+  to unions and dual-unions over $P$ (also sdc 1989).
+  \item
+    Matroids called set-pointed on $P$ encoded by products of many variables (Las Vergnas 1975).
+  \item
+    Weighs/colors/parameters (Zaslavsky 1992, Bollob\'{a}s and Riordan 1999, Ellis-Monaghan and Traldi 2006.
+    Much motivation from maps on surfaces and knot theory.
+  \item
+    Dao and Hetyei (2012) named carried out BRZs classfication program,
+    called the matroids relative.  Motivated by knots with ports for virtual crossings.
+    Easy to see this extends to oriented matroids.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{What this talk is about.}
+  \begin{center}\large
+    Some ways determinants make Tutte functions.\\
+    How the graph and other Laplacians ACTUALLY ARE Tutte functions, not just
+    a partcular determinant.\\
+    Ported Tutte functions are needed to tell this story.\\
+    The only Tutte function I know valued in a \textbf{non-commutative ring} (the signed
+    commutative exterior algebra).\\
+    Only normal Tutte functions are relevant, and we only need them with
+    $x=y=0$ (which does $P$-subbasis enumeration).
+  \end{center}
+\end{frame}
+
+
+
+
+
+    
+   
+
+
+\newcommand{\Nal}{\ensuremath{N_{\alpha}}}
+\newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
+\newcommand{\eNal}{\ensuremath{\ext{N}_{\alpha}}}
+\newcommand{\eNbePe}{\ensuremath{\ext{N}_{\beta}^{\perp}}}
+
+
+\begin{frame}{Tutte Functions using determinants: Our setup}
+  \begin{itemize}
+  \item
+    Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
+    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_2 \dunion E$
+    \[
+    L = L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha \overline{Q_\beta} \alert{E(\text{all of }E)}])
+  \]
+  indexed by length $p=|P|$ sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$ and $\overline{Q_\beta}\subseteq P_\beta$.
+    
+\end{frame}
+
+\begin{frame}
+  Column $e$ of $L$ when $e\not\in P$ is
+\[
+\left[\begin{array}{c}
+    N_{\alpha,1,e}g_e\\
+    N_{\alpha,2,e}g_e\\
+    ...\\
+    N_{\alpha,r_1,e}g_e\\
+    N_{\beta,1,e}^\perp r_e\\
+    N_{\beta,2,e}^\perp r_e\\
+    ...\\
+    N_{\beta,r_2,e}^\perp r_e
+  \end{array}\right]
+=
+\left[\begin{array}{c}
+    N_{\alpha,1,e}\\
+    N_{\alpha,2,e}\\
+    ...\\
+    N_{\alpha,r_1,e}\\
+    0\\
+    0\\
+    ...\\
+    0
+  \end{array}\right]g_e
++
+\left[\begin{array}{c}
+    0\\
+    0\\
+    ...\\
+    0\\
+    N_{\beta,1,e}^\perp \\
+    N_{\beta,2,e}^\perp\\
+    ...\\
+    N_{\beta,r_2,e}^\perp
+  \end{array}\right]r_e
+\]
+So, for all $e\in E$\alert{, that is $e\not\in P$}:
+\[
+F(L)_{Q_\alpha \overline{Q_\beta} } = L[Q_\alpha \overline{Q_\beta} E ] =
+\]
+\[
+g_eL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)[Q_\alpha \overline{Q_\beta} E]
++
+r_eL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)[Q_\alpha \overline{Q_\beta} E].
+\]
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Since deletion and contraction are done only for $e\not\in P$}
+    we get a \textbf{Ported} (sdc) or \textbf{Set-pointed} (Las Vergnas) or
+    \textbf{relative} (Dao and Hetyei) Tutte Function.
+  \end{block}
+
+  
+  %  Each determinant $L[Q_\alpha \overline{Q_\beta} E]$ is one of $\binom{2p}{p}$ components, so
+  $|Q_\alpha\overline{Q_\beta}|=p$, so $\binom{2p}{p}$ determinants $L[Q_\alpha \overline{Q_\beta} E]$ make the tuple:
+  \[
+  F(L) =
+  g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
++
+r_eFL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)
+\]
+where
+\[
+N/e \text{\ means remove the\ } g_e \text{\ or\ } r_e \text{\ but otherwise keep column\ }e
+\]
+\[
+N\backslash e \text{\ means replace column\ }e\text{\ by\ }0.
+\]
+\begin{block}{Pl\"{u}cker coordinates}
+  These determinants can be considered an \emph{affine} version of the
+  (projective) Pl\"{u}cker coordinates for the row space of $L$ projected
+  into $K^{P_\alpha\dunion P_\beta}$.  We need affine so Tutte's $\mathbf{+}$ identity makes sense.
+\end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{equation*}\tag{*}
+  FL\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right) =
+  g_eFL\left(\begin{array}{c} \Nal/e\\ \NbePe\backslash e \end{array} \right)
++
+r_eFL\left(\begin{array}{c} \Nal\backslash e\\ \NbePe/e \end{array} \right)
+    \end{equation*}
+Real deletion/contraction removes $e$ from the ground set of the matroid or other
+object, but $N/e,N\backslash e$ still have column $e$.  But (*) holds for all $e\in E$, so
+Laplace's expansion is
+%we have
+a basis expansion:
+\[
+L[Q_\alpha \overline{Q_\beta} E] = \sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[\overline{Q_\beta}\overline{A}]
+\epsilon(Q_\alpha A,\overline{Q_\beta}\overline{A})
+\]
+The $A$ term is $\neq 0$ iff $Q_\alpha A$ is a column basis for $\Nal$ and \\
+$\overline{Q_\beta} \overline{A}$ is a column basis for $\NbePe$.
+So, for each $Q_\alpha \overline{Q_\beta} $
+\[
+L[Q_\alpha \overline{Q_\beta} E] =
+\pm\sum_{A\subseteq E}g_Ar_{\overline{A}}\Nal[Q_\alpha A]\NbePe[\overline{Q_\beta}\overline{A}]
+\epsilon(A,\overline{A})
+\]
+(The non-zero terms all have $|A|=\text{rank}(\Nal)-|Q_\alpha|$.)
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Quick and dirty fix}
+  \begin{enumerate}
+  \item Drag column $e$ to the far right.\\
+    Changes sign of $F(L)$ by $\epsilon(E'e)$.
+  \item Left multiply by a determinant 1 matrix that sends the last column
+    to $(0,...,1g_e,0,...,1r_e)^{\mathbf{t}}$ (if the top or bottom submatrix has just 1 row,
+    do the hack: $\mathbf{N}/e$ is number $\mathbf{N}_{1,e}$ that acts like a matrix with
+    columns $E'$ and no rows.)
+  \item Drag the row with the $1g_e$ to the bottom.\\
+    Changes sign of $F(L)$ by $(-1)^{\rank{\mathbf{\NbePe}}}$
+  \item With $e$ deleted/contracted from the $\mathbf{N}$s defining $L$, define $F$ by
+    $FL_{Q_\alpha \overline{Q_\beta}} = L[Q_\alpha \overline{Q_\beta} E']$
+  \end{enumerate}
+  \begin{block}{Result}
+    \[
+    FL\left( \begin{array}{cc} \Nal \\ \NbePe \end{array} \right)
+    =
+    \epsilon(E'e)\left(
+    g_e (-1)^{\rank(\NbePe)}FL \left( \begin{array}{cc} \Nal/e \\ \NbePe\backslash e \end{array} \right)  +
+    r_e FL \left( \begin{array}{cc} \Nal\backslash e \\ \NbePe/e \end{array} \right) \right)
+    \]
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Simplify calculations /w minors via Exterior Algebra}
+  \[
+  \begin{array}{cc}
+     \begin{minipage}{2in}Full $r$-row minors of matrix $N$ with columns indexed by $S$: 
+     \end{minipage}
+    &
+     \begin{minipage}{2.3in}Coefficients when the exterior product of $N$'s row vectors $\ext{N}$
+       are expressed in basis\\
+       $\{\ext{e}_{i_1}\wedge\ext{e}_{i_2}\cdots\ext{e}_{i_r}|i_1<i_2\cdots<i_r\}$:
+     \end{minipage}\\
+%    \\
+    \begin{array}{ccl}
+      (e_1) & (e_2) & (e_3) \\ 
+      \alert{a_1} & a_2 & \alert{a_3} \\
+      \alert{b_1} & b_2 & \alert{b_3} \\ \hline
+      \multicolumn{3}{c}{\ext{N}[e_1e_3]=(\alert{a_1b_3-a_3b_1})}
+    \end{array} 
+    &
+    \begin{array}{cc}
+             & (\alert{a_1\mathbf{e}_1}+a_2\mathbf{e}_2+\alert{a_3\mathbf{e}_3}) \\
+      \wedge & (\alert{b_1\mathbf{e}_1}+b_2\mathbf{e}_2+\alert{b_3\mathbf{e}_3}) \\ \hline
+ %   \multicolumn{2}{c}{((a_1b_2-a_2b_1)\mathbf{e}_1\mathbf{e}_2 +
+ %   (a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3 +
+ %     (a_2b_3-a_3b_2)\mathbf{e}_2\mathbf{e}_3)}
+      \multicolumn{2}{c}{( 
+      \alert{(a_1b_3-a_3b_1)\mathbf{e}_1\mathbf{e}_3} +
+      \cdots
+      )}
+    \end{array} 
+  \end{array}
+  \]
+  We sometimes omit the $\wedge$ and we can always write:
+  \[
+  \text{(Exterior product)} \ext{N} = \sum_{A\subseteq S; |E|=r}\ext{N}[A]\ext{A}
+  \]
+  Each subset $A$ is ordered $a_1 a_2 \ldots a_r$ \textbf{arbitrarilly} but $\ext{A}$
+  denotes the exterior product of (row coordinate vectors) \textbf{in the same order}
+  \[
+  \ext{A} = \ext{a}_1\ext{a_2}\ldots\ext{a_r}
+  \]
+\end{frame}
+
+\begin{frame}{Catalogs of Oriented Matroid operations\\
+    on the OM of matrix $N$ and on
+    %THE EXTERIOR PRODUCT
+    $\ext{N}=\wedge(\text{rows}(N))$}
+
+\hspace*{-0.35in}$
+    \begin{array}{ccc}
+\text{domain $D$ of operations:} &  \text{chirotopes}            & \text{exterior products} \\
+\text{$D$ is which functions:}                & \pm\chi:B\mapsto\text{sign}(N[B]) & \ext{N}:B\mapsto\ext{N}[B] \\
+\text{type of fun. value}                   & \text{sign}\in\{0,+,-\} &  \text{\bf field value; number}\\ \hline
+\text{deletion\ } \bullet\backslash A  & \pm\chi':B\mapsto\chi(B) & \ext{N}\backslash A:B\mapsto\ext{N}[B]  \\
+\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA] \\
+
+\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
+\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B) \\ \\
+\multicolumn{3}{c}{\parbox{\textwidth}{We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
+    \\
+    $\epsilon$ is an alternating sign function on all finite sequences of elements. }}\\ \\ 
+\text{This implies} & \multicolumn{2}{c}{(\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)}  \\
+\text{commutations} & \multicolumn{2}{c}{(\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)}\\
+
+    \end{array}
+    $
+\end{frame}
+
+
+\begin{frame}{Our setup - again}
+  \begin{itemize}
+  \item
+    Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
+    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_2 \dunion E$
+    \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha\overline{Q_\beta}E])
+  \]
+  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
+    
+\end{frame}
+
+\begin{frame}
+
+\hspace{-0.2in}{\small
+    $
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    $\ \ \ \
+    $
+    F(L)=\text{tuple\ } (L[Q_\alpha \overline{Q_\beta} E])
+    $
+}
+
+\vspace{0.1in}Translate into exterior algebra definitions:
+\[
+\begin{split}
+  \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
+   & := (\Is(\eNal)(P_\alpha) + \Is_G(\eNal(E)))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
+  &  = (\Is_G(\eNal)\wedge\Vs_R(\eNbePe))
+\end{split}
+\]
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L})& := \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
+  & =   ((\Is(\eNal)\backslash   e\alert{(\text{no\ }\ext{e})} + g_e(\Is(\eNal)/e)\wedge\alert{\ext{e}})                   \\
+  & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e\alert{(\text{no\ }\ext{e})} + r_e(\Vs(\eNbePe)/e)\wedge \alert{\ext{e}}) ) / E \\
+\alert{\text{2 of 4 terms}}  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \alert{\ext{e}} \\
+\alert{\text{vanish}}  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \alert{\ext{e}}\Big) / E 
+  \end{split}
+\]
+ 
+
+  %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha \overline{Q_\beta} E])
+\end{frame}
+
+
+\newcommand{\eNbe}{\ensuremath{\ext{N}_\beta}}
+\newcommand{\Nbe}{\ensuremath{N_\beta}}
+
+\begin{frame}
+
+\hspace{-0.2in}{\small
+    $
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    $\ \ \ \
+    $
+    F(L)=\text{tuple\ } (L[Q_\alpha \overline{Q_\beta} E])
+    $
+}
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L}) = \ext{L}/E 
+   = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
+   \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big) / E \\
+%  =  \Big( r_e  \Is(\eNal\backslash e)\wedge & (\Vs(\eNbePe/e))      
+%  + g_e (-1)^{r(\eNbePe)}(\Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \Big) \\
+   %  & \wedge  \ext{e} / E \\
+\end{split}
+\]
+\[  = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
+   \]
+   
+\hspace*{-0.3in}
+\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
+         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
+
+
+%\vspace{0.3in}
+\begin{block}{Result}
+\hspace*{-0.3in}  \mbox{\begin{minipage}{6in}$ = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    (\eNbe\backslash e)^\perp  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right))
+   $\end{minipage}}
+\end{block}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
+    \begin{definition}
+      For $E$, $P$ sets written as ordered sequences,
+      \[
+      \ext{F}_E(\eNal\;\;\eNbe) = \ext{L}(\eNal\;\;\eNbe)/E
+      \]
+    \end{definition}
+    \begin{theorem}
+      \begin{multline*}
+        \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=\\
+        \epsilon(PE')
+        \left(g_e\ext{F}_{E'}(\eNal/e\;\; \eNbe/e) +
+      r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
+      \end{multline*}
+  \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+  \begin{corollary}
+       $
+       \ext{F}=\ext{F}_E(\eNal\;\;\eNbe) =
+          \pm\sum_{H\subset E}g_H r_{\overline{H}}
+       \ext{F}_\emptyset
+       (\ext{N}_\alpha /H \backslash\overline{H} \;\;
+        \ext{N}_\beta/H\backslash\overline{H})
+        $
+  \end{corollary}
+  \begin{block}{Applying the Tutte Polynomial}
+    \begin{itemize}
+      \item
+    THEREFORE:  We can obtain $\ext{F}$ by doing a ported Tutte decomposition, keeping track of the
+    contraction and deletion order $H$,$\overline{H}$. Then, when we get nodes with no more $e\in E$,
+    substitute the exterior product
+     $\ext{F}_\emptyset
+       (\ext{N}_\alpha /H \backslash\overline{H}
+    \ext{N}_\beta/H\backslash\overline{H})$ which is
+    $\ext{N_\alpha}/H|P\wedge\ext{N_\beta}/H|P$
+  \item When the $\ext{N}_\alpha=\ext{N}_\beta$ represent regular matroids by unimodular matrices, we can do the
+    familiar substition of the Tutte function value(s) $F([M/H|P])$ for the matroid variable (product) $[M/H|P]$.
+    (More research needed to develop how to make sure proper $\pm$ signs are maintained everywhere.)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+      \begin{corollary}
+    \begin{enumerate}
+     \item
+       Componentwise, $\sum_{Q_\alpha,Q_\beta} \ext{F}_E[Q_\alpha \overline{Q}_\beta]
+       \ext{Q}_\alpha\overline{\ext{Q}_\beta}=$
+       \[
+       \begin{split}
+       =&\pm\sum_{Q_\alpha,Q_\beta}\sum_{H\in E} g_H r_{\overline{H}}
+       \ext{N}_\alpha[Q_\alpha H]
+       \ext{N}_\beta^\perp[\overline{Q_\beta}\overline{H}]\\
+       =&
+       \pm\sum_{Q_\alpha,Q_\beta}\sum_{H\in E}g_H r_{\overline{H}}
+       \ext{N}_\alpha[Q_\alpha H]
+       \ext{N}_\beta[Q_\beta H]
+       \end{split}
+       \]
+     \item
+       Two expr. for  products of numbers  $\ext{N}_\alpha[Q_\alpha H]
+       \ext{N}_\beta[Q_\beta H]$:
+       \[
+       (\ext{N}_\alpha/Q_\alpha)[H]\cdot (\ext{N}_\beta/Q_\beta)[H]
+       =
+        (\ext{N}_\alpha/H)[Q_\alpha]\cdot (\ext{N}_\beta/H)[Q_\beta]
+       \]
+     \item
+       It's non-zero iff $H$  is a common basis (in the matroids of)
+       $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$\\
+       iff $Q_\alpha$ is a basis in $\ext{N}_\alpha/H$ and
+       $Q_\beta$ is a basis in $\ext{N}_\beta/H$
+    \end{enumerate}
+  \end{corollary}
+\end{frame}
+
+
+
+\begin{frame}{Weighted Laplacian-like matrices}
+
+  Generalize a graph's incidence matrix: Make $P$ label the rows,
+  $E$ the columns of any matrices $A_\alpha,A_\beta$.  Take all $r_e\neq 0$.
+  Then,
+  $N_\alpha = ( I(P)\;\; A_\alpha(E))$ and $N_\beta= (I(P)\;\; A_\beta(E))$, and
+  \vspace{-0.1in}
+   \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} I  &  0  &  A_\alpha  G \\  \hline
+0  & -A_\beta^t  &  IR \end{array}\right] = L\left( \Nal\;\;\; \Nbe \right). \text{\ Do row ops:}
+    \]
+    \vspace{-0.1in}
+    \[
+    \left(\begin{array}{cc} I & -A_\alpha  G R^{-1} \\
+      0 & R^{-1} \end{array} \right) L
+    = \left(\begin{array}{ccc}
+        I & A_\alpha GR^{-1}A_\beta^t& 0 \\
+        0 & -R^{-1}A_\beta ^t    & I
+        \end{array} \right), \text{\ and therefore}
+    \]
+
+    \[
+    \epsilon(Q_\alpha\overline{Q_\alpha})\ext{F}_E(\ext{L})[Q_\alpha \overline{Q_\beta}] =
+       \frac{1}{r_E} \sum_{B\in E}g_B r_{\overline{B}} A_\alpha[\overline{Q_\alpha} B] A_\beta[{\overline{Q_\beta}}B]  
+    \]
+    is the Cauchy-Binet expansion of any  minor $(\overline{Q_\alpha},\overline{Q_\beta})$ of the
+    weighted graph Laplacian-like matrix $A_\alpha GR^{-1}A_\beta^t$.\\
+    (Note $\frac{1}{r_E}r_{\overline B}=(r^{-1})_B$.)
+\end{frame}
+
+\begin{frame}{Examples}
+  
+ \hspace*{-0.25in}$
+  \begin{array}{lc}
+    \begin{array}{c}
+      N_\alpha=N_\beta=N; A = \text{\ graph's}\\
+      \text{incidence matrix w/ columns}\\
+      (0,..0,1,0,..,-1,0,..,0)^t\text{ for}\\
+      \text{each edge; reps. graphic matroid.}
+    \end{array}
+    &
+    \begin{array}{c}
+      \text{The all-minors}\\
+      \text{Matrix Tree Theorem}\\
+    \text{for weighted undirected graphs}
+    \end{array}
+    \\ \\
+    \begin{array}{c}
+      A_\alpha, N_\alpha \text{ as above. }A_\beta=\\
+      \text{only the\ } +1\text{\ entries of\ }A\text{ for a}\\
+      \text{directed graph, so }+1\text{\ is for}\\
+      \text{an edge head on a vertex.}\\
+    \end{array}
+    &
+    \begin{array}{c}
+      \text{The all-minors}\\
+      \text{ Matrix Tree Theorem} \\
+    \text{for weighted directed graphs}
+    \end{array}
+  \\ \\
+    \begin{array}{c}
+      N_\alpha=N_\beta=N; A = \text{\ gain graph's}\\
+      \text{incidence matrix w/ columns}\\
+      (0,..,0,1,0,..,-\gamma_e,0,..,0)^t\text{ for}\\
+      e\text{ with gain } \gamma_e \in \mathbf{C}.
+    \end{array}
+    &
+    \begin{array}{c}
+      \text{All-minors expansions of a}\\
+      \text{signed, genr. gain graph's Laplacian}
+    \end{array}\\
+    \multicolumn{2}{c}{\text{NB: Edge Gains\ }\gamma_e\text{\ are DIFFERENT ATTRIBUTES}}\\
+    \multicolumn{2}{c}{\text{from weights/parameters\ }g_e,r_e}
+  \end{array}
+  $
+\end{frame}
+
+
+\begin{frame}{All-Minors Digraph Matrix Tree Theorem Example}
+  \begin{center}
+    \input{DirMTTDemo.pspdftex}
+  \end{center}
+  \begin{center}
+    This contributes the term\\
+    ${\color{magenta}g_F r_{\overline{F}}}{\color{blue}\ext{N}_\alpha[Q_\alpha F]}
+    {\color{red}\ext{N}_\beta[Q_\beta F]}$.\\
+    The {$\color{blue}\mathbf{q_{\alpha 1},q_{\alpha 2}}$ port edges} $\cup$  the
+    {$\color{purple}f_i$} elements {\color{blue}as edges in the graphic matroid} comprise
+    a spanning tree.\\
+     The {$\color{red}\mathbf{q_{\beta 1},q_{\beta 2}}$ port arrows} $\cup$  the
+    {$\color{magenta}f_i$} elements {\color{red} as arrows in a partition matroid} comprise
+    a basis.  Each {\color{red}part (a red cirle)} of the partition is the
+    set of {\color{red}arrows} incident to a vertex, except the star vertex.
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{center} \input{DirMTTDemoSmaller.pspdftex}
+  \end{center}
+  \begin{center}
+    \mbox{\begin{minipage}{0.45\textwidth}
+          Contract the ports.\\
+          \input{DirMTTCrPorts.pspdftex}\\
+          Count the bases in common.
+          ${\color{magenta}g_F r_{\overline{F}}}{\color{blue}\ext{N}_\alpha/Q_\alpha[F]}
+    {\color{red}\ext{N}_\beta/Q_\beta[F]}$.
+           \end{minipage}}
+    \mbox{\begin{minipage}{0.35\textwidth}
+        Contract the non-ports.\\
+        \input{DirMTTCrElts.pspdftex}\\
+        $\alpha$ and $\beta$ ports are bases in the
+        contracted $N_\alpha$ and $N_\beta$ matroids.
+              ${\color{magenta}g_F r_{\overline{F}}}{\color{blue}\ext{N}_\alpha/F[Q_\alpha]}
+    {\color{red}\ext{N}_\beta/F[Q_\beta]}$.
+          \end{minipage}}
+  \end{center}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Resistive Network style problems Solved by Tutte Functions}
+  With the $\binom{2p}{p}$ tuple of $(p+n)\times(p+n)$
+  minors of $\ext{L}(\ext{N}\;\;\ext{N})$ all including columns $E$, every electrical style
+  problem can be analyzed.
+  \begin{block}{Input}
+    Choose $1\le k\le p$, and choose from among the set of $2p$ variables
+    $\{v_1,...,v_p;i_1,...,i_p\}$ these 4 subsets:
+    \begin{itemize}
+    \item $k$ ``source'' variables $S=\{s_1,...,s_k\}$.
+    \item $p-k$ ``zero'' variables $Z=\{z_1,...,z_{p-k}\}$ so $S\cap Z=\emptyset$, ie. $|S\cup Z|=p$.
+    \item $k'$ ``response'' variables $R=\{r_1,...,r_{k'}\}$
+    \item $p-k'$ ``don't care'' variables $D=\{d_1,...,d_{p-k}\}$ 
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Question and Answer}
+%  \begin{block}{Question}
+    Does there exist a $k'\times k$ matrix $\Xi$ for all source values $s_i$,
+    \[
+    \Xi(s_1,...,s_k)^t = (r_1,...,r_{k'})^t \text{\ is the unique solution in}
+    \]
+    \[
+    \begin{split}    \{ (r_1,...,r_{k'}) |& L( \ext{N}\;\;\ext{N} )(v_1,...,v_p;i_1,...,i_p)^t = 0,\\
+      & s_i \text{\ are given\ }, z_i=0,\\
+      &\text{and there exist\ } d_1,...,d_{p-k'}\}??
+    \end{split}
+    \]
+%  \end{block}
+  \begin{block}{Answer for $S,Z,R,D$}
+    \begin{itemize}
+     \item
+        If $\ext{F}_E(\ext{N}\;\;\ext{N})[SZ]\not=0$, then $\Xi$ exists.
+
+      \item
+        If so, every minor of $\Xi$ is, for some
+        $Q_{\text{Num1}},Q_{\text{Num2}},Q_{\text{Den1}},Q_{\text{Den2}}\subset P_\alpha P_\beta$
+        \[
+        \frac{\sum_{F\subseteq E}\ext{N}[Q_{\text{Num1}}F]\ext{N}[Q_{\text{Num2}}F]g_Fr_{\overline{F}}}
+          {\sum_{F\subseteq E}\ext{N}[Q_{\text{Den1}}F]\ext{N}[Q_{\text{Den2}}F]g_Fr_{\overline{F}}}
+          \]
+          Remember, each (field valued) sum, being a component of
+          $\ext{F}_E(\ext{N}\;\;\ext{N})$,  IS A TUTTE FUNCTION.
+    \end{itemize}
+  \end{block}
+\end{frame}
+          
+
+\begin{frame}{Ported Tutte Decomposition (incomplete)}
+\hspace{-0.2in}\mbox{\input{K4Decomp.pspdftex}}
+\end{frame}
+
+
+
+
+\begin{frame}{Conditions (what sets $F$ are enumerated by one det. $C_i$)
+}
+The \textbf{conditions ...}
+are on the rank, nullity of $F$ and, WHAT ORIENTED MINOR is \
+$G/F\setminus (E\setminus F)$, the minor
+with ONLY PORT EDGES from contracting $F$
+and deleting the other resistor edges, leaving the
+ports.
+
+The conditions for a given $C_k$ \textit{sometimes}
+make all the signs the same (eg: $C_i$ and 
+$C_j$ in 1-port equivalent resistance $R=C_i/C_j$)
+
+\textit{Othertimes}, the oriented \textbf{P-minors}
+in the completed Tutte decomposition of $C_k$ determine
+some + and some - signs.
+
+\begin{center}
+\begin{minipage}{0.3\textwidth}
+\begin{tabular}{c}
+When $[G/F|P]$ is \\
+\input{c2plus.pspdftex} \\
+the term is \\
+\Remph{{\LARGE\bf +}}$g_Fr_{E\setminus F}$ \\
+\end{tabular}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\begin{tabular}{c}
+When $[G/F|P]$ is\\
+\input{c2minus.pspdftex}\\
+the term is\\
+\Remph{{\LARGE\bf -}}$g_Fr_{E\setminus F}$\\
+\end{tabular}
+\end{minipage}
+\end{center}
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Known to EEs: Linear electrical networks with IDEAL AMPLIFIERS}
+
+  $N_\alpha i(P,E)=0$  expresses Kirchhoff's current law on currents $i_e$ in the network edges (along edge direction)
+  and currents $i_p$ into vertices from external connections.\\[.1in]
+  $N_\beta^\perp v(P,E)=0$ expresses Kirchoff's voltage law: The voltage rise along a network edge 
+  $v_e=v_h-v_t$ is the difference of the head and tail vertex potentials.  (Sometimes the vertex potentials are
+  imposed by external connections.)\\[0.1in]
+  $N_\alpha=N_\beta$ in ordinary resistor networks.
+
+  \begin{block}{Different Graphs for $N_\alpha$ and $N_\beta$}
+    W. K. Chen models networks with ideal amplifiers by $N_\alpha$ by one graph on $(P,E)$ called the
+    \textbf{Current Graph} and another graph also on $(P,E)$ called the \textbf{Voltage Graph}.
+  \end{block}
+
+\end{frame}
+    
+
+\begin{frame}
+\frametitle{Voltage and Current graphs $G_V$, $G_I$}
+
+\framebox{\begin{minipage}{0.52\textwidth}
+``Voltage graph'' $G_V$ (EEs Hasler and Neirynck 1986, not Gross, et. al.)
+$\mathbf{v}\in \text{Coboudaries}$ W/ SOME $v_e \equiv 0$
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.4\textwidth}
+``Current graph'' $G_I$ represents KCL
+$\mathbf{i}\in \text{Cycles}$ WITH SOME FLOWS $\equiv 0$
+\end{minipage}}
+
+\begin{itemize}
+\item 
+They are EQUAL GRAPHS for resistor networks.
+
+\item
+For networks with idealized amplifiers, they are not 
+equal.  
+
+\input{idealAmp.pspdftex}
+
+The output voltage and current are whatever makes the input
+voltage and current BOTH BE zero.
+
+\item
+(More) realistic amp. model $=$ idealized amp. $+$ 
+resistors.
+
+\end{itemize}
+
+
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{open}
+\vspace{-0.1in}
+\[
+G_v = G\backslash e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{short}
+\vspace{-0.1in}
+\[
+G_v = G/e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+\framebox{
+\begin{minipage}{0.2\textwidth}
+\Remph{nullator}
+\input{nullator.pspdftex}
+\vspace{-0.1in}
+\[
+G_v = G/e
+\]
+\[ 
+G_I = G\backslash e
+\]
+\end{minipage}}
+\framebox{\begin{minipage}{0.2\textwidth}
+\Remph{norator}
+\input{norator.pspdftex}
+\vspace{-0.1in}
+\[
+G_v = G\backslash e
+\]
+\[
+G_I = G/e
+\]
+\end{minipage}}
+
+\end{frame}
+
+
+\newcommand{\COEF}{\Reals}
+
+\begin{frame}{Chain Complexes View (Alg. Topology, Homological Alg.)}
+
+ A graph is a $k$-dim simplicial complex $X$ with $k=1$.\\
+  In general, for us,
+  the $k$-chains $C_k=Z[P\dunion E]$ $=\{ \sum_{x\in P\dunion E} c_e e\}$ are
+  the free abelian group with basis $P\dunion E$.\\
+  The $k$-cochains $C^k = \text{Hom}(C_k,\COEF)$ is the $\COEF$-module of linear maps
+  from $C_k$ to a coefficient ring $\Reals$.\\
+  The $k$-complex $X=\dunion_{j=0}^{k}X_j$ ($X_j$ is the set of $j$-simplices) determines,
+  (or the chain complex might just be subspaces given with)
+  \textbf{boundary maps} $\partial_j:C_j\rightarrow C_{j-1}$ for $j=0,...,k$ that satisfy
+  $\partial_{j-1}\circ\partial_{j}=0$ for each $j$.\\
+  The dual $\delta^{j}:C^{j-1}\rightarrow C^{j}$ is defined by
+  $(\delta^j(u^*))(v)=u^*(\partial_j(v))$.
+\end{frame}
+\begin{frame}
+  In the case $N_\alpha=N_\beta$, generalizing:
+
+  \begin{itemize}
+  \item
+    $\ext{N}$ ($\wedge$ of the rows on $N_\alpha$) represents the $k$-coboundary group
+    $B^k=\text{img}(\delta_k)$.
+  \item
+    The equation $N_\alpha\left(\begin{array}{c} I \\ G  \end{array}\right)(J_P\;\;X_E)^t = 0$
+    says $\left(\begin{array}{c} I \\ G  \end{array}\right)(J_P\;\;X_E)\in Z_1$, is a $k$-cycle.
+     (Electrically, a flow of currents in edges.)
+  \item
+    $\ext{N}^\perp$ ($\wedge$ of the rows of $N^\perp$) represents the $k$-cycle group
+    $Z_k=\text{ker}(\partial_k)$. 
+  \item
+    The equation $N^\perp\left(\begin{array}{c} I \\ R  \end{array}\right)(V_P\;\;X_E)^t = 0$
+    says $\left(\begin{array}{c} I \\ R  \end{array}\right)(V_P\;\;X_E)\in Z_1$, is a $k$-coboundary
+    $\delta_k \psi$.
+    (Electrically, $\delta_1 \psi$ maps each edge (1-simplex) to the difference of electrical
+    potential assigned to vertices (a 1-cochain) $\delta_1(\psi)(v_0v_1) = \psi(v_1)-\psi(v_0)$.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}{Electribraic Topology--Happy Birthday, have fun Tom.}
+  \begin{minipage}{0.5\textwidth}
+    The left edge is a port containing an electric source.\\
+    \Remph{Red:1-coboundary} Diffs of a potential $\psi$ (0-cobdy).  Coeffs \Remph{$v_e$} are $\ge 0$
+    for the edge $e=u_0u_1$ dirs indicated, so \Remph{$v_e=\psi(u_1)-\psi(u_0)$}.\\
+    \Bemph{Blue:1-cycle} Current (charge flow), $\ge 0$ with arrow. In resistor edge w/ conductance $g_e$,
+    \Bemph{$c_e=g_e(-(\psi(u_1)-\psi(u_0)))$}.\\
+    In the port, either the pot. diff. or the current is set by the source.  Other
+    coefficents are determined by Kirchhoff's and Ohm's laws.
+  \end{minipage}
+  \begin{minipage}{0.40\textwidth}
+    \input{CobCyc.pspdftex}
+  \end{minipage}
+\end{frame}
+
+
+\end{document}
+ 
+
+
+ 
+
+
+\begin{frame}{Tutte equations, functions and Good Questions}
+  \begin{enumerate}
+  \item For all $\ext{N}$ with separator $e\in S(\ext{N})$,
+    \[
+    F(\ext{N}) = g_eF(\ext{N}/e) + r_e(\ext{N}\backslash e)
+    \]
+  \item When $\ext{N}=\ext{N_1}\oplus\ext{N_2}$,
+    \[
+    F(\ext{N}) = F(\ext{N_1})F(\ext{N_2})
+    \]
+  \item When $\ext{N}$ is indecomposible,
+    \[
+    F(\ext{N}) = i_{\ext{N}}
+    \]
+  \end{enumerate}
+  $F$ is Tutte function when all the Tutte equations are satisfied.
+
+  
+  
+  Good Questions: When does $\mathcal{N}$ and parameters ACTUALLY
+  HAVE a Tutte function?  If so, what is a \emph{universal} Tutte function?
+
+\end{frame}
+
+\begin{frame}{Some answers--for Graphs and Matroids}
+
+  \begin{block}{Only loops and coloops need initial values}
+    The only
+    $\ext{N}$ with no separators and no $\ext{N}=\ext{N}_1\oplus\ext{N_2}$
+    for $\ext{N}_i\neq\emptyset$ are $\mathbf{loop}(e)$
+    and $\mathbf{coloop}(e)$.
+  \end{block}
+
+
+  \begin{block}{The famous Tutte Polynomial}
+  Adding all $g_e=r_e=1$, the Tutte polynomial $F(\ext{N})(x,y)$
+  obtained from $i_{\mathbf{loop}(e)}=x$, 
+  $i_{\mathbf{coloop}(e)}=y$ and $i_{\mathbf{\emptyset}}=1$.
+  is a universal Tutte function.
+  \end{block}
+  
+  \begin{block}{Normal Tutte Functions for Matroids}
+    (Zaslavsky, Bollob\'{a}s/Riordan) With arbitrary $g_e,r_e$, and $x$,$y$, the \emph{normal} Tutte functions
+    for matroids are obtained with $i_{\mathbf{coloop(e)}}=g_ey + x$,
+  $i_{\mathbf{loop(e)}}=r_ex + y$ and  $i_{\mathbf{\emptyset}}=1$.
+    They are exactly the ones with a weighted rank-nullity generating function.\\
+    There's a big story about what relationships among the
+    $g_e, r_e, i_{\mathbf{coloop(e)}} ,i_{\mathbf{loop(e)}}, i_\emptyset$ give others.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Hopf Alg. from Minor Systems (Krajewski, Moffatt, Tanasa 2017)}
+  \begin{definition}[Minor System]
+    \begin{itemize}
+      \item
+    Finite combinatorial objects $\{N\}$  w/ ground sets $E(N)$, graded by
+    $|E(N)|$; unique $1$ with $E(1)=\emptyset$; $E(N)$ consists of objects at level $|E(N)|$.
+  \item
+    For distinct $e,f\in E(N)$, deletion \& contraction ops so both ($\backslash\backslash e$ or $// e$) commute
+    with both ($\backslash\backslash f$ or $// f$).
+    \end{itemize}.
+  \end{definition}
+
+
+\end{frame}
+
+\begin{frame}{Some generalization..}
+  Tutte equations are satisfied in a very general setup:
+  \begin{enumerate}
+  \item Elements $\{e\}$ each with parameters $g_e, r_e$.
+  \item A category $\mathcal{N}$
+    of objects $\ext{N}$ each with ground set $S=S(\ext{N})$
+    of elements.
+  \item For some \emph{decomposible}
+    $\ext{N}$, for one or more \emph{separators} $e\in S(\ext{N})$, the
+    \emph{contraction} and \emph{deletion} operations are defined with
+    results $\ext{N}/e$ and $\ext{N}\backslash e$ in $\mathcal{N}$,
+    with ground sets
+    $S(\ext{N})\backslash\{e\}$
+  \item Some $\ext{N}=\ext{N}_1\oplus\ext{N_2}$ are direct sums, where
+    $S(\ext{N}_1)\cap S(\ext{N}_2)=\emptyset$.
+  \item For each indecomposible $\ext{N}$ with no separators there is
+    an additional parameter $i_{\ext{N}}$ called the \emph{initial value}.
+  \end{enumerate}
+\end{frame}
+
+
+     Weighted/parametrized/colored Tutte fun. by Bollob\'{a}s/Riordan (1999), 
+weighted/parametrized/colored Tutte fun
+
+
+
