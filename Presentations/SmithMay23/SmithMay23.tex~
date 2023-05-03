@@ -1,0 +1,473 @@
+\documentclass[24pt, landscape, margin=0mm, innermargin=15mm, blockverticalspace=15mm, colspace=15mm, subcolspace=8mm]{tikzposter}
+%default fontsize is 25pt
+
+\geometry{paperwidth=36in, paperheight=47in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \tableau{} sets up an alignment with zero spacing, boxing each entry
+% with \tableaucell{}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsthm, amsmath, amssymb, amsopn}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+
+\definecolor{Blue}{rgb}{.255,.41,.884} % RoyalBlue of svgnames
+\definecolor{Red}{rgb}{1, 0, 0} % Red of svgnames
+\definecolor{Green}{rgb}{.196,.804,.196} % LimeGreen of svgnames
+\definecolor{Yellow}{rgb}{1,.648,0} % Orange of svgnames
+
+\def\B{{\mathcal{B}}}
+\newcommand{\calp}{{\cal P}}
+\newcommand{\cals}{{\cal S}}
+\newcommand{\calw}{{\cal W}}
+\newcommand{\calh}{{\cal H}}
+\newcommand{\bF}{{\mathbb F}}
+\newcommand{\fs}{\mathfrak S}
+\newcommand{\bari}{\overline{\imath}}
+\newcommand{\barj}{\overline{\jmath}}
+\newcommand{\fg}{\mathfrak G}
+\newcommand{\arr}{\begin{picture}(30,5) \put(3,2.5){\vector(1,0){24}} \end{picture}}
+\newcommand{\arrl}[1]{\stackrel{#1}{\arr}}
+
+%Dave's macros for fixing running heads, xarrows...
+%\addtolength\headheight{2pt}
+
+%\setlength{\parskip}{5pt}
+%%\setlength{\parindent}{0pt}
+%\setlength{\textheight}{9in}
+%\setlength{\topmargin}{-.50in}
+%\setlength{\oddsidemargin}{.125in}
+%\setlength{\evensidemargin}{.125in}
+%\setlength{\textwidth}{6.25in}
+
+\newcommand{\casetwo}[3]{\left\{ \begin{array}{ll} #1 &\mbox{if $#2$} \\ [0.04in] #3 &\mbox{otherwise}\,. \end{array} \right.}
+\DeclareMathOperator{\arm}{arm}
+\DeclareMathOperator{\leg}{leg}
+\DeclareMathOperator{\comaj}{comaj}
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\Inv}{Inv}
+\DeclareMathOperator{\des}{des}
+\DeclareMathOperator{\Des}{Des}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\maj}{maj}
+\DeclareMathOperator{\cinv}{cinv}
+\DeclareMathOperator{\mdes}{mdes}
+\DeclareMathOperator{\mcinv}{mcinv}
+\DeclareMathOperator{\south}{r}
+
+\newlength{\cellsize}
+\cellsize=2.5ex
+
+
+% \tableau{} sets up an alignment with zero spacing, boxing each entry
+% with \tableaucell{}.
+
+\newcommand\tableau[1]{
+\vcenter{
+\let\\=\cr
+\baselineskip=-16000pt
+\lineskiplimit=16000pt
+\lineskip=0pt
+\halign{&\tableaucell{##}\cr#1\crcr}}}
+
+% \tableaucell{} generates a square box of side length \cellsize.  If
+% its argument is non-void, it is typeset in math mode, centered in the
+% box, and a frame is drawn.
+
+\newcommand{\tableaucell}[1]{{%
+\def \arg{#1}\def \void{}%
+\ifx \void \arg
+\vbox to \cellsize{\vfil \hrule width \cellsize height 0pt}%
+\else
+\unitlength=\cellsize
+\begin{picture}(1,1)
+\put(0,0){\makebox(1,1){$#1$}}
+\put(0,0){\line(1,0){1}}
+\put(0,1){\line(1,0){1}}
+\put(0,0){\line(0,1){1}}
+\put(1,0){\line(0,1){1}}
+\end{picture}%
+\fi}}
+
+\makeatletter
+\let\cal\mathcal
+\makeatother
+
+\newcommand{\setp}[2]{\mbox{$\{#1\::\:#2\}$}}
+\newcommand{\stackprod}[2]{\prod_{\begin{array}{c}\vspace{-6mm}\;\\ \vspace{-1mm}\scriptstyle{#1}\\ \scriptstyle{#2}\end{array}} }
+
+
+\newtheorem{conj}[equation]{Conjecture}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{dfn}[equation]{Definition}
+\newtheorem{alg}[equation]{Algorithm}
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{rem}[equation]{Remarks}
+\newtheorem{cor}[equation]{Corollary}
+\newtheorem{lem}[equation]{Lemma}
+%\newtheorem{exa}[theorem]{Example}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\makeatletter\@addtoreset{equation}{section}\makeatother
+
+\newcommand{\bN}{{\mathbb N}}
+\newcommand{\bC}{{\mathbb C}}
+\newcommand{\spa}{\;\: }
+\newcommand{\bQ}{{\mathbb Q}} 
+\newcommand{\bZ}{{\mathbb Z}}
+\newcommand{\case}[6]{#1#2 \left\{ \begin{array}{ll} #3 &\mbox{if $#4$} \\#5 & #6\,. \end{array} \right.}
+\newcommand{\cased}[5]{#1#2 \left\{ \begin{array}{ll} #3 &\mbox{if $#4$} \\ \;\\#5 &\mbox{otherwise\,.} \end{array} \right.}
+\newcommand{\map}[3]{\mbox{$#1 \colon #2 \rightarrow #3$}}
+\newcommand{\vsp}{}
+\newcommand{\vsph}{}
+\newcommand{\vsphh}{}
+\newcommand{\boldt}[1]{\vsph{\bf #1}\vsph }
+%\newcommand{\subsection}[1]{\vsphh{\bf #1}\vsphh}
+\newcommand{\newl}{\newline}
+
+\newcommand{\oh}{\overline{h}}
+\newcommand{\eg}{{\rm end}(\gamma)}
+\newcommand{\lra}{\relbar\joinrel\longrightarrow}
+\newcommand{\llra}{\relbar\joinrel\relbar\joinrel\longrightarrow}
+\newcommand{\coe}{\mbox{coeff}}
+\def\R{\mathbb{R}}
+\def\Z{\mathbb{Z}}
+\def\C{\mathbb{C}}
+\def\Q{\mathbb{Q}}
+\def\T{\mathbb{T}}
+\def\O{\mathcal{O}}
+\def\SL{\mathit{SL}}
+\def\L{\mathcal{L}}
+\def\weight{\mathrm{weight}}
+\def\Waff{W_{\mathrm{aff}}}
+\def\ds{\displaystyle}
+\def\hvee{h^\vee}
+\def\h{\mathfrak{h}}
+\def\hR{\mathfrak{h}^*_\mathbb{R}}
+\newcommand{\stacksum}[2]{\sum_{\begin{array}{c}\vspace{-6mm}\;\\ \vspace{-1mm}\scriptstyle{#1}\\ \scriptstyle{#2}\end{array}} }
+\def\jdot{\overline{i}}
+\newcommand{\jd}[1]{\overline{i_{#1}}}
+
+%\newcommand{\smallskip}{\vspace{1mm}}
+%\newcommand{\medskip}{\vspace{2.5mm}}
+%\newcommand{\bigskip}{\vspace{4mm}}
+
+
+\title{An Exterior Algebra Valued Tutte Function on Linear Matroids or their Pairs}
+
+\author{Seth Chaiken, University at Albany}
+% Only used if using @institute in settitle below
+%\institute{State University of New York at Albany}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: Custom settings (themes/colors/title)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{{{
+
+%\hspace{-15cm}
+%\includegraphics{fpsac2015logo}
+%\hspace{36.5cm}
+
+%\titlegraphic{
+%\vspace{2cm}
+%\includegraphics[scale=1.2]{banner}
+%}
+
+\makeatletter
+\def\TP@titlegraphictotitledistance{-1cm}
+\settitle{ 
+    \centering
+    \vspace{-2cm}
+    \vbox{
+    \color{titlefgcolor}
+    \hspace*{-11em}
+    {\bfseries \Huge \sc  \@title \par}
+    \vspace*{1em}
+    {\huge \@author} 
+    %\hspace{10em}  
+    %\vspace*{1em} 
+    %{\LARGE \@institute}
+    \\[\TP@titlegraphictotitledistance]
+    {\@titlegraphic}
+
+}
+}
+\makeatother
+
+% define a user theme
+\definecolorstyle{mystyle} {
+    \definecolor{colorOne}{named}{purple}
+    \definecolor{colorTwo}{named}{yellow}
+    \definecolor{colorThree}{named}{white}
+}{
+    % Background Colors
+    \colorlet{backgroundcolor}{white}
+    \colorlet{framecolor}{yellow!}
+    % Title Colors
+    \colorlet{titlefgcolor}{black}
+    \colorlet{titlebgcolor}{white}
+    % Block Colors
+    %\colorlet{blocktitlebgcolor}{yellow}
+    \colorlet{blocktitlebgcolor}{white}
+    \colorlet{blocktitlefgcolor}{purple}
+    \colorlet{blockbodybgcolor}{white}
+    \colorlet{blockbodyfgcolor}{black}
+    % Innerblock Colors
+    \colorlet{innerblocktitlebgcolor}{white}
+    \colorlet{innerblocktitlefgcolor}{black}
+    \colorlet{innerblockbodybgcolor}{colorThree!30!white}
+    \colorlet{innerblockbodyfgcolor}{black}
+    % Note colors
+    \colorlet{notefgcolor}{black}
+    \colorlet{notebgcolor}{colorTwo!50!white}
+    \colorlet{noteframecolor}{colorOne}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme selection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Default, Basic, Envelope, Wave, VerticalShading, Filled, Empty.
+\usetitlestyle{Basic}
+
+% Default, Australia, Britain, Sweden, Spain, Russia, Denmark, Germany
+\usecolorstyle{mystyle}
+%\usecolorstyle{Australia}
+
+% Default, Rays, VerticalGradation,  BottomVerticalGradation, Empty
+\usebackgroundstyle{VerticalGradation}
+
+% Default, Basic, Minimal, Envelope, Corner, Slide, TornOut
+%\useblockstyle[titleleft ]{Slide}
+%titleinnersep=0cm
+\useblockstyle[titleleft, titleinnersep=0cm]{Envelope}
+% Default, Table
+\useinnerblockstyle[titleleft, titleinnersep=.5cm]{Default}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usetheme{Autumn}\usecolorstyle[colorPalette=BrownBlueOrange]{Germany}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: end custom settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle[titletotopverticalspace=5.5cm, titletoblockverticalspace=2.5cm]
+
+\begin{columns} 
+\column{0.25}
+
+
+%\block{}
+
+\include{Summary.tex}
+
+
+
+\column{0.25}
+
+\include{History.tex}
+
+\end{columns}
+
+
+
+\end{document}
+
+
+\block{The Tableau Model}{
+
+
+ With the removal of the $\tilde{f_0}$ arrows, in types $A_{n-1}$ and $C_n$, we have 
+$\textbf{B}^{k,1}\cong \textbf{B}(\omega_k)$
+and in types $C_n$ and $D_n$, we have 
+$$\textbf{B}^{k,1}\cong \textbf{B}(\omega_k) \sqcup \textbf{B}(\omega_{k-2}) \sqcup \textbf{B}(\omega_{k-4})\sqcup\hdots$$
+where each $B(\omega_k)$ is given by $KN$ columns of height $k$.  These are strictly increasing fillings of the columns with entries $1<2<\hdots <n$ in type $A_{n-1}$.  With some additional conditions, they are fillings with entries $1<\hdots <n<\overline{n} <\hdots <\overline{1}$ in type $C_n$. Types $B_n$ and $D_n$ are similar.
+
+}
+
+\block{Type $A_4$ Crystal Graph of $\textbf{B}^{3,1}\otimes\textbf{B}^{2,1}$}{
+
+
+%\includepdf[pages={-}]{KR_example.pdf}
+%\includegraphics[scale=.65]{KR_example.pdf}
+MISSING GRAPHIC HERE
+} 
+
+\column{.25}
+\block{The Quantum Alcove Model for $\textbf{B}^{\textbf{p}}$}{
+
+The main ingredient is the Weyl group $\textbf{W} = \langle s_\alpha :\alpha\in\Phi\rangle$.
+
+The \textit{quantum Bruhat graph} on \textbf{W} is the directed graph with labeled edges $w \xrightarrow{\alpha} ws_\alpha,$ where 
+
+\hspace{24pt} $l(ws_\alpha) = l(w) + 1$ (Bruhat graph), or 
+
+\hspace{24pt} $l(ws_\alpha) = l(w) + 1 - 2\langle\rho,\alpha^{\vee}\rangle.$
+
+\vspace{12pt}\textcolor{Blue}{Definition.} Given a dominant weight $\lambda=\omega_{p_1}+\hdots + \omega_{p_r}$, we associate with it a sequence of roots, called a $\lambda - chain$ (many choices possible): $$\Gamma = (\beta_1,\beta_2,\hdots,\beta_m).$$
+Let $r_i := s_{\beta_i}$.  We consider subsets of positions in $\Gamma$ $$J = (j_1<j_2<\hdots <j_s)\subseteq \{1,\hdots,m\}.$$
+
+\textcolor{Blue}{Definition.} A subset $J = \{j_1<j_2<\hdots < j_s\}$ is \textit{admissible} if we have a path in the quantum Bruhat graph $$Id = w_0\xrightarrow{\beta_{j_1}} r_{j_1}\xrightarrow{\beta_{j_2}} r_{j_1}r_{j_2} \hdots \xrightarrow{\beta_{j_s}} r_{j_1}\hdots r_{j_s}.  $$
+
+\textcolor{blue}{Theorem [LNSSS, 2016]:} The collection of all admissible subsets, $\cm{A}(\Gamma)$,is a combinatorial model for $\textbf{B}^{\textbf{p}}$.
+
+
+}
+
+\block{The Two Realizations}{
+
+\begin{itemize}
+\item The Tableaux model is simpler and has less structure.
+\item The Quantum Alcove model has extra structure which makes it easier to do several computations (energy function, combinatorial R-Matrix, charge statistic$\hdots$)
+
+\end{itemize}
+
+}
+
+\block{Relating the Two Models}{
+
+ We build a forgetful map $fill:\mathcal{A}(\Gamma)\rightarrow Tableau(\lambda)$ where $\lambda=\omega_{p_1}+\hdots\omega_{p_r}$.  
+
+\vspace{12pt}\textcolor{blue}{Definition:} For any $k = 1,\hdots,n-1$ we define $\Gamma(k)$ to be the following chain of roots: 
+$$((k,k+1),(k,k+2),\hdots,(k,n)\hdots$$
+$$(2,k+1),(2,k+2),\hdots,(2,n)$$
+$$(1,k+1),(1,k+2),\hdots,(1,n))$$
+
+\vspace{12pt}\textcolor{blue}{Definition:} We construct a \textit{$\lambda$-chain} as a concatenation
+
+ $\Gamma :=\Gamma^{\mu_1}\hdots\Gamma^1$ where $\Gamma^j = \Gamma(p_j)$.
+
+\vspace{12pt}\textcolor{blue}{Example} Consider $n=4$ and $\lambda = (3,2,1,0)$.  Then the associated $\lambda$-chain is $ \Gamma = \Gamma^3\Gamma^2\Gamma^1 =$ $$ ((3,4),(2,4),(1,4) | (2,3),(2,4),(1,3),(1,4) | (1,2),(1,3),(1,4)).$$
+
+
+\vspace{12pt}\textcolor{blue}{Example}
+$J=\{1,2,4,5,8\}\in\mathcal{A}(\Gamma)$.
+$$({\underline{(3,4)}},\underline{(2,4)},(1,4)|\underline{(2,3)},\underline{{(2,4)}},(1,3),{(1,4)}|{\underline{(1,2)}},(1,3),(1,4))$$
+
+
+We get the corresponding path in the Bruhat order/quantum Bruhat graph
+$$id=\begin{array}{l}\tableau{{1}\\{2}\\{\textcolor{Red} 3}} \\ \\ \tableau{{\textcolor{Red} 4}} \end{array} \!\begin{array}{c} \\ \xrightarrow{3,4} \end{array}\! \begin{array}{l}\tableau{{ 1}\\{\textcolor{Red} 2}\\{ 4} \\ \\ {\textcolor{Red}  3}} \end{array} \begin{array}{c} \\ {\xrightarrow{2,4}} \end{array}\! \begin{array}{l}\tableau{{\textcolor{Blue} 1}\\{\textcolor{Blue}{ 3}}}  \\ \tableau{{\textcolor{Blue}{ 4}}\\ \\{ 2}} \end{array}\!  \:|\:  \begin{array}{l}\tableau{{{ 1}}\\{{\textcolor{Red} 3}}} \\ \\ \tableau{{{\textcolor{Red} 4}}\\{ 2}}\end{array}\!\begin{array}{c} \\ \xrightarrow{2,3} \end{array}\!  \begin{array}{l}\tableau{{\ 1}\\{\textcolor{Red} 4}}\\ \\ \tableau{{3}\\{\textcolor{Red} 2}}\end{array} \begin{array}{c} \\ \xrightarrow{2,4} \end{array}\!  \begin{array}{l}\tableau{{\textcolor{Blue} 1}\\{\textcolor{Blue} 2}}\\ \\ \tableau{{3}\\{4}}\end{array} \:|\: 
+\begin{array}{l}\tableau{{\textcolor{Red} 1}\\ \\ {{\textcolor{Red} 2}}\\{3}\\{4}} \end{array} 
+\!\begin{array}{c} \\ \xrightarrow{1,2} \end{array}\!   \begin{array}{l} \tableau{{\textcolor{Blue} 2}\\ \\{1}\\{3}} \\ \tableau{{4}}\end{array} \! = end(J) \,.$$
+
+\vspace{12pt}This gives us $fill(J) = $ \[\tableau{{1}&{1}&{2}\\{3}&{2}&\\{4}&&}\,.\]
+
+}
+
+
+\column{0.25}\block{The Reverse Map in Type $A_{n-1}$}{
+
+ Consider the tableau in $\bigotimes_{i=1}^r B^{p_i,1}$ from the previous example \[f(T)=\tableau{{1}&{1}&{2}\\{3}&{2}&\\{4}&&}\,.\]
+ 
+ Use entries of columns $i$ and $i-1$ viewed as sets to build the desired sub-list of $\Gamma^i$ where the zero column is the size $n$ column of strictly increasing entries.
+
+  
+ This is done with two algorithms: \textcolor{Blue}{Reorder and Greedy}
+ 
+ The resulting bijection is a crystal isomorphism [LL,2015].
+
+
+}
+
+
+ 
+ \block{The Reorder Rule}{
+
+First, let us consider the circular order
+\[a\preceq_a a+1\preceq_a\ldots\preceq_a n\preceq_a 1\preceq_a\ldots\preceq_a a-1\,.\]
+
+We write all chains in $\preceq_a$ starting with $a$, so the subscript $a$ can be dropped.
+
+Let $C$ and $C'$ be two columns.
+\medskip We fix the entries in $C$ and wish to reorder those in $C'$.
+
+
+\medskip For each $1\leq i \leq \#C'$, we have $$a_i=C'(i) = min\{C'(l):i\leq l \leq \#C'\}$$
+where the minimum is taken with respect to the circle order on [$n$] starting with $C(i)$.
+
+\vspace{12pt}\textcolor{blue}{Example:} If $C = \tableau{{2}\\{1}\\{3}\\{4}}\,$ and $C'=\tableau{{1}\\ {3}\\{4}}$. Then $reorder_C(C') = \tableau{{3}\\ {1}\\{4}}$.
+}
+
+\block{The Greedy Algorithm}{
+
+We now rebuild the desired sublist of $\Gamma_i$ by going through $\Gamma_i$ root by root.   
+
+\vspace{12pt} For root $(j_1,j_2)$ if $C[j_1]\prec C[j_2] \prec \hat{C'}[j_1]$ and $C \xrightarrow{(j_1,j_2)} \hat{C'}$ is in the -corresponding QBG, then apply it. Otherwise skip.  Continue.
+
+\medskip So for our example, we have $\Gamma_1=((3,4),(2,4),(1,4))$
+\medskip and get $$C = \tableau{{1}\\{2}\\{3}\\{4}} \xrightarrow{(3,4)} \tableau{{1}\\{2}\\{4}\\{3}} \xrightarrow{(2,4)} \tableau{{1}\\{3}\\{4}\\{2}}$$
+
+
+}
+
+
+
+
+}
+
+\column{.25}\block{The Type $C_n$ Map}{
+
+\begin{itemize}
+\item The filling map is similar.
+\item The inverse map has one major change.  Many $KN$ columns have both $i$ and $\overline{\imath}$ in them, so we use the splitting algorithm [Lecouvey] to bijectively make two columns with no $i,\overline{\imath}$ pairs in either.
+\item Then similar reorder and greedy algorithms work.
+\item So now the reverse map is made up of a process of \textcolor{Blue}{Split, Reorder, and Greedy}.
+\item \textcolor{blue}{Example:}
+\end{itemize}
+
+
+$$\begin{array}{l}\tableau{{4}\\{5}\\{\overline{5}}\\{\overline{4}}\\{\overline{3}}} \end{array} \!\begin{array}{c} \\ \xrightarrow{split} \end{array}\! \begin{array}{ll}\tableau{{ 4}&{1}\\{5}&{2}\\{ \overline{3}}&{\overline{5}}\\{\overline{2}}&{\overline{4}}\\{\overline{1}}&{\overline{3}}} \end{array}  \,$$
+
+
+\medskip The $\Gamma(k)$ in type $C_n$ comes in two parts.
+\medskip We use the first to get a chain from the left split to the reordered right split
+
+\medskip and the second to get a chain from the right split to the next column's left split.
+
+}
+
+\block{The Type $B_n$ Map}{
+
+\begin{itemize}
+\pause\item There is a similar filling map
+\pause\item For the reverse, similar to $C_n$, we need a splitting map.
+\pause\item Recall that we now have columns of length $k-2l$, so we need to Extend back to length $k$ [Briggs].
+\pause\medskip\item Further, the greedy algorithm and reorder algorithm no longer work.
+\pause\medskip\item There is a configuration of two columns $CC'$ that we call being \textcolor{Blue}{blocked-off}.
+\pause\medskip\item Modify greedy and reorder to avoid block-off pattern.
+\end{itemize}
+
+
+\textcolor{blue}{Definition:} We say that columns $L = (l_1,l_2,...,l_k), R' = (r_1,r_2,...,r_k)$ are \textit{blocked off  at $i$ by $b=r_i$} iff $0<b\geq |l_i|$ \pause and$$\{1,2,...,b\}\subset \{|l_1|,|l_2|,...,|l_i|\}$$ and $$\{1,2,...,b\}\subset \{|r_1|,|r_2|,...,|r_i|\}$$ \vspace{10pt} \pause and $|\{j : 1\leq j\leq i, l_j<0, r_j> 0\}|$ is odd.
+
+}
+
+\block{Further Work}{
+
+\begin{itemize}
+\item The map in type $D_n$  similar to type $B_n$, but there is a second pattern to be avoided in Reorder and Greedy.
+\item The bijections for types $B_n$ and $D_n$ given here are actually crystal isomorphisms.
+\end{itemize}
+
+}
+
+\block{Bibliography}{
+\begin{itemize}
+
+\item C. Lenart, A. Lubovsky,  \textit{J. Algebraic Combin.}, 2015
+
+\item C. Lenart, S. Naito, D. Sagaki, A. Schilling, M. Shimozono,  \textit{Int. Math. Res. Not.}, 2016
+
+\end{itemize}
+}
+
+\end{columns}
+
+\end{document}
+
+ 
+

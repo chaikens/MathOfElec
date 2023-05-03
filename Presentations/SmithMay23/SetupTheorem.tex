@@ -1,0 +1,109 @@
+\block{Setup and Theorem}{
+  \begin{itemize}
+  \item
+    Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
+    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_2 \dunion E$
+    \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha\overline{Q_\beta}E])
+  \]
+  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
+
+
+\vspace{0.1in}Translate into exterior algebra definitions:
+\[
+\begin{split}
+  \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
+   & := (\Is(\eNal)(P_\alpha) + \Is_G(\eNal(E)))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
+  &  = (\Is_G(\eNal)\wedge\Vs_R(\eNbePe))
+\end{split}
+\]
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L})& := \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
+  & =   ((\Is(\eNal)\backslash   e\alert{(\text{no\ }\ext{e})} + g_e(\Is(\eNal)/e)\wedge\alert{\ext{e}})                   \\
+  & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e\alert{(\text{no\ }\ext{e})} + r_e(\Vs(\eNbePe)/e)\wedge \alert{\ext{e}}) ) / E \\
+\alert{\text{2 of 4 terms}}  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \alert{\ext{e}} \\
+\alert{\text{vanish}}  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \alert{\ext{e}}\Big) / E 
+  \end{split}
+\]
+ 
+
+  %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha \overline{Q_\beta} E])
+
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L}) = \ext{L}/E 
+   = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
+   \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big) / E \\
+%  =  \Big( r_e  \Is(\eNal\backslash e)\wedge & (\Vs(\eNbePe/e))      
+%  + g_e (-1)^{r(\eNbePe)}(\Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \Big) \\
+   %  & \wedge  \ext{e} / E \\
+\end{split}
+\]
+\[  = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
+   \]
+   
+\hspace*{-0.3in}
+\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
+         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
+
+
+%\vspace{0.3in}
+
+
+%%%\begin{block}{Result}
+\hspace*{-0.3in}  \mbox{\begin{minipage}{6in}$ = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    (\eNbe\backslash e)^\perp  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right))
+   $\end{minipage}}
+%%%%\end{block}
+
+%%%\end{frame}
+
+
+
+
+%%%%\begin{frame}
+  With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
+    \begin{definition}
+      For $E$, $P$ sets written as ordered sequences,
+      \[
+      \ext{F}_E(\eNal\;\;\eNbe) = \ext{L}(\eNal\;\;\eNbe)/E
+      \]
+    \end{definition}
+    \begin{theorem}
+      \[ %\begin{multline*}
+        \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=\\
+        \epsilon(PE')
+        \left(g_e\ext{F}_{E'}(\eNal/e\;\; \eNbe/e) +
+      r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
+      %\end{multline*}
+      \]
+  \end{theorem}
+
+    %%%\end{frame}
+}
+
+
