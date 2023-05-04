@@ -225,8 +225,8 @@
 \newcommand{\eNbe}{\ensuremath{\ext{N}_\beta}}
 \newcommand{\Nbe}{\ensuremath{N_\beta}}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
 
 %%%%%%%%End of specialized symbols%%%%%%%%%%%%%%%%%%%%%%
 
@@ -338,6 +338,10 @@
 \begin{document}
 \maketitle[titletotopverticalspace=5.5cm, titletoblockverticalspace=2.5cm]
 
+\block{Overview}{
+  \input{overview.tikz}
+}
+
 \begin{columns} 
 \column{0.33}
 
@@ -352,11 +356,13 @@
 
 \input{SetupTheorem.tex}
 
+\column{0.34}
+\input{History.tex}
 \end{columns}
 \end{document}
 
 
-\input{History.tex}
+
 
 \end{columns}
 \end{document}

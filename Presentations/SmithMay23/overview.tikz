@@ -1,0 +1,99 @@
+{\pgfkeys{/pgf/fpu/.try=false}%
+\ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
+\divide\dimen1 by 47064
+\ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
+\divide\dimen3 by 6024
+\ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
+  \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
+\tikzpicture[x=+\dimen1, y=+\dimen3]
+{\ifx\XFigu\undefined\catcode`\@11
+\def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
+\XFigu3946sp
+% Uncomment to scale line thicknesses with the same
+% factor as width of the drawing.
+%\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
+\ifdim\XFigu<0pt\XFigu-\XFigu\fi
+\clip(4788,-7452) rectangle (51852,-1428);
+\tikzset{inner sep=+0pt, outer sep=+0pt}
+\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetstrokecolor{black}
+\draw (4800,-1440) rectangle (51840,-7440);
+\pgfsetlinewidth{+45\XFigu}
+\draw (21653,-2535)--(21519,-2535)--(21519,-3611)--(21653,-3611);
+\draw (21653,-3611)--(21519,-3611)--(21519,-4686)--(21653,-4686);
+\draw (22057,-2535)--(22191,-2535)--(22191,-3611)--(22057,-3611);
+\draw (22057,-3611)--(22191,-3611)--(22191,-4686)--(22057,-4686);
+\draw (32327,-3611)--(32193,-3611)--(32193,-4686)--(32327,-4686);
+\draw (32327,-4686)--(32193,-4686)--(32193,-5762)--(32327,-5762);
+\draw (32731,-3611)--(32865,-3611)--(32865,-4686)--(32731,-4686);
+\draw (32731,-4686)--(32865,-4686)--(32865,-5762)--(32731,-5762);
+\draw (17889,-3341) rectangle (20981,-5762);
+\draw (18964,-3341)--(18964,-5762);
+\draw (16813,-2535) rectangle (17889,-3207);
+\draw (18964,-2535) rectangle (20981,-3207);
+\draw (21653,-4686)--(21519,-4686)--(21519,-6702)--(21653,-6702);
+\draw (22057,-4686)--(22191,-4686)--(22191,-6702)--(22057,-6702);
+\draw (10215,-2639) rectangle (13307,-3311);
+\draw (10215,-3445) rectangle (13307,-5866);
+\draw (11280,-3480)--(11280,-4200);
+\draw (11280,-4800)--(11280,-5880);
+\draw (11280,-3120)--(11280,-3300);
+\draw (11280,-2880)--(11280,-2640);
+\pgfsetlinewidth{+15\XFigu}
+\draw (20760,-2160)--(20364,-2820);
+\draw (20760,-2160)--(20374,-4476);
+\pgfsetlinewidth{+45\XFigu}
+\draw (29638,-3600) rectangle (31800,-4686);
+\draw (30720,-3600)--(30720,-3840);
+\draw (30720,-4440)--(30720,-4680);
+\pgfsetfillcolor{black}
+\pgftext[base,at=\pgfqpointxy{15240}{-3960}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}of parameters}
+\pgftext[base,at=\pgfqpointxy{15300}{-3300}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}$G$ and $R$}
+\pgftext[base,left,at=\pgfqpointxy{22320}{-3240}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(Kirch. current law)}
+\pgftext[base,left,at=\pgfqpointxy{22440}{-4800}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(Kirch. voltage law)}
+\pgftext[base,at=\pgfqpointxy{30720}{-4320}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$F$}
+\pgftext[base,at=\pgfqpointxy{15240}{-3600}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}are diagonal matrices}
+\pgftext[base,at=\pgfqpointxy{27720}{-3900}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}carefully!}
+\pgftext[base,at=\pgfqpointxy{27720}{-4800}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}Requires a}
+\pgftext[base,at=\pgfqpointxy{27720}{-5190}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}global orientation }
+\pgftext[base,at=\pgfqpointxy{27720}{-5580}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}$\epsilon$,}
+\pgftext[base,at=\pgfqpointxy{27720}{-5970}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}an alternating sign}
+\pgftext[base,at=\pgfqpointxy{27720}{-6360}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}function on all sequences}
+\pgftext[base,at=\pgfqpointxy{27720}{-6720}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}of column indices!}
+\pgftext[base,at=\pgfqpointxy{27720}{-3000}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}Eliminate}
+\pgftext[base,left,at=\pgfqpointxy{20760}{-1800}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Homogenized Ohm's law:}
+\pgftext[base,left,at=\pgfqpointxy{20760}{-2100}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_e x_e = $ current in $e$}
+\pgftext[base,left,at=\pgfqpointxy{20760}{-2400}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$r_e x_e = $ voltage across $e$.}
+\pgftext[base,left,at=\pgfqpointxy{35220}{-3060}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}It satisfies for all $e \in E$ (with $E'=E\backslash e$),}
+\pgftext[base,at=\pgfqpointxy{41940}{-4680}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\epsilon(PE)\ext{F}_E(\eNal, \eNbePe)=\epsilon(PE')\left(g_e\ext{F}_{E'}(\eNal/e, \eNbePe\backslash e)+r_e\ext{F}_{E'}(\eNal\backslash e, \eNbePe/ e)\right)$}
+\pgftext[base,left,at=\pgfqpointxy{35220}{-2580}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\ext{F}_E(\eNal, \eNbePe)$ is the exterior ($\wedge$) product of the rows of a carefully defined $F$.}
+\pgfsetlinewidth{+15\XFigu}
+\draw (14520,-4320)--(16920,-4320);
+\draw (16680,-4080)--(17040,-4320)--(16680,-4560);
+\draw (26520,-4320)--(28920,-4320);
+\draw (28560,-4080)--(28920,-4320)--(28560,-4560);
+\pgftext[base,left,at=\pgfqpointxy{19080}{-2880}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\Nal(E)G$}
+\pgftext[base,left,at=\pgfqpointxy{17880}{-4560}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\NbePe(P)$}
+\pgftext[base,left,at=\pgfqpointxy{16800}{-2880}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\Nal(P)$}
+\pgftext[base,left,at=\pgfqpointxy{10920}{-4560}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\NbePe$}
+\pgftext[base,left,at=\pgfqpointxy{11100}{-3060}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\Nal$}
+\pgftext[base,left,at=\pgfqpointxy{19080}{-4560}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\NbePe(E)R$}
+\pgftext[base,at=\pgfqpointxy{21840}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
+\pgftext[base,at=\pgfqpointxy{21840}{-3060}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
+\pgftext[base,at=\pgfqpointxy{21840}{-5760}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$x$}
+\pgftext[base,left,at=\pgfqpointxy{22740}{-2940}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
+\pgftext[base,left,at=\pgfqpointxy{22680}{-4500}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
+\pgftext[base,left,at=\pgfqpointxy{33240}{-4320}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
+\pgftext[base,at=\pgfqpointxy{32520}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
+\pgftext[base,at=\pgfqpointxy{32580}{-5220}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
+\pgftext[base,at=\pgfqpointxy{27720}{-3420}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$x$}
+\pgftext[base,at=\pgfqpointxy{17280}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\alpha$}
+\pgftext[base,at=\pgfqpointxy{18360}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
+\pgftext[base,at=\pgfqpointxy{19920}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
+\pgftext[base,at=\pgfqpointxy{12240}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
+\pgftext[base,at=\pgfqpointxy{10800}{-2040}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$|P|=p$}
+\pgftext[base,at=\pgfqpointxy{12240}{-2040}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$|E|=n$}
+\pgftext[base,at=\pgfqpointxy{10800}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P$}
+\pgftext[base,at=\pgfqpointxy{30120}{-3120}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\alpha$}
+\pgftext[base,at=\pgfqpointxy{31200}{-3120}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
+\endtikzpicture}%

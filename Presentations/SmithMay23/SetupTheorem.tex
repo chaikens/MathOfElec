@@ -2,14 +2,15 @@
   \begin{itemize}
   \item
     Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
-    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P\dunion E$. \\
+    $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
     $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
   \item
     Weight (parameter) matrices\\
     $G=\text{diag}\{g_e\}_{e\in E} $,
     $R=\text{diag}\{r_e\}_{e\in E} $.
   \item
-    Matrix with columns $P_\alpha \dunion P_2 \dunion E$
+    Matrix with columns $P_\alpha \dunion P_\beta \dunion E$
     \[
     L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
     = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
@@ -25,7 +26,8 @@
   $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
 
 
-\vspace{0.1in}Translate into exterior algebra definitions:
+%\vspace{0.1in}
+Translate into exterior algebra definitions:
 \[
 \begin{split}
   \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
@@ -64,16 +66,23 @@
     \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
    \]
    
-\hspace*{-0.3in}
-\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
-         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
+%\hspace*{-0.3in}
 
+%\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
+%         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
+
+\[{(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}\]
+
+
+\[{(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}\]
+         
 
 %\vspace{0.3in}
 
 
 %%%\begin{block}{Result}
-\hspace*{-0.3in}  \mbox{\begin{minipage}{6in}$ = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+%\hspace*{-0.3in}
+\mbox{\begin{minipage}{6in}$ = \epsilon(S)\epsilon(S'e)(r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
     (\eNbe\backslash e)^\perp  \end{array} \right)  \wedge \ext{e} /E \right) +
    g_e\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
     (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right))
