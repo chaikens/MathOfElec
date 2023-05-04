@@ -1,0 +1,29 @@
+{\pgfkeys{/pgf/fpu/.try=false}%
+\ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
+\divide\dimen1 by 187
+\ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
+\divide\dimen3 by 124
+\ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
+  \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
+\tikzpicture[x=+\dimen1, y=+\dimen3]
+{\ifx\XFigu\undefined\catcode`\@11
+\def\temp{\alloc@1\dimen\dimendef\insc@unt}\temp\XFigu\catcode`\@12\fi}
+\XFigu3946sp
+% Uncomment to scale line thicknesses with the same
+% factor as width of the drawing.
+%\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
+\ifdim\XFigu<0pt\XFigu-\XFigu\fi
+\clip(1179,-1713) rectangle (1366,-1589);
+\tikzset{inner sep=+0pt, outer sep=+0pt}
+\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetcolor{black}
+\filldraw  (1198,-1649) circle [radius=+11];
+\filldraw  (1347,-1649) circle [radius=+11];
+\pgfsetbeveljoin
+\draw (1197,-1649)--(1198,-1648)--(1202,-1645)--(1211,-1637)--(1224,-1627)--(1238,-1616)
+  --(1251,-1608)--(1262,-1603)--(1272,-1601)--(1282,-1603)--(1293,-1608)--(1306,-1617)
+  --(1321,-1627)--(1334,-1638)--(1344,-1646)--(1348,-1649)--(1349,-1650);
+\draw (1196,-1653)--(1197,-1654)--(1201,-1657)--(1210,-1665)--(1223,-1675)--(1237,-1686)
+  --(1250,-1694)--(1261,-1699)--(1271,-1701)--(1281,-1699)--(1292,-1694)--(1305,-1685)
+  --(1320,-1675)--(1333,-1664)--(1343,-1656)--(1347,-1653)--(1348,-1652);
+\endtikzpicture}%

@@ -14,6 +14,9 @@
 \usepackage{lipsum}
 \usepackage{pdfpages}
 
+\usepackage{cite}
+\usepackage{hyperref}
+
 \definecolor{Blue}{rgb}{.255,.41,.884} % RoyalBlue of svgnames
 \definecolor{Red}{rgb}{1, 0, 0} % Red of svgnames
 \definecolor{Green}{rgb}{.196,.804,.196} % LimeGreen of svgnames
@@ -236,9 +239,9 @@
 
 
 
-\title{An Exterior Algebra Valued Tutte Function on Linear Matroids or their Pairs}
+\title{An Exterior Algebra Valued Tutte Function on Linear Matroids or their Pairs\cite{TutteEx}}
 
-\author{Seth Chaiken, University at Albany}
+\author{Seth Chaiken, University at Albany \url{schaiken@albany.edu}}
 % Only used if using @institute in settitle below
 %\institute{State University of New York at Albany}
 
@@ -339,12 +342,14 @@
 \maketitle[titletotopverticalspace=5.5cm, titletoblockverticalspace=2.5cm]
 
 \begin{columns}
-\column{0.6}
+\column{0.55}
 \block{Overview}{
 \input{overview.tikz}
 }
   
-\column{0.4}
+\column{0.45}
+
+
 \block{Theorem}{ 
   Given $N_\alpha$, $N_\beta$, of equal full row rank with columns labelled by
   $P\dunion E$, let $\eNal$, $\eNbe$ be the exterior products of their rows
@@ -353,7 +358,9 @@
   {\Large REMARK: $\ext{F}_E(\eNal\;\;\eNbe)$ is the exterior product of the rows of
   matrix $F$ illustrated in the Overview.}
 
-  For all $e\in E$ but $e\not\in P$, with $E'=E\backslash e$,
+{\LARGE $\longleftarrow\longleftarrow\longleftarrow$}
+  
+  For all $e\in E$ such that $e\not\in P$, with $E'=E\backslash e$,
   {\Large
      \[
      \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=
@@ -382,6 +389,26 @@
 
 \column{0.34}
 \input{History.tex}
+
+
+\block{Bibliography}{
+
+  \bibliographystyle{abbrv}
+  \bibliography{../../bib/MathOfElec}{}
+  
+  
+%\begin{itemize}
+
+%\item C. Lenart, A. Lubovsky,  \textit{J. Algebraic Combin.}, 2015
+
+%\item C. Lenart, S. Naito, D. Sagaki, A. Schilling, M. Shimozono,  \textit{Int. Math. Res. Not.}, 2016
+
+%\end{itemize}
+}
+
+
+
+
 \end{columns}
 \end{document}
 

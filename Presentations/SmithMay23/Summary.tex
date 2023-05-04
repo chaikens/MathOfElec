@@ -9,7 +9,8 @@
     is a restricted Tutte function valued in exterior algebras (ie., anti-symmetric
     tensor spaces.)
   \item
-    Restricted (against set $P$) aka set $P$ pointed, $P$-``ported'' $F$
+    Relative (with respect to set $P$)\cite{RelTuttePolyDiaoHetyei}
+    aka set $P$ pointed\cite{TPMorphMatI99}, $P$-``ported'' $F$\cite{sdcPorted}
     \[
     F(N,P) = r_e F(N\setminus e)+ g_e F(N/e)\]
     only when non-loop non-coloop $e\not\in P$.
@@ -21,6 +22,28 @@
     Our Tutte function's values are {exterior products of vectors}. Thus
     they carry $\binom{2p}{p}$ determinants--each one is a Tutte function!
     Multiplication, occuring when $N$ is a direct sum, is anti-commutative.
-    \item WRITE ABT orientations of two parallel edges..
+    \item Unlike ordinary Tutte functions, these distinguish (at least trivial)
+    orientations of the same matroid:
+    $F$ matrices and distinct $\ext{F}_E(\eNal\;\;\eNbe)$, $E=\emptyset$, $|P|=2$
+    
+    \begin{tabular}{ c c c }
+    \input{parPP.pdf_t} &
+    $\begin{bmatrix}
+    1 & 1 & 0 & 0 \\
+    0 & 0 & 1 & -1
+    \end{bmatrix}$
+     &
+     $(\ext{p}_{\alpha 1}+\ext{p}_{\alpha 2}\wedge(\ext{p}_{\beta 1}-\ext{p}_{\beta 2})=
+     \alert{-\ext{p}_{\alpha 1}\ext{p}_{\beta 2} + \ext{p}_{\alpha 2}\ext{p}_{\beta 1}}+ \text{(equal)}\cdots$
+     \\
+    \input{parPN.pdf_t} &
+    $\begin{bmatrix}
+    1 & -1 & 0 & 0 \\
+    0 & 0 & 1 & 1
+    \end{bmatrix}$
+    &
+     $(\ext{p}_{\alpha 1}-\ext{p}_{\alpha 2}\wedge(\ext{p}_{\beta 1}+\ext{p}_{\beta 2})=
+     \alert{\ext{p}_{\alpha 1}\ext{p}_{\beta 2} - \ext{p}_{\alpha 2}\ext{p}_{\beta 1}}+ \text{(equal)}\cdots$
+      \end{tabular}
   \end{enumerate}
 }
