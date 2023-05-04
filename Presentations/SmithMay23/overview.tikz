@@ -75,14 +75,14 @@
 \pgftext[base,left,at=\pgfqpointxy{10920}{-4560}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\NbePe$}
 \pgftext[base,left,at=\pgfqpointxy{11100}{-3060}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\Nal$}
 \pgftext[base,left,at=\pgfqpointxy{19080}{-4560}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\NbePe(E)R$}
-\pgftext[base,at=\pgfqpointxy{21840}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
-\pgftext[base,at=\pgfqpointxy{21840}{-3060}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
+\pgftext[base,at=\pgfqpointxy{21840}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
+\pgftext[base,at=\pgfqpointxy{21840}{-3060}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
 \pgftext[base,at=\pgfqpointxy{21840}{-5760}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$x$}
 \pgftext[base,left,at=\pgfqpointxy{22740}{-2940}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
 \pgftext[base,left,at=\pgfqpointxy{22680}{-4500}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
 \pgftext[base,left,at=\pgfqpointxy{33240}{-4320}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
-\pgftext[base,at=\pgfqpointxy{32520}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
-\pgftext[base,at=\pgfqpointxy{32580}{-5220}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
+\pgftext[base,at=\pgfqpointxy{32520}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
+\pgftext[base,at=\pgfqpointxy{32580}{-5220}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
 \pgftext[base,at=\pgfqpointxy{27720}{-3420}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$x$}
 \pgftext[base,at=\pgfqpointxy{17280}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\alpha$}
 \pgftext[base,at=\pgfqpointxy{18360}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
