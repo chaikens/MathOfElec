@@ -27,6 +27,12 @@
 \draw (32327,-4686)--(32193,-4686)--(32193,-5762)--(32327,-5762);
 \draw (32731,-3611)--(32865,-3611)--(32865,-4686)--(32731,-4686);
 \draw (32731,-4686)--(32865,-4686)--(32865,-5762)--(32731,-5762);
+\pgfsetlinewidth{+15\XFigu}
+\draw (8250,-2775)--(9975,-2775)--(9375,-3000);
+\draw (9900,-2775)--(9450,-2550);
+\draw (8250,-4050)--(9975,-4050)--(9375,-4275);
+\draw (9900,-4050)--(9450,-3825);
+\pgfsetlinewidth{+45\XFigu}
 \draw (17889,-3341) rectangle (20981,-5762);
 \draw (18964,-3341)--(18964,-5762);
 \draw (16813,-2535) rectangle (17889,-3207);
@@ -64,6 +70,21 @@
 \pgftext[base,left,at=\pgfqpointxy{20760}{-1800}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Homogenized Ohm's law:}
 \pgftext[base,left,at=\pgfqpointxy{20760}{-2100}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_e x_e = $ current in $e$}
 \pgftext[base,left,at=\pgfqpointxy{20760}{-2400}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$r_e x_e = $ voltage across $e$.}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-1725}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Motivating example:}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-2115}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}A graph's "reduced"}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-2475}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(..., +1 ,..., -1, ...)}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-2850}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}incidence matrix:}
+\pgftext[base,left,at=\pgfqpointxy{7575}{-2400}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}t}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-3225}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(or left-SL equivalent)}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-3810}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Any totally unimodular }
+\pgftext[base,left,at=\pgfqpointxy{5100}{-4395}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}matrix whose rows are}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-5175}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}cycle space, such as the}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-6675}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Here, $\Nal=\Nbe$}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-6015}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}using a spanning tree}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-5625}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}fundamental cycles defined}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-4785}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}a basis for the graphs's}
+\pgftext[base,left,at=\pgfqpointxy{6975}{-7050}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}HEAD to vertex incidences, we get the all-minors directed graph matrix tree theorem.}
+\pgftext[base,left,at=\pgfqpointxy{7800}{-6675}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}But if we keep $\Nal$ but take $\Nbe$ giving only dir. edge}
 \pgfsetlinewidth{+15\XFigu}
 \draw (14520,-4320)--(16920,-4320);
 \draw (16680,-4080)--(17040,-4320)--(16680,-4560);
@@ -88,8 +109,6 @@
 \pgftext[base,at=\pgfqpointxy{18360}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
 \pgftext[base,at=\pgfqpointxy{19920}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
 \pgftext[base,at=\pgfqpointxy{12240}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
-\pgftext[base,at=\pgfqpointxy{10800}{-2040}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$|P|=p$}
-\pgftext[base,at=\pgfqpointxy{12240}{-2040}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$|E|=n$}
 \pgftext[base,at=\pgfqpointxy{10800}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P$}
 \pgftext[base,at=\pgfqpointxy{30120}{-3120}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\alpha$}
 \pgftext[base,at=\pgfqpointxy{31200}{-3120}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
