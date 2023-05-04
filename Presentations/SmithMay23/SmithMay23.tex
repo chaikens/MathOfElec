@@ -338,9 +338,33 @@
 \begin{document}
 \maketitle[titletotopverticalspace=5.5cm, titletoblockverticalspace=2.5cm]
 
+\begin{columns}
+\column{0.6}
 \block{Overview}{
-  \input{overview.tikz}
+\input{overview.tikz}
 }
+  
+\column{0.4}
+\block{Theorem}{ 
+  Given $N_\alpha$, $N_\beta$, of equal full row rank with columns labelled by
+  $P\dunion E$, let $\eNal$, $\eNbe$ be the exterior products of their rows
+  and dual $\eNbePe$ be constructed using (2).
+
+  {\Large REMARK: $\ext{F}_E(\eNal\;\;\eNbe)$ is the exterior product of the rows of
+  matrix $F$ illustrated in the Overview.}
+
+  For all $e\in E$ but $e\not\in P$, with $E'=E\backslash e$,
+  {\Large
+     \[
+     \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=
+      \epsilon(PE')
+        \left(g_e\ext{F}_{E'}(\eNal/e\;\; \eNbe/e) +
+      r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
+      \]
+      }
+ }
+\end{columns}
+
 
 \begin{columns} 
 \column{0.33}

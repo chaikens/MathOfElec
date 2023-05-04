@@ -1,4 +1,4 @@
-\block{Catalogs of Oriented Matroid operations  %\\
+\block{Catalog of Oriented Matroid operations  %\\
     on  OM($N$) of matrix $N$ and on
     %THE EXTERIOR PRODUCT
     $\ext{N}=\wedge(\text{rows}(N))$}{
@@ -14,20 +14,24 @@
       \hline
       \text{OPERATION}         &  & \\
 \text{deletion\ } \bullet\backslash A  & \text{restriction} & \text{restriction}  \\
-\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA] \\
+\text{(1) contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA] \\
 
-\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
+\text{(2) duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
 \ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B) \\ \\
     \end{array}
     \]
 $\ext{N}[B]$ is one component of a \emph{distinguished representative vector} of the \Plucker coordinates
 (which are projective!) for the row space of $N$.
 
+\setcounter{equation}{2}
+
 We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
-    $\epsilon$ is an alternating sign function on all finite sequences of elements.\\ 
-    The definitions of deletion, contraction and dual imply these commutations:
-    \[ (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
-     \] 
-    \[ (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
-    \]
+    $\epsilon$ is any alternating sign function on all finite sequences of elements.\\ 
+    The definitions of deletion, contraction and dual imply these commutations:\\
+    ($S$ is a ground set for exterior product analogs of matroids, needed so the analog of
+    matroids with loops will have the analog of coloops. $X\subseteq S$ and $S'=S\backslash X$.)
+    \begin{equation} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
+    \end{equation}
+    \begin{equation} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
+    \end{equation}
 }

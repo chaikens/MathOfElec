@@ -1,8 +1,8 @@
 {\pgfkeys{/pgf/fpu/.try=false}%
 \ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
-\divide\dimen1 by 47064
+\divide\dimen1 by 29424
 \ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
-\divide\dimen3 by 6024
+\divide\dimen3 by 5889
 \ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
   \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
 \tikzpicture[x=+\dimen1, y=+\dimen3]
@@ -13,11 +13,11 @@
 % factor as width of the drawing.
 %\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
 \ifdim\XFigu<0pt\XFigu-\XFigu\fi
-\clip(4788,-7452) rectangle (51852,-1428);
+\clip(4788,-7227) rectangle (34212,-1338);
 \tikzset{inner sep=+0pt, outer sep=+0pt}
 \pgfsetlinewidth{+7.5\XFigu}
 \pgfsetstrokecolor{black}
-\draw (4800,-1440) rectangle (51840,-7440);
+\draw (4800,-1350) rectangle (34200,-7215);
 \pgfsetlinewidth{+45\XFigu}
 \draw (21653,-2535)--(21519,-2535)--(21519,-3611)--(21653,-3611);
 \draw (21653,-3611)--(21519,-3611)--(21519,-4686)--(21653,-4686);
@@ -64,9 +64,6 @@
 \pgftext[base,left,at=\pgfqpointxy{20760}{-1800}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Homogenized Ohm's law:}
 \pgftext[base,left,at=\pgfqpointxy{20760}{-2100}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_e x_e = $ current in $e$}
 \pgftext[base,left,at=\pgfqpointxy{20760}{-2400}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$r_e x_e = $ voltage across $e$.}
-\pgftext[base,left,at=\pgfqpointxy{35220}{-3060}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}It satisfies for all $e \in E$ (with $E'=E\backslash e$),}
-\pgftext[base,at=\pgfqpointxy{41940}{-4680}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\epsilon(PE)\ext{F}_E(\eNal, \eNbePe)=\epsilon(PE')\left(g_e\ext{F}_{E'}(\eNal/e, \eNbePe\backslash e)+r_e\ext{F}_{E'}(\eNal\backslash e, \eNbePe/ e)\right)$}
-\pgftext[base,left,at=\pgfqpointxy{35220}{-2580}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\ext{F}_E(\eNal, \eNbePe)$ is the exterior ($\wedge$) product of the rows of a carefully defined $F$.}
 \pgfsetlinewidth{+15\XFigu}
 \draw (14520,-4320)--(16920,-4320);
 \draw (16680,-4080)--(17040,-4320)--(16680,-4560);
