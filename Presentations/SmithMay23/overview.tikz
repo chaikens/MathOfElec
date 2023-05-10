@@ -40,7 +40,6 @@
 \draw (6320,-7322)--(6196,-7468);
 \pgfsetlinewidth{+7.5\XFigu}
 \draw (4779,-1350) rectangle (35732,-9139);
-\pgftext[base,left,at=\pgfqpointxy{7800}{-8625}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}But if we keep $\Nal$ but have $\Nbe$ code incidences of digraph vertex HEAD to}
 \pgftext[base,right,at=\pgfqpointxy{23715}{-8100}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$v_1-r_1x_1+r_2x_2=0$}
 \pgftext[base,right,at=\pgfqpointxy{28305}{-8535}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_1g_2v_1-g_1g_2r_1x_1+g_1gr_2x_2=0$}
 \pgftext[base,at=\pgfqpointxy{31489}{-8582}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(Result is new only for $|P|>1$.)}
@@ -48,6 +47,7 @@
 \pgftext[base,left,at=\pgfqpointxy{28446}{-6803}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}The exterior ($\wedge$) product of the $|P|$ entries in}
 \pgftext[base,left,at=\pgfqpointxy{28809}{-7318}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$F_E(\ext{p_{\alpha 1}},...,\ext{p_{\alpha |P|}},\ext{p_{\beta 1}},...\ext{p_{\beta |P|}})^t$ is}
 \pgftext[base,right,at=\pgfqpointxy{34547}{-8039}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\ext{F}_E=g_1g_2\ext{p_{\alpha 1}}+(g_1r_2+g_2r_1)\ext{p_{\beta 1}}$}
+\pgftext[base,left,at=\pgfqpointxy{7800}{-8625}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}But if we keep $\Nal$ but have $\Nbe$ code incidences of digraph HEAD vertex to}
 \pgfsetlinewidth{+45\XFigu}
 \draw (21653,-2535)--(21519,-2535)--(21519,-3611)--(21653,-3611);
 \draw (21653,-3611)--(21519,-3611)--(21519,-4686)--(21653,-4686);
