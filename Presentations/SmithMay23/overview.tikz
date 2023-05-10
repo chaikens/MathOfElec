@@ -21,7 +21,7 @@
 \pgftext[base,left,at=\pgfqpointxy{7216}{-7007}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Homog. Ohm's law:}
 \pgftext[base,left,at=\pgfqpointxy{7148}{-6312}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Elec. network, $P$s}
 \pgftext[base,left,at=\pgfqpointxy{6033}{-8176}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$i_{p1}$,$v_{p1}$=curr.,voltage in $p_1$.}
-\pgftext[base,left,at=\pgfqpointxy{7176}{-6651}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}demark terminals,}
+\pgftext[base,left,at=\pgfqpointxy{7176}{-6651}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}demark terminal pairs,}
 \pgfsetlinewidth{+30\XFigu}
 \pgfsetstrokecolor{black}
 \draw (5633,-7202)--(5553,-7353);
