@@ -1,8 +1,8 @@
 {\pgfkeys{/pgf/fpu/.try=false}%
 \ifx\XFigwidth\undefined\dimen1=0pt\else\dimen1\XFigwidth\fi
-\divide\dimen1 by 29424
+\divide\dimen1 by 30977
 \ifx\XFigheight\undefined\dimen3=0pt\else\dimen3\XFigheight\fi
-\divide\dimen3 by 5889
+\divide\dimen3 by 7813
 \ifdim\dimen1=0pt\ifdim\dimen3=0pt\dimen1=3946sp\dimen3\dimen1
   \else\dimen1\dimen3\fi\else\ifdim\dimen3=0pt\dimen3\dimen1\fi\fi
 \tikzpicture[x=+\dimen1, y=+\dimen3]
@@ -13,11 +13,41 @@
 % factor as width of the drawing.
 %\pgfextractx\XFigu{\pgfqpointxy{1}{1}}
 \ifdim\XFigu<0pt\XFigu-\XFigu\fi
-\clip(4788,-7227) rectangle (34212,-1338);
+\clip(4767,-9151) rectangle (35744,-1338);
 \tikzset{inner sep=+0pt, outer sep=+0pt}
-\pgfsetlinewidth{+7.5\XFigu}
+\pgfsetfillcolor{black}
+\pgftext[base,left,at=\pgfqpointxy{6875}{-7757}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$r_e x_e = $ voltage across $e$.}
+\pgftext[base,left,at=\pgfqpointxy{6981}{-7351}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_e x_e = $ current in $e$}
+\pgftext[base,left,at=\pgfqpointxy{7216}{-7007}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Homog. Ohm's law:}
+\pgftext[base,left,at=\pgfqpointxy{7148}{-6312}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Elec. network, $P$s}
+\pgftext[base,left,at=\pgfqpointxy{6033}{-8176}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$i_{p1}$,$v_{p1}$=curr.,voltage in $p_1$.}
+\pgftext[base,left,at=\pgfqpointxy{7176}{-6651}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}demark terminals,}
+\pgfsetlinewidth{+30\XFigu}
 \pgfsetstrokecolor{black}
-\draw (4800,-1350) rectangle (34200,-7215);
+\draw (5633,-7202)--(5553,-7353);
+\draw (5473,-7202)--(5553,-7353);
+\draw (5473,-7202)--(5553,-7353);
+\pgfsetlinewidth{+7.5\XFigu}
+\filldraw  (6600,-7200) circle [radius=+75];
+\filldraw  (5553,-6449) circle [radius=+75];
+\filldraw  (5557,-7642) circle [radius=+75];
+\pgfsetlinewidth{+30\XFigu}
+\draw (5544,-6445)--(6600,-7200);
+\draw (5553,-7643)--(5553,-6445);
+\draw (6321,-7313)--(6112,-7291);
+\draw (6357,-6892)--(6410,-7069)--(6228,-7069);
+\draw (6600,-7200)--(5553,-7652);
+\draw (6320,-7322)--(6196,-7468);
+\pgfsetlinewidth{+7.5\XFigu}
+\draw (4779,-1350) rectangle (35732,-9139);
+\pgftext[base,left,at=\pgfqpointxy{7800}{-8625}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}But if we keep $\Nal$ but have $\Nbe$ code incidences of digraph vertex HEAD to}
+\pgftext[base,right,at=\pgfqpointxy{23715}{-8100}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$v_1-r_1x_1+r_2x_2=0$}
+\pgftext[base,right,at=\pgfqpointxy{28305}{-8535}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_1g_2v_1-g_1g_2r_1x_1+g_1gr_2x_2=0$}
+\pgftext[base,at=\pgfqpointxy{31489}{-8582}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(Result is new only for $|P|>1$.)}
+\pgftext[base,right,at=\pgfqpointxy{33860}{-6307}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_1g_2v_1 + (r_1g_2+r_2g_1)i_1=0$}
+\pgftext[base,left,at=\pgfqpointxy{28446}{-6803}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}The exterior ($\wedge$) product of the $|P|$ entries in}
+\pgftext[base,left,at=\pgfqpointxy{28809}{-7318}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$F_E(\ext{p_{\alpha 1}},...,\ext{p_{\alpha |P|}},\ext{p_{\beta 1}},...\ext{p_{\beta |P|}})^t$ is}
+\pgftext[base,right,at=\pgfqpointxy{34547}{-8039}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\ext{F}_E=g_1g_2\ext{p_{\alpha 1}}+(g_1r_2+g_2r_1)\ext{p_{\beta 1}}$}
 \pgfsetlinewidth{+45\XFigu}
 \draw (21653,-2535)--(21519,-2535)--(21519,-3611)--(21653,-3611);
 \draw (21653,-3611)--(21519,-3611)--(21519,-4686)--(21653,-4686);
@@ -27,24 +57,18 @@
 \draw (32327,-4686)--(32193,-4686)--(32193,-5762)--(32327,-5762);
 \draw (32731,-3611)--(32865,-3611)--(32865,-4686)--(32731,-4686);
 \draw (32731,-4686)--(32865,-4686)--(32865,-5762)--(32731,-5762);
-\pgfsetlinewidth{+15\XFigu}
-\draw (8250,-2775)--(9975,-2775)--(9375,-3000);
-\draw (9900,-2775)--(9450,-2550);
-\draw (8250,-4050)--(9975,-4050)--(9375,-4275);
-\draw (9900,-4050)--(9450,-3825);
+\pgfsetlinewidth{+30\XFigu}
+\pgfsetstrokecolor{red}
+\draw (10885,-7211)--(12985,-7211);
+\draw (10885,-7286)--(12985,-7286);
 \pgfsetlinewidth{+45\XFigu}
+\pgfsetstrokecolor{black}
 \draw (17889,-3341) rectangle (20981,-5762);
 \draw (18964,-3341)--(18964,-5762);
 \draw (16813,-2535) rectangle (17889,-3207);
 \draw (18964,-2535) rectangle (20981,-3207);
 \draw (21653,-4686)--(21519,-4686)--(21519,-6702)--(21653,-6702);
 \draw (22057,-4686)--(22191,-4686)--(22191,-6702)--(22057,-6702);
-\draw (10215,-2639) rectangle (13307,-3311);
-\draw (10215,-3445) rectangle (13307,-5866);
-\draw (11280,-3480)--(11280,-4200);
-\draw (11280,-4800)--(11280,-5880);
-\draw (11280,-3120)--(11280,-3300);
-\draw (11280,-2880)--(11280,-2640);
 \pgfsetlinewidth{+15\XFigu}
 \draw (20760,-2160)--(20364,-2820);
 \draw (20760,-2160)--(20374,-4476);
@@ -52,49 +76,65 @@
 \draw (29638,-3600) rectangle (31800,-4686);
 \draw (30720,-3600)--(30720,-3840);
 \draw (30720,-4440)--(30720,-4680);
-\pgfsetfillcolor{black}
+\draw (10647,-2639) rectangle (13739,-3311);
+\draw (10647,-3445) rectangle (13739,-5866);
+\draw (11712,-3480)--(11712,-4200);
+\draw (11712,-4800)--(11712,-5880);
+\draw (11712,-3120)--(11712,-3300);
+\draw (11712,-2880)--(11712,-2640);
+\pgfsetlinewidth{+15\XFigu}
+\draw (8850,-4050)--(10407,-4050)--(9858,-4249);
+\draw (10421,-4042)--(9858,-3789);
+\draw (8789,-2909)--(10496,-2909)--(9905,-3083);
+\draw (10529,-2905)--(9919,-2686);
 \pgftext[base,at=\pgfqpointxy{15240}{-3960}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}of parameters}
 \pgftext[base,at=\pgfqpointxy{15300}{-3300}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}$G$ and $R$}
 \pgftext[base,left,at=\pgfqpointxy{22320}{-3240}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(Kirch. current law)}
 \pgftext[base,left,at=\pgfqpointxy{22440}{-4800}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(Kirch. voltage law)}
-\pgftext[base,at=\pgfqpointxy{30720}{-4320}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$F$}
-\pgftext[base,at=\pgfqpointxy{15240}{-3600}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}are diagonal matrices}
-\pgftext[base,at=\pgfqpointxy{27720}{-3900}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}carefully!}
-\pgftext[base,at=\pgfqpointxy{27720}{-4800}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}Requires a}
-\pgftext[base,at=\pgfqpointxy{27720}{-5190}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}global orientation }
-\pgftext[base,at=\pgfqpointxy{27720}{-5580}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}$\epsilon$,}
-\pgftext[base,at=\pgfqpointxy{27720}{-5970}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}an alternating sign}
-\pgftext[base,at=\pgfqpointxy{27720}{-6360}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}function on all sequences}
-\pgftext[base,at=\pgfqpointxy{27720}{-6720}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}of column indices!}
-\pgftext[base,at=\pgfqpointxy{27720}{-3000}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}Eliminate}
-\pgftext[base,left,at=\pgfqpointxy{20760}{-1800}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Homogenized Ohm's law:}
-\pgftext[base,left,at=\pgfqpointxy{20760}{-2100}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$g_e x_e = $ current in $e$}
-\pgftext[base,left,at=\pgfqpointxy{20760}{-2400}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$r_e x_e = $ voltage across $e$.}
+\pgftext[base,at=\pgfqpointxy{30720}{-4320}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$F_E$}
 \pgftext[base,left,at=\pgfqpointxy{5100}{-1725}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Motivating example:}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-2115}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}A graph's "reduced"}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-2475}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(..., +1 ,..., -1, ...)}
 \pgftext[base,left,at=\pgfqpointxy{5100}{-2850}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}incidence matrix:}
-\pgftext[base,left,at=\pgfqpointxy{7575}{-2400}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}t}
 \pgftext[base,left,at=\pgfqpointxy{5100}{-3225}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}(or left-SL equivalent)}
 \pgftext[base,left,at=\pgfqpointxy{5100}{-3810}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Any totally unimodular }
-\pgftext[base,left,at=\pgfqpointxy{5100}{-4395}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}matrix whose rows are}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-5175}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}cycle space, such as the}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-6675}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Here, $\Nal=\Nbe$}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-6015}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}using a spanning tree}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-5625}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}fundamental cycles defined}
-\pgftext[base,left,at=\pgfqpointxy{5100}{-4785}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}a basis for the graphs's}
-\pgftext[base,left,at=\pgfqpointxy{6975}{-7050}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}HEAD to vertex incidences, we get the all-minors directed graph matrix tree theorem.}
-\pgftext[base,left,at=\pgfqpointxy{7800}{-6675}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}But if we keep $\Nal$ but take $\Nbe$ giving only dir. edge}
-\pgfsetlinewidth{+15\XFigu}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-2115}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}A graph's "reduced"}
+\pgftext[base,left,at=\pgfqpointxy{6975}{-9000}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}to edge incidences, we get an all-minors directed graph matrix tree theorem.}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-8625}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}Here, $\Nal=\Nbe$}
+\pgftext[base,at=\pgfqpointxy{18525}{-6600}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\left[\begin{array}{c|c|cc} +1 & \;\;0\; & +1g_1 & 0\; \\ -1 & \;\;0\;  &  0\; & +1g_2  \end{array}\right]$}
+\pgftext[base,at=\pgfqpointxy{18525}{-7575}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\left[\begin{array}{c|c|cc}\;\; 0\; & +1 & -1r_1 & +1r_2  \end{array}\right]$}
+\pgftext[base,right,at=\pgfqpointxy{23715}{-7350}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$i_1+g_1x_1 = 0$}
+\pgftext[base,right,at=\pgfqpointxy{23715}{-7725}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$-i_1+g_2x_2=0$}
+\pgftext[base,right,at=\pgfqpointxy{28290}{-7290}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$r_1g_2i_1+r_1g_2g_1x_1 = 0$}
+\pgftext[base,right,at=\pgfqpointxy{28275}{-7695}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$-r_2g_1i_1+r_2g_1g_2x_2=0$}
+\pgftext[base,at=\pgfqpointxy{6825}{-7200}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$3$}
+\pgftext[base,at=\pgfqpointxy{5323}{-6413}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$1$}
+\pgftext[base,at=\pgfqpointxy{5310}{-7713}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$2$}
+\pgftext[base,right,at=\pgfqpointxy{5442}{-7063}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$p_1$}
+\pgftext[base,left,at=\pgfqpointxy{6056}{-6608}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$e_1$}
+\pgftext[base,left,at=\pgfqpointxy{5914}{-7708}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$e_2$}
+\pgftext[base,at=\pgfqpointxy{27099}{-3000}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}Eliminate}
+\pgftext[base,at=\pgfqpointxy{27206}{-3900}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}carefully!}
+\pgftext[base,at=\pgfqpointxy{26876}{-4800}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}Requires a}
+\pgftext[base,at=\pgfqpointxy{26976}{-5190}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}global orientation }
+\pgftext[base,at=\pgfqpointxy{26967}{-5580}] {\fontsize{30}{36}\usefont{T1}{ptm}{m}{n}$\epsilon$,}
+\pgftext[base,at=\pgfqpointxy{26583}{-5970}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}an alternating sign}
+\pgftext[base,at=\pgfqpointxy{26473}{-6338}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}function on all sequences}
+\pgftext[base,at=\pgfqpointxy{26618}{-6720}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}of column indices!}
+\pgftext[base,at=\pgfqpointxy{15497}{-3600}] {\fontsize{22}{26.4}\usefont{T1}{ptm}{m}{n}are diagonal matrices}
+\pgftext[base,at=\pgfqpointxy{12086}{-6879}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\left[\begin{array}{c|cc} +1 & +1 & 0 \\ -1 & 0 & +1 \\ 0 & -1 & -1 \end{array}\right]$}
+\pgftext[base,at=\pgfqpointxy{12022}{-7950}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$\left[\begin{array}{c|cc} +1 & -1 & +1  \end{array}\right]$}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-4656}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}a basis for the graphs's}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-5068}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}cycle space, such as the}
+\pgftext[base,left,at=\pgfqpointxy{5121}{-5453}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}fundamental cycles defined}
+\pgftext[base,left,at=\pgfqpointxy{5121}{-5865}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}using a spanning tree.}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-4309}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}matrix whose rows are}
+\pgftext[base,left,at=\pgfqpointxy{5100}{-2475}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}$(0,...,0,+1,0...,0,-1,0,...0)^t$}
 \draw (14520,-4320)--(16920,-4320);
-\draw (16680,-4080)--(17040,-4320)--(16680,-4560);
 \draw (26520,-4320)--(28920,-4320);
 \draw (28560,-4080)--(28920,-4320)--(28560,-4560);
+\draw (16553,-4073)--(16913,-4313)--(16553,-4553);
 \pgftext[base,left,at=\pgfqpointxy{19080}{-2880}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\Nal(E)G$}
 \pgftext[base,left,at=\pgfqpointxy{17880}{-4560}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\NbePe(P)$}
 \pgftext[base,left,at=\pgfqpointxy{16800}{-2880}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\Nal(P)$}
-\pgftext[base,left,at=\pgfqpointxy{10920}{-4560}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\NbePe$}
-\pgftext[base,left,at=\pgfqpointxy{11100}{-3060}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\Nal$}
 \pgftext[base,left,at=\pgfqpointxy{19080}{-4560}] {\fontsize{20}{24}\usefont{T1}{ptm}{m}{n}$\NbePe(E)R$}
 \pgftext[base,at=\pgfqpointxy{21840}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
 \pgftext[base,at=\pgfqpointxy{21840}{-3060}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
@@ -104,12 +144,14 @@
 \pgftext[base,left,at=\pgfqpointxy{33240}{-4320}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$= 0$}
 \pgftext[base,at=\pgfqpointxy{32520}{-4200}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$i$}
 \pgftext[base,at=\pgfqpointxy{32580}{-5220}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$v$}
-\pgftext[base,at=\pgfqpointxy{27720}{-3420}] {\fontsize{35}{42}\usefont{T1}{ptm}{m}{n}$x$}
+\pgftext[base,at=\pgfqpointxy{27206}{-3420}] {\fontsize{24}{28.8}\usefont{T1}{ptm}{m}{n}the $|E|$ $x$'s}
+\pgftext[base,left,at=\pgfqpointxy{11352}{-4560}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\NbePe$}
+\pgftext[base,left,at=\pgfqpointxy{11532}{-3060}] {\fontsize{26}{31.2}\usefont{T1}{ptm}{m}{n}$\Nal$}
 \pgftext[base,at=\pgfqpointxy{17280}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\alpha$}
 \pgftext[base,at=\pgfqpointxy{18360}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
 \pgftext[base,at=\pgfqpointxy{19920}{-2160}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
-\pgftext[base,at=\pgfqpointxy{12240}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
-\pgftext[base,at=\pgfqpointxy{10800}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P$}
 \pgftext[base,at=\pgfqpointxy{30120}{-3120}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\alpha$}
 \pgftext[base,at=\pgfqpointxy{31200}{-3120}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P_\beta$}
+\pgftext[base,at=\pgfqpointxy{12672}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$E$}
+\pgftext[base,at=\pgfqpointxy{11232}{-2400}] {\fontsize{28}{33.6}\usefont{T1}{ptm}{m}{n}$P$}
 \endtikzpicture}%
