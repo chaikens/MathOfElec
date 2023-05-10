@@ -1,0 +1,33 @@
+\block{Catalogs}{
+  Subsets ($P$, $E$, $Q_{\alpha}$, etc.) of ground sets or indices
+  are sequences. A global
+  orientation $\epsilon$ is fixed so a $\epsilon$ is a alternating
+  sign function.  (Simply, every index is an integer.)
+
+  Oriented matroid operations on the 
+  \hspace*{-0.35in}
+  \[
+    \begin{array}{ccc}
+      \text{Op is on:}         &  \text{chirotopes}
+                                      & \text{exterior products} \\
+      \text{which are:}        & \chi:B\rightarrow \{0,\pm \}
+                                      & \text{decomposibles in\ } \wedge \\ 
+      \text{case we use:}      & \chi:B\mapsto\text{sign}(N[B])
+                                      &  \ext{N}:B\mapsto\ext{N}[B] \\
+      \hline
+      \text{OPERATION}         &  & \\
+\text{deletion\ } \bullet\backslash A  & \text{restriction} & \text{restriction}  \\
+\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA] \\
+
+\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
+\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B) \\ \\
+    \end{array}
+    \]
+    We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
+    $\epsilon$ is an alternating sign function on all finite sequences of elements.\\ 
+    This implies commutations
+    \[ (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
+     \] 
+    \[ (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
+    \]
+}
