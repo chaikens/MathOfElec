@@ -132,10 +132,11 @@ is any full-rank minor of the graph's Laplacian matrix. More generally,
 every minor is an enumerator for (signed in non-principal minor
 cases) forests satisfying the following condition: Each vertex indexing
 a deleted row is in exactly one of the trees, and similary for each
-vertex indexing a deleted column. (The sign depends on the sign of the
-matching each such forest determines between the deleted row vertices and
-deleted column vertices; of course only the identity is such a matching
-when the minor is principal.) We give a key observation: \emph{Each} such
+vertex indexing a deleted column. (Each forest's sign depends on the sign of the
+matching the forest determines between the deleted row vertices and
+deleted column vertices; of course when the minor is principal,
+the only such matching is the identity.)
+We give a key observation: \emph{Each} such
 minor, when $e$ is a given edge, equals the sum of the corresponding
 minor when $e$ is deleted plus the determinant expansion terms for
 forests that contain $e$.  The latter can be also be expressed as a
