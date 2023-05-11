@@ -203,6 +203,8 @@ linear space basis elements) and then
 present specific
 exterior algebra products that encode their row spaces and support
 combinatorial operations where a distinguished set of indices $P$ is given.
+Exterior algebra products are sometimes called ``decomposibles''\cite{MarcusFDMuAlPt2}
+and are ``pure'' when considered to be anti-symmetric tensors.
 We demonstrate this with the example
 of the electrical network equations and their solutions.
 The Tutte function is defined
@@ -212,7 +214,8 @@ possibly by a $\binom{n}{r}$ tuple of components, not the point in the Grassmann
 whose \Plucker coodinates are equivalence classes of non-zero multiples of
 such a tuple.  We \emph{do} distinguish different such multiples.  Another way
 to put it is that our data and constructed objects are matrices modulo left multiplication
-by $SL_r$, not by $GL_r$ which gives the Grassmannian.
+by $SL_r$, not by $GL_r$ which gives the Grassmannian.  Of course they surject onto the
+Grassmannian.
 
 
 
@@ -242,7 +245,14 @@ is in $K$ or is a $K$ multiple of a parameter:
     exterior algebra $\wedge U$ will be denoted by boldface characters, such as $\ext{e}_j$,
     $\ext{p_\alpha}_k$, $\ext{p_\beta}_l$ $\in$ $P_\alpha \dunion P_\beta \dunion E$.
     
-
+    Let $p = |P|$, $n=|E|$ and $L_i$ be row $i$ of $L$ for $i\in\{1,\ldots,n+p\}$.
+    We form $\ext{L}$ by exterior multiplication (in order) of the vectors each given by the
+    rows of $(n+p)\times (n+2p)$ matrix $L$ for the coefficients when written in terms of
+    basis $P_\alpha \dunion P_\beta \dunion E$:
+    \[
+    \ext{L} = \wedge_{i=1}^{n+p}L_i[\ext{p_\alpha}_1\ \cdots \ext{p_\alpha}_{p}\ \ext{p_\beta}_1\ \cdots \ext{p_\beta}_{p}\
+    \ext{e}_1\ \cdots \ext{e}_{n}]^t. 
+    \]
 
 
 
