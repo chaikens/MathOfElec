@@ -68,7 +68,17 @@ Albany, NY 12203 (USA)}
 
 
 \newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
 
+\newcommand{\Nal}{\ensuremath{N_{\alpha}}}
+\newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
+\newcommand{\eNal}{\ensuremath{\ext{N}_{\alpha}}}
+\newcommand{\eNbePe}{\ensuremath{\ext{N}_{\beta}^{\perp}}}
+
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}{\coprod}
 
 
 
@@ -184,6 +194,81 @@ conductance) are thus accomodated.
 
 
 \section{Setup and Theorem}
+
+
+\subsection{Definition of a Tutte Function of $P$-Ported Pairs}
+
+We begin by defining how we index columns of matrices (i.e. distinguished
+linear space basis elements) and then
+present specific
+exterior algebra products that encode their row spaces and support
+combinatorial operations where a distinguished set of indices $P$ is given.
+We demonstrate this with the example
+of the electrical network equations and their solutions.
+The Tutte function is defined
+on those pairs of exterior products, which might have been given abstractly.
+It is important to recognize that two exterior algebra elements are given,
+possibly by a $\binom{n}{r}$ tuple of components, not the point in the Grassmannian
+whose \Plucker coodinates are equivalence classes of non-zero multiples of
+such a tuple.  We \emph{do} distinguish different such multiples.  Another way
+to put it is that our data and constructed objects are matrices modulo left multiplication
+by $SL_r$, not by $GL_r$ which gives the Grassmannian.
+
+\begin{itemize}
+  \item
+  Matrices $\Nal$, $\NbePe$; full row rank, columns indexed by
+    $P\dunion E$. $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.\\
+    $P_{\alpha},P_{\beta}\leftrightarrow P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_\beta \dunion E$
+    \[
+    L = L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+
+
+
+
+
+
+Let $\Nal$ and $\NbePe$ be two full row rank matrices (over field $K$)
+with
+columns indexed by $P\cup E$, $P\cap E=\emptyset$, for which
+$\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.  Let
+$G=\text{diag}\{g_e\}_{e\in E} $ and $R=\text{diag}\{r_e\}_{e\in E} $
+be diagonal matrices of parameters.  For any such matrix $N$, $N(E)$ and
+$N(P)$ denote the submatrices with columns $E$ and $P$ respectively. With
+two disjoint copies of $P$ and bijections
+$P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$, define the matrix
+with columns indexed by $P_\alpha \dunion P_\beta \dunion E$, where each entry
+is in $K$ or is a $K$ multiple of a parameter:
+\[
+    L = L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+        0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+    
+
+    Now let $U$ be the vector space $K(g_e,\ldots;r_e,\ldots)P_\alpha \dunion P_\beta \dunion E$
+    with distingushed basis $P_\alpha \dunion P_\beta \dunion E$.  Vectors and other elements of the
+    exterior algebra $\wedge U$ will be denoted by boldface characters, such as $\ext{e}_j$,
+    $\ext{p_\alpha}_k$, $\ext{p_\beta}_l$ $\in$ $P_\alpha \dunion P_\beta \dunion E$.
+    
+
+
+
+
+
+
+
+
 
 \begin{thm}
 If $xyz=0$ and $x\neq 0$ and $y\neq 0$ then $z=0$.
