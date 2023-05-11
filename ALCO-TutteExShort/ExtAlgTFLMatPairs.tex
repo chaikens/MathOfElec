@@ -133,7 +133,10 @@ The aim ... .
 
 Tutte functions are a well-known, long-standing idea
 for which new applications, variations and generalizations
-continue to be active research subjects.
+continue to be active research subjects. For example,
+Krajewski, Moffatt and Tanasa give a common Hopf algebra framework
+for the deletion and contraction operations for many of
+these variations\cite{KRAJEWSKI2018271}.
 One of the earliest Tutte function is the basis enumerator for matroids. It
 is a determinant in the case of graphic, and more generally, regular matroids;
 this is a consequence of the Cauchy-Binet theorem.
@@ -153,7 +156,7 @@ forests that contain $e$.  The latter can be also be expressed as a
 determinant.
 In the following, we will develop a formulation in which
 \emph{all these minors together},
-when they are constituted as an element of an exterior algebra, satisfy the
+when they are constituted as an element in an exterior algebra, satisfy the
 well-known Tutte identities.
 
 In order for a tuple of determinants to be a Tutte function value, one
@@ -167,8 +170,11 @@ $P$ will play the role of vertices in our all-minors matrix tree theorem special
 Let $P_{\alpha}$ and $P_{\beta}$ be disjoint copies of $P$.  Let $K$ be a field.
 We will see that our Tutte function's value will be an exterior product of
 $|P|$ vectors in the vector space over $K$ with basis $P_\alpha \cup P_\beta$.
-In other words, it will be a ``pure'' or ``decomposible'' element of rank $|P|$
-in the exterior algebra over our vector space.  As such, (when non-zero)
+Such exterior algebra products are sometimes called ``decomposibles''\cite{MarcusFDMuAlPt2}
+and are ``pure'' when considered to be anti-symmetric tensors.  Our value will
+have grade level or ``step''  $|P|$ in the exterior algebra over our
+vector space.
+As such, (when non-zero)
 it \emph{represents} some
 dimension $P$ subspace, a point in the Grassmannian $Gr(|P|,2|P|)$.
 However, in order for Tutte's additive identity to make sense, the value cannot be
@@ -189,7 +195,12 @@ the voltage drop across the resistor (in the direction of the current) if and on
 exists a value $x_e$ for which $i_e=g_ex_e$ and $v_e=r_ex_e$.  In other words, when they
 are non-zero and not infinite, the conventional
 resistance is $r_e/g_e$ and conductance is $g_e/r_e$. Shorts (zero resistance) and opens (zero
-conductance) are thus accomodated.   
+conductance) are thus accomodated.   To make this long story short (see section ()),
+our Tutte function's value
+will encode the set of voltage drops across and current flows through each of
+the network edges in $P$ that are compatible with Kirchhoff's and Ohm's laws. This set
+is the linear solution space of an underdetermined system projected into the
+dimension $2|P|$ space with a voltage and a current coordinate for each $p\in P$.
 
 
 
@@ -203,19 +214,17 @@ linear space basis elements) and then
 present specific
 exterior algebra products that encode their row spaces and support
 combinatorial operations where a distinguished set of indices $P$ is given.
-Exterior algebra products are sometimes called ``decomposibles''\cite{MarcusFDMuAlPt2}
-and are ``pure'' when considered to be anti-symmetric tensors.
 We demonstrate this with the example
 of the electrical network equations and their solutions.
 The Tutte function is defined
 on those pairs of exterior products, which might have been given abstractly.
 It is important to recognize that two exterior algebra elements are given,
-possibly by a $\binom{n}{r}$ tuple of components, not the point in the Grassmannian
+possibly by a suitable $\binom{n}{r}$ tuples of components, not the point in the Grassmannian
 whose \Plucker coodinates are equivalence classes of non-zero multiples of
 such a tuple.  We \emph{do} distinguish different such multiples.  Another way
 to put it is that our data and constructed objects are matrices modulo left multiplication
-by $SL_r$, not by $GL_r$ which gives the Grassmannian.  Of course they surject onto the
-Grassmannian.
+by $SL_r$, not by $GL_r$ the latter which gives the Grassmannian.  Of course all such matrix
+classes surject onto the Grassmannian.
 
 
 
@@ -237,34 +246,63 @@ is in $K$ or is a $K$ multiple of a parameter:
     L = L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
     = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
         0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
-    \]
+\]
     
 
-    Now let $U$ be the vector space $K(g_e,\ldots;r_e,\ldots)P_\alpha \dunion P_\beta \dunion E$
-    with distingushed basis $P_\alpha \dunion P_\beta \dunion E$.  Vectors and other elements of the
-    exterior algebra $\wedge U$ will be denoted by boldface characters, such as $\ext{e}_j$,
-    $\ext{p_\alpha}_k$, $\ext{p_\beta}_l$ $\in$ $P_\alpha \dunion P_\beta \dunion E$.
+Now let $U$ be the vector space $K(g_e,\ldots;r_e,\ldots)P_\alpha
+\dunion P_\beta \dunion E$ with distingushed basis $P_\alpha
+\dunion P_\beta \dunion E$.  Vectors and other elements of the
+exterior algebra $\wedge U$ will be denoted by boldface
+characters, such as $\ext{e}_j$, $\ext{p_\alpha}_k$,
+$\ext{p_\beta}_l$ $\in$ $P_\alpha \dunion P_\beta \dunion E$.
     
-    Let $p = |P|$, $n=|E|$ and $L_i$ be row $i$ of $L$ for $i\in\{1,\ldots,n+p\}$.
-    We form $\ext{L}$ by exterior multiplication (in order) of the vectors each given by the
-    rows of $(n+p)\times (n+2p)$ matrix $L$ for the coefficients when written in terms of
-    basis $P_\alpha \dunion P_\beta \dunion E$:
-    \[
-    \ext{L} = \wedge_{i=1}^{n+p}L_i[\ext{p_\alpha}_1\ \cdots \ext{p_\alpha}_{p}\ \ext{p_\beta}_1\ \cdots \ext{p_\beta}_{p}\
-    \ext{e}_1\ \cdots \ext{e}_{n}]^t. 
-    \]
+Let $p = |P|$, $n=|E|$ and $L_i$ be row $i$ of $L$ for $i\in\{1,\ldots,n+p\}$.
+We form $\ext{L}$ by exterior multiplication (in order) of the vectors each given by the
+rows of $(n+p)\times (n+2p)$ matrix $L$ for the coefficients when written in terms of
+basis $P_\alpha \dunion P_\beta \dunion E$:
+\begin{equation}\label{defExtL}
+  \ext{L} = \wedge_{i=1}^{n+p}L_i[\ext{p_\alpha}_1\ \cdots\ \ext{p_\alpha}_{p}\ \ext{p_\beta}_1\ \cdots\ \ext{p_\beta}_{p}\
+    \ext{e}_1\ \cdots\ \ext{e}_{n}]^t. 
+\end{equation}
 
+We can now define what will turn out to be our Tutte function.  One cannot say what it means for
+it to be a Tutte function until we get to defining the deletion and contraction operations!
 
+Let us fully expand $\ext{L}$ into an anti-commutative polynomial in
+$P_\alpha \dunion P_\beta \dunion E$.  Since $\ext{v}\wedge\ext{w}=-\ext{w}\wedge\ext{v}$ for vectors in
+exterior algebra, we can write
+\[
+\ext{L} = (\ext{L}_E)\wedge (\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n}) + \ext{J}.
+\]
+We will abbreviate expressions like $(\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n})$ by
+$(\ext{e_1}\ext{e_2}\cdots\ext{e_n})$ or $\ext{E}$ where \emph{set $E$ is specified as a sequence of its elements}.
+So, given $(N_\alpha,N_\beta^\perp)$ as above, $\ext{L}_E(N_\alpha,N_\beta^\perp)$ is defined by (\ref{defExtL}) where
+$\ext{J}$ is the sum of terms none of which is a product of $\ext{E}$.
 
+\begin{prop}
+  $\ext{L}_E(N_\alpha,N_\beta^\perp)$ is invariant under left actions of $SL_r$ on $N_\alpha$ or $N_\beta^\perp$.
+\end{prop}
+\begin{proof}
+  All the coefficients are products of an all row minor of $N_\alpha$, an all-row minor of $N_\beta^\perp$, a sign, and
+  parameters.
+  By definition, the actions of $SL_r$ will multiply those determinants by 1. 
+\end{proof}
 
+We can therefore use the similarly formed exterior products we denote by $\ext{N_\alpha}$ and $\ext{N_\beta^\perp}$
+of the rows (in order) of $N_\alpha$ and $N_\beta^\perp$ for our data, and justify
 
+\begin{defi}
+  Given $E$, $P$ and $(\ext{N_\alpha},\ext{N_\beta^\perp})$ as above, $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$ is the
+  unique exterior algebra element satisfying
+  \[
+  \ext{L}(\ext{N_\alpha},\ext{N_\beta^\perp}) =
+  (\ext{L}_E)\wedge (\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n}) + \ext{J} =
+  (\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp}))\ext{E}+\ext{J}.
+  \]
+  where $\ext{J}$ is the sum of terms none of which is a product of $\ext{E}=\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n}$.
+\end{defi}
 
-
-
-\begin{thm}
-If $xyz=0$ and $x\neq 0$ and $y\neq 0$ then $z=0$.
-\end{thm}
-
+    
 
 
 \section{Final remarks}
