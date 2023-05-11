@@ -121,18 +121,18 @@ The aim ... .
 
 \noindent
 
-Tutte functions are a well-known, long-standing approach
+Tutte functions are a well-known, long-standing idea
 for which new applications, variations and generalizations
 continue to be active research subjects.
-One of the earliest Tutte function is the basis enumerator for matroids. In the
-case of graphic, and more generally, regular matroids, it is, as a
-well-known consequence of the Cauchy-Binet theorem, a determinant.
+One of the earliest Tutte function is the basis enumerator for matroids. It
+is a determinant in the case of graphic, and more generally, regular matroids;
+this is a consequence of the Cauchy-Binet theorem.
 The well-known Matrix Tree theorem tells us this determinant (up to sign)
 is any full-rank minor of the graph's Laplacian matrix. More generally,
-every minor is an enumerator for (signed in non-principal minor
+every minor is an enumerator for (signed, in some non-principal minor
 cases) forests satisfying the following condition: Each vertex indexing
 a deleted row is in exactly one of the trees, and similary for each
-vertex indexing a deleted column. (Each forest's sign depends on the sign of the
+vertex indexing a deleted column\cite{sdcMTT}. (Each forest's sign depends on the sign of the
 matching the forest determines between the deleted row vertices and
 deleted column vertices; of course when the minor is principal,
 the only such matching is the identity.)
@@ -143,8 +143,44 @@ forests that contain $e$.  The latter can be also be expressed as a
 determinant.
 In the following, we will develop a formulation in which
 \emph{all these minors together},
-when are constituted as an element of an exterior algebra, satisfy the
+when they are constituted as an element of an exterior algebra, satisfy the
 well-known Tutte identities.
+
+In order for a tuple of determinants to be a Tutte function value, one
+must label them in a combinatorial way.  For this purpose, we use
+the \emph{set-pointed}, also called the \emph{relative} or \emph{ported}
+variation of Tutte functions.  Let $P$ be a set.  A function $F$ is a set $P$ pointed or $P$-ported
+Tutte function, or a relative Tutte function with respect to $P$, when the
+identity for deletion and contraction of $e$ is asserted only when $e \not\in P$.
+$P$ will play the role of vertices in our all-minors matrix tree theorem specialization.
+
+Let $P_{\alpha}$ and $P_{\beta}$ be disjoint copies of $P$.  Let $K$ be a field.
+We will see that our Tutte function's value will be an exterior product of
+$|P|$ vectors in the vector space over $K$ with basis $P_\alpha \cup P_\beta$.
+In other words, it will be a ``pure'' or ``decomposible'' element of rank $|P|$
+in the exterior algebra over our vector space.  As such, (when non-zero)
+it \emph{represents} some
+dimension $P$ subspace, a point in the Grassmannian $Gr(|P|,2|P|)$.
+However, in order for Tutte's additive identity to make sense, the value cannot be
+a point in a projective space like the one containing the variety $Gr(|P|,2|P|)$.
+
+
+The theory works when parameters $r_e$, $g_e$ are given for each element $e\not\in P$. We
+will have, formally,
+\[
+   F(N) = g_eF(N/e)+r_eF(N\backslash e) \text{ if\ }e\text{ can be deleted and contracted, and }e\not\in P.
+   \]
+Indeed, our chief motivation is to give an algebraic combinatorial description of solutions
+to electrical network problems, where the parameters will represent the coefficient
+in Ohm's law.  It is convenient (and elegant) to write that law in homogeneous form:
+For each resistor $e$ there
+are two parameters $r_e,g_e$ such that $i_e$ is the current through the resistor and $v_e$ is
+the voltage drop across the resistor (in the direction of the current) if and only if there
+exists a value $x_e$ for which $i_e=g_ex_e$ and $v_e=r_ex_e$.  In other words, when they
+are non-zero and not infinite, the conventional
+resistance is $r_e/g_e$ and conductance is $g_e/r_e$. Shorts (zero resistance) and opens (zero
+conductance) are thus accomodated.   
+
 
 
 \section{Setup and Theorem}
@@ -160,7 +196,7 @@ If $xyz=0$ and $x\neq 0$ and $y\neq 0$ then $z=0$.
 \longthanks{I wish to thank the whole community}
 
 
-\nocite{*}
+%\nocite{*}
 \bibliographystyle{amsplain-ac}
 \bibliography{ExtAlgTFLMatPairs}
 \end{document}
