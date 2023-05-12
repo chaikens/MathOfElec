@@ -161,11 +161,17 @@ well-known Tutte identities.
 
 In order for a tuple of determinants to be a Tutte function value, one
 must label them in a combinatorial way.  For this purpose, we use
-the \emph{set-pointed}, also called the \emph{relative} or \emph{ported}
-variation of Tutte functions.  Let $P$ be a set.  A function $F$ is a set $P$ pointed or $P$-ported
-Tutte function, or a relative Tutte function with respect to $P$, when the
-identity for deletion and contraction of $e$ is asserted only when $e \not\in P$.
+the \emph{set-pointed}\cite{SetPointedLV}, also called the
+\emph{relative}\cite{RelTuttePolyDiaoHetyei} or
+\emph{ported}\cite{sdcPorted,TutteEx}
+variation of Tutte functions.  Let $P$ be a set.  A function $F$ is a $P$-ported
+when the identity for deletion and contraction of $e$ is asserted,
+and rules for reducing loops or coloops apply, only when $e \not\in P$.
 $P$ will play the role of vertices in our all-minors matrix tree theorem specialization.
+We prefer the engineering term ``port'' because it eludes to both an object through
+which systems can be interconnected, or can be manipulated and observed by their
+environments.  Engineers would call our graph theory example a ``$p$-port'', with
+$p=2$.
 
 Let $P_{\alpha}$ and $P_{\beta}$ be disjoint copies of $P$.  Let $K$ be a field.
 We will see that our Tutte function's value will be an exterior product of
@@ -178,7 +184,35 @@ As such, (when non-zero)
 it \emph{represents} some
 dimension $P$ subspace, a point in the Grassmannian $Gr(|P|,2|P|)$.
 However, in order for Tutte's additive identity to make sense, the value cannot be
-a point in a projective space like the one containing the variety $Gr(|P|,2|P|)$.
+a point in the $\binom{2|P|}{|P|}-1$ dimensional projective space
+containing the variety $Gr(|P|,2|P|)$.  It must be in a module, which for
+our construction is a linear space.
+
+
+A possibly novel feature is that unlike the usual commutative ring values for Tutte
+functions, our functions' values, being in an exterior algebra, are graded and have
+\emph{anticommutative} multiplication.
+Hence a sign correction must be included in Tutte's multiplicative
+identity.  Our Tutte function merely reduces to the constant obtained when Tutte
+decomposition with loops ($w=y+1$) and coloops ($u=x+1$) given the value 0,
+giving us the (parametrized)
+basis enumerator. ``Porting'' is necessary for our approach to yield anything
+interesting. To find a Tutte function (like the full Tutte polynomial) with
+variables $w, u$ that reduces to our exterior algebra version when $w=u=0$ is an interesting
+question.  Our
+references\cite{MR0419272,SetPointedLV,sdcPorted,TutteEx,RelTuttePolyDiaoHetyei}
+document that all the fundamental features
+(expansions, universality, etc.)
+of Tutte function theory extend to porting/set-pointing/relativization.
+
+Another possibly interesting feature is that, in a rather trivial way,
+our Tutte function can distinguish different orientations of an oriented
+matroid.  When decomposition defined by our Tutte identities is applied to
+a represented oriented matroid, the irreducibles are representations of
+some of its minors whose elements are only in $P$.   Hence different
+orientations of the same matroid minor are distinguished.  Recently,
+a new Tutte function variation that distinguishes properties of orientations
+more finely was found\cite{AwanBernardiOMTuttePre}.
 
 
 The theory works when parameters $r_e$, $g_e$ are given for each element $e\not\in P$. We
@@ -190,7 +224,9 @@ Indeed, our chief motivation is to give an algebraic combinatorial description o
 to electrical network problems, where the parameters will represent the coefficient
 in Ohm's law.  It is convenient (and elegant) to write that law in homogeneous form:
 For each resistor $e$ there
-are two parameters $r_e,g_e$ such that $i_e$ is the current through the resistor and $v_e$ is
+are two parameters $r_e,g_e$
+(``proresistance'', ``proconductance'' apparently originated in \cite{SmithElec} and  used in
+\cite{TutteEx,CirThProjHomo2019}) such that $i_e$ is the current through the resistor and $v_e$ is
 the voltage drop across the resistor (in the direction of the current) if and only if there
 exists a value $x_e$ for which $i_e=g_ex_e$ and $v_e=r_ex_e$.  In other words, when they
 are non-zero and not infinite, the conventional
@@ -198,9 +234,9 @@ resistance is $r_e/g_e$ and conductance is $g_e/r_e$. Shorts (zero resistance) a
 conductance) are thus accomodated.   To make this long story short (see section ()),
 our Tutte function's value
 will encode the set of voltage drops across and current flows through each of
-the network edges in $P$ that are compatible with Kirchhoff's and Ohm's laws. This set
+the network edges in $P$ that are compatible with Kirchhoff's and Ohm's laws applied to $E\cup P$. This set
 is the linear solution space of an underdetermined system projected into the
-dimension $2|P|$ space with a voltage and a current coordinate for each $p\in P$.
+dimension $2|P|$ space with a voltage ($v_{p}$) and a current ($i_{p}$) coordinate for each $p\in P$.
 
 
 
@@ -268,7 +304,7 @@ basis $P_\alpha \dunion P_\beta \dunion E$:
 We can now define what will turn out to be our Tutte function.  One cannot say what it means for
 it to be a Tutte function until we get to defining the deletion and contraction operations!
 
-Let us fully expand $\ext{L}$ into an anti-commutative polynomial in
+Let us fully expand $\ext{L}$ into a polynomial in anti-commuting variables
 $P_\alpha \dunion P_\beta \dunion E$.  Since $\ext{v}\wedge\ext{w}=-\ext{w}\wedge\ext{v}$ for vectors in
 exterior algebra, we can write
 \[
@@ -302,7 +338,64 @@ of the rows (in order) of $N_\alpha$ and $N_\beta^\perp$ for our data, and justi
   where $\ext{J}$ is the sum of terms none of which is a product of $\ext{E}=\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n}$.
 \end{defi}
 
-    
+
+\subsection{Example and an interpretation of $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$}
+
+Let $P=\{p_1, p_2\}$ and $E=\{e_1, e_2, e_3, e_4, e_5\}$ together be the edges in the (oriented) graph
+below representing an electrical network, where $E$ represents the resistors.  The currents and voltages
+in all these edges are variables $i_t$ and $v_t$ for $t\in P\cup E$.  Ohm's law
+asserts that for $e\in E$, the ratio voltage-to-current ratio
+$v_e:i_e$ $=$ $r_e:g_e$, the ratio of the parameters. The matrix $N_\alpha$ is the
+usual ``signed'' vertex-edge incidence matrix which represents our graph's graphic matroid, with one
+row deleted so $N_\alpha$ has full row rank.  The rows of $N_\alpha$ are the coefficients in
+Kirchhoff's current law, asserting that the edge currents constitute a 1-cycle, (i.e., a flow.)
+Matrix $N_\beta^\perp$ is a totally unimodular matrix whose
+rows are a basis for the 1-cycle space, obtained by coding the incidences of edges with the oriented fundamental
+circuits each associated to an edge not in a fixed spanning tree.  It's rows are the coefficients in
+Kirchhoff's voltage law, asserting that the edge
+voltages drops constitute a 1-coboundary, (i.e., differences
+of a potential across edges.)
+This well-known construction gives
+two full row rank totally unimodular matrices whose row spaces are orthogonal complements,
+representing the graph's
+graphic and cographic matroids respectively.
+
+We form the following system of equations from ().
+\[
+cool sys of eq
+\]
+The electrical network problem at hand is to determine linear constraints on the
+port variables $i_p, v_p$, $p\in P = \{p_1, p_2\}$ imposed by the system.  In other words,
+we want a linear map on the $U$-vector space with basis $P_\alpha, P_\beta$ whose kernel
+is the projection of this system's solution space.
+
+
+\subsection{An easy but weak Tutte function variation}
+
+This is apparent:  Take any $e\in E$, any parameter
+values and $E'=E\setminus e$. Generalizing the example's discussion tells us that all three of
+(1) $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$,
+(2) $\ext{L}_{E'}(\ext{N_\alpha}/e,\ext{N_\beta^\perp\setminus e})$ and
+(3) $\ext{L}_{E'}(\ext{N_\alpha}\setminus e,\ext{N_\beta^\perp/e})$ represent
+\Plucker coordinates, because they are representatives for the \Plucker coordinates
+of the row spaces of the $F$'s from (1), (2) and (3) respectively.  Since \emph{for each determinant
+$D_1$, $D_2$ and $D_3$ separately} in their expansions $c_1 D_1 = c_2 g_e D_2 + c_3 r_e D_3$ for
+some coefficients, we can say:
+
+\begin{prop}
+Let $G_1$, $G_2$ and $G_3$ be points on the Grassmannian $Gr(p,2p)$ represented by
+$\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$,
+$\ext{L}_{E'}(\ext{N_\alpha}/e,\ext{N_\beta^\perp\setminus e})$ and
+$\ext{L}_{E'}(\ext{N_\alpha}\setminus e,\ext{N_\beta^\perp/e})$ respectively. Then
+$G_1$, $G_2$ and $G_3$ are colinear in the projective space containing this Grassmannian, and
+all points on the line determined by $G_2$, $G_3$ represent points in this Grassmannian.
+\end{prop}
+\begin{proof}
+  As $(r_e:g_e)$ ranges from $(1:0)$ to $(0:1)$, $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$ represents
+  the row space of $F$ from the above argument, which varys with $(r_e:g_e)$.
+\end{proof}
+
+
 
 
 \section{Final remarks}
