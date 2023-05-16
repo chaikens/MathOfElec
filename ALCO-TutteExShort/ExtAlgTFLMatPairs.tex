@@ -157,7 +157,17 @@ determinant.
 In the following, we will develop a formulation in which
 \emph{all these minors together},
 when they are constituted as an element in an exterior algebra, satisfy the
-well-known Tutte identities.
+well-known Tutte identities.  The formulation applies to pairs of
+typically row-spaces of matrices, with rank conditions for non-triviality,
+and our Tutte decomposition operates on the columns as does (possibly oriented)
+matroid deletion and contraction.
+
+
+Our most compelling reason for connecting
+Tutte functions with an exterior algebra in lieu of a commutative algebra is that
+products in the former represent linear subspaces. The examples of such subspaces
+we give comprise solutions to problem posed from graphs generalizing the inversion
+of graph Laplacians.  
 
 In order for a tuple of determinants to be a Tutte function value, one
 must label them in a combinatorial way.  For this purpose, we use
@@ -167,7 +177,8 @@ the \emph{set-pointed}\cite{SetPointedLV}, also called the
 variation of Tutte functions.  Let $P$ be a set.  A function $F$ is a $P$-ported
 when the identity for deletion and contraction of $e$ is asserted,
 and rules for reducing loops or coloops apply, only when $e \not\in P$.
-$P$ will play the role of vertices in our all-minors matrix tree theorem specialization.
+$P$ will play the role of vertices in our all-minors of the Laplacian
+matrix tree theorem specialization.
 We prefer the engineering term ``port'' because it eludes to both an object through
 which systems can be interconnected, or can be manipulated and observed by their
 environments.  Engineers would call our graph theory example a ``$p$-port'', with
@@ -188,28 +199,32 @@ a point in the $\binom{2|P|}{|P|}-1$ dimensional projective space
 containing the variety $Gr(|P|,2|P|)$.  It must be in a module, which for
 our construction is a linear space.
 
-
 A possibly novel feature is that unlike the usual commutative ring values for Tutte
 functions, our functions' values, being in an exterior algebra, are graded and have
 \emph{anticommutative} multiplication.
 Hence a sign correction must be included in Tutte's multiplicative
-identity.  Our Tutte function merely reduces to the constant obtained when Tutte
-decomposition with loops ($w=y+1$) and coloops ($u=x+1$) given the value 0,
-giving us the (parametrized)
-basis enumerator. ``Porting'' is necessary for our approach to yield anything
-interesting. To find a Tutte function (like the full Tutte polynomial) with
-variables $w, u$ that reduces to our exterior algebra version when $w=u=0$ is an interesting
-question.  Our
+identity.  Our Tutte function merely reduces to the parametrized
+basis enumerator obtained from setting $u=v=0$ in Tutte
+decomposition with coloop $e$ valued at $g_e+r_eu$ and loop $e$ valued at $r_e+g_ev$.
+``Porting'' is necessary for our approach to yield anything
+interesting. To find a Tutte function, like the Whitney rank-nullity
+generating function form in variables $u,v$, that reduces to our exterior
+algebra version when $u=v=0$ is an interesting question.
+Our
 references\cite{MR0419272,SetPointedLV,sdcPorted,TutteEx,RelTuttePolyDiaoHetyei}
 document that all the fundamental features
 (expansions, universality, etc.)
-of Tutte function theory extend to porting/set-pointing/relativization.
+of Tutte function theory extend to porting/set-pointing/relativization.  Throughout,
+we restrict our attention to the ``normal'' parametrized Tutte functions which, according
+to classifications given by Zaslavsky\cite{MR93a:05047},
+and Bollobas and Riordan\cite{BollobasRiordanTuttePolyColored},
+have rank-nullity generating function interpretations. 
 
 Another possibly interesting feature is that, in a rather trivial way,
 our Tutte function can distinguish different orientations of an oriented
 matroid.  When decomposition defined by our Tutte identities is applied to
 a represented oriented matroid, the irreducibles are representations of
-some of its minors whose elements are only in $P$.   Hence different
+some of its minors for which their ground set only contains elements in $P$.   Hence different
 orientations of the same matroid minor are distinguished.  Recently,
 a new Tutte function variation that distinguishes properties of orientations
 more finely was found\cite{AwanBernardiOMTuttePre}.
@@ -238,13 +253,16 @@ the network edges in $P$ that are compatible with Kirchhoff's and Ohm's laws app
 is the linear solution space of an underdetermined system projected into the
 dimension $2|P|$ space with a voltage ($v_{p}$) and a current ($i_{p}$) coordinate for each $p\in P$.
 
+Thus, the subspace represented by our Tutte function's value is parametrized.  This opens
+questions for research into the topological and geometric properties of the set of those subspaces
+as the parameters range say over $Reals$ or $Complexes$, say for a given graph or pair of
+matrices.
+
 
 
 \section{Setup and Theorem}
 
-
-\subsection{Definition of a Tutte Function of $P$-Ported Pairs}
-
+\noindent
 We begin by defining how we index columns of matrices (with a set of
 linear space basis elements) and then
 present specific
@@ -263,8 +281,7 @@ by $SL_r$, not by $GL_r$ the latter which gives the Grassmannian.  Of course all
 classes surject onto the Grassmannian.
 
 
-
-
+\subsection{Definition of a Tutte Function of $P$-Ported Pairs}
 
 
 Let $\Nal$ and $\NbePe$ be two full row rank matrices (over field $K$)
@@ -284,14 +301,28 @@ is in $K$ or is a $K$ multiple of a parameter:
         0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
 \]
 
-The next step will simply take the exterior product of the rows of $L$.
-We need 
-a careful formalizm so we can algebraically relate the resulting Tutte function value
-to its values for our to-be-defined minors and direct product factors
-(special cases of those for matroids)
-which will have a proper subset for $E$ and possibly so for $P$.
+The remaining two steps below will simply take the exterior product of the rows of $L$, and
+then, for the value, extract the terms that are divisible by $\wedge_{e \in E}\ext{e}$ when the product
+is expanded in terms of the basis generated by $P_\alpha \dunion P_\beta \dunion E$.
+This is too simple because it remains unclear how to define the construction for the
+``minors'' (to be defined), which will have smaller sets in place of $E$, so the
+resulting values satisfy the Tutte identities. 
 
-Now let $U$ be the vector space $K(g_e,\ldots;r_e,\ldots)P_\alpha
+An equivalent simplified construction is to project the solution space $\{z\}$ of $Lz=0$ onto
+the $P_\alpha\cup P_\beta$ coordinates and then take the exterior product of some basis
+for that projection's orthogonal complement.  In other words, we eliminate all the variables
+in $Lz=0$ indexed by $E$ and take the exterior product of the resulting matrix rows.
+Unfortunately, these views define an exterior product only
+up to a $K$ multiple---nice to solve for some of the remaining $z$'s in terms of
+the others, or to get a point in a Grassmannian, but a failure
+for additive or multiplicative identities.
+
+We need 
+some careful formalism so we can algebraically relate the resulting Tutte function value
+to its values for our to-be-defined minors and direct product factors.  Those 
+will have a proper subset for $E$ and possibly so for $P$.
+
+Let $U$ be the vector space $K(g_e,\ldots;r_e,\ldots)P_\alpha
 \dunion P_\beta \dunion E$ with distingushed basis $P_\alpha
 \dunion P_\beta \dunion E$.  Vectors and other elements of the
 exterior algebra $\wedge U$ will be denoted by boldface
