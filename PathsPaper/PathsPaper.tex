@@ -1,0 +1,427 @@
+% Sample article for the Electronic Journal of Combinatorics.
+%
+% EJC papers *must* begin with the following two lines. 
+\documentclass[12pt]{article}
+\usepackage{generic-e-jc}
+
+% GEOMETRY
+% Please remove all commands that change parameters such as
+%    margins or page sizes.  The style file sets them
+
+% PACKAGES
+% Packages amssymb, amsthm and hyperref are already loaded. 
+% We recommend also these packages for mathematics and images:
+\usepackage{amsmath,graphicx}
+
+\usepackage{tkz-graph}
+\DeclareMathOperator{\sign}{sign}
+
+% Override stuff in style file.
+\specs{??}{??}{??}{??}
+
+
+% THEOREM ENVIRONMENTS
+% Theorem-like environments that are declared in the style file are:
+% theorem, lemma, corollary, proposition, fact, observation, claim,
+% definition, example, conjecture, open, problem, question, remark, note
+
+% CHARACTER CODES
+% Please do not use non-ascii characters in this file, but instead use
+% the LaTex macros for characters with diacritical marks, such as
+% G\"{o}del, R\'{e}nyi, Erd\H{o}s.  Don't use the package "babel".
+% Note that this is the opposite of the rule for the article metadata
+% that you enter on the web page; sorry for the confusion!
+
+% DATES
+% Give the submission and acceptance dates in the format shown.
+% The editors will insert the publication date in the third argument.
+\dateline{July ??, 2022}{TBD}{TBD}
+
+% SUBJECT CODES
+% Give one or more subject codes separated by commas.
+% Codes are available from http://www.ams.org/mathscinet/freeTools.html
+\MSC{05C88, 05C89}
+
+% COPYRIGHT NOTICE
+% Uncomment exactly one of the following copyright statements.  Alternatively,
+% you can write your own copyright statement subject to the approval of the journal.
+% See https://creativecommons.org/licenses/ for a full explanation of the 
+% Creative Commons licenses.
+%
+% We strongly recommend CC BY-ND or CC BY. Both these licenses allow others
+% to freely distribute your work while giving credit to you. The difference between
+% them is that CC BY-ND only allows distribution unchanged and in whole, while
+% CC BY also allows remixing, tweaking and building upon your work.  
+%
+%    One author:  ==========================
+%\Copyright{The author.}
+%\Copyright{The author. Released under the CC BY license (International 4.0).}
+%\Copyright{The author. Released under the CC BY-ND license (International 4.0).}
+%    More than one author: ===================
+%\Copyright{The authors.}
+%\Copyright{The authors. Released under the CC BY license (International 4.0).}
+\Copyright{The authors. Released under the CC BY-ND license (International 4.0).}
+
+% TITLE
+% If needed, include a line break (\\) at an appropriate place in the title.
+\title{Determinants and Inversion Properties of Digraph Path Matrices}
+
+
+% AUTHORS
+% Input author, affiliation, address and support information as follows;
+% The address should include the country, but does not have to include
+%    the street address. Give at least one email address.
+
+\author{Seth Chaiken\\
+\small Department of Computer Science (retired)\\[-0.8ex]
+\small University at Albany\\[-0.8ex] 
+\small Albany, New York, U.S.A.\\
+\small\tt schaiken@albany.edu\\
+\and
+Jay Sulzberger\\
+%\small School of Hard Knocks\\[-0.8ex]
+%\small University of Western Nowhere\\[-0.8ex]
+\small Yonkers, New York, U.S.A.\\
+\small\tt jays@panix.com}
+
+\begin{document}
+
+\maketitle
+
+% ABSTRACT
+% E-JC papers must include an abstract. The abstract should consist of a
+% succinct statement of background followed by a listing of the
+% principal new results that are to be found in the paper. The abstract
+% should be informative, clear, and as complete as possible. Phrases
+% like "we investigate..." or "we study..." should be kept to a minimum
+% in favor of "we prove that..."  or "we show that...".  Do not
+% include equation numbers, unexpanded citations (such as "[23]"), or
+% any other references to things in the paper that are not defined in
+% the abstract. The abstract may be distributed without the rest of the
+% paper so it must be entirely self-contained.  Try to include all words
+% and phrases that someone might search for when looking for your paper.
+
+\begin{abstract}
+\end{abstract}
+
+\section{Introduction}
+
+
+\section{Setup and the Tree Theorem}
+
+Matrices $M$ are indexed by the vertex set $V$ of a loopless, simple
+directed graph $G$,
+which is assumed to be linearly ordered, and, for submatrices,
+subsets of $V$ with the same order.
+When $R,C\subseteq V$, $M[R,C]$ denotes the submatrix with rows $R$ and columns $C$. The
+complementary submatrix with rows $V\setminus R$ and columns $V\setminus C$ is denoted by
+$M(R,C)$.  Using $ab$  in short for $\{a,b\}$ etc., $M(ab,cd)$ is the submatrix obtained by deleting
+rows $a$ and $b$, and columns $c$ and $d$ from $M$, etc.  We remind the reader that the $[a,b]$ entry
+of the $M$'s adjugate is $\sign(a,b)\det M(b,a)$.   Here $\sign(a,b)$ is $+$ or $-$ depending on
+whether the parity of the number of vertices between and including $a,b$ in the order of $V$
+is odd or even,
+respectively.  When $V$ is the familiar $\{0, 1, \ldots, n\}$, $\sign(a,b)=(-1)^{(a+b)}$.
+Cramer's rule is thus $M^{-1}[a,b]=(\sign(a,b)\det M(b,a))/\det M$ if $\det M \neq 0$.
+
+Edges $ab$ of digraph $G$ are associated with distinct algebraically independent weights or
+variables $x_{ab}$.  Some readers may choose to use a setup with variables $x_{ab}$
+for all $a\neq b$ and consider digraphs to be determined by which $x_{ab}$ are not set to 0.  One
+might also extend our setup and results
+to digraphs with multiple edges by taking our $x_{ab}$ to be the
+sum of the weights of all the edges from $a$ to $b$.  These we won't pursue. 
+
+A \emph{walk} from vertex $a$ to vertex $b$ is a sequence of alternatingly
+incident vertices and (directed) edges that begins with $a$, ends with $b$.  A walk may have
+repeated vertices; if it has a repeated edge it must have repeated vertices.  A \emph{(simple) path}
+is a walk that has no vertex appearing more than once.  For us, the term \emph{path} will always
+mean \emph{simple path}. We will use \emph{simple} to indicate that this property is applied
+in a proof.
+Path 
+$(a, ab, b, bc, \cdots, yz, z)$ is abbreviated
+$(a, b, c, \cdots, z)$. The one and only path from $a$ to $a$ is $(a)$, a \emph{no-edge}
+path.  It's unique since paths are simple.
+
+
+\begin{definition}
+  The \emph{path matrix}\cite{MR311496} $PM$ of digraph $G$ has rows and columns labeled by the vertices of $G$,
+  and for $i,j$ vertices of $G$, entry
+  \[ PM[i,j] = \Sigma_px_p
+  \]
+  where the sum is over all paths $p$ from $i$ to $j$ in $G$, and $x_p$ is the product of
+  the weight variables over the edges of $p$.  The convention that all paths are simple implies
+  $PM[i,i] = 1$.
+\end{definition}
+
+\begin{proposition}\label{Prop:GivenEdge}
+  Suppose $ab$ is an edge in $G$. Then $\det PM(b,a) \neq 0$. Specifically,
+  \[
+  \det PM(b,a) = x_{ab}(1 + P) + Q
+  \]
+  where polynomial $P$ has no constant terms, and no term in $Q$ is a constant
+  multiple of $x_{ab}$.  Thus, $\det PM(a,b)$ expanded into terms is
+  $x_{ab} + \cdots \neq 0$.
+\end{proposition}
+
+\begin{proof}
+  Taking an order where $a<b$ are the first two vertices, $PM$ has the following
+  form.  Consider places of appearances of monomials within the entries of the matrix.
+  Each monomial corresponds to a simple path.
+  \[
+  PM=\left[
+    \begin{matrix}
+      1      & x_{ab}+P & *      & \cdots & *  \\
+      *      & 1       &  *     & \cdots & *  \\
+      *      & *       &  1     & \cdots & *  \\
+      \vdots & \vdots  & \vdots & \ddots & \vdots \\
+      *      & *       & *      & \cdots &  1
+    \end{matrix}
+  \right],
+  \]
+  The only place a constant multiple of $x_{ab}$ appears is within $PM[ab]$. This is because
+  every simple path whose endpoints are not $a,b$ must either be a no-edge path or
+  contain at least one edge different from $ab$.  The only places
+  1 appears are on the main diagonal, and no other constants appear anywhere else, since every
+  no-edge path starts and ends at the same vertex. 
+  When we now delete the first column ($a$) and the second row ($b$), the resulting diagonal
+  is $(x_{ab} +P, 1, \cdots, 1)$.
+  Therefore, when the deteminant is expanded into terms, no other term is a
+  constant multiple of $x_{ab}$ besides $x_{ab}$ multiplied by the $1$s from the main diagonal.
+  ($x_{ab}$ may of course appear linearly in other terms within the matrix.)
+  \end{proof}
+
+
+We are interested in situations where a kind of converse to Proposition~\ref{Prop:GivenEdge} is true.
+If, for a particular digraph, $Q=0$ for all $a,b$ in the Proposition, then we would have
+$\det PM(b,a) \neq 0$ \emph{if and only if} $ab$ is an edge in $G$!  Since $\pm\det PM(b,a)$ is the
+$[a,b]$ entry of $PM$'s adjugate, and $\det PM\neq 0$, $PM^{-1}$ would have the same pattern of
+zero versus non-zero entries in one variation of a weighted adjacency matrix of $G$, defined here.
+
+\begin{definition}
+  The weighted adjacency matrix $AM$ for digraph $G$ has entries $AM[i,j]=x_{ij}$ if $ij\in E(G)$,
+  $AM[i,j]=0$ if $ij\not\in E(G)$, and $AM[i,i]=1$.
+\end{definition}
+
+
+\begin{definition}
+  A digraph $G$ with path matrix $PM$  has the
+  \emph{path matrix inversion property} when for all vertex pairs $[a,b]$,
+  $det PM(b,a)\neq 0$ (equivalently, $PM^{-1}[a,b]\neq 0$) if and only if
+  $a=b$ or $ab$ is an edge in $G$.
+\end{definition}
+  
+
+\begin{definition}
+  The \emph{digraph} of an undirected graph $G$ has the same vertices, with
+  the edges occurring in pairs $ab$ and $ba$ if and only if $\{a,b\}$
+  is an edge of $G$.  In other words, each undirected edge replaced by two
+  oppositely directed edges.
+\end{definition}
+
+\begin{theorem}
+  Digraphs of (undirected) trees all have the path matrix inversion property.
+\end{theorem}
+
+The smallest non-trivial case is, with $02\not\in\{01,10,12,21\}$,
+\begin{center}
+\resizebox{0.3\textwidth}{0.3\textwidth}{
+\begin{tikzpicture}
+\definecolor{cv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv0}{rgb}{1.0,1.0,1.0}
+\definecolor{clv0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv1}{rgb}{1.0,1.0,1.0}
+\definecolor{clv1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cfv2}{rgb}{1.0,1.0,1.0}
+\definecolor{clv2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv0v1}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v0}{rgb}{0.0,0.0,0.0}
+\definecolor{cv1v2}{rgb}{0.0,0.0,0.0}
+\definecolor{cv2v1}{rgb}{0.0,0.0,0.0}
+%
+\Vertex[style={minimum size=1.0cm,draw=cv0,fill=cfv0,text=clv0,shape=circle},LabelOut=false,L=\hbox{$0$},x=5.0cm,y=5.0cm]{v0}
+\Vertex[style={minimum size=1.0cm,draw=cv1,fill=cfv1,text=clv1,shape=circle},LabelOut=false,L=\hbox{$1$},x=2.4445cm,y=2.4445cm]{v1}
+\Vertex[style={minimum size=1.0cm,draw=cv2,fill=cfv2,text=clv2,shape=circle},LabelOut=false,L=\hbox{$2$},x=0.0cm,y=0.0cm]{v2}
+%
+\Edge[lw=0.1cm,style={post, bend right,color=cv0v1,},](v0)(v1)
+\Edge[lw=0.1cm,style={post, bend right,color=cv1v0,},](v1)(v0)
+\Edge[lw=0.1cm,style={post, bend right,color=cv1v2,},](v1)(v2)
+\Edge[lw=0.1cm,style={post, bend right,color=cv2v1,},](v2)(v1)
+%
+\end{tikzpicture}
+}
+\end{center}
+\[
+PM=\left[
+  \begin{matrix}
+    1          & x_{01} & x_{01}x_{12} \\
+    x_{10}      & 1     & x_{12}      \\
+    x_{21}x_{10} & x_{21} & 1
+  \end{matrix}
+  \right];
+\hspace{5mm}
+PM(2,0) =
+\left[
+  \begin{matrix}
+     x_{01} & x_{01}x_{12} \\
+       1     & x_{12}      
+  \end{matrix}
+  \right]
+\text{\ is singular.}
+\]
+In all,
+\[
+\det PM= 1  - x_{12}x_{21}  - x_{01}x_{10} + x_{01}x_{10}x_{12}x_{21}
+\]
+\[
+(\det PM)PM^{-1}=\left[ \begin{matrix}
+    1 - x_{12}x_{21}           & x_{01}(x_{12}x_{21} - 1)     & 0 \\
+    x_{10}(x_{12}*x_{21} - 1) & 1 - x_{01}x_{10}x_{12}x_{21}  & x_{12}(x_{01}x_{10} - 1) \\
+    0                        &  x_{21}(x_{01}x_{10} - 1)    & 1 - x_{01}x_{10}
+  \end{matrix} \right]
+\]
+\[
+AM = \left[ \begin{matrix}
+    1     & x_{01}  & 0 \\
+    x_{10} & 1      & x_{12} \\
+    0     & x_{21}  & 1
+  \end{matrix} \right]
+\]
+It's of interest compare $PM$ with the adjugate of $AM$:
+\[
+(\det AM)AM^{-1}= \left[ \begin{matrix}
+    1 - x_{12}x_{21} & -x_{01}    & x_{01}x_{12} \\
+    -x_{10}         &   1       &  -x_{12}      \\
+    x_{21}x_{10}     &   -x_{21}  &  1 - x_{01}x_{10}
+  \end{matrix} \right].
+\]
+
+\begin{proof}
+  For any digraph with path matrix $PM$, if $ab$ is an edge,
+  then $det PM(b,a)= x_{ab} + \cdots \neq 0$ is the result of Proposition~\ref{Prop:GivenEdge}.
+  If $a=b$, then $det PM(a,a)= 1 + \cdots \neq 0$.
+
+  Therefore, what remains to prove is that if
+  $G$ is the digraph of a given tree, and $a\neq b$,
+  if $ab$ is not an edge of $G$ (equivalently, $\{a,b\}$
+  is not an edge in the tree) then $det PM(b,a) = 0$.  This will be proved partly by induction. For
+  notational convenience, we take $V=\{0, 1, \ldots, n\}$ for the vertices.
+
+  A \emph{leaf vertex} is a vertex that is a leaf in the tree.  For convenience, we take $0$ to
+  be a leaf vertex and $1$ the (unique) vertex it is adjacent to.  The only simple paths between
+  $0$ and $1$ are $(0,1)$ and $(1,0)$.  Further, the simple paths from $0$ to each $x\geq 2$
+  are exactly $(0,1)$ followed by the simple paths from 
+  $1$ to $x$.  The analogous property holds for simple paths from each $x\geq 2$ to $0$.
+  So
+ \begin{equation}\label{Eq:LeafPMForm}
+   PM  = \left[
+  \begin{matrix}
+      1 & x_{01} & x_{01}[PM_{12}\;\;\; PM_{13} \;\; \cdots ] \\
+      x_{10} & 1     & \;\;\;\;\; [PM_{12}\;\;\; PM_{13} \;\; \cdots ]\\
+      x_{10}\hspace{-2mm}\left[ \begin{matrix}
+          PM_{21} \\
+          PM_{31} \\
+          \vdots
+        \end{matrix}
+        \right]          &        
+           \left[ \begin{matrix}
+          PM_{21} \\
+          PM_{31} \\
+          \vdots
+        \end{matrix}
+        \right] &    \ddots
+    \end{matrix}
+  \right].
+ \end{equation}
+ Variables $x_{01}$ and $x_{10}$ appear in the polynomials of $PM$ only as explicitly shown
+ in form (\ref{Eq:LeafPMForm}), because the enumerated paths are all simple.  Note then that
+ $PM(0,0)$ is the path matrix of $G$ with vertex $0$ and edges $01$ and $10$ deleted.
+
+ The cases of the theorem when $\{a,b\}=\{0,1\}$ hold because of Proposition~\ref{Prop:GivenEdge}.
+   The cases when $a\neq 0$ and $b\neq 0$ hold by induction applied to $PM(0,0)$.
+
+   The remaining cases, when $1\not\in\{a,b\}$, and $a=0$ or $b=0$, are proven without
+   induction. The claim, when $a=0$,
+   so $b\geq 2$ and $ab$ is not an edge, is $\det PM(b,0)=0$.
+   Form~(\ref{Eq:LeafPMForm}) shows this because when column $0$ is deleted, row $0$
+   becomes row $1$ multiplied by $x_{01}$. The $b=0$ case where $a\geq 2$ is analogous
+   with the edge directions, and rows and columns, reversed.
+\end{proof}
+
+This proof also shows:
+\begin{proposition}\label{Prop:PendantEdge}
+  The path matrix inversion property of each digraph is unaffected by gluing, or ungluing and removing,
+  a separate 2-cycle along any vertex.
+\end{proposition}
+
+%\begin{figure}[ht]
+%  \centering
+    % Use \includegraphics to import figures; for example 
+    %      \includegraphics[scale=0.6]{filename}
+%  \caption{Here is an informative figure.\label{fig:InformativeFigure}}
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Acknowledgements}
+
+%BIBLIOGRAPHY
+% You do not have to use the same format for your references, but 
+%    include everything in this file.
+% If you use BibTeX to create a bibliography, copy the .bbl file into here.
+% \newblock is optional (it adds a little space)
+
+\bibliographystyle{amsplain}
+\bibliography{PathsPaper}
+\end{document}
+
+
+\end{document}
+
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+\end{document}
+
+\bibitem{Bollobas} B. Bollob{\'a}s. \newblock Almost every
+  graph has reconstruction number three. \newblock \emph{J. Graph Theory},
+  14(1):1--4, 1990.
+
+\bibitem{BH} J.~A. Bondy and R. Hemminger,
+\newblock Graph reconstruction---a survey.
+\emph{J. Graph Theory}, 1:227--268, 1977. \doi{10.1002/jgt.3190010306}.
+
+\bibitem{FGH} J.~Fisher, R.~L. Graham, and F.~Harary. \newblock A
+  simpler counterexample to the reconstruction conjecture for
+  denumerable graphs. \newblock \emph{J. Combinatorial Theory, Ser. B},
+  12:203--204, 1972.
+
+\bibitem{HHRT} E. Hemaspaandra, L.~A. Hemaspaandra,
+  S.~P. Radziszowski, and R. Tripathi. \newblock
+  Complexity results in graph reconstruction. \newblock \emph{Discrete
+    Appl. Math.}, 155(2):103--118, 2007.
+
+\bibitem{Kelly} P.~J. Kelly. \newblock A congruence theorem for
+  trees. \newblock \emph{Pacific J. Math.}, 7:961--968, 1957.
+
+\bibitem{KSU} M. Kiyomi, T. Saitoh, and R. Uehara.
+  \newblock Reconstruction of interval graphs. \newblock In 
+    \emph{Computing and combinatorics}, volume 5609 of
+    \emph{Lecture Notes in Comput. Sci.}, pages 106--115. Springer, 2009.
+
+\bibitem{Stockmeyer} P.~K. Stockmeyer. \newblock The falsity of the
+  reconstruction conjecture for tournaments. \newblock \emph{J. Graph
+    Theory}, 1(1):19--25, 1977.
+
+\bibitem{Ulam} S.~M. Ulam. \newblock \newblock {A collection of
+    mathematical problems}. \newblock Interscience Tracts in Pure and
+  Applied Mathematics, no. 8.  Interscience Publishers, New
+  York-London, 1960.
+  
+\bibitem{WS} D.~B. West and H. Spinoza.
+ \newblock Reconstruction from $k$-decks for graphs with maximum degree~2.
+ \newblock \arxiv{1609.00284vi}, 2016.
+
+
+
+
