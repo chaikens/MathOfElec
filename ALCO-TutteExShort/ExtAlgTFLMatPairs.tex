@@ -147,8 +147,13 @@ including a view from oriented matroids.  Besides its application
 to differential forms, exterior algebra is
 the algebra of the posing and solution of equations in elementary
 linear algebra.
+Our most compelling reason for connecting
+Tutte functions with an exterior algebra in lieu of a commutative algebra is that
+products in the former represent linear subspaces. The examples of such subspaces
+we give comprise solutions to problems posed from graphs generalizing the inversion
+of graph Laplacians.
 
-One of the earliest Tutte function is the basis enumerator for matroids. It
+One of the earliest Tutte functions is the basis enumerator for matroids. It
 is a determinant in the case of graphic, and more generally, regular matroids;
 this is a consequence of the Cauchy-Binet theorem.
 The well-known Matrix Tree theorem tells us this determinant is (up to sign)
@@ -163,8 +168,7 @@ the only such matching is the identity.)
 We give a key observation: \emph{Each} such
 minor, when $e$ is a given edge, equals the sum of the corresponding
 minor when $e$ is deleted plus the determinant expansion terms for
-forests that contain $e$.  The latter can be also be expressed as a
-determinant.
+forests that contain $e$.  The latter can be also be expressed as a determinant.
 In the following, we will develop a formulation in which
 \emph{all these minors together},
 when they are constituted as an element in an exterior algebra, satisfy the
@@ -174,27 +178,22 @@ and our Tutte decomposition operates on matrix
 columns as does (possibly oriented)
 matroid deletion and contraction.
 
-
-Our most compelling reason for connecting
-Tutte functions with an exterior algebra in lieu of a commutative algebra is that
-products in the former represent linear subspaces. The examples of such subspaces
-we give comprise solutions to problem posed from graphs generalizing the inversion
-of graph Laplacians.  
-
 In order for a tuple of determinants to be a Tutte function value, one
 must label them in a combinatorial way.  For this purpose, we use
-the \emph{set-pointed}\cite{SetPointedLV}, also called the
+the \emph{set-pointed}\cite{TPMorphMatI99,TPMorphMatI99},
+also called the
 \emph{relative}\cite{RelTuttePolyDiaoHetyei} or
 \emph{ported}\cite{sdcPorted,TutteEx}
-variation of Tutte functions.  Let $P$ be a set.  A function $F$ is a $P$-ported
+variation of Tutte functions.
+Let $P$ be a set.  A function $F$ is a $P$-ported
 when the identity for deletion and contraction of $e$ is asserted,
 and rules for reducing loops or coloops apply, only when $e \not\in P$.
 $P$ will play the role of vertices in our all-minors of the Laplacian
 matrix tree theorem specialization.
 We prefer the engineering term ``port'' because it eludes to both an object through
-which systems can be interconnected, or can be manipulated and observed by their
-environments.  Engineers would call our graph theory example a ``$p$-port'', with
-$p=2$.
+which systems can be interconnected, and can be manipulated and observed by their
+environments.
+Engineers would call our graph theory example (\ref{ExamK4}) a ``$p$-port'', with $p=2$.
 
 Let $P_{\alpha}$ and $P_{\beta}$ be disjoint copies of $P$.  Let $K$ be a field.
 We will see that our Tutte function's value will be an exterior product of
@@ -411,7 +410,7 @@ P_\beta \dunion E$.  In other words,
 \end{defi}
 
 
-\subsection{Example and an interpretation of $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$}
+\subsection{Example and an interpretation of $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$}\label{ExamK4}
 
 Let $P=\{p_1, p_2\}$ and $E=\{e_1, e_2, e_3, e_4, e_5\}$ together be the edges in the (oriented) graph
 below representing an electrical network, where $E$ represents the resistors.  The currents and voltages
