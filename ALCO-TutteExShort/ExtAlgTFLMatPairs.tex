@@ -4,6 +4,11 @@
 %% You can place one option:
 %% * "Unicode" if the file is UTF-8 encoded.
 \documentclass[Unicode]{cedram-alco}
+
+
+\usepackage{xcolor}
+
+
 %% Here you might want to add some standard packages if those
 %% functionnalities are required.
 %\usepackage[matrix,arrow,tips,curve]{xy}
@@ -76,12 +81,36 @@ Albany, NY 12203 (USA)}
 \newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
 \newcommand{\eNal}{\ensuremath{\ext{N}_{\alpha}}}
 \newcommand{\eNbePe}{\ensuremath{\ext{N}_{\beta}^{\perp}}}
+\newcommand{\eNbe}{\ensuremath{\ext{N}_\beta}}
+\newcommand{\Nbe}{\ensuremath{N_\beta}}
+
+\newcommand{\Is}{\ensuremath{\iota}}
+\newcommand{\Vs}{\ensuremath{\upsilon}}
+
+
+%Emphasize in color!
+\newcommand{\Remph}[1]{{\color{red}#1}}
+\newcommand{\Bemph}[1]{{\color{blue}#1}}
+
+
+
+\newcommand{\alert}[1]{{\color{red}#1}}
+    
+   
+
+
+
 
 %\newcommand{\dunion}{\uplus}
 \newcommand{\dunion}{\coprod}
 
 
 
+
+\definecolor{Blue}{rgb}{.255,.41,.884} % RoyalBlue of svgnames
+\definecolor{Red}{rgb}{1, 0, 0} % Red of svgnames
+\definecolor{Green}{rgb}{.196,.804,.196} % LimeGreen of svgnames
+\definecolor{Yellow}{rgb}{1,.648,0} % Orange of svgnames
 
 
 
@@ -470,7 +499,224 @@ all points on the line determined by $G_2$, $G_3$ represent points in this Grass
   the row space of $F$ from the above argument, which varys with $(r_e:g_e)$.
 \end{proof}
 
+\section{Old Proof}
 
+
+  Given $N_\alpha$, $N_\beta$, of equal full row rank with columns labelled by
+  $P\dunion E$, let $\eNal$, $\eNbe$ be the exterior products of their rows
+  and dual $\eNbePe$ be constructed using (2).
+
+%  {\Large REMARK: $\ext{F}_E(\eNal\;\;\eNbe)$ is the exterior product of the rows of
+%  matrix $F$ illustrated in the Overview.}
+
+%{\LARGE $\longleftarrow\longleftarrow\longleftarrow$}
+  
+  For all $e\in E$ such that $e\not\in P$, with $E'=E\backslash e$,
+  {\Large
+     \[
+     \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=
+      \epsilon(PE')
+        \left(g_e\ext{F}_{E'}(\eNal/e\;\; \eNbe/e) +
+      r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
+      \]
+  }
+
+  Similar identity for direct sums.
+
+
+  
+  \begin{enumerate}
+  \item
+    Usual parametrized Tutte functions $F$ are valued in comm. rings.
+  \item
+    Matrix Tree Theorem: The tree enumerator Tutte function is a determinant.
+  \item
+    Relative (with respect to set $P$)\cite{RelTuttePolyDiaoHetyei}
+    aka set $P$ pointed\cite{TPMorphMatI99}, $P$-``ported'' $F$\cite{sdcPorted}
+    \[
+    F(N,P) = r_e F(N\setminus e)+ g_e F(N/e)\]
+    only when non-loop non-coloop $e\not\in P$.
+  \item
+    Our $\ext{F}_E$ has values in an exterior algebra (w. anti-commutative multiplication.)
+  \item
+    $P$ will play the role of graph vertices, to generalize deleting any
+    equal sized row and col. sets from the Laplacian in the All-Minors Matrix
+    Tree Theorem.
+  \item
+    Our Tutte function's values are {exterior products of vectors}. Thus
+    they carry $\binom{2p}{p}$ determinants--each one is a Tutte function!
+    Multiplication, occurring when $N$ is a direct sum, is anti-commutative.
+    \item Unlike ordinary Tutte functions, these distinguish (at least trivial)
+    orientations of the same matroid:
+    $F$ matrices with distinct $\ext{F}_E(\eNal\;\;\eNbe)$, $E=\emptyset$, $|P|=2$
+    
+    \begin{tabular}{ c c c }
+    \input{parPP.pdf_t} &
+    $\begin{bmatrix}
+    1 & 1 & 0 & 0 \\
+    0 & 0 & 1 & -1
+    \end{bmatrix}$
+     &
+     $(\ext{p}_{\alpha 1}+\ext{p}_{\alpha 2}\wedge(\ext{p}_{\beta 1}-\ext{p}_{\beta 2})=
+     \alert{-\ext{p}_{\alpha 1}\ext{p}_{\beta 2} + \ext{p}_{\alpha 2}\ext{p}_{\beta 1}}+ \text{(equal)}\cdots$
+     \\
+    \input{parPN.pdf_t} &
+    $\begin{bmatrix}
+    1 & -1 & 0 & 0 \\
+    0 & 0 & 1 & 1
+    \end{bmatrix}$
+    &
+     $(\ext{p}_{\alpha 1}-\ext{p}_{\alpha 2}\wedge(\ext{p}_{\beta 1}+\ext{p}_{\beta 2})=
+     \alert{\ext{p}_{\alpha 1}\ext{p}_{\beta 2} - \ext{p}_{\alpha 2}\ext{p}_{\beta 1}}+ \text{(equal)}\cdots$
+      \end{tabular}
+  \end{enumerate}
+
+    \[
+    \begin{array}{ccc}
+      \text{Op is on:}         &  \text{chirotopes}
+                                      & \text{exterior products} \\
+      \text{which are:}        & \chi:B\rightarrow \{0,\pm \}
+                                      & \text{decomposibles in\ } \wedge \\ 
+      \text{case we use:}      & \chi:B\mapsto\text{sign}(N[B])
+                                      &  \ext{N}:B\mapsto\ext{N}[B] \\
+      \hline
+      \text{OPERATION}         &  & \\
+\text{deletion\ } \bullet\backslash A  & \text{restriction} & \text{restriction}  \\
+\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA]\text{\;\;(1)} \\
+
+\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
+\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B)\text{\;\;(2)} \\ \\
+    \end{array}
+    \]
+$\ext{N}[B]$ is one component of a \emph{distinguished representative vector} of the \Plucker coordinates
+(which are projective!) for the row space of $N$.
+
+\setcounter{equation}{2}
+
+We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
+    $\epsilon$ is any alternating sign function on all finite sequences of elements.\\ 
+    The definitions of deletion, contraction and dual imply these commutations:\\
+    ($S$ is a ground set for exterior product analogs of matroids, needed so the analog of
+    matroids with loops will have the analog of coloops. $X\subseteq S$ and $S'=S\backslash X$.)
+    \begin{equation} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
+    \end{equation}
+    \begin{equation} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
+    \end{equation}
+
+      \begin{itemize}
+  \item
+    See the statement of the Theorem.
+    $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.   %\\
+    $P_{\alpha},P_{\beta}\cong P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices  %\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_\beta \dunion E$
+    \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha\overline{Q_\beta}E])
+  \]
+  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
+
+
+%\vspace{0.1in}
+Translate into exterior algebra definitions:
+\[
+\begin{split}
+  \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
+   & := (\Is(\eNal)(P_\alpha) + \Is_G(\eNal(E)))\wedge(\Vs(\eNbePe)(P_\beta) + \Vs_R(\eNbePe)(E)) \\
+  &  = (\Is_G(\eNal)\wedge\Vs_R(\eNbePe))
+\end{split}
+\]
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L})& := \ext{L}/E = \sum_{Q_\alpha,\overline{Q_\beta}}\ext{L}[Q_\alpha \overline{Q_\beta} E]\ext{Q}_\alpha\overline{\ext{Q}_\beta} \\
+  & =   ((\Is(\eNal)\backslash   e\alert{(\text{no\ }\ext{e})} + g_e(\Is(\eNal)/e)\wedge\alert{\ext{e}})                   \\
+  & \;\;\;\;  \wedge  (\Vs(\eNbePe)\backslash e\alert{(\text{no\ }\ext{e})} + r_e(\Vs(\eNbePe)/e)\wedge \alert{\ext{e}}) ) / E \\
+\alert{\text{2 of 4 terms}}  & = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; \Is(\ext{\eNal})\backslash e\wedge (\Vs(\eNbePe)/e)      \wedge  \alert{\ext{e}} \\
+\alert{\text{vanish}}  & \;\;+ g_e (-1)^{r(\eNbePe)}(\Is(\eNal)/e)\wedge(\Vs(\eNbePe)\backslash e)    \wedge  \alert{\ext{e}}\Big) / E 
+  \end{split}
+\]
+ 
+
+  %((\binom{2p}{p})-\text{tuple of determinants\ } \ext{L}[Q_\alpha \overline{Q_\beta} E])
+
+
+\[
+\begin{split}
+  \ext{F}_E(\ext{L}) = \ext{L}/E 
+   = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
+   \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big) / E \\
+%  =  \Big( r_e  \Is(\eNal\backslash e)\wedge & (\Vs(\eNbePe/e))      
+%  + g_e (-1)^{r(\eNbePe)}(\Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \Big) \\
+   %  & \wedge  \ext{e} / E \\
+\end{split}
+\]
+\[  = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+    \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
+   g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
+    \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
+   \]
+   
+%\hspace*{-0.3in}
+
+%\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
+%         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
+
+\[{(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}\]
+
+
+\[{(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}\]
+         
+
+%\vspace{0.3in}
+
+
+%%%\begin{block}{Result}
+%\hspace*{-0.3in}
+
+\[
+= \epsilon(S)\epsilon(S'e)
+\left[
+        r_e\left(\ext{L}\left(
+        \begin{array}{c} \eNal\backslash e \\
+    (\eNbe\backslash e)^\perp
+    \end{array}
+    \right)  \wedge \ext{e} /E \right)
++
+        g_e\left(\ext{L}\left(
+        \begin{array}{c} \eNal / e \\
+    (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right)
+\right]
+\]
+%%%%\end{block}
+
+%%%\end{frame}
+
+
+
+
+%%%%\begin{frame}
+  With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
+    \begin{defi}
+      For $E$, $P$ sets written as ordered sequences,
+      \[
+      \ext{F}_E(\eNal\;\;\eNbe) = \ext{L}(\eNal\;\;\eNbe)/E
+      \]
+    \end{defi}
+
+    %%%\end{frame}
 
 
 \section{Final remarks}
