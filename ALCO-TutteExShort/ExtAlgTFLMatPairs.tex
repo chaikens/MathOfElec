@@ -502,6 +502,41 @@ all points on the line determined by $G_2$, $G_3$ represent points in this Grass
 \section{Old Proof}
 
 
+    \[
+    \begin{array}{ccc}
+      \text{Op is on:}         &  \text{chirotopes}
+                                      & \text{exterior products} \\
+      \text{which are:}        & \chi:B\rightarrow \{0,\pm \}
+                                      & \text{decomposibles in\ } \wedge \\ 
+      \text{case we use:}      & \chi:B\mapsto\text{sign}(N[B])
+                                      &  \ext{N}:B\mapsto\ext{N}[B] \\
+      \hline
+      \text{OPERATION}         &  & \\
+\text{deletion\ } \bullet\backslash A  & \text{restriction} & \text{restriction}  \\
+\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA]\text{\;\;(1)} \\
+
+\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
+\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B)\text{\;\;(2)} \\ \\
+    \end{array}
+    \]
+$\ext{N}[B]$ is one component of a \emph{distinguished representative vector} of the \Plucker coordinates
+(which are projective!) for the row space of $N$.
+
+
+
+We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
+    $\epsilon$ is any alternating sign function on all finite sequences of elements.\\ 
+    The definitions of deletion, contraction and dual imply these commutations:\\
+    ($S$ is a ground set for exterior product analogs of matroids, needed so the analog of
+    matroids with loops will have the analog of coloops. $X\subseteq S$ and $S'=S\backslash X$.)
+    \begin{equation} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
+    \end{equation}
+    \begin{equation} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
+    \end{equation}
+
+
+
+\begin{theo}
   Given $N_\alpha$, $N_\beta$, of equal full row rank with columns labelled by
   $P\dunion E$, let $\eNal$, $\eNbe$ be the exterior products of their rows
   and dual $\eNbePe$ be constructed using (2).
@@ -523,85 +558,8 @@ all points on the line determined by $G_2$, $G_3$ represent points in this Grass
 
   Similar identity for direct sums.
 
-
+\end{theo}
   
-  \begin{enumerate}
-  \item
-    Usual parametrized Tutte functions $F$ are valued in comm. rings.
-  \item
-    Matrix Tree Theorem: The tree enumerator Tutte function is a determinant.
-  \item
-    Relative (with respect to set $P$)\cite{RelTuttePolyDiaoHetyei}
-    aka set $P$ pointed\cite{TPMorphMatI99}, $P$-``ported'' $F$\cite{sdcPorted}
-    \[
-    F(N,P) = r_e F(N\setminus e)+ g_e F(N/e)\]
-    only when non-loop non-coloop $e\not\in P$.
-  \item
-    Our $\ext{F}_E$ has values in an exterior algebra (w. anti-commutative multiplication.)
-  \item
-    $P$ will play the role of graph vertices, to generalize deleting any
-    equal sized row and col. sets from the Laplacian in the All-Minors Matrix
-    Tree Theorem.
-  \item
-    Our Tutte function's values are {exterior products of vectors}. Thus
-    they carry $\binom{2p}{p}$ determinants--each one is a Tutte function!
-    Multiplication, occurring when $N$ is a direct sum, is anti-commutative.
-    \item Unlike ordinary Tutte functions, these distinguish (at least trivial)
-    orientations of the same matroid:
-    $F$ matrices with distinct $\ext{F}_E(\eNal\;\;\eNbe)$, $E=\emptyset$, $|P|=2$
-    
-    \begin{tabular}{ c c c }
-    \input{parPP.pdf_t} &
-    $\begin{bmatrix}
-    1 & 1 & 0 & 0 \\
-    0 & 0 & 1 & -1
-    \end{bmatrix}$
-     &
-     $(\ext{p}_{\alpha 1}+\ext{p}_{\alpha 2}\wedge(\ext{p}_{\beta 1}-\ext{p}_{\beta 2})=
-     \alert{-\ext{p}_{\alpha 1}\ext{p}_{\beta 2} + \ext{p}_{\alpha 2}\ext{p}_{\beta 1}}+ \text{(equal)}\cdots$
-     \\
-    \input{parPN.pdf_t} &
-    $\begin{bmatrix}
-    1 & -1 & 0 & 0 \\
-    0 & 0 & 1 & 1
-    \end{bmatrix}$
-    &
-     $(\ext{p}_{\alpha 1}-\ext{p}_{\alpha 2}\wedge(\ext{p}_{\beta 1}+\ext{p}_{\beta 2})=
-     \alert{\ext{p}_{\alpha 1}\ext{p}_{\beta 2} - \ext{p}_{\alpha 2}\ext{p}_{\beta 1}}+ \text{(equal)}\cdots$
-      \end{tabular}
-  \end{enumerate}
-
-    \[
-    \begin{array}{ccc}
-      \text{Op is on:}         &  \text{chirotopes}
-                                      & \text{exterior products} \\
-      \text{which are:}        & \chi:B\rightarrow \{0,\pm \}
-                                      & \text{decomposibles in\ } \wedge \\ 
-      \text{case we use:}      & \chi:B\mapsto\text{sign}(N[B])
-                                      &  \ext{N}:B\mapsto\ext{N}[B] \\
-      \hline
-      \text{OPERATION}         &  & \\
-\text{deletion\ } \bullet\backslash A  & \text{restriction} & \text{restriction}  \\
-\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA]\text{\;\;(1)} \\
-
-\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
-\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B)\text{\;\;(2)} \\ \\
-    \end{array}
-    \]
-$\ext{N}[B]$ is one component of a \emph{distinguished representative vector} of the \Plucker coordinates
-(which are projective!) for the row space of $N$.
-
-\setcounter{equation}{2}
-
-We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
-    $\epsilon$ is any alternating sign function on all finite sequences of elements.\\ 
-    The definitions of deletion, contraction and dual imply these commutations:\\
-    ($S$ is a ground set for exterior product analogs of matroids, needed so the analog of
-    matroids with loops will have the analog of coloops. $X\subseteq S$ and $S'=S\backslash X$.)
-    \begin{equation} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
-    \end{equation}
-    \begin{equation} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
-    \end{equation}
 
       \begin{itemize}
   \item
@@ -629,7 +587,7 @@ We must choose some global orientation $\epsilon$ in order to define duality as 
   $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
 
 
-%\vspace{0.1in}
+
 Translate into exterior algebra definitions:
 \[
 \begin{split}
@@ -680,11 +638,11 @@ Translate into exterior algebra definitions:
 \[{(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}\]
          
 
-%\vspace{0.3in}
+
 
 
 %%%\begin{block}{Result}
-%\hspace*{-0.3in}
+
 
 \[
 = \epsilon(S)\epsilon(S'e)
@@ -702,12 +660,12 @@ Translate into exterior algebra definitions:
 \]
 %%%%\end{block}
 
-%%%\end{frame}
 
 
 
 
-%%%%\begin{frame}
+
+
   With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
     \begin{defi}
       For $E$, $P$ sets written as ordered sequences,
