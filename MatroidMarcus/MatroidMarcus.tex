@@ -1,0 +1,93 @@
+\documentclass{amsart}
+
+\title{Grassmann or Exterior Algebra Matroid Representation}
+%\title{Representing Matroids with Grassmann or Exterior Algebras}
+
+\author{Seth Chaiken}
+
+
+\newtheorem{MRes}{From Marcus}
+
+
+\begin{document}
+
+\newcommand{\matroidconcept}[1]{\emph{#1}}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+
+\maketitle
+
+
+Report on matroid interpretations of exterior or Grassmann
+algebra developed in Marcus\cite{MarcusFDMuAlPt2}.
+
+$V$ is a finite dimensional vector space over field $R$.
+
+$E$ is a finite set of labelled vectors in $V$, specifically there
+is an map $E\rightarrow V$.   $E$ will constitute a matroid
+\matroidconcept{ground set}.
+
+\section{Decomposability}
+
+\begin{MRes}[Theorem 1.1, p 5]
+  Let $0\neq z \in \wedge^m V$.  Then $z$ is decomposible iff there
+  exists a l.i. set of vectors $u_1, \cdots, u_m$ in $V$ such that
+  $u_i \wedge z = 0$, $i = 1, \cdots, m$.
+\end{MRes}
+
+Decomposibles $z$ of the form $a e_1 \wedge e_2 \wedge \cdots e_r$ where
+$e_i\in E$ correspond to \matroidconcept{flats}.
+Each $K$ multiple equivalent expression for $z$ corresponds to a
+\matroidconcept{ordered basis for a flat}.
+
+\begin{MRes}[Theorem 1.2, p 6]
+  The element
+  \[
+  z = \sum_{\omega\in Q_{m,n}}a_\omega e^{\wedge}_\omega
+  \]
+  is decomposible iff there exists an $A\in M_{m,n}(R)$ such that
+  \[
+  a_\omega = det A[1,\dots,m|\omega], \omega\in Q_{m,n}.
+  \]
+\end{MRes}
+
+\matroidconcept{Flats} are represented by matrices.
+
+\begin{MRes}[Theorem 1.3, p 7]
+  If $dim V = n$ then any element $\wedge^{n-1}V$ is decomposible.
+  In other words, the canonical multilinear map
+  $\wedge:\times_1^{n-1} V \rightarrow \wedge^{n-1} V$ is surjective.
+\end{MRes}
+
+(Long pf using determinants.  Don't see yet what to make of it.)
+
+Marcus then defines the \Plucker relations and proves (Theorem 1.4, p 11)
+that $z$'s components satify the \Plucker relations iff $z$ is decomposible.
+(Goal--relate to \matroidconcept{basis exchange}.)
+
+Marcus Theorem 1.5, p 14 is the Cauchy-Binet theorem??.
+
+\begin{MRes}[Grassmann representitive, p 18]
+  If $W$ is any non-zero $m$-dimensional subspace of $V$, then any
+  nonzero decomposible element $x_1 \wedge \cdots \wedge x_m$, $x_i\in W$, is
+  called a Grassmann representitive for $W$.
+\end{MRes}
+
+This is needed to set up meaningful Tutte identities in exterior algebra,
+because they
+apply to Grassmann representitives, not to Grassmann points or \Plucker
+coordinates.
+
+
+\subsection{Hodge Star and Matroid Duality}
+
+\section{Marcus' Duality}
+
+
+\section{Marcus' Transformation}
+
+\bibliographystyle{amsplain}
+\bibliography{../bib/MathOfElec}
+
+
+\end{document}
