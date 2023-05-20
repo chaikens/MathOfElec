@@ -107,7 +107,7 @@ Albany, NY 12203 (USA)}
 \newcommand{\LVert}[2]{\ext{L}\left( \begin{array}{c} {#1}\\ {#2} \end{array} \right)}
 \newcommand{\LVertSub}[3]{\ext{L}_{#1}\left( \begin{array}{c} {#2}\\ {#3} \end{array} \right)}
 \newcommand{\LHor}[2]{\ext{L}\left( {#1}\;\; {#2} \right)}
-\newcommand{\LHortub}[3]{\ext{L}_{#1}\left(  {#2}\;\; {#3}  \right)}
+\newcommand{\LHorSub}[3]{\ext{L}_{#1}\left(  {#2}\;\; {#3}  \right)}
 
 
 
@@ -574,7 +574,7 @@ sets expressed as sequences.
 
 \begin{defi}
   \[
-  \extLHorSub{E}{\Nal}{\Nbe}=\extLVertSub{E}{\Nal}{\NbePe}
+  \extLHorSub{E}{\eNal}{\eNbe}=\extLVertSub{E}{\eNal}{\eNbePe}
   \]
 \end{defi}
 
@@ -591,10 +591,11 @@ sets expressed as sequences.
   For all $e\in E$ such that $e\not\in P$, with $E'=E\backslash e$,
   {\Large
      \[
-     \epsilon(PE)\ext{F}_E(\eNal\;\;\eNbe)=
+     \epsilon(PE)\extLHorSub{E}{\eNal}{\eNbe}=
       \epsilon(PE')
-        \left(g_e\ext{F}_{E'}(\eNal/e\;\; \eNbe/e) +
-      r_e\ext{F}_{E'}(\eNal\backslash e\;\; \eNbe\backslash e)\right)
+      \left(
+      g_e\extLHorSub{E'}{\eNal/e}{\eNbe/e} +
+      r_e\extLHorSub{E'}{\eNal\backslash e}{\eNbe\backslash e}\right)
       \]
   }
 
@@ -686,7 +687,7 @@ sets expressed as sequences.
     \begin{defi}
       For $E$, $P$ sets written as ordered sequences,
       \[
-      \ext{F}_E(\eNal\;\;\eNbe) = \ext{L}(\eNal\;\;\eNbe)/E
+      \extLHorSub{E}{\eNal}{\eNbe} = \ext{L}(\eNal\;\;\eNbe)/E
       \]
     \end{defi}
 
