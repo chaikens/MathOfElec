@@ -501,40 +501,65 @@ all points on the line determined by $G_2$, $G_3$ represent points in this Grass
   the row space of $F$ from the above argument, which varys with $(r_e:g_e)$.
 \end{proof}
 
+\newpage
+
 \section{Old Proof}
 
+We naturally take Hodge star for the operation on
+decomposibles that represents dualization of their
+matroids.
+However, the minors and
+(nontrivial) direct product factors of matroid $M$
+have ground sets that are proper subsets of $M$'s ground set.
+We just postulate an orientation for \emph{every} finite set.
+For simplicity, the same symbol $\epsilon$ is used throughout.
+Exterior algebra operations
+representing matroid deletion and contraction will therefore
+be consistent with the operation for duality by using our
+global orderings $\epsilon$ for our Hodge star.
+
+We do not put conditions to relate our orientations of
+of different sets.  Our formulas that involve two ordered sets $S_1$
+and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
+
+
+
+
+In the following formulas, $A$, $B$ and $\overline{B}$ are
+sets expressed as sequences.
 
     \[
-    \begin{array}{ccc}
-      \text{Op is on:}         &  \text{chirotopes}
-                                      & \text{exterior products} \\
-      \text{which are:}        & \chi:B\rightarrow \{0,\pm \}
-                                      & \text{decomposibles in\ } \wedge \\ 
-      \text{case we use:}      & \chi:B\mapsto\text{sign}(N[B])
-                                      &  \ext{N}:B\mapsto\ext{N}[B] \\
-      \hline
-      \text{OPERATION}         &  & \\
-\text{deletion\ } \bullet\backslash A  & \text{restriction} & \text{restriction}  \\
-\text{contraction\ }\bullet / A             & \pm\chi':B\mapsto\chi(BA) & \ext{N}/A:B\mapsto\ext{N}[BA]\text{\;\;(1)} \\
-
-\text{duality\ }\bullet^{\perp} & \pm\chi^{\perp}:B\mapsto\chi(\overline{B})\epsilon(\overline{B}B) &
-\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B)\text{\;\;(2)} \\ \\
+    \begin{array}{cc}
+\text{deletion\ } \bullet\backslash A  & \text{restriction}  \\
+\text{contraction\ }\bullet / A             & \ext{N}/A:B\mapsto\ext{N}[BA]\\
+\text{duality\ }\bullet^{\perp} &
+\ext{N}^{\perp}:B\mapsto\ext{N}[\overline{B}]\epsilon(\overline{B}B)
     \end{array}
     \]
-$\ext{N}[B]$ is one component of a \emph{distinguished representative vector} of the \Plucker coordinates
-(which are projective!) for the row space of $N$.
+    In the definition of duality, $B$ is ordered,
+    but $\overline{B}$ is an arbitrary ordering of the complement of $B$
+    with respect to the ground set of $\ext{N}$.
+    The result is unchanged for all reorderings of $\overline{B}$,
+    so dualization is well-defined.  It represents linear matroid duality
+    since Hodge star maps a subspace $V$'s representitive to a representitive
+    of the orthogonal complement of $V$ when the basis defining it is
+    declared to be orthonormal, see, e.g.\cite{MarcusFDMuAlPt2}.
 
 
 
-We must choose some global orientation $\epsilon$ in order to define duality as an exterior alg. operation!
-    $\epsilon$ is any alternating sign function on all finite sequences of elements.\\ 
-    The definitions of deletion, contraction and dual imply these commutations:\\
-    ($S$ is a ground set for exterior product analogs of matroids, needed so the analog of
-    matroids with loops will have the analog of coloops. $X\subseteq S$ and $S'=S\backslash X$.)
+\begin{prop}
+  Let $S$ be the ground set for $\ext{N}$ (remember $S$ is a sequence.)
+  Let $X$ be a (sequenced) subset of $S$.
+  Let $S'$ be any sequencing of $E\backslash X$.
     \begin{equation} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
     \end{equation}
     \begin{equation} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
     \end{equation}
+\end{prop}
+\begin{proof}
+  Apply the definitions.  The results are well-defined since they
+  are unchanged over different sequencings of $S'$.
+\end{proof}
 
 
 
@@ -562,35 +587,9 @@ We must choose some global orientation $\epsilon$ in order to define duality as 
 
 \end{theo}
   
+\begin{proof}
 
-      \begin{itemize}
-  \item
-    See the statement of the Theorem.
-    $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.   %\\
-    $P_{\alpha},P_{\beta}\cong P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
-  \item
-    Weight (parameter) matrices  %\\
-    $G=\text{diag}\{g_e\}_{e\in E} $,
-    $R=\text{diag}\{r_e\}_{e\in E} $.
-  \item
-    Matrix with columns $P_\alpha \dunion P_\beta \dunion E$
-    \[
-    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
-    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
-0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
-    \]
-  \end{itemize}
-
-  Define
-  \[
-  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha\overline{Q_\beta}E])
-  \]
-  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
-  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
-
-
-
-Translate into exterior algebra definitions:
+  Translate into exterior algebra definitions:
 \[
 \begin{split}
   \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
@@ -677,6 +676,63 @@ Translate into exterior algebra definitions:
     \end{defi}
 
     %%%\end{frame}
+
+\end{proof}
+
+
+
+\section{Junk}
+
+
+
+
+
+
+
+
+
+
+      \begin{itemize}
+  \item
+    See the statement of the Theorem.
+    $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.   %\\
+    $P_{\alpha},P_{\beta}\cong P$, $P_{\alpha}\cap P_{\beta}=\emptyset$.
+  \item
+    Weight (parameter) matrices  %\\
+    $G=\text{diag}\{g_e\}_{e\in E} $,
+    $R=\text{diag}\{r_e\}_{e\in E} $.
+  \item
+    Matrix with columns $P_\alpha \dunion P_\beta \dunion E$
+    \[
+    L\left( \begin{array}{c} \Nal\\ \NbePe \end{array} \right)
+    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
+    \]
+  \end{itemize}
+
+  Define
+  \[
+  F(L)=((\binom{2p}{p})-\text{tuple of determinants\ } L[Q_\alpha\overline{Q_\beta}E])
+  \]
+  indexed by sequences $Q_\alpha \overline{Q_\beta} \subseteq P_\alpha P_\beta$ where
+  $Q_\alpha\subseteq P_\alpha$, $\overline{Q_\beta}\subseteq P_\beta, |Q_\alpha \overline{Q_\beta}|=p=|P|$.
+
+
+
+
+
+
+
+$\ext{N}[B]$ is one component of a \emph{distinguished representative
+vector} of the \Plucker coordinates (which are projective!) for the
+row space of $N$.
+
+
+
+We must choose some global orientation $\epsilon$ in order to define
+duality as an exterior alg. operation!  $\epsilon$ is any alternating
+sign function on all finite sequences of elements.\\
+
 
 
 \section{Final remarks}
