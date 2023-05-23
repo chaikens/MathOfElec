@@ -607,17 +607,15 @@ To facilitate proofs, we introduce definitions to avoid explicit matrices.
 %{\LARGE $\longleftarrow\longleftarrow\longleftarrow$}
   
   For all $e\in E$ such that $e\not\in P$, with $E'=E\backslash e$,
-  {\Large
-     \[
+  \begin{equation}\label{delecontrequation}
      \epsilon(PE)\extLHorSub{E}{\eNal}{\eNbe}=
       \epsilon(PE')
       \left(
       g_e\extLHorSub{E'}{\eNal/e}{\eNbe/e} +
       r_e\extLHorSub{E'}{\eNal\backslash e}{\eNbe\backslash e}\right)
-      \]
-  }
-
-  Similar identity for direct sums.
+  \end{equation}
+  
+  MUST ADD Similar identity for direct sums.
 
 \end{theo}
   
@@ -658,26 +656,29 @@ After making $r(\ext{N_\beta})$ adjacent swaps of $\ext{e}$ to the right with ot
 vectors and the same number of sign changes
 \[
 \begin{split} 
-   = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
+   \ext{L} = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
    \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big).\\
 %  =  \Big( r_e  \Is(\eNal\backslash e)\wedge & (\Vs(\eNbePe/e))      
 %  + g_e (-1)^{r(\eNbePe)}(\Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \Big) \\
    %  & \wedge  \ext{e} / E \\
 \end{split}
 \]
-With sets $E$ and $E'=E\setminus e$ given by ordered sequences
+With sets $E$ (and $E'=E\setminus e$) given by ordered sequences
 which are part of the theorem's data, we contract $E$ to get
-\[ \ext{L}/E = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
+%\begin{equation}
+\[
+\ext{L}_E=\ext{L}/E = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
     \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
    g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
     \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right).
    \]
+%\end{equation}
    
 %\hspace*{-0.3in}
 
 %\mbox{\begin{minipage}{6in}${(\ext{N}\backslash e)^\perp = \epsilon(S')\epsilon(S'e)(\ext{N}^\perp/e)}$ ;
 %         ${(\ext{N}/e)^\perp = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N}^\perp}(\ext{N}^\perp\backslash e)}$\end{minipage}}
-On dualizing by
+On dualizing with
    \[
      \ext{N_\beta}^\perp/e  = \epsilon(S')\epsilon(S'e) (\ext{N_\beta}\backslash e)^\perp
      \]
@@ -685,7 +686,7 @@ On dualizing by
        \ext{N_\beta}^\perp\backslash e = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N\beta}^\perp}(\ext{N_\beta}/e)^\perp
        \]
 we get:         
-\[
+\begin{equation}\label{delecontrDEPSprime}
 = \epsilon(S')\epsilon(S'e)
 \left[
         r_e\left(\ext{L}\left(
@@ -697,31 +698,38 @@ we get:
         g_e\left(\ext{L}\left(
         \begin{array}{c} \eNal / e \\
     (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right)
-\right]
-\]
-%%%%\end{block}
+\right].
+\end{equation}
+
 $S'$ is an arbitrary ordering of $P_\alpha \dunion P_\beta \dunion (E\backslash e)$ introduced
-in our definition of dual where it is seen the result is independent of the ordering.  Our concluding
-step will show that the sign correction $\epsilon(S')\epsilon(S'e)=\epsilon(PE)\epsilon(PE')$
-depends only on the orderings of $E$ and $E'$ given in the data of the theorem.
+in our definition of $\ext{N}^\perp$ where it is seen that $\ext{N}^\perp$ is independent of this
+ordering.  Our concluding
+step will show that the sign corrections in (\ref{delecontrequation}) depend only
+on the orderings of $P$, $E$ and $E'$ from theorem's data, that is
+we must show (\ref{delecontrDEPSprime})
+$\ext{L}_E=\epsilon(S')\epsilon(S'e)(\ext{L'}\wedge \ext{e})/E$
+implies (\ref{delecontrequation}).
 
+The only relevant exterior algebra monomials in $\ext{L'}$ are multiples of $\wedge E'=\ext{E'}$,
+the others will be sent to zero by the $/E$ operation.
+Permute the vectors in each such monomial expression so it
+has the form $\ext{X}\ext{E'}$ and set the sign to keep the expression value unchanged.
+So (\ref{delecontrDEPSprime}) is expressed by $\epsilon(S')\epsilon(S'e)(\ext{L''}\ext{E'}\ext{e})/E$, and
 
-
-
-
-
-
-
-  With $\ext{L}(\eNal\;\; \eNbe)=\ext{L}\left(\begin{array}{c}\eNal \\ \eNbePe \end{array} \right)$, and more sign calculations:
-    \begin{defi}
-      For $E$, $P$ sets written as ordered sequences,
-      \[
-      \extLHorSub{E}{\eNal}{\eNbe} = \ext{L}(\eNal\;\;\eNbe)/E
-      \]
-    \end{defi}
-
-    %%%\end{frame}
-
+\[
+\ext{L}_E=\epsilon(S')\epsilon(S'e)(\ext{L''}\ext{E'}\ext{e})/E
+=\epsilon(S')\epsilon(S'e)\epsilon(E'e)\epsilon(E)(\ext{L''}\ext{E})/E.
+\]
+Since the ordering $S'$ is arbitrary, take $S'=PE'$ so
+\[
+\ext{L}_E = \epsilon(PE')\epsilon(PE'e)\epsilon(E'e)\epsilon(E)(\ext{L''}\ext{E})/E.
+\]
+We can now simultaneously permute the two appearances of subsequence $E'e$ into $E$, which
+keeps the above value unchanged.  The proof concludes with
+\[
+\ext{L}_E = \epsilon(PE')\epsilon(PE)\epsilon(E)\epsilon(E)(\ext{L''}\ext{E})/E
+=\epsilon(PE')\epsilon(PE)(\ext{L''}\ext{E})/E.
+\]
 \end{proof}
 
 
