@@ -655,21 +655,22 @@ r_e\left\{ (\Is_G(\eNal)\backslash e)\wedge (\Vs_R(\eNbePe)/e)\ext{e} \right\}  
 g_e\left\{ (\Is_G(\eNal)/e)\ext{e})  \wedge (\Vs_R(\eNbePe)\backslash e\right\}.  
 \]
 After making $r(\ext{N_\beta})$ adjacent swaps of $\ext{e}$ to the right with other
-vectors and the same number of sign changes,
+vectors and the same number of sign changes
 \[
 \begin{split} 
    = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
-   \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big)\\
+   \;\;+ g_e (-1)^{r(\eNbePe)} ( & \Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \wedge  \ext{e}\Big).\\
 %  =  \Big( r_e  \Is(\eNal\backslash e)\wedge & (\Vs(\eNbePe/e))      
 %  + g_e (-1)^{r(\eNbePe)}(\Is(\eNal/e))\wedge(\Vs(\eNbePe\backslash e))   \Big) \\
    %  & \wedge  \ext{e} / E \\
 \end{split}
 \]
-we contract $E$ to get
+With sets $E$ and $E'=E\setminus e$ given by ordered sequences
+which are part of the theorem's data, we contract $E$ to get
 \[ \ext{L}/E = r_e\left(\ext{L}\left(\begin{array}{c} \eNal\backslash e \\
     \eNbePe/e  \end{array} \right)  \wedge \ext{e} /E \right) +
    g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
-    \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right)
+    \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right).
    \]
    
 %\hspace*{-0.3in}
@@ -684,12 +685,8 @@ On dualizing by
        \ext{N_\beta}^\perp\backslash e = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N\beta}^\perp}(\ext{N_\beta}/e)^\perp
        \]
 we get:         
-
-
-
-
 \[
-= \epsilon(S)\epsilon(S'e)
+= \epsilon(S')\epsilon(S'e)
 \left[
         r_e\left(\ext{L}\left(
         \begin{array}{c} \eNal\backslash e \\
@@ -703,6 +700,11 @@ we get:
 \right]
 \]
 %%%%\end{block}
+$S'$ is an arbitrary ordering of $P_\alpha \dunion P_\beta \dunion (E\backslash e)$ introduced
+in our definition of dual where it is seen the result is independent of the ordering.  Our concluding
+step will show that the sign correction $\epsilon(S')\epsilon(S'e)=\epsilon(PE)\epsilon(PE')$
+depends only on the orderings of $E$ and $E'$ given in the data of the theorem.
+
 
 
 
