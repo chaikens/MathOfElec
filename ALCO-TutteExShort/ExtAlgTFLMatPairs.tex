@@ -352,7 +352,7 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$, define the matrix
 with columns indexed by $P_\alpha \dunion P_\beta \dunion E$, where each entry
 is in $K$ or is a $K$ multiple of a parameter:
 \[
-    L = L{\Nal}{\NbePe}
+    L = L\left(\begin{array}{cc} {\Nal} \\ {\NbePe}  \end{array}\right)
     = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
         0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right].
 \]
@@ -368,7 +368,8 @@ of our function on those minors satisfy the Tutte identities.
 An equivalent simplified construction is to project the solution space $\{z\}$ of $Lz=0$ onto
 the $P_\alpha\cup P_\beta$ coordinates and then take the exterior product of some basis
 for that projection's orthogonal complement.  In other words, we eliminate all the variables
-in $Lz=0$ indexed by $E$ and take the exterior product of the resulting matrix rows.
+indexed by $E$ in the system $Lz=0$ and take the exterior product of the rows
+from the result of the elimination.
 Unfortunately, these views define an exterior product only
 up to a $K$ multiple---nice to solve for some of the remaining $z$'s in terms of
 the others, or to get a point in a Grassmannian, but a failure
