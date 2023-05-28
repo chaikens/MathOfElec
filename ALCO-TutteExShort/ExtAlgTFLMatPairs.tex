@@ -317,15 +317,19 @@ matrices.
 \section{Setup and Theorem}
 
 \noindent
-We begin by defining how we index columns of matrices (with a set of
-linear space basis elements) and then
-present specific
-exterior algebra products that encode their row spaces and support
-combinatorial operations where a distinguished set of indices $P$ is given.
-We demonstrate this with the example
-of the electrical network equations and their solutions.
+In applications, columns of our full-row-rank matrices will be labelled by elements representing
+or related to matroid ground set members, and to generators of our exterior algebras.
+Thus the row space is encoded by the exterior product of the row vectors. Matroid, and,
+in the case of graphic matroids, graph operations will involve these elements.   
+
+For clarity and simplicity, we demonstrate this with matrices and
+those from the example of the electrical network equations for a graph and their solutions.
+
 The Tutte function is defined
-on those pairs of exterior products, which might have been given abstractly.
+on pairs of decomposible elements, which by definition
+can be expressed by exterior products of vectors.  The explicit vectors
+or matrices do not play a role except in applications.
+
 It is important to recognize that two exterior algebra elements are given,
 possibly by a suitable $\binom{n}{r}$ tuple of components, not the point in the Grassmannian
 whose \Plucker coodinates are equivalence classes of non-zero multiples of
@@ -517,7 +521,7 @@ all points on the line determined by $G_2$, $G_3$ represent points in this Grass
 
 \newpage
 
-\section{Old Proof}
+\section{Algebraic Formulation and Proof}
 
 We naturally take Hodge star for the operation on
 decomposibles that represents dualization of their
