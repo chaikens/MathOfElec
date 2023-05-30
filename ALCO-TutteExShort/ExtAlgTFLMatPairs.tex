@@ -760,6 +760,38 @@ The following is very helpful for calculations.
   Use for $\epsilon$ the orientation for which every increasing sequence is positive.
 \end{proof}
 
+
+\section{Discussion}
+A pseudo-form\cite{Frankel} is an orientation dependent form $\phi_\epsilon$ (that is, a
+map from orientations $\epsilon$ into forms) such that
+for all orientations $\epsilon$, for all tuples (permutations) $B$ of vectors from the
+set $B_{\text{set}}=\{b_1, b_2, \ldots, b_r\}$, $\epsilon(B)\phi_\epsilon(B)$
+is constant. An example is the volume form $\Delta_\epsilon$.
+For any orientation $\epsilon$ we chose,
+if $B$ is positively oriented and linearly independent, i.e., $\epsilon(B)=+$
+then $\Delta_\epsilon(B)>0$.  Since both values change sign under an odd permutation
+of $B$, we have the (positive) geometric volume of the
+parallelopiped spanned by $B$ given by the formula $\epsilon(B)\Delta_e(B)$.
+
+
+Another way to account for the sign corrections in our Tutte identities
+is due to the fact each value can be considered to be a form (anti-symmetric
+multilinear function) on the dual space. But the value should only depend
+on the arguments $\ext{N_\alpha}$ and $\ext{N_\beta}$. This alone indicates
+that our function's value should be a \emph{pseudo-form}, that is,
+be a form parametrized by orientations $\epsilon$.  Thus we recognize that
+our identities are sums and products of the $\epsilon(EP)\phi_\epsilon$ terms
+that are independent of $\epsilon$ and have the property that
+$\epsilon(P_\alpha'P_\beta')\epsilon()\phi_\epsilon(P_\alpha'P_\beta')$
+depend only on the \emph{sets} given by sequences $P_\alpha'$ and $P_\beta'$.
+It might be the case that Tutte functions are impossible in
+exterior algebra; they must be in an exterior algebra with pseudo-forms
+and pseudo-vectors!
+
+
+
+
+
 \section{Junk}
 
 
