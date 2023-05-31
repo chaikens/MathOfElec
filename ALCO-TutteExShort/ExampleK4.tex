@@ -1,0 +1,30 @@
+
+
+Let $P=\{p_1, p_2\}$ and $E=\{e_1, e_2, e_3, e_4, e_5\}$ together be the edges in the (oriented) graph
+below representing an electrical network, where $E$ represents the resistors.  The currents and voltages
+in all these edges are variables $i_t$ and $v_t$ for $t\in P\cup E$.  Ohm's law
+asserts that for $e\in E$, the ratio voltage-to-current ratio
+$v_e:i_e$ $=$ $r_e:g_e$, the ratio of the parameters. The matrix $N_\alpha$ is the
+usual ``signed'' vertex-edge incidence matrix which represents our graph's graphic matroid, with one
+row deleted so $N_\alpha$ has full row rank.  The rows of $N_\alpha$ are the coefficients in
+Kirchhoff's current law, asserting that the edge currents constitute a 1-cycle, (i.e., a flow.)
+Matrix $N_\beta^\perp$ is a totally unimodular matrix whose
+rows are a basis for the 1-cycle space, obtained by coding the incidences of edges with the oriented fundamental
+circuits each associated to an edge not in a fixed spanning tree.  It's rows are the coefficients in
+Kirchhoff's voltage law, asserting that the edge
+voltages drops constitute a 1-coboundary, (i.e., differences
+of a potential across edges.)
+This well-known construction gives
+two full row rank totally unimodular matrices whose row spaces are orthogonal complements,
+representing the graph's
+graphic and cographic matroids respectively.
+
+We form the following system of equations from ().
+\[
+cool sys of eq
+\]
+The electrical network problem at hand is to determine linear constraints on the
+port variables $i_p, v_p$, $p\in P = \{p_1, p_2\}$ imposed by the system.  In other words,
+we want a linear map on the $U$-vector space with basis $P_\alpha, P_\beta$ whose kernel
+is the projection of this system's solution space.
+
