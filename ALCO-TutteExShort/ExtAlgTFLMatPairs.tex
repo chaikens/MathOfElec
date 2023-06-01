@@ -671,21 +671,27 @@ On dualizing with
      \[
        \ext{N_\beta}^\perp\backslash e = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N\beta}^\perp}(\ext{N_\beta}/e)^\perp
        \]
-we get:         
+we get and abbreviate with $\ext{L'}$:         
 \begin{equation}\label{delecontrDEPSprime}
-= \epsilon(S')\epsilon(S'e)
-\left[
-        r_e\left(\ext{L}\left(
+  = \epsilon(S')\epsilon(S'e)
+  \left[ \ext{L'} \wedge e /E \right]
+\end{equation}
+where
+\[
+\ext{L'} = \left[
+        r_e\ext{L}\left(
         \begin{array}{c} \eNal\backslash e \\
     (\eNbe\backslash e)^\perp
-    \end{array}
-    \right)  \wedge \ext{e} /E \right)
+    \end{array}  \right) 
 +
-        g_e\left(\ext{L}\left(
+        g_e\ext{L}\left(
         \begin{array}{c} \eNal / e \\
-    (\eNbe / e)^\perp \end{array} \right) \wedge \ext{e} /E \right)
-\right].
-\end{equation}
+    (\eNbe / e)^\perp \end{array} \right) 
+        \right]
+\]
+
+
+
 
 $S'$ is an arbitrary ordering of $P\dunion (E\backslash e)$ introduced
 when we dualized $\ext{N_\beta}\backslash e$ and
@@ -710,7 +716,7 @@ We now simulaneously permute the two appearances of $E'e$ to $E$ and conclude
 \[
 \ext{L}_E=\epsilon(PE')\epsilon(PE)\epsilon(E)\epsilon(E)(\ext{L'}\wedge \ext{e})/(E'e)
 \]
-which is the same as (\ref{delecontrequation}).
+which is the same as (\ref{delecontrequation}) since $\epsilon^2=1$.
 \end{proof}
 
 The following is very helpful for calculations.
