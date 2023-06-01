@@ -273,7 +273,8 @@ basis enumerator obtained from setting, $u=v=0$ in Tutte
 decomposition (\ref{ParamTutteEqGeneric})
 with coloop $e$ valued at $g_e+r_eu$ and loop $e$ valued at $r_e+g_ev$.
 ``Porting'' is necessary for our approach to yield anything
-interesting. To find a Tutte function, like the Whitney rank-nullity
+interesting. To find a Tutte function,
+like the Tutte polynomial's Whitney rank-nullity
 generating function form in variables $u,v$, that reduces to our exterior
 algebra version when $u=v=0$ is an interesting question.
 Our
@@ -437,7 +438,9 @@ exterior algebra, we can write
 \ext{L} = (\ext{L}_E)\wedge (\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n}) + \ext{J}.
 \]
 We will abbreviate expressions like $(\ext{e_1}\wedge\ext{e_2}\cdots\wedge\ext{e_n})$ by
-$(\ext{e_1}\ext{e_2}\cdots\ext{e_n})$ or $\ext{E}$ where \emph{set $E$ is specified as a sequence of its elements}.
+$(\ext{e_1}\ext{e_2}\cdots\ext{e_n})$ or $\ext{E}$ where
+\emph{set $E$ is specified as a sequence of its elements}\footnote{
+Sometimes explicit $\wedge$ symbols are shown for notational clarity or emphasis.}.
 So, given $(N_\alpha,N_\beta^\perp)$ as above, $\ext{L}_E(N_\alpha,N_\beta^\perp)$ is defined by (\ref{defExtL}) where
 $\ext{J}$ is the sum of terms none of which is a multiple of $\ext{E}$.
 In other words, $\ext{L}_E$ is the image of the homomorphism
@@ -495,32 +498,8 @@ P_\beta \dunion E$.  In other words,
 
 \input{ExampleK4.tex}
 
-\subsection{An easy but weak Tutte function variation}
 
-This is apparent:  Take any $e\in E$, any parameter
-values and $E'=E\setminus e$. Generalizing the example's discussion tells us that all three of
-(1) $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$,
-(2) $\ext{L}_{E'}(\ext{N_\alpha}/e,\ext{N_\beta^\perp\setminus e})$ and
-(3) $\ext{L}_{E'}(\ext{N_\alpha}\setminus e,\ext{N_\beta^\perp/e})$ represent
-\Plucker coordinates, because they are representatives for the \Plucker coordinates
-of the row spaces of the $F$'s from (1), (2) and (3) respectively.  Since \emph{for each determinant
-$D_1$, $D_2$ and $D_3$ separately} in their expansions $c_1 D_1 = c_2 g_e D_2 + c_3 r_e D_3$ for
-some coefficients, we can say:
 
-\begin{prop}
-Let $G_1$, $G_2$ and $G_3$ be points on the Grassmannian $Gr(p,2p)$ represented by
-$\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$,
-$\ext{L}_{E'}(\ext{N_\alpha}/e,\ext{N_\beta^\perp\setminus e})$ and
-$\ext{L}_{E'}(\ext{N_\alpha}\setminus e,\ext{N_\beta^\perp/e})$ respectively. Then
-$G_1$, $G_2$ and $G_3$ are colinear in the projective space containing this Grassmannian, and
-all points on the line determined by $G_2$, $G_3$ represent points in this Grassmannian.
-\end{prop}
-\begin{proof}
-  As $(r_e:g_e)$ ranges over $\mathbb{P}^1(k)$, $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$, the
-  exterior algebra element representing the row space of a matrix, remains a Grassmann representitive.
-\end{proof}
-
-\newpage
 
 \section{Algebraic Formulation and Proof}
 
@@ -632,19 +611,19 @@ Within each of the two factors in
   \]
 let us group the terms according to those that don't and those that do
 contain $\ext{e}$ as a factor.   Since for the given $e$, 
-  $\Vs_R(\ext{e})=g_e\ext{e}$, $\Is_G(\ext{e})=r_e\ext{e}$,
+  $\Vs_R(\ext{e})=r_e\ext{e}$, $\Is_G(\ext{e})=g_e\ext{e}$,
 \[
 \ext{L} =
-\left\{\Is_G(\eNal)\backslash e + (g_e\Is_G(\eNal)/e)\ext{e}\right\}
+\left\{\Is_G(\eNal \backslash e) + (g_e\Is_G(\eNal/e))\ext{e}\right\}
 \;\;\bigwedge\;\;
-\left\{\Vs_G(\eNbePe)\backslash e + (r_e\Vs(\eNbePe)/e)\ext{e})\right\}  
+\left\{\Vs_G(\eNbePe\backslash e) + (r_e\Vs(\eNbePe/e))\ext{e})\right\}  
 \]
 Each factor has the form $\{\ext{X} + \ext{Y}\ext{e}\}$ where
-$\ext{X}$ (and $\ext{Y}$) are not (exterior) multiples of $\ext{e}$, so
+$\ext{X}$ (and $\ext{Y}$) are not multiples of $\ext{e}$, so
 \[
 \ext{L}=
-r_e\left\{ (\Is_G(\eNal)\backslash e)\wedge (\Vs_R(\eNbePe)/e)\ext{e} \right\}  +
-g_e\left\{ (\Is_G(\eNal)/e)\ext{e})  \wedge (\Vs_R(\eNbePe)\backslash e\right\}
+r_e\left\{ (\Is_G(\eNal\backslash e))\wedge (\Vs_R(\eNbePe/e))\ext{e} \right\}  +
+g_e\left\{ (\Is_G(\eNal/e))\ext{e})  \wedge (\Vs_R(\eNbePe\backslash e)\right\}
 +\ext{J}
 \]
 where $\ext{J}/E = 0$.
@@ -780,6 +759,30 @@ and pseudo-vectors!
 \section{Junk}
 
 
+\subsection{An easy but weak Tutte function variation}
+
+This is apparent:  Take any $e\in E$, any parameter
+values and $E'=E\setminus e$. Generalizing the example's discussion tells us that all three of
+(1) $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$,
+(2) $\ext{L}_{E'}(\ext{N_\alpha}/e,\ext{N_\beta^\perp\setminus e})$ and
+(3) $\ext{L}_{E'}(\ext{N_\alpha}\setminus e,\ext{N_\beta^\perp/e})$ represent
+\Plucker coordinates, because they are representatives for the \Plucker coordinates
+of the row spaces of the $F$'s from (1), (2) and (3) respectively.  Since \emph{for each determinant
+$D_1$, $D_2$ and $D_3$ separately} in their expansions $c_1 D_1 = c_2 g_e D_2 + c_3 r_e D_3$ for
+some coefficients, we can say:
+
+\begin{prop}
+Let $G_1$, $G_2$ and $G_3$ be points on the Grassmannian $Gr(p,2p)$ represented by
+$\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$,
+$\ext{L}_{E'}(\ext{N_\alpha}/e,\ext{N_\beta^\perp\setminus e})$ and
+$\ext{L}_{E'}(\ext{N_\alpha}\setminus e,\ext{N_\beta^\perp/e})$ respectively. Then
+$G_1$, $G_2$ and $G_3$ are colinear in the projective space containing this Grassmannian, and
+all points on the line determined by $G_2$, $G_3$ represent points in this Grassmannian.
+\end{prop}
+\begin{proof}
+  As $(r_e:g_e)$ ranges over $\mathbb{P}^1(k)$, $\ext{L}_E(\ext{N_\alpha},\ext{N_\beta^\perp})$, the
+  exterior algebra element representing the row space of a matrix, remains a Grassmann representitive.
+\end{proof}
 
 
 
