@@ -4,25 +4,25 @@ To make our cycles represent flows of positive current,
 coboundaries electrical potentials and resistance positive,
 our sign conventions for arbitrarilly oriented labeled (multi)graphs
 will be \emph{opposite that of} the homology of 1-dimensional chain complexes:
-For $e : a \rightarrow b$, $\partial_1(e)=a-b$, $\partial^0(a)=e+ \ldots\  $,
-$\partial^0(b)=-e+ \ldots\  $, where $e$ is edge with end vertices $a$ and $b$ oriented
+For $e : a \rightarrow b$, $\partial_1(e)=a-b$, $\partial^0(a*)=e*+ \ldots\  $,
+$\partial^0(b*)=-e*+ \ldots\  $, where $e$ is edge with end vertices $a$ and $b$ oriented
 as indicated\
 \footnote{
 On the other hand, for the sake of notational consistency with mathematics
 literature, we will use this sign convention the port edges (in $P$), unlike some electrical engineering
 circuit theory writings in which the sign convention for ports is reversed.}.
-With $\partial^0(\phi(a) a + \phi(b) b) = (\phi(a)-\phi(b))e + \cdots$,
-$\phi(a)-\phi(b)$ is the voltage drop going from $a$ to $b$.
+With $\partial^0(\phi(a*) a* + \phi(b*) b*) = (\phi(a*)-\phi(b*))e* + \cdots$,
+$\phi(a*)-\phi(b*)$ is the voltage drop going from $a$ to $b$.
 Edge sets $E$ and $P$ will respectively represent resistors and ports.
 When $e\in E$,
 Ohm's law says the
-$\phi(a)-\phi(b)$ times its resistance equals the current through $e$, flowing from $a$ to $b$.
+$\phi(a*)-\phi(b*)$ times its resistance equals the current through $e$, flowing from $a$ to $b$.
 For us, the currents through and voltage drops across
 in all these edges are variables $i_t$ and $v_t$ for $t\in P\cup E$.  Ohm's law
 is asserted in the homogeneous form:  For $e\in E$, the voltage-drop-to-current ratio
 $v_e:i_e$ $=$ $r_e:g_e$, the ratio of the resistivity parameters.
 Those parameters are not given for ports.
-Kirchhoff's voltage law asserts that $\sum_tv_tt*$ is the 1-coboundry $\partial^0(\sum \phi_aa*)$
+Kirchhoff's voltage law asserts that $\sum_tv_tt*$ is the 1-coboundry $\partial^0(\sum \phi(a*)a*)$
 for some $\phi:V\rightarrow K$; physically, $\phi$ is the electrical potential function.
 Kirchhoff's current law asserts that $\sum_ti_t t$ is a 1-cycle, i.e., in $\text{ker}\partial_1$. 
 The problem of linear electrical network analysis is to characterize
@@ -137,40 +137,44 @@ value is the sum of such $\ext{T}$.  Each $\ext{T}$ is a polynomial in the $g_e$
 times the $\wedge$ of two distinct elements of
 $\{\ext{p}_{\alpha 1}, \ext{p}_{\alpha 2}, \ext{p}_{\beta 1}, \ext{p}_{\beta 2}\}$.  Since each polynomial
 term encodes a subset of $E=\{e_1, e_2, e_3, e_4\}$ (for example, $\{e_1, e_2\}$ is encoded
-by $g_1g_2r_3r_4$) we take $r_e=1$, $e\in E$ to abbreviate the result: 
+by $g_1g_2r_3r_4$) we take $r_e=1$, $e\in E$ to abbreviate the result. We call attention
+to the fact that each polynomial enumerates
+the common bases in a pair of our graph's matroid minors.
 
-\[
+
+\begin{equation}\label{K4table}
 \begin{array}{|c|c|c|} \hline
 \text{basis element} & \text{coefficient} & \text{enumerates bases}\\
   \hline
 
 \ext{p}_{\alpha 1}\ext{p}_{\alpha 2} &
-g_1 + g_2 + g_3 + g_4 & G/\{p_1, p_2\}
+g_1 + g_2 + g_3 + g_4 & \mathcal{B}(G/\{p_1, p_2\})
 
 \\ \hline
 
 \ext{p}_{\alpha 1}\ext{p}_{\beta 1} &
-g_2g_3 - g_1g_4 & \text{common to } G/p_1\setminus p_2, G/p_2\setminus p_1
+g_2g_3 - g_1g_4 &  \mathcal{B}(G/p_1\setminus p_2)\cap\mathcal{B}(G/p_2\setminus p_1)
 
 \\ \hline
 
 \ext{p}_{\alpha 1}\ext{p}_{\beta 2} &
-(g_1 + g_2)(g_3 + g_4) & G/p_1\setminus p_2
+(g_1 + g_2)(g_3 + g_4) & \mathcal{B}(G/p_1\setminus p_2)
 \\ \hline 
 
-\ext{p}_{\alpha 2}\ext{p}_{\beta 1} & -(g_1 + g_3)(g_2+g_4) & G/p_2\setminus p_1
+\ext{p}_{\alpha 2}\ext{p}_{\beta 1} & -(g_1 + g_3)(g_2+g_4) & \mathcal{B}(G/p_2\setminus p_1)
 \\ \hline
  
 \ext{p}_{\alpha 2}\ext{p}_{\beta 2} &
--g_2g_3 + g_1g_4 & \text{common to } G/p_1\setminus p_2, G/p_2\setminus p_1
+-g_2g_3 + g_1g_4 & \mathcal{B}(G/p_1\setminus p_2)\cap\mathcal{B}(G/p_2\setminus p_1)
 \\ \hline
  
 \ext{p}_{\beta 1}\ext{p}_{\beta 2} &
-g_1g_2g_3 + g_1g_2g_4 + g_1g_3g_4 + g_2g_3g_4 & G\setminus \{p_1, p_2\}
+g_1g_2g_3 + g_1g_2g_4 + g_1g_3g_4 + g_2g_3g_4 & \mathcal{B}(G\setminus \{p_1, p_2\})
 \\ \hline
 
 \end{array}
-\]
+\end{equation}
+
 
 
 
