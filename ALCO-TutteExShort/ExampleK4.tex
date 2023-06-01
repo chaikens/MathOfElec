@@ -98,15 +98,16 @@ N_\beta^\perp =
 %  0  & 0  & 0  & 0  & +r_{1} & -r_{2}  & +r_{3} & +r_{4}
 %  \end{array}\right)
 %\]
-
 \begin{equation}\label{K4Equation}
+\begin{split}
   0=L\left(\begin{array}{cc} {\Nal} \\ {\NbePe}  \end{array}\right)z
-    = \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
+    =& \left[\begin{array}{c|c|c} \Nal(P)  &  0  &  \Nal(E)G \\  \hline
         0  & \NbePe(P)  &  \NbePe(E)R \end{array}\right]
     \left[ \begin{array}{c} i_{p_1} \\ i_{p_2} \\ v_{p_1} \\ v_{p_2} \\ x_{e_1} \\ x_{e_2} \\ x_{e_3} \\ x_{e_4}
       \end{array}
       \right]
-        =
+    \\
+    =&
 \left(\begin{array}{cc|cc|cccc}
   1 & 0  & 0  & 0  & -g_{1} & 0     & g_{3}  & 0 \\
   -1 & 0  & 0  & 0  &  0    & -g_{2} & 0      & -g_{4} \\
@@ -115,8 +116,8 @@ N_\beta^\perp =
   0  & 0  & 0  & 1 & 0     & -r_{2}  & 0     & r_{4} \\
   0  & 0  & 0  & 0  & r_{1} & -r_{2}  & r_{3} & r_{4}
   \end{array}\right)z
+\end{split}
 \end{equation}
-
 
 
 The electrical network problem at hand is to determine linear constraints on the
@@ -124,10 +125,11 @@ port variables $i_p, v_p$, $p\in P = \{p_1, p_2\}$ imposed by the system.  In ot
 we want a linear map on the $U$-vector space with basis $P_\alpha, P_\beta$ whose kernel
 is the projection of this system's solution space.
 
-To compute $\ext{L}_E$, in the right hand side of (\ref{K4Equation}) we set
+To compute $\ext{L}_E$, set 
 $z=[\ext{p}_{\alpha 1},\ext{p}_{\alpha 2},\ext{p}_{\beta 1},\ext{p}_{\beta 2},
-  \ext{e}_1,  \ext{e}_2,  \ext{e}_3,  \ext{e}_4]^t$, and expand in terms of
-this basis
+  \ext{e}_1,  \ext{e}_2,  \ext{e}_3,  \ext{e}_4]^t$
+in the right hand side of (\ref{K4Equation}) 
+and expand in terms of this basis
 the exterior product (in order) of the resulting column tuple entries.
 Finally, we select out
 the terms that can be expressed as $\ext{T}\ext{e}_1\ext{e}_2\ext{e}_3\ext{e}_4$.  The final
@@ -135,28 +137,37 @@ value is the sum of such $\ext{T}$.  Each $\ext{T}$ is a polynomial in the $g_e$
 times the $\wedge$ of two distinct elements of
 $\{\ext{p}_{\alpha 1}, \ext{p}_{\alpha 2}, \ext{p}_{\beta 1}, \ext{p}_{\beta 2}\}$.  Since each polynomial
 term encodes a subset of $E=\{e_1, e_2, e_3, e_4\}$ (for example, $\{e_1, e_2\}$ is encoded
-by $g_1g_2r_3r_4$) we clarify the result below by setting each $r_e=0$.
+by $g_1g_2r_3r_4$) we take $r_e=1$, $e\in E$ to abbreviate the result: 
 
 \[
-\begin{array}{|c|c|} \hline
+\begin{array}{|c|c|c|} \hline
+\text{basis element} & \text{coefficient} & \text{enumerates bases}\\
+  \hline
 
 \ext{p}_{\alpha 1}\ext{p}_{\alpha 2} &
-g_1 + g_2 + g_3 + g_4 \\ \hline
+g_1 + g_2 + g_3 + g_4 & G/\{p_1, p_2\}
+
+\\ \hline
 
 \ext{p}_{\alpha 1}\ext{p}_{\beta 1} &
-g_2g_3 - g_1g_4 \\ \hline
+g_2g_3 - g_1g_4 & \text{common to } G/p_1\setminus p_2, G/p_2\setminus p_1
+
+\\ \hline
 
 \ext{p}_{\alpha 1}\ext{p}_{\beta 2} &
-g_1g_3 + g_2g_3 + g_1g_4 + g_2g_4 = (g_1 + g_2)(g_3 + g_4) \\ \hline
+(g_1 + g_2)(g_3 + g_4) & G/p_1\setminus p_2
+\\ \hline 
 
-\ext{p}_{\alpha 2}\ext{p}_{\beta 1} &
--g_1g_2 - g_2g_3 - g_1g_4 - g_3g_4 = -(g_1 + g_3)(g_2+g_4)\\ \hline
+\ext{p}_{\alpha 2}\ext{p}_{\beta 1} & -(g_1 + g_3)(g_2+g_4) & G/p_2\setminus p_1
+\\ \hline
  
 \ext{p}_{\alpha 2}\ext{p}_{\beta 2} &
--g_2g_3 + g_1g_4 \\ \hline
+-g_2g_3 + g_1g_4 & \text{common to } G/p_1\setminus p_2, G/p_2\setminus p_1
+\\ \hline
  
 \ext{p}_{\beta 1}\ext{p}_{\beta 2} &
-g_1g_2g_3 + g_1g_2g_4 + g_1g_3g_4 + g_2g_3g_4 \\ \hline
+g_1g_2g_3 + g_1g_2g_4 + g_1g_3g_4 + g_2g_3g_4 & G\setminus \{p_1, p_2\}
+\\ \hline
 
 \end{array}
 \]
