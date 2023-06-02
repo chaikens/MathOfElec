@@ -589,6 +589,12 @@ To facilitate proofs, we introduce equivalent definitions to avoid explicit matr
   $r$, $r$ and $n-r$ (where $n=|E|$)  vectors in $U(E\dunion P)$
   (i.e. decomposibles), for which our  
   definition of dual (\ref{extmatdefs}) is satisfied.
+
+  Disjoint triples of the above will denoted by
+  $\ext{N_\alpha}^{(i)}$,  $\ext{N_\beta}^{(i)}$, $\ext{N_\beta^\perp}^{(i)}$ 
+  $r^{(i)}$, and $n^{(i)}-r^{(i)}$ (where $n^{(i)}=|E^{(i)}|$)  vectors in
+  $U^{(i)}(E^{(i)}\dunion P^{(i)})$ for $i=1, 2, \ldots\ $.
+
 \end{defi}
 
 \begin{defi}
@@ -611,14 +617,32 @@ To facilitate proofs, we introduce equivalent definitions to avoid explicit matr
       g_e\extLHorSub{E'}{\eNal/e}{\eNbe/e} +
       r_e\extLHorSub{E'}{\eNal\backslash e}{\eNbe\backslash e}\right)
   \end{equation}
-  
-  MUST ADD Similar identity for direct sums.
+
+  Given, for $i = 1, 2$,
+  $\ext{N_\alpha}^{(i)}$,  $\ext{N_\beta}^{(i)}$, $\ext{N_\beta^\perp}^{(i)}$ 
+  and
+  sequenced $P^{(i)}$, $E^{(i)}$, with $P=P^{(1)}P^{(2)}$, $E=E^{(1)}E^{(2)}$,
+  \begin{equation}\label{productequation}
+    \begin{split}
+    \epsilon(PE)
+    &\LHorSub{E}
+            {(\ext{N}_\alpha^{(1)}\wedge\ext{N}_\alpha^{(2)})}
+            {(\ext{N}_\beta^{(1)}\wedge\ext{N}_\beta^{(2)})}
+    = \\
+    \epsilon(P^{(1)}E^{(1)})
+    \epsilon(P^{(2)}E^{(2)}) 
+        &\left(\LHorSub{E^{(1)}}{\ext{N}_\alpha^{(1)}}{\ext{N}_\beta^{(1)}}
+        \wedge
+        \LHorSub{E^{(2)}}{\ext{N}_\alpha^{(2)}}{\ext{N}_\beta^{(2)}}
+          \right)
+    \end{split}
+  \end{equation}
 
 \end{theo}
   
 \begin{proof}
 
-Within each of the two factors in
+First for (\ref{delecontrequation}). Within each of the two factors in
   \[
    \ext{L} := \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
 =\Is_G(\eNal)\wedge\Vs_R(\eNbePe)
@@ -666,7 +690,7 @@ On dualizing with
      \[
        \ext{N_\beta}^\perp\backslash e = \epsilon(S')\epsilon(S'e)(-1)^{|\{e\}|r\ext{N\beta}^\perp}(\ext{N_\beta}/e)^\perp
        \]
-we get and abbreviate with $\ext{L'}$:         
+we get and abbreviate with $\ext{L'}$         
 \begin{equation}\label{delecontrDEPSprime}
   \ext{L}_E = \epsilon(S')\epsilon(S'e)
   \left[ \ext{L'} \wedge e /E \right]
