@@ -731,11 +731,45 @@ Since the ordering $S'$ is arbitrary, take $S'=PE'$, to get
 \[
 \ext{L}_E=\epsilon(PE')\epsilon(PE'e)\epsilon(E)\epsilon(E'e)(\ext{L'}\wedge \ext{e})/(E'e).
 \]
-We now simulaneously permute the two appearances of $E'e$ to $E$ and conclude
+We now simulaneously permute the two appearances of $E'e$ to $E$ and verify ((\ref{delecontrequation}):
 \[
 \ext{L}_E=\epsilon(PE')\epsilon(PE)\epsilon(E)\epsilon(E)(\ext{L'}\wedge \ext{e})/(E'e)
+=\epsilon(PE')\epsilon(PE)(\ext{L'}\wedge \ext{e})/(E'e).
 \]
-which is the same as (\ref{delecontrequation}) since $\epsilon^2=1$.
+
+Now for (\ref{productequation}).
+\begin{equation}
+  \begin{split}
+  \ext{L} := & \ext{L}\left( \begin{array}{c}
+    \ext{N}_\alpha^{(1)}\wedge \ext{N}_\alpha^{(2)}\\
+    {\ext{N}_\beta^\perp}^{(1)}\wedge{\ext{N}_\beta^\perp}^{(2)}\end{array} \right)
+  =\Is_G(\ext{N}_\alpha^{(1)}\wedge \ext{N}_\alpha^{(2)})
+  \wedge\Vs_R({\ext{N}_\beta^\perp}^{(1)}\wedge{\ext{N}_\beta^\perp}^{(2)})
+  \\
+  =&
+  \Is_G(\ext{N}_\alpha^{(1)})\wedge \Is_G(\ext{N}_\alpha^{(2)})
+  \wedge\Vs_R({\ext{N}_\beta^\perp}^{(1)})\wedge\Vs_R({\ext{N}_\beta^\perp}^{(2)})
+  \\
+  =& 
+  (-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}
+    \Is_G(\ext{N}_\alpha^{(1)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(1)}) \wedge
+    \Is_G(\ext{N}_\alpha^{(2)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(2)})
+    \\
+   =&
+   (-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}
+   \ext{L}\left( \begin{array}{c}
+    \ext{N}_\alpha^{(1)}\\
+        {\ext{N}_\beta^\perp}^{(1)}\end{array} \right)
+   \wedge
+     \ext{L}\left( \begin{array}{c}
+    \ext{N}_\alpha^{(2)}\\
+        {\ext{N}_\beta^\perp}^{(2)}\end{array} \right)
+  \end{split}
+\end{equation}
+
+
+
+
 \end{proof}
 
 The following is very helpful for calculations.
