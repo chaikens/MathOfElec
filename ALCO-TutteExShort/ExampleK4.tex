@@ -128,6 +128,19 @@ The electrical network problem at hand is to determine linear constraints on the
 port variables $i_p, v_p$, $p\in P = \{p_1, p_2\}$ imposed by the system.  In other words,
 we want a linear map on the $U$-vector space with basis $P_\alpha, P_\beta$ whose kernel
 is the projection of this system's solution space.
+Below is the solution for our example,
+those linear constraints
+are expressed using the matrix of that linear map.  For ease of reading,
+we set $r_e=1$, $e\in E$, and $D=g_{1} g_{2} g_{3} + g_{1} g_{2} g_{4} + g_{1} g_{3} g_{4} + g_{2} g_{3} g_{4}$.
+\begin{equation}\label{K4Soln}
+\left(\begin{array}{cccc}
+{\left(g_{1} + g_{2}\right)} {\left(g_{3} + g_{4}\right)} & -g_{2} g_{3} + g_{1} g_{4} & D & 0 \\
+-g_{2} g_{3} + g_{1} g_{4} & {\left(g_{1} + g_{3}\right)} {\left(g_{2} + g_{4}\right)} & 0 & D
+\end{array}\right)
+\left(\begin{array}{c} i_{p1} \\ i_{p2} \\ v_{p1} \\ v_{p2}
+\end{array}\right) = 0
+\end{equation}
+
 
 To compute $\ext{L}_E$, set 
 $z=[\ext{p}_{\alpha 1},\ext{p}_{\alpha 2},\ext{p}_{\beta 1},\ext{p}_{\beta 2},
@@ -183,3 +196,15 @@ g_1g_2g_3 + g_1g_2g_4 + g_1g_3g_4 + g_2g_3g_4 & \mathcal{B}(G\setminus \{p_1, p_
 
 \end{array}
 \end{equation}
+
+To verify that the coefficients of our $\ext{L}_E$
+in (\ref{K4table}) are \Plucker coordinates, and
+indeed that $\ext{L}_E$ represents the space of
+linear constraints for the
+network solution problem,
+one can calculate that each rank-2 minor of the matrix in
+(\ref{K4Soln}) equals the $D$ multiple of the corresponding coefficient
+in  (\ref{K4table}).  The one non-trivial calculation is
+\[
+{\left(g_{1} + g_{2}\right)} {\left(g_{1} + g_{3}\right)} {\left(g_{2} + g_{4}\right)} {\left(g_{3} + g_{4}\right)} - {\left(-g_{2} g_{3} + g_{1} g_{4}\right)}^{2} = D(g_1+g_2+g_3+g_4)
+\]
