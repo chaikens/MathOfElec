@@ -528,17 +528,30 @@ For simplicity, the same symbol $\epsilon$ is used throughout.
 Exterior algebra operations
 representing matroid deletion and contraction will therefore
 be consistent with the operation for duality by using our
-global orderings $\epsilon$ for our Hodge star.
+global orientations $\epsilon$ for our Hodge star.
+
+Throughout, boldface letters like $\ext{N}$, $\ext{N}^{(i)}$, etc. will denote
+exterior products of vectors for which a distinguished ordered
+basis, denoted by $S$, $S^{(i)}$, $PE$, etc,
+for the underlying vector space has been specified, which we will
+call the \emph{ground set}.
+In the following
+and elsewhere, $A$, $B$, $\overline{B}$, $P$, $E$, etc. are sets
+expressed as sequences.
+(Many formulas will also
+hold when $\ext{N}$ is a non-necessarilly decomposible exterior algebra element.
+Essentially, the formulas apply to the \emph{components} $\ext{N}[B]$ of $\ext{N}$.  These
+are the coefficients when $\ext{N}$ is expanded into an exterior polynomial
+in the basis vectors $S$.  If $\ext{N}$ is considered to be an $n$-form on $\wedge U(S)$,
+then $\ext{N}[B]$ would be $\ext{N}(\ext{b}_1, \cdots, \ext{b}_n$).)
+When $U=\mathbb{R}S$, we recognize $B\mapsto\text{sign}(\ext{N}[B])$
+is the \emph{chirotope} function $\chi$ for the oriented matroid represented by the
+linear subspace represented by $\ext{N}$.
 
 We do not put conditions to relate our orientations of
-of different sets.  Our formulas that involve two ordered sets $S_1$
+of different sets.  Our formulas that involve two sequenced sets $S_1$
 and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
 
-
-
-
-In the following formulas, $A$, $B$ and $\overline{B}$ are
-sets expressed as sequences.
 \begin{defi}\label{extmatdefs}
     \[
     \begin{array}{cc}
@@ -549,8 +562,8 @@ sets expressed as sequences.
     \end{array}
     \]
 \end{defi}
-    In the definition of duality, $B$ is ordered,
-    but $\overline{B}$ is an arbitrary ordering of the complement of $B$
+    In the definition of duality, $B$ is sequenced,
+    but $\overline{B}$ is an arbitrary sequencing of the complement of $B$
     with respect to the ground set of $\ext{N}$.
     The result is unchanged for all reorderings of $\overline{B}$,
     so dualization is well-defined.  It represents linear matroid duality
@@ -572,6 +585,41 @@ sets expressed as sequences.
 \begin{proof}
   Apply the definitions.  These dualization formulas are well-defined since they
   are unchanged over different sequencings of $S'$.
+\end{proof}
+
+
+\newcommand{\Nsup}[1]{\ext{N}^{(#1)}}
+\newcommand{\NsupPerp}[1]{{\ext{N}^{(#1)}}^\perp}
+
+\begin{prop}
+  For $i=1, 2$, let $S^{(i)}$ be the ground sets for $\ext{N}^{(i)}$, pairwise disjoint.
+  \begin{equation}\label{commutewedgeperp}
+    (\Nsup{1}\wedge\Nsup{2})^\perp =
+    \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})(-1)^{r{\Nsup{1}} r\Nsup{2}}
+        \NsupPerp{1}\wedge\NsupPerp{2}
+    \end{equation}
+\end{prop}
+\begin{proof}
+  Calculate componentwise, for any ordering
+  $B_i\subseteq S_i$ and $\overline{B_i}\subseteq S_i\setminus B_i$:
+  \begin{equation*}
+    \begin{split}
+      (\Nsup{1}\wedge\Nsup{2})^\perp[B_1B_2]=
+      &(\Nsup{1}\wedge\Nsup{2})[B_1B_2]
+      \epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
+      =\Nsup{1}[\overline{B_1}]\Nsup{2}[\overline{B_2}]&\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
+    =&\left\{\NsupPerp{1}[B_1]\epsilon(\overline{B_1}B_1)\right\}
+    \left\{\NsupPerp{2}[B_2]\epsilon(\overline{B_2}B_2)\right\}\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
+    =&(\NsupPerp{1}\wedge\NsupPerp{2})[B_1B_2]\epsilon(\overline{B_1}B_1)\epsilon(\overline{B_2}B_2)\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
+    \end{split}
+  \end{equation*}
+  Since $|\overline{B_2}|=r\NsupPerp{2}$ and $|B_1|=r\Nsup{1}$,
+  \[
+  \epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)=(-1)^{r\NsupPerp{2}r\Nsup{1}}\epsilon(\overline{B_1}B_1\;\overline{B_2} B_2).
+  \]
+  (\ref{commutewedgeperp}) follows since, for $i=1,2$, simutaneously permuting
+  the two appearances of $\overline{B_i}B_i$ into $S^{(i)}$ in the combined sign expresssion does
+  not change its sign.
 \end{proof}
 
 To facilitate proofs, we introduce equivalent definitions to avoid explicit matrices.
