@@ -721,10 +721,10 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
   Given, for $i = 1, 2$,
   $\ext{N}_\alpha^{i}$,  $\ext{N}_\beta^{i}$, ${\ext{N}_\beta^{i}}^\perp$ 
   and
-  sequenced $P$, $E$, $P^{i}$, $E^{i}$, with (unsequenced sets) $P=P^{1}\dunion P^{2}$, $E=E^{1}\dunion E^{2}$,
+  sequenced $E$, $P^{i}$, $E^{i}$, where unsequenced $E=E^{1}\dunion E^{2}$,
   \begin{equation}\label{productequation}
     \begin{split}
-    \epsilon(PE)
+    \epsilon(P^1P^2E)
     &\LHorSub{E}
             {(\ext{N}_\alpha^{1}\wedge\ext{N}_\alpha^{2})}
             {(\ext{N}_\beta^{1}\wedge\ext{N}_\beta^{2})}
@@ -882,98 +882,17 @@ $ so
           \]
 so we are done except to verify the sign correction.  With $S^i=P^iE^i$ the sign is
 \[
-\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E^1E^2)
+\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1E^1P^2E^2)
 (-1)^{(r\ext{N}^2-|E^2|)(|E^1|)}
 \]
 \[
-=
-\epsilon(P^1P^2E)\epsilon(P^1P^2E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E^1E^2)
-(-1)^{(r\ext{N}^2-|E^2|)(|E^1|)}
+=\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E^1E^2).
 \]
-
-
-
+We now obtain correction of (\ref{productequation}) by simultaneously permuting the two occurrances of $E^1E^2$
+to $E$:
 \[
-=\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1E^1P^2E^2)
+=\epsilon(E)^2\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E).
 \]
-\[
-=\epsilon(PE)\epsilon(PE^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1E^1P^2E^2)
-\]
-
-
-%\[
-%\left(
-% (\Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^{1}}^\perp))/E^1 \wedge
-% (\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^{2}}^\perp))/E^2
-%    \right)
-%\]
-------------------------------------------------------------------------
-
-
-
-
-\[
-\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2}) \ext{L}/E =   \Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{1}) \wedge
-\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{2})/E
-\]
-\[
-=
-\left\{(\Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{1}))/E^{1}
-\wedge
-(\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{2}))/E^{2}\right\}
-\epsilon(P^{1}P^{2}E)\epsilon(P^{1}E^{1}P^{2}E^{2})
-\]
-proves (\ref{productequation}) except for the sign correction. Choose the arbitrary sequencings
-$S^{i}$ to obtain for it
-\[
-\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})\epsilon(P^{1}P^{2}E)\epsilon(P^{1}E^{1}P^{2}E^{2})
-\]
-\[
-=\epsilon(P^{1}E^{1})\epsilon(P^{2}E^{2})\epsilon(P^{1}E^{1}P^{2}E^{2})\epsilon(P^{1}P^{2}E)\epsilon(P^{1}E^{1}P^{2}E^{2})
-\]
-\[
-=\epsilon(P^{1}E^{1})\epsilon(P^{2}E^{2})
-\epsilon(P^{1}    P^{2}    E^{1}E^{2})\epsilon(P^{1}P^{2}E)
-\epsilon(P^{1}    P^{2}    E^{1}E^{2})
-\]
-
-
-                                   ---------------------------------------
-
-                                   
-\begin{equation*}\begin{split}
-   (-1)^{r(\ext{N}_\alpha^{2})r({\ext{N}_\beta^\perp}^{1})}
-   \ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{1}\\
-        {\ext{N}_\beta^\perp}^{1}\end{array} \right)
-   \wedge
-     \ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{2}\\
-        {\ext{N}_\beta^\perp}^{2}\end{array} \right)
-  \end{split}
-\end{equation*}
-
-Observe
-\[
-(-1)^{r(\ext{N}_\alpha^{2})r({\ext{N}_\beta^\perp}^{1})}=\epsilon(P^{1}E^{1}P^{2}E^{2})
-\epsilon(P^{1}P^{2}E^{1}E^{2})
-\]
-
-\begin{equation}
-  \begin{split}
-    \ext{L}/E =&
-    (-1)^{r(\ext{N}_\alpha^{2})r({\ext{N}_\beta^\perp}^{1})}
-    \epsilon(PE)\epsilon(PE^{1})\epsilon(E^{2})\\
-   &\ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{1}\\
-        {\ext{N}_\beta^\perp}^{1}\end{array} \right)/E^{1}
-   \wedge
-     \ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{2}\\
-        {\ext{N}_\beta^\perp}^{2}\end{array} \right)/E^{2} \\
-     =& \text{bla bla bla}
-  \end{split}
-\end{equation}
 
 
 
