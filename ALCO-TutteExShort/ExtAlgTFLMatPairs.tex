@@ -717,32 +717,9 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
       g_e\extLHorSub{E'}{\eNal/e}{\eNbe/e} +
       r_e\extLHorSub{E'}{\eNal\backslash e}{\eNbe\backslash e}\right)
   \end{equation}
-
-  Given, for $i = 1, 2$,
-  $\ext{N}_\alpha^{i}$,  $\ext{N}_\beta^{i}$, ${\ext{N}_\beta^{i}}^\perp$ 
-  and
-  sequenced $E$, $P^{i}$, $E^{i}$, where unsequenced $E=E^{1}\dunion E^{2}$,
-  \begin{equation}\label{productequation}
-    \begin{split}
-    \epsilon(P^1P^2E)
-    &\LHorSub{E}
-            {(\ext{N}_\alpha^{1}\wedge\ext{N}_\alpha^{2})}
-            {(\ext{N}_\beta^{1}\wedge\ext{N}_\beta^{2})}
-    = \\
-    \epsilon(P^{1}E^{1})
-    \epsilon(P^{2}E^{2}) 
-        &\left(\LHorSub{E^{1}}{\ext{N}_\alpha^{1}}{\ext{N}_\beta^{1}}
-        \wedge
-        \LHorSub{E^{2}}{\ext{N}_\alpha^{2}}{\ext{N}_\beta^{2}}
-          \right)
-    \end{split}
-  \end{equation}
-
 \end{theo}
-  
 \begin{proof}
-
-First for (\ref{delecontrequation}). Within each of the two factors in
+Within each of the two factors in
   \[
    \ext{L} := \ext{L}\left( \begin{array}{c} \eNal\\ \eNbePe \end{array} \right)
 =\Is_G(\eNal)\wedge\Vs_R(\eNbePe)
@@ -836,8 +813,36 @@ We now simulaneously permute the two appearances of $E'e$ to $E$ and verify ((\r
 \ext{L}_E=\epsilon(PE')\epsilon(PE)\epsilon(E)\epsilon(E)(\ext{L'}\wedge \ext{e})/(E'e)
 =\epsilon(PE')\epsilon(PE)(\ext{L'}\wedge \ext{e})/(E'e).
 \]
+\end{proof}
 
-Now for (\ref{productequation}).  Using (\ref{commutewedgeperp}),
+
+
+
+\begin{theo}
+Given, for $i = 1, 2$,
+  $\ext{N}_\alpha^{i}$,  $\ext{N}_\beta^{i}$, ${\ext{N}_\beta^{i}}^\perp$ 
+  and
+  sequenced $E$, $P^{i}$, $E^{i}$, where unsequenced $E=E^{1}\dunion E^{2}$,
+  \begin{equation}\label{productequation}
+    \begin{split}
+    \epsilon(P^1P^2E)
+    &\LHorSub{E}
+            {(\ext{N}_\alpha^{1}\wedge\ext{N}_\alpha^{2})}
+            {(\ext{N}_\beta^{1}\wedge\ext{N}_\beta^{2})}
+    = \\
+    \epsilon(P^{1}E^{1})
+    \epsilon(P^{2}E^{2}) 
+        &\left(\LHorSub{E^{1}}{\ext{N}_\alpha^{1}}{\ext{N}_\beta^{1}}
+        \wedge
+        \LHorSub{E^{2}}{\ext{N}_\alpha^{2}}{\ext{N}_\beta^{2}}
+          \right)
+    \end{split}
+  \end{equation}
+\end{theo}
+
+\begin{proof}
+
+Using (\ref{commutewedgeperp}),
 \begin{equation*}
   \begin{split}
     \ext{L} := & \ext{L}\left(
@@ -880,7 +885,7 @@ $ so
         \LHorSub{E^{2}}{\ext{N}_\alpha^{2}}{\ext{N}_\beta^{2}}
           \right)
           \]
-so we are done except to verify the sign correction.  With $S^i=P^iE^i$ the sign is
+by (\ref{distcontractwedge}) so we are done except to verify the sign correction.  With $S^i=P^iE^i$ the sign is
 \[
 \epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1E^1P^2E^2)
 (-1)^{(r\ext{N}^2-|E^2|)(|E^1|)}
@@ -891,7 +896,7 @@ so we are done except to verify the sign correction.  With $S^i=P^iE^i$ the sign
 We now obtain correction of (\ref{productequation}) by simultaneously permuting the two occurrances of $E^1E^2$
 to $E$:
 \[
-=\epsilon(E)^2\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E).
+\epsilon(E)^2\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E)
 \]
 
 
