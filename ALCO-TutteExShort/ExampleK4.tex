@@ -1,5 +1,11 @@
+With the complete graph $G=K_4$, we will illustrate our construction,
+its evaluation and an interpretation
+in terms $G$'s familiar linear spaces, oriented matroids, and electrical
+network problem model.  $P=\{p_1, p_2\}$ is comprised of two non-adjacent
+edges and the rest, $K_{2,2}$, will comprise $E$.  
 
-
+We relate $K_4$ as a 1-dimensional abstract simplicial complex to
+its role as an electrical network model.
 To make our cycles represent flows of positive current,
 coboundaries electrical potentials and resistance positive,
 our sign conventions for arbitrarilly oriented labeled (multi)graphs
@@ -17,8 +23,9 @@ With $\partial^0(\phi(\hat{a}) \hat{a} + \phi(\hat{b}) \hat{b}) = (\phi(\hat{a})
 $\phi(\hat{a})-\phi(\hat{b})$ is the voltage drop going from $a$ to $b$.
 Edge sets $E$ and $P$ will respectively represent resistors and ports.
 When $e\in E$,
-Ohm's law says the
-$\phi(\hat{a})-\phi(\hat{b})$ times its resistance equals the current through $e$, flowing from $a$ to $b$.
+Ohm's law says that
+$\phi(\hat{a})-\phi(\hat{b})$ times the resistance of $e$ equals the current through $e$,
+flowing from $a$ to $b$.
 For us, the currents through and voltage drops along
 in all these edges are variables $i_t$ and $v_t$ for $t\in P\cup E$.  Ohm's law
 is asserted in the homogeneous form:  For $e\in E$, the voltage-drop-to-current ratio
@@ -56,7 +63,7 @@ graphic (with bases $\mathcal{B}(G)$) and cographic matroids respectively.
 \end{figure}
 
 
-We form the following system of equations from (\ref{LmatrixDef}).
+We form the following system of equations according to (\ref{LmatrixDef}).
 \[
 N_\alpha=
 \left(\begin{array}{cc|cccc}
@@ -142,7 +149,7 @@ we set $r_e=1$ for $e\in E$, and $D=g_{1} g_{2} g_{3} + g_{1} g_{2} g_{4} + g_{1
 \end{equation}
 
 
-To compute $\ext{L}_E$, set 
+To compute $\ext{L}_E$ from its definition, set 
 $z=[\ext{p}_{\alpha 1},\ext{p}_{\alpha 2},\ext{p}_{\beta 1},\ext{p}_{\beta 2},
   \ext{e}_1,  \ext{e}_2,  \ext{e}_3,  \ext{e}_4]^t$
 in the right hand side of (\ref{K4Equation}) 
@@ -160,7 +167,7 @@ for the orthogonal complement of the electrical network
 Since each polynomial
 term encodes a subset of $E=\{e_1, e_2, e_3, e_4\}$ (for example, $\{e_1, e_2\}$ is encoded
 by $g_1g_2r_3r_4$) we take each $r_e=1$ to ease reading the coefficients. We call attention
-to the which minor pair (sometimes the same) each coefficient enumerates
+to the which matroid minor pair (sometimes the same) each coefficient enumerates
 the common bases of.
 
 
@@ -202,9 +209,13 @@ in (\ref{K4table}) are \Plucker coordinates, and
 indeed that $\ext{L}_E$ represents the space of
 linear constraints for the
 network solution problem,
-one can calculate that each rank-2 minor of the matrix in
+one can calculate that each $2\times 2$ minor of the matrix in
 (\ref{K4Soln}) equals the $D$ multiple of the corresponding coefficient
 in  (\ref{K4table}).  The one non-trivial calculation is
 \[
 {\left(g_{1} + g_{2}\right)} {\left(g_{1} + g_{3}\right)} {\left(g_{2} + g_{4}\right)} {\left(g_{3} + g_{4}\right)} - {\left(-g_{2} g_{3} + g_{1} g_{4}\right)}^{2} = D(g_1+g_2+g_3+g_4)
 \]
+
+This example also demonstrates that $\ext{L}_E$ might not have a
+matrix representation all of whose entries are polynomials in the $r_e, g_e$.
+

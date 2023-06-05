@@ -130,8 +130,8 @@ determinant--a minor of the graph's Laplacian. We will generalize the
 choice of a root vertex for the trees by distinguishing a fixed set $P$
 of $p$ matroid elements, which we will call ports, a word from
 engineering. We then define a function from $k$-linear matrix
-representations of matroid pairs ($N_{\alpha},N_{\beta})$ (often
-$N_{\alpha}=N_{\beta}$ whose ground sets
+representations of matroid pairs ($N_{\alpha},N_{\beta})$
+(often $N_{\alpha}=N_{\beta}$) whose ground sets
 include $P$, into pure (decomposible)
 exterior algebra elements which represent points in the Grassmannian of $p$ dimensional $k$-linear subspaces
 of $k^{(2p)}$. We express this subspace value as a decomposible
@@ -254,7 +254,6 @@ We will see that our Tutte function's value will be an exterior product of
 $|P|$ vectors in the $2|P|$ dimensional vector space over $K$ with basis $P_\alpha \cup P_\beta$.
 I.e., our value will
 have grade level or ``step''  $|P|$.
-rank $2|P|$
 As such, (when non-zero)
 it is a \emph{Grassmann representitive}\cite{MarcusFDMuAlPt2}[p 18]
 for some
@@ -315,8 +314,8 @@ In other words, when they
 are non-zero and not infinite, the conventional
 resistance is $r_e/g_e$ and conductance is $g_e/r_e$\footnote{Electrical engineers
 sometimes call these reciprocal quantities ``impedance'' and ``admittance'' especially
-when they are in $\mathbb{C}$.}. Shorts (zero resistance) and opens (zero
-conductance) are thus accomodated.   To make this long story short (see section ()),
+when they are in $\mathbb{C}$ or $\mathbb{C}(s)$.}. Shorts (zero resistance) and opens (zero
+conductance) are thus accomodated.   To make this long story short (see section (\ref{ExamK4})),
 our Tutte function's value
 will encode the set of voltage drops across and current flows through each of
 the network edges in $P$ that are compatible with Kirchhoff's and Ohm's laws applied to $E\cup P$. This set
@@ -536,9 +535,9 @@ representing matroid deletion and contraction will therefore
 be consistent with the operation for duality by using our
 global orientations $\epsilon$ for our Hodge star.
 
-Throughout, boldface letters like $\ext{N}$, $\ext{N}^{(i)}$, etc. will denote
+Throughout, boldface letters like $\ext{N}$, $\ext{N}^{i}$, etc. will denote
 exterior products of vectors for which a distinguished ordered
-basis, denoted by $S$, $S^{(i)}$, $PE$, etc,
+basis, denoted by $S$, $S^{i}$, $PE$, etc,
 for the underlying vector space has been specified, which we will
 call the \emph{ground set}.
 In the following
@@ -589,7 +588,7 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
       Calculating componentwise from the definition,
       \[
       (\ext{N}/A_\sigma)[B]=\ext{N}[BA_\sigma]=\epsilon(CAD)\epsilon(CA_\sigma D)\ext{N}[BA]=
-      \epsilon(CAD)\epsilon{CA_\sigma D}(\ext{N}/A)[B]
+      \epsilon(CAD)\epsilon(CA_\sigma D)(\ext{N}/A)[B]
       \]
       since $\epsilon(CAD)\epsilon(CA_\sigma D)=\text{sign}(\sigma)$.
     \end{proof}
@@ -609,14 +608,14 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
 \end{proof}
 
 
-\newcommand{\Nsup}[1]{\ext{N}^{(#1)}}
-\newcommand{\NsupPerp}[1]{{\ext{N}^{(#1)}}^\perp}
+\newcommand{\Nsup}[1]{\ext{N}^{#1}}
+\newcommand{\NsupPerp}[1]{{\ext{N}^{#1}}^\perp}
 
 \begin{prop}
-  For $i=1, 2$, let $S^{(i)}$ be sequenced ground sets for $\ext{N}^{(i)}$, pairwise disjoint.
+  For $i=1, 2$, let $S^{i}$ be sequenced ground sets for $\ext{N}^{i}$, pairwise disjoint.
   \begin{equation}\label{commutewedgeperp}
     (\Nsup{1}\wedge\Nsup{2})^\perp =
-    \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})(-1)^{r{\NsupPerp{1}} r\Nsup{2}}
+    \epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})(-1)^{(r{\NsupPerp{1}})( r\Nsup{2})}
         \NsupPerp{1}\wedge\NsupPerp{2}
     \end{equation}
 \end{prop}
@@ -639,7 +638,7 @@ $%  \[
   \epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)=(-1)^{r\NsupPerp{1}r\Nsup{2}}\epsilon(\overline{B_1}B_1\;\overline{B_2} B_2)
 $. %  \]
   (\ref{commutewedgeperp}) follows since, for $i=1,2$, simutaneously permuting
-  the two appearances of $\overline{B_i}B_i$ into $S^{(i)}$ in the combined sign expresssion does
+  the two appearances of $\overline{B_i}B_i$ into $S^{i}$ in the combined sign expresssion does
   not change its sign.
 \end{proof}
 
@@ -665,9 +664,9 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
   definition of dual (\ref{extmatdefs}) is satisfied.
 
   Disjoint triples of the above will denoted by
-  $\ext{N_\alpha}^{(i)}$,  $\ext{N_\beta}^{(i)}$, $\ext{N_\beta^\perp}^{(i)}$ 
-  $r^{(i)}$, and $n^{(i)}-r^{(i)}$ (where $n^{(i)}=|E^{(i)}|$)  vectors in
-  $U^{(i)}(E^{(i)}\dunion P^{(i)})$ for $i=1, 2, \ldots\ $.
+  $\ext{N_\alpha}^{i}$,  $\ext{N_\beta}^{i}$, $\ext{N_\beta^\perp}^{i}$ 
+  $r^{i}$, and $n^{i}-r^{i}$ (where $n^{i}=|E^{i}|$)  vectors in
+  $U^{i}(E^{i}\dunion P^{i})$ for $i=1, 2, \ldots\ $.
 
 \end{defi}
 
@@ -693,21 +692,21 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
   \end{equation}
 
   Given, for $i = 1, 2$,
-  $\ext{N_\alpha}^{(i)}$,  $\ext{N_\beta}^{(i)}$, $\ext{N_\beta^\perp}^{(i)}$ 
+  $\ext{N}_\alpha^{i}$,  $\ext{N}_\beta^{i}$, ${\ext{N}_\beta^{i}}^\perp$ 
   and
-  sequenced $P$, $E$, $P^{(i)}$, $E^{(i)}$, with (unsequenced sets) $P=P^{(1)}\dunion P^{(2)}$, $E=E^{(1)}\dunion E^{(2)}$,
+  sequenced $P$, $E$, $P^{i}$, $E^{i}$, with (unsequenced sets) $P=P^{1}\dunion P^{2}$, $E=E^{1}\dunion E^{2}$,
   \begin{equation}\label{productequation}
     \begin{split}
     \epsilon(PE)
     &\LHorSub{E}
-            {(\ext{N}_\alpha^{(1)}\wedge\ext{N}_\alpha^{(2)})}
-            {(\ext{N}_\beta^{(1)}\wedge\ext{N}_\beta^{(2)})}
+            {(\ext{N}_\alpha^{1}\wedge\ext{N}_\alpha^{2})}
+            {(\ext{N}_\beta^{1}\wedge\ext{N}_\beta^{2})}
     = \\
-    \epsilon(P^{(1)}E^{(1)})
-    \epsilon(P^{(2)}E^{(2)}) 
-        &\left(\LHorSub{E^{(1)}}{\ext{N}_\alpha^{(1)}}{\ext{N}_\beta^{(1)}}
+    \epsilon(P^{1}E^{1})
+    \epsilon(P^{2}E^{2}) 
+        &\left(\LHorSub{E^{1}}{\ext{N}_\alpha^{1}}{\ext{N}_\beta^{1}}
         \wedge
-        \LHorSub{E^{(2)}}{\ext{N}_\alpha^{(2)}}{\ext{N}_\beta^{(2)}}
+        \LHorSub{E^{2}}{\ext{N}_\alpha^{2}}{\ext{N}_\beta^{2}}
           \right)
     \end{split}
   \end{equation}
@@ -748,7 +747,7 @@ vectors and the same number of sign changes
 +\ext{J}.\\
 \end{split}
 \]
-With sets $E$ (and $E'=E\setminus e$ used below) given by ordered sequences
+With sets $E$ (and $E'=E\setminus e$ used below) given by sequences
 which are part of the theorem's data, we contract $E$ to get
 %\begin{equation}
 \[
@@ -816,55 +815,58 @@ Now for (\ref{productequation}).  Using (\ref{commutewedgeperp}),
   \begin{split}
     \ext{L} := & \ext{L}\left(
     \begin{array}{c}
-      \ext{N}_\alpha^{(1)}\wedge \ext{N}_\alpha^{(2)}
+      \ext{N}^{1}_\alpha\wedge \ext{N}^{2}_\alpha
       \\     
-      (\ext{N}_\beta^{(1)}\wedge\ext{N}_\beta^{(2)})^\perp
+      (\ext{N}^{1}_\beta\wedge\ext{N}^{2}_\beta)^\perp
     \end{array} \right)
-  =\Is_G(\ext{N}_\alpha^{(1)}\wedge \ext{N}_\alpha^{(2)})
-  \wedge\left(\Vs_R({\ext{N}_\beta}^{(1)}\wedge{\ext{N}_\beta}^{(2)})\right)^\perp
+  =\Is_G(\ext{N}_\alpha^{1}\wedge \ext{N}_\alpha^{2})
+  \wedge\left(\Vs_R({\ext{N}_\beta}^{1}\wedge{\ext{N}_\beta}^{2})\right)^\perp
   \\
   =&
-  \Is_G(\ext{N}_\alpha^{(1)})\wedge \Is_G(\ext{N}_\alpha^{(2)})
-  \wedge\Vs_R({\ext{N}_\beta^\perp}^{(1)})\wedge\Vs_R({\ext{N}_\beta^\perp}^{(2)})
-  \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})(-1)^{r{\ext{N}_\beta^\perp}^{(1)} r{\ext{N}_\beta}^{(2)}}
+  \Is_G(\ext{N}_\alpha^{1})\wedge \Is_G(\ext{N}_\alpha^{2})
+  \wedge\Vs_R({\ext{N}_\beta^{1}}^\perp)\wedge\Vs_R({\ext{N}_\beta^{2}}^\perp)
+  \epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})(-1)^{(r{\ext{N}_\beta^{1}}^\perp)( r{\ext{N}_\beta}^{2})}
   \\
   =& 
-    \Is_G(\ext{N}_\alpha^{(1)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(1)}) \wedge
-    \Is_G(\ext{N}_\alpha^{(2)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(2)})
-    \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})
+    \Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^{1}}^\perp) \wedge
+    \Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^{2}}^\perp)
+    \epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})
   \end{split}
 \end{equation*}
-since $(-1)^{r{\ext{N}_\beta^\perp}^{(1)} r{\ext{N}_\beta}^{(2)}} \ext{N}_\alpha^{(2)} {\ext{N}_\beta^\perp}^{(1)}
-={\ext{N}_\beta^\perp}^{(1)} \ext{N}_\alpha^{(2)}$.  By (\ref{permuteContraction})
+since $(-1)^{(r{\ext{N}_\beta^{1}}^\perp)( r{\ext{N}_\beta}^{2})} \ext{N}_\alpha^{2} {\ext{N}_\beta^{1}}^\perp
+={\ext{N}_\beta^{1}}^\perp \ext{N}_\alpha^{2}$.  By (\ref{permuteContraction})
 \[
-\ext{L}/E = \epsilon(E)\epsilon(E^{(1)} E^{(2)})\ext{L}/E^{(1)}E^{(2)}
+\ext{L}/E = \epsilon(E)\epsilon(E^{1} E^{2})\ext{L}/E^{1}E^{2}
 \]
 
+------------------------------------------------------------------------
+
+
 
 
 \[
-\epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)}) \ext{L}/E =   \Is_G(\ext{N}_\alpha^{(1)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(1)}) \wedge
-\Is_G(\ext{N}_\alpha^{(2)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(2)})/E
+\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2}) \ext{L}/E =   \Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{1}) \wedge
+\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{2})/E
 \]
 \[
 =
-\left\{(\Is_G(\ext{N}_\alpha^{(1)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(1)}))/E^{(1)}
+\left\{(\Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{1}))/E^{1}
 \wedge
-(\Is_G(\ext{N}_\alpha^{(2)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(2)}))/E^{(2)}\right\}
-\epsilon(P^{(1)}P^{(2)}E)\epsilon(P^{(1)}E^{(1)}P^{(2)}E^{(2)})
+(\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{2}))/E^{2}\right\}
+\epsilon(P^{1}P^{2}E)\epsilon(P^{1}E^{1}P^{2}E^{2})
 \]
 proves (\ref{productequation}) except for the sign correction. Choose the arbitrary sequencings
-$S^{(i)}$ to obtain for it
+$S^{i}$ to obtain for it
 \[
-\epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})\epsilon(P^{(1)}P^{(2)}E)\epsilon(P^{(1)}E^{(1)}P^{(2)}E^{(2)})
+\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})\epsilon(P^{1}P^{2}E)\epsilon(P^{1}E^{1}P^{2}E^{2})
 \]
 \[
-=\epsilon(P^{(1)}E^{(1)})\epsilon(P^{(2)}E^{(2)})\epsilon(P^{(1)}E^{(1)}P^{(2)}E^{(2)})\epsilon(P^{(1)}P^{(2)}E)\epsilon(P^{(1)}E^{(1)}P^{(2)}E^{(2)})
+=\epsilon(P^{1}E^{1})\epsilon(P^{2}E^{2})\epsilon(P^{1}E^{1}P^{2}E^{2})\epsilon(P^{1}P^{2}E)\epsilon(P^{1}E^{1}P^{2}E^{2})
 \]
 \[
-=\epsilon(P^{(1)}E^{(1)})\epsilon(P^{(2)}E^{(2)})
-\epsilon(P^{(1)}    P^{(2)}    E^{(1)}E^{(2)})\epsilon(P^{(1)}P^{(2)}E)
-\epsilon(P^{(1)}    P^{(2)}    E^{(1)}E^{(2)})
+=\epsilon(P^{1}E^{1})\epsilon(P^{2}E^{2})
+\epsilon(P^{1}    P^{2}    E^{1}E^{2})\epsilon(P^{1}P^{2}E)
+\epsilon(P^{1}    P^{2}    E^{1}E^{2})
 \]
 
 
@@ -872,35 +874,35 @@ $S^{(i)}$ to obtain for it
 
                                    
 \begin{equation*}\begin{split}
-   (-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}
+   (-1)^{r(\ext{N}_\alpha^{2})r({\ext{N}_\beta^\perp}^{1})}
    \ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{(1)}\\
-        {\ext{N}_\beta^\perp}^{(1)}\end{array} \right)
+    \ext{N}_\alpha^{1}\\
+        {\ext{N}_\beta^\perp}^{1}\end{array} \right)
    \wedge
      \ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{(2)}\\
-        {\ext{N}_\beta^\perp}^{(2)}\end{array} \right)
+    \ext{N}_\alpha^{2}\\
+        {\ext{N}_\beta^\perp}^{2}\end{array} \right)
   \end{split}
 \end{equation*}
 
 Observe
 \[
-(-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}=\epsilon(P^{(1)}E^{(1)}P^{(2)}E^{(2)})
-\epsilon(P^{(1)}P^{(2)}E^{(1)}E^{(2)})
+(-1)^{r(\ext{N}_\alpha^{2})r({\ext{N}_\beta^\perp}^{1})}=\epsilon(P^{1}E^{1}P^{2}E^{2})
+\epsilon(P^{1}P^{2}E^{1}E^{2})
 \]
 
 \begin{equation}
   \begin{split}
     \ext{L}/E =&
-    (-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}
-    \epsilon(PE)\epsilon(PE^{(1)})\epsilon(E^{(2)})\\
+    (-1)^{r(\ext{N}_\alpha^{2})r({\ext{N}_\beta^\perp}^{1})}
+    \epsilon(PE)\epsilon(PE^{1})\epsilon(E^{2})\\
    &\ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{(1)}\\
-        {\ext{N}_\beta^\perp}^{(1)}\end{array} \right)/E^{(1)}
+    \ext{N}_\alpha^{1}\\
+        {\ext{N}_\beta^\perp}^{1}\end{array} \right)/E^{1}
    \wedge
      \ext{L}\left( \begin{array}{c}
-    \ext{N}_\alpha^{(2)}\\
-        {\ext{N}_\beta^\perp}^{(2)}\end{array} \right)/E^{(2)} \\
+    \ext{N}_\alpha^{2}\\
+        {\ext{N}_\beta^\perp}^{2}\end{array} \right)/E^{2} \\
      =& \text{bla bla bla}
   \end{split}
 \end{equation}
