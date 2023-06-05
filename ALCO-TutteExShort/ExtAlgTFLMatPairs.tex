@@ -577,7 +577,22 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
     of the orthogonal complement of $V$ when the basis defining it is
     declared to be orthonormal, see, e.g.\cite{MarcusFDMuAlPt2}.
 
-
+    \begin{prop}
+      Let $S$ be the sequenced ground set for $\ext{N}$, $A$ a sequenced subset of
+      of the elements of $S$, and $A_\sigma$ be $A$ permuted by $\sigma$.  Let $C, D$ be any other sequenced
+      sets.
+      \begin{equation}
+        \ext{N}/A_\sigma = \epsilon(CAD)\epsilon(CA_\sigma D)\ext{N}/A = \text{sign}(\sigma)\ext{N}/A
+      \end{equation}
+    \end{prop}
+    \begin{proof}
+      Calculating componentwise from the definition,
+      \[
+      (\ext{N}/A_\sigma)[B]=\ext{N}[BA_\sigma]=\epsilon(CAD)\epsilon(CA_\sigma D)\ext{N}[BA]=
+      \epsilon(CAD)\epsilon{CA_\sigma D}(\ext{N}/A)[BA]
+      \]
+      since $\epsilon(CAD)\epsilon{CA_\sigma D}=\text{sign}(\sigma)$.
+    \end{proof}
 
 \begin{prop}
   Let $S$ be the ground set for $\ext{N}$.
