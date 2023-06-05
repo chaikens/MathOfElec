@@ -595,28 +595,28 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
   For $i=1, 2$, let $S^{(i)}$ be the ground sets for $\ext{N}^{(i)}$, pairwise disjoint.
   \begin{equation}\label{commutewedgeperp}
     (\Nsup{1}\wedge\Nsup{2})^\perp =
-    \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})(-1)^{r{\Nsup{1}} r\Nsup{2}}
+    \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})(-1)^{r{\Nsup{1}} r\NsupPerp{2}}
         \NsupPerp{1}\wedge\NsupPerp{2}
     \end{equation}
 \end{prop}
 \begin{proof}
-  Calculate componentwise, for any ordering
+  Calculate componentwise, for any orderings
   $B_i\subseteq S_i$ and $\overline{B_i}\subseteq S_i\setminus B_i$:
   \begin{equation*}
     \begin{split}
       (\Nsup{1}\wedge\Nsup{2})^\perp[B_1B_2]=
       &(\Nsup{1}\wedge\Nsup{2})[B_1B_2]
       \epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
-      =\Nsup{1}[\overline{B_1}]\Nsup{2}[\overline{B_2}]&\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
-    =&\left\{\NsupPerp{1}[B_1]\epsilon(\overline{B_1}B_1)\right\}
-    \left\{\NsupPerp{2}[B_2]\epsilon(\overline{B_2}B_2)\right\}\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
+      =&\Nsup{1}[\overline{B_1}]\Nsup{2}[\overline{B_2}]\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
+    =&\{\NsupPerp{1}[B_1]\epsilon(\overline{B_1}B_1)\}
+    \{\NsupPerp{2}[B_2]\epsilon(\overline{B_2}B_2)\}\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
     =&(\NsupPerp{1}\wedge\NsupPerp{2})[B_1B_2]\epsilon(\overline{B_1}B_1)\epsilon(\overline{B_2}B_2)\epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)\\
     \end{split}
   \end{equation*}
   Since $|\overline{B_2}|=r\NsupPerp{2}$ and $|B_1|=r\Nsup{1}$,
-  \[
-  \epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)=(-1)^{r\NsupPerp{2}r\Nsup{1}}\epsilon(\overline{B_1}B_1\;\overline{B_2} B_2).
-  \]
+$%  \[
+  \epsilon(\overline{B_1}\;\overline{B_2}B_1 B_2)=(-1)^{r\NsupPerp{2}r\Nsup{1}}\epsilon(\overline{B_1}B_1\;\overline{B_2} B_2)
+$. %  \]
   (\ref{commutewedgeperp}) follows since, for $i=1,2$, simutaneously permuting
   the two appearances of $\overline{B_i}B_i$ into $S^{(i)}$ in the combined sign expresssion does
   not change its sign.
@@ -785,7 +785,7 @@ We now simulaneously permute the two appearances of $E'e$ to $E$ and verify ((\r
 =\epsilon(PE')\epsilon(PE)(\ext{L'}\wedge \ext{e})/(E'e).
 \]
 
-Now for (\ref{productequation}).
+Now for (\ref{productequation}).  Using (\ref{commutewedgeperp}),
 \begin{equation}
   \begin{split}
     \ext{L} := & \ext{L}\left(
@@ -794,14 +794,15 @@ Now for (\ref{productequation}).
       (\ext{N}_\beta^{(1)}\wedge\ext{N}_\beta^{(2)})^\perp
     \end{array} \right)
   =\Is_G(\ext{N}_\alpha^{(1)}\wedge \ext{N}_\alpha^{(2)})
-  \wedge\Vs_R({\ext{N}_\beta^\perp}^{(1)}\wedge{\ext{N}_\beta^\perp}^{(2)})
+  \wedge\left(\Vs_R({\ext{N}_\beta}^{(1)}\wedge{\ext{N}_\beta}^{(2)})\right)^\perp
   \\
   =&
   \Is_G(\ext{N}_\alpha^{(1)})\wedge \Is_G(\ext{N}_\alpha^{(2)})
   \wedge\Vs_R({\ext{N}_\beta^\perp}^{(1)})\wedge\Vs_R({\ext{N}_\beta^\perp}^{(2)})
+  \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)})(-1)^{r{\Nsup{1}_\beta} r\NsupPerp{2}\beta}
   \\
   =& 
-  (-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}
+  (-1)^{r(\ext{N}_\alpha^{(2)})r({\ext{N}_\beta^\perp}^{(1)})}(-1)^{r{\Nsup{1}_\beta} r\NsupPerp{2}\beta}
     \Is_G(\ext{N}_\alpha^{(1)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(1)}) \wedge
     \Is_G(\ext{N}_\alpha^{(2)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(2)})
     \\
