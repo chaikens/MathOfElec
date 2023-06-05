@@ -577,7 +577,7 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
     of the orthogonal complement of $V$ when the basis defining it is
     declared to be orthonormal, see, e.g.\cite{MarcusFDMuAlPt2}.
 
-    \begin{prop}
+    \begin{prop}\label{permuteContraction}
       Let $S$ be the sequenced ground set for $\ext{N}$, $A$ a sequenced subset of
       of the elements of $S$, and $A_\sigma$ be $A$ permuted by $\sigma$.  Let $C, D$ be any other sequenced
       sets.
@@ -835,7 +835,13 @@ Now for (\ref{productequation}).  Using (\ref{commutewedgeperp}),
   \end{split}
 \end{equation*}
 since $(-1)^{r{\ext{N}_\beta^\perp}^{(1)} r{\ext{N}_\beta}^{(2)}} \ext{N}_\alpha^{(2)} {\ext{N}_\beta^\perp}^{(1)}
-={\ext{N}_\beta^\perp}^{(1)} \ext{N}_\alpha^{(2)}$.
+={\ext{N}_\beta^\perp}^{(1)} \ext{N}_\alpha^{(2)}$.  By (\ref{permuteContraction})
+\[
+\ext{L}/E = \epsilon(E)\epsilon(E^{(1)} E^{(2)})\ext{L}/E^{(1)}E^{(2)}
+\]
+
+
+
 \[
 \epsilon(S^{(1)})\epsilon(S^{(2)})\epsilon(S^{(1)}S^{(2)}) \ext{L}/E =   \Is_G(\ext{N}_\alpha^{(1)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(1)}) \wedge
 \Is_G(\ext{N}_\alpha^{(2)}) \wedge \Vs_R({\ext{N}_\beta^\perp}^{(2)})/E
