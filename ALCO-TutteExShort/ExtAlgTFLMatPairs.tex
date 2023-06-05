@@ -593,6 +593,33 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
       since $\epsilon(CAD)\epsilon(CA_\sigma D)=\text{sign}(\sigma)$.
     \end{proof}
 
+
+    \begin{prop}
+      For $i=1, 2$, let $S^{i}$ be sequenced ground sets for $\ext{N}^{i}$, pairwise disjoint.
+      Let $E^i$ be sequenced sets whose elements satisfy $E^i\subseteq S^i$.
+      \begin{equation}\label{distcontractwedge}
+        (\ext{N}^1 \wedge \ext{N}^2)/E^1E^2 = (-1)^{(r\ext{N}^2-|E^2|) |E^1|} (\ext{N}^1/E^1 \wedge \ext{N}^2/E^2)
+      \end{equation}
+    \end{prop}
+    \begin{proof}
+      Proceeding componentwise, with sequenced $B^i\subseteq S^i\setminus E^i$
+      \begin{equation}
+        \begin{split}
+      (\ext{N}^1 \wedge \ext{N}^2)/E^1E^2)[B^1B^2]
+      &=(\ext{N}^1 \wedge \ext{N}^2))[B^1B^2E^1E^2]
+      \\
+      &=(-1)^{(|B^2| |E^1|)} (\ext{N}^1 \wedge \ext{N}^2))[B^1E^1B^2E^2]
+      \\
+      &=(-1)^{(|B^2| |E^1|)} (\ext{N}^1[B^1E^1])( \ext{N}^2[B^2E^2])
+      \\
+      &=(-1)^{(|B^2| |E^1|)} (\ext{N}^1/E^1[B^1])( \ext{N}^2/E^2[B^2])
+      \\
+      &=(-1)^{(|B^2| |E^1|)} (\ext{N}^1/E^1 \wedge \ext{N}^2/E^2)[B^1B^2]
+        \end{split}
+      \end{equation}
+      Since this calculation relevant only for $|B^2|=r\ext{N}^2-|E^2|$, (\ref{distcontractwedge}) follows.
+    \end{proof}
+
 \begin{prop}
   Let $S$ be the ground set for $\ext{N}$.
   Let $X$ be a sequenced subset of $S$.
@@ -835,9 +862,9 @@ Now for (\ref{productequation}).  Using (\ref{commutewedgeperp}),
 \end{equation*}
 since $(-1)^{(r{\ext{N}_\beta^{1}}^\perp)( r{\ext{N}_\beta}^{2})} \ext{N}_\alpha^{2} {\ext{N}_\beta^{1}}^\perp
 ={\ext{N}_\beta^{1}}^\perp \ext{N}_\alpha^{2}$.  By (\ref{permuteContraction})
-\[
-\ext{L}/E = \epsilon(E)\epsilon(E^{1} E^{2})\ext{L}/E^{1}E^{2}
-\]
+$
+\ext{L}/E = \epsilon(E)\epsilon(E^{1} E^{2})\ext{L}/E^{1}E^{2},
+$ so
 \[
 \ext{L}/E = \epsilon(E)\epsilon(E^{1} E^{2})\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})
 \left(
@@ -846,11 +873,40 @@ since $(-1)^{(r{\ext{N}_\beta^{1}}^\perp)( r{\ext{N}_\beta}^{2})} \ext{N}_\alpha
 \right)/E^1E^2
 \]
 \[
-???=\left(
- (\Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^{1}}^\perp))/E^1 \wedge
- (\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^{2}}^\perp))/E^2
-    \right)
+=\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})
+(-1)^{(r\ext{N}^2-|E^2|)(|E^1|)}
+\left(\LHorSub{E^{1}}{\ext{N}_\alpha^{1}}{\ext{N}_\beta^{1}}
+        \wedge
+        \LHorSub{E^{2}}{\ext{N}_\alpha^{2}}{\ext{N}_\beta^{2}}
+          \right)
+          \]
+so we are done except to verify the sign correction.  With $S^i=P^iE^i$ the sign is
+\[
+\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E^1E^2)
+(-1)^{(r\ext{N}^2-|E^2|)(|E^1|)}
 \]
+\[
+=
+\epsilon(P^1P^2E)\epsilon(P^1P^2E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1P^2E^1E^2)
+(-1)^{(r\ext{N}^2-|E^2|)(|E^1|)}
+\]
+
+
+
+\[
+=\epsilon(E)\epsilon(E^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1E^1P^2E^2)
+\]
+\[
+=\epsilon(PE)\epsilon(PE^{1} E^{2})\epsilon(P^1E^1)\epsilon(P^{2}E^2)\epsilon(P^1E^1P^2E^2)
+\]
+
+
+%\[
+%\left(
+% (\Is_G(\ext{N}_\alpha^{1}) \wedge \Vs_R({\ext{N}_\beta^{1}}^\perp))/E^1 \wedge
+% (\Is_G(\ext{N}_\alpha^{2}) \wedge \Vs_R({\ext{N}_\beta^{2}}^\perp))/E^2
+%    \right)
+%\]
 ------------------------------------------------------------------------
 
 
