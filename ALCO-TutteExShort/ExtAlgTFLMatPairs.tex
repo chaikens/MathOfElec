@@ -136,7 +136,7 @@ include $P$, into pure (decomposible)
 exterior algebra elements which represent points in the Grassmannian of $p$ dimensional $k$-linear subspaces
 of $k^{(2p)}$. We express this subspace value as a decomposible
 (i.e. product of vectors) element in the exterior algebra (of
-anti-symmetric tensors) over $k^{(2p)}$, in a standard way.  The result is
+anti-symmetric tensors) over $K^{(2p)}$, in a standard way.  The result is
 a restricted or set-pointed Tutte function $\ext{L}_E(N_{\alpha},N_{\beta})$
 that
 satisfies sign-corrected forms of the two familiar identities for
@@ -249,11 +249,12 @@ and can be manipulated and observed by their
 environments\cite{Recski,narayanan1997submodular}.
 Engineers would call our graph theory example (\ref{ExamK4}) a ``$p$-port'', with $p=2$.
 
-Let $P_{\alpha}$ and $P_{\beta}$ be disjoint copies of $P$.  Let $K$ be a field.
+Let $P_{\alpha}$ and $P_{\beta}$ be disjoint copies of $P$. 
 We will see that our Tutte function's value will be an exterior product of
-$|P|$ vectors in the $2|P|$ dimensional vector space over $K$ with basis $P_\alpha \cup P_\beta$.
+$|P|$ vectors in the $2|P|$ dimensional vector space over $K$ with
+basis $P_\alpha \cup P_\beta$.
 I.e., our value will
-have grade level or ``step''  $|P|$.
+have order  $|P|$.
 As such, (when non-zero)
 it is a \emph{Grassmann representitive}\cite{MarcusFDMuAlPt2}[p 18]
 for some
@@ -322,12 +323,15 @@ the network edges in $P$ that are compatible with Kirchhoff's and Ohm's laws app
 is the linear solution space of an underdetermined system projected into the
 dimension $2|P|$ space with a voltage ($v_{p}$) and a current ($i_{p}$) coordinate for each $p\in P$.
 
-Thus, the subspace represented by our Tutte function's value is parametrized.
+Thus, our function's value
+can represent a set of linear subspaces parametrized by the $g_e, r_e$.
 This opens questions for research into the topological and geometric properties
 of the set of those subspaces
 as the parameters range say over
 $\mathbb{R}$ or $\mathbb{C}$, say for a given graph or pair of
-matrices.
+matrices.  This would be of interest to engineers because it
+parametrizes the behaviors of systems with the same structure
+as values of its parts or settings vary.  
 
 The coefficients of our Tutte function's value when it is expanded
 in the exterior algebra basis
@@ -341,6 +345,19 @@ affects the term signs of each coefficient polynomial,
 especially the relative sign of separate terms.
 See the example of table (\ref{K4table}).
 
+The exterior algebras $\bigoplus_{r=0}^{|P_\alpha \dunion P_\beta \dunion E|} \bigwedge^{(r)} KU$,
+with distinguished basis $U=P_\alpha \dunion P_\beta \dunion E$
+will contain our Tutte functions' values.
+The 
+field $K$ $=$ $K_0( \cdots, g_e , \cdots , r_e , \cdots )$
+is an extension containing 
+all the commuting parameters $g_e, r_e$ as variables. The
+exterior algebras for those function domains will be over $K_0$.
+The order of an exterior algebra element $\ext{N}$, as a tensor,
+is denoted by $r\ext{N}$; it has been 
+called ``grade level'', ``rank'', ``degree'',
+``valence'', ``number of indices''
+and occasionally\cite{RotaCayley} ``step''.
 
 
 \section{Setup and Theorem}
@@ -369,7 +386,7 @@ by $SL_r$, not by $GL_r$ the latter which gives the Grassmannian.
 Of course all such matrix classes surject onto the Grassmannian.
 
 
-Let $\Nal$ and $\NbePe$ be two full row rank matrices (over field $K$)
+Let $\Nal$ and $\NbePe$ be two full row rank matrices (over field $K_0$)
 with columns indexed by $P\cup E$, $P\cap E=\emptyset$,
 for which $\text{rank}(\Nal)+\text{rank}(\NbePe)=|E|+|P|$.
 Let
@@ -576,11 +593,11 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
     of the orthogonal complement of $V$ when the basis defining it is
     declared to be orthonormal, see, e.g.\cite{MarcusFDMuAlPt2}.
 
-    \begin{prop}\label{permuteContraction}
+    \begin{prop}
       Let $S$ be the sequenced ground set for $\ext{N}$, $A$ a sequenced subset of
       of the elements of $S$, and $A_\sigma$ be $A$ permuted by $\sigma$.  Let $C, D$ be any other sequenced
       sets.
-      \begin{equation}
+      \begin{equation}\label{permuteContraction}
         \ext{N}/A_\sigma = \epsilon(CAD)\epsilon(CA_\sigma D)\ext{N}/A = \text{sign}(\sigma)\ext{N}/A
       \end{equation}
     \end{prop}
@@ -603,7 +620,7 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
     \end{prop}
     \begin{proof}
       Proceeding componentwise, with sequenced $B^i\subseteq S^i\setminus E^i$
-      \begin{equation}
+      \begin{equation*}
         \begin{split}
       (\ext{N}^1 \wedge \ext{N}^2)/E^1E^2)[B^1B^2]
       &=(\ext{N}^1 \wedge \ext{N}^2))[B^1B^2E^1E^2]
@@ -616,7 +633,7 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
       \\
       &=(-1)^{(|B^2| |E^1|)} (\ext{N}^1/E^1 \wedge \ext{N}^2/E^2)[B^1B^2]
         \end{split}
-      \end{equation}
+      \end{equation*}
       Since this calculation relevant only for $|B^2|=r\ext{N}^2-|E^2|$, (\ref{distcontractwedge}) follows.
     \end{proof}
 
@@ -624,9 +641,9 @@ and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
   Let $S$ be the ground set for $\ext{N}$.
   Let $X$ be a sequenced subset of $S$.
   Let $S'$ be any sequencing of $S\backslash X$.
-    \begin{equation} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
+    \begin{equation}\label{dualDelete} (\ext{N}\backslash X)^\perp = \epsilon(S')\epsilon(S'X)(\ext{N}^\perp/X)
     \end{equation}
-    \begin{equation} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
+    \begin{equation}\label{dualContract} (\ext{N}/X)^\perp = \epsilon(S')\epsilon(S'X)(-1)^{|X|r\ext{N}^\perp}(\ext{N}^\perp\backslash X)
     \end{equation}
 \end{prop}
 \begin{proof}
@@ -742,8 +759,7 @@ g_e\left\{ (\Is_G(\eNal/e))\ext{e})  \wedge (\Vs_R(\eNbePe\backslash e)\right\}
 +\ext{J}
 \]
 where $\ext{J}/E = 0$.
-After making $r(\ext{N_\beta^\perp})$ adjacent swaps of $\ext{e}$ to the right with other
-vectors and the same number of sign changes
+The sign change from commuting $\ext{e}$ with $(\Vs_R(\eNbePe\backslash e)$ gives
 \[
 \begin{split} 
    \ext{L} = \Big( r_e  \;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\; & \Is(\eNal\backslash e)  \wedge (\Vs(\eNbePe/e))      \wedge  \ext{e} \\
@@ -760,7 +776,7 @@ which are part of the theorem's data, we contract $E$ to get
    g_e(-1)^{r(\eNbePe)}\left(\ext{L}\left(\begin{array}{c} \eNal /e \\
     \eNbePe \backslash e \end{array} \right) \wedge \ext{e} /E \right).
    \]
-On dualizing with
+On dualizing with (\ref{dualDelete}) and (\ref{dualContract})
    \[
      \ext{N_\beta}^\perp/e  = \epsilon(S')\epsilon(S'e) (\ext{N_\beta}\backslash e)^\perp
      \]
@@ -800,7 +816,8 @@ we must show (\ref{delecontrDEPSprime})
 $\ext{L}_E=\epsilon(S')\epsilon(S'e)(\ext{L'}\wedge \ext{e})/E$
 implies (\ref{delecontrequation}).
 
-On permuting $E$ to $E'e$ changes the sign by $\epsilon(E)\epsilon(E'e)$, so
+From (\ref{permuteContraction}),
+permuting $E$ to $E'e$ changes the sign by $\epsilon(E)\epsilon(E'e)$, so
 \[
 \ext{L}_E=\epsilon(S')\epsilon(S'e)\epsilon(E)\epsilon(E'e)(\ext{L'}\wedge \ext{e})/(E'e).
 \]
