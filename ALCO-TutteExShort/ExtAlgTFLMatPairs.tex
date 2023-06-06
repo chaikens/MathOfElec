@@ -145,7 +145,7 @@ union. Note that these identities are in exterior algebra, whose
 multiplication is anti-commutative. This generalizes the all-minors
 directed graph matrix tree theorem (proved combinatorially by the
 author) because those minors are the coefficients in the expansion of
-$T$'s value over the standard basis--they are the standardized Plucker
+$T$'s value over the standard basis--they are the standardized \Plucker
 coordinates for the dimension $p$ subspace $T$'s value represents.  An
 unusual feature for this Tutte-like function is that when $k$ is ordered
 so the matroids are oriented, $T$ can distinguish different orientations
@@ -346,7 +346,7 @@ especially the relative sign of separate terms.
 See the example of table (\ref{K4table}).
 
 
-\section{Setup and Theorem}
+\section{Motivation and Definition}
 
 \noindent
 In applications, columns of our full-row-rank matrices will be labelled by elements representing
@@ -421,20 +421,20 @@ of $E$ are dual to the column index elements.  We choose notation
 so that the sign complies with oriented matroid practice\cite{OMBOOK} and
 because the generators of the codomain exterior algebra no longer include $E$.
 We'll use the same operation for contraction, below.)
-This is too simple because it remains unclear how to define the construction for the
-``minors'' (to be defined) which will have smaller sets in place of $E$. The
+This is too simple because we did not yet define 
+``minors'' which will have smaller sets in place of $E\dunion P$. The
 construction must be consistent on the minors in order that the values
 of our function on those minors satisfy the Tutte identities. 
 
 It is easy to explain this construction when it is weakened
-so it applies to Grassmannians:
+to apply to Grassmannians:
 Project the solution space $\{z\}$ of $Lz=0$ onto
 the $P_\alpha\dunion P_\beta$ coordinates and then take the projection's orthogonal
 complement with respect to this coodinate  basis.
 In other words, we eliminate all the variables
 indexed by $E$ in the system $Lz=0$ and take the exterior product of the rows
 from the result of the elimination; the result is a 
-representitive (ambiguously defined) for point in the Grassmannian.
+representitive (ambiguously defined) for a point in the Grassmannian.
 Such a result is nice for solving for some of the remaining $z$'s in terms of
 the others, but a failure
 for the additive or multiplicative Tutte identities.
@@ -532,7 +532,7 @@ P_\beta \dunion E$.  In other words,
 
 
 
-\section{Algebraic Formulation and Proof}
+\section{Algebraic Formulation and Theorem}
 
 We naturally take Hodge star for the operation on
 decomposibles that represents dualization of their
@@ -571,8 +571,10 @@ When $U=\mathbb{R}S$, we recognize $B\mapsto\text{sign}(\ext{N}[B])$
 is the \emph{chirotope} function $\chi$ for the oriented matroid represented by the
 linear subspace represented by $\ext{N}$.
 
-We do not put conditions to relate our orientations of
-of different sets.  Our formulas that involve two sequenced sets $S_1$
+We do not put any other conditions between our orientations of
+of different sets other than commutation of $\epsilon$ with the
+$P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$ bijections.
+Our formulas that involve two sequenced sets $S_1$
 and $S_2$ will therefore include the factor $\epsilon(S_1)\epsilon(S_2)$.
 
 \begin{defi}\label{extmatdefs}
@@ -687,6 +689,13 @@ $. %  \]
   not change its sign.
 \end{proof}
 
+Remark: The sign $\epsilon(S^{1})\epsilon(S^{2})\epsilon(S^{1}S^{2})$ may seem strange.
+The three $\epsilon$'s are functions of sequences from three different sets.  They are
+used  defining $\perp$ of $\Nsup{1}$, $\Nsup{2}$ and $\Nsup{1}\wedge\Nsup{2}$ respectively.
+The formula must connect three different positively oriented unit volumes
+used to define Hodge star in three different exterior algebras.
+
+
 To facilitate proofs, we introduce equivalent definitions to avoid explicit matrices.
 \begin{defi}
   $\Is_G$ and $\Vs_R$ are exterior algebra homomorphisms depending on our commuting parameters
@@ -697,8 +706,8 @@ To facilitate proofs, we introduce equivalent definitions to avoid explicit matr
 \end{defi}
 
 The global orientation $\epsilon$
-commutes with $\Is_G$ and $\Vs_R$ because $\epsilon$ is compatible with
-isomorphisms
+commutes with $\Is_G$ and $\Vs_R$ because we postulate $\epsilon$ commutes with
+identity extended ($\ext{e}\mapsto\ext{e}$) isomorphisms
 $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
 
 \begin{defi}
@@ -725,6 +734,9 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
   \end{array}
   \end{equation}
 \end{defi}
+
+\subsection{Tutte Identity Theorems}
+
 
 \begin{theo}
   Given sequenced $P$ and $E$, for all $e\in E$ and sequenced $E'=E\setminus e$,
