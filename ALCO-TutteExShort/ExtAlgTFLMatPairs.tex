@@ -735,6 +735,12 @@ $P \leftrightarrow P_{\alpha}\leftrightarrow P_{\beta}$.
   \end{equation}
 \end{defi}
 
+
+Remark: $\LVert{\eNal}{\eNbePe}$ and $\LVertSub{E}{\eNal}{\eNbePe}$ as functions of
+$\eNal$ and $\eNbePe$ do not depend on $\epsilon$.  However, $\LHor{\eNal}{\eNbe}$
+and $\LHorSub{E}{\eNal}{\eNbe}$ depend on $\epsilon$ through $\perp$'s dependence
+on $\epsilon$.  
+
 \subsection{Tutte Identity Theorems}
 
 
@@ -967,8 +973,9 @@ then $\Delta_\epsilon(B)>0$.  Since both values change sign under an odd permuta
 of $B$, we have the (positive) geometric volume of the
 parallelopiped spanned by $B$ given by the formula $\epsilon(B)\Delta_\epsilon(B)$.
 Frankel explains that many quantities in physics, like magnetic field $\ext{B}$,
-``don't make sense'' without, like the right-hand rule,
-an orientation being specified.
+``don't make sense'' without
+an orientation, like the right-hand rule,
+being specified.
 
 
 Another way to account for the sign corrections in our Tutte identities
@@ -979,12 +986,21 @@ that our function's value should be a \emph{pseudo-form}, that is,
 be a form parametrized by orientations $\epsilon$.  Thus we recognize that
 our identities are sums and products of the $\epsilon(EP)\phi_\epsilon$ terms
 that are independent of $\epsilon$ and have the property that
-$\epsilon(P_\alpha'P_\beta')\epsilon()\phi_\epsilon(P_\alpha'P_\beta')$
+$\epsilon(P_\alpha'P_\beta')\phi_\epsilon(P_\alpha'P_\beta')$
 depend only on the \emph{sets} given by sequences $P_\alpha'$ and $P_\beta'$.
 It might be the case that Tutte functions are impossible in
 exterior algebra; they must be in an exterior algebra with pseudo-forms
 and pseudo-vectors!
 
+
+
+
+
+
+%\nocite{*}
+\bibliographystyle{amsplain-ac}
+\bibliography{ExtAlgTFLMatPairs}
+\end{document}
 
 
 
@@ -1064,15 +1080,3 @@ row space of $N$.
 We must choose some global orientation $\epsilon$ in order to define
 duality as an exterior alg. operation!  $\epsilon$ is any alternating
 sign function on all finite sequences of elements.\\
-
-
-
-\section{Final remarks}
-
-\longthanks{I wish to thank the whole community}
-
-
-%\nocite{*}
-\bibliographystyle{amsplain-ac}
-\bibliography{ExtAlgTFLMatPairs}
-\end{document}
