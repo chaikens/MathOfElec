@@ -222,26 +222,30 @@ restricted Tutte decomposition identity:
    F(N) = g_eF(N/e)+r_eF(N\backslash e) \text{ if\ }e\text{ can be deleted and contracted, and }e\not\in P.
 \end{equation}
 
-Our results so motivated were originally announced in 2006\cite{TutteEx}, but
+Our results for single $\ext{N}$ were originally announced in 2006\cite{TutteEx}, but
 their extension to
-pairs is new.  Aside from their being an extension to exterior algebra
-of a special case of Welsh and Kayibi's Tutte-like ``linking'' polynomial of
+pairs is new.  Beside from their being an exterior algebra 
+special case of Welsh and Kayibi's Tutte-like ``linking'' polynomial of
 a pair of matroids\cite{WelshKayibiLinking},
-we summarize motivations.
+we summarize the electrical engineering circuit theory motivation.
 When taking an arbitrarilly oriented labelled multigraph for
-a matroid motivated model of an electrical network, one usually
+a matroid theory style model of an electrical network, one
 uses coordinates
 for voltage drops across edges and current flows through
 edges.  Kirchhoff's laws postulate that such currents and voltages
-belong (KCL) to the graph's cycle space and (KVL) its orthogonal complement, respectively.
-However, in circuit theory applicable to electronics, some graph models are used
+belong to (KCL) the graph's cycle space and (KVL) its orthogonal complement, respectively.
+However, in circuit theory applicable to electronics\cite{OzawaPrinPartn},
+some graph models are used
 of which the linear spaces for voltages and currents are not orthogonal.
 For example, to model an ideal (so-called operational) amplifier, one
 can postulate that in a graph to which Kirchhoff's laws apply,
 both the current and voltage of the amplifier's input edge are zero
 and both those quantities of the output edge are not constrained.  Such
 models are equivalent to using two graphs (the same when there are no amplifiers)
-with common edge labels:  The ``voltage graph'' and the ``current graph''.
+with common edge labels:  The ``voltage graph''
+and the ``current graph''.\footnote{
+These two graphs are minors of a common graph, so the pair can be considered
+to be a matroid perspective as studied by Las Vergnas\cite{SetPointedLV}.}
 The equations are comprised of KCL from the current graph, KVL from
 the voltage graph and Ohm's law to relate current to voltage in
 each resistor.  We have related oriented matroid properties of
