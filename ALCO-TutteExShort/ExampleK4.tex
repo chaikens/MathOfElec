@@ -124,8 +124,8 @@ The electrical network problem at hand is to determine linear constraints on the
 port variables $i_p, v_p$, $p\in P = \{p_1, p_2\}$ imposed by the system.  In other words,
 we want a linear map $M$ on the $K$-vector space with basis $P_\alpha, P_\beta$ whose kernel
 is the projection of this system's solution space.
-Below is the solution. For ease of reading,
-we set $r_e=1$ for $e\in E$, and $D=g_{1} g_{2} g_{3} + g_{1} g_{2} g_{4} + g_{1} g_{3} g_{4} + g_{2} g_{3} g_{4}$.
+Below is a solution.
+We set $r_e=1$ for $e\in E$, and $D=g_{1} g_{2} g_{3} + g_{1} g_{2} g_{4} + g_{1} g_{3} g_{4} + g_{2} g_{3} g_{4}$.
 \begin{equation}\label{K4Soln}
 M\left(\begin{array}{c} i_{p1} \\ i_{p2} \\ v_{p1} \\ v_{p2}
 \end{array}\right) =
@@ -153,11 +153,10 @@ with a coefficient that is a polynomial in the
 $g_e$, $r_e$.  These coefficients are \Plucker coordinates
 for the orthogonal complement of the electrical network
 (itself parametrized by the $g_e, r_e$) solution space.
-Since each polynomial
-term encodes a subset of $E=\{e_1, e_2, e_3, e_4\}$ (for example, $\{e_1, e_2\}$ is encoded
-by $g_1g_2r_3r_4$) we take each $r_e=1$ to ease reading the coefficients. We call attention
-to the which matroid minor pair (sometimes the same) each coefficient enumerates
-the common bases of.
+Each polynomial
+term encodes a subset of $E=\{e_1, e_2, e_3, e_4\}$, for example, $\{e_1, e_2\}$ is encoded
+by $g_1g_2r_3r_4$. Note that each coefficient enumerates
+the common bases of a pair of not always distinct of matroid minors.
 
 
 \begin{equation}\label{K4table}
@@ -207,4 +206,74 @@ in  (\ref{K4table}).  The one non-trivial calculation is
 
 This example also demonstrates that $\ext{L}_E$ might not have a
 matrix representation all of whose entries are $K_0$ polynomials in the $r_e, g_e$.
+
+\subsection{Example with $\ext{N}_\alpha\neq\ext{N}_\beta$}
+We take $N_\alpha$ from before, but form $N_\beta$ from $N_\alpha$ by replacing $-1$s by $0$.
+$N_\beta$ now represents the partition matroid $\Pi$ where
+each edge in a basis has its head incident to one distinct vertex in $\{1, 3, 4 \}$.
+
+
+\[
+N_\alpha=
+\left(\begin{array}
+{cc|cccc}
+1 & 0 & -1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 \\
+0 & -1 & 0 & 0 & -1 & 1
+\end{array}\right)
+%\]
+\;\;\;\;
+%\[
+N_\beta=
+\left(\begin{array}
+{cc|cccc}
+1 & 0 & 0 & 0 & 1 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1
+\end{array}\right)
+\;\;\;
+N_\beta^\perp =
+\left(\begin{array}{cc|cccc}
+1 & 0 & 0 & 0 & -1 & 0 \\
+0 & 1 & 0 & -1 & 0 & 0 \\
+0 & 0 & 1 & -1 & 0 & 0
+\end{array}\right)
+\]
+
+
+\begin{equation}\label{K4Dirtable}
+\begin{array}{|c|c|c|} \hline
+\text{basis element} & \text{coefficient} & \text{enumerates bases}\\
+  \hline
+
+\ext{p}_{\alpha 1}\ext{p}_{\alpha 2} &
+ g_{4} & \mathcal{B}(G/\{p_1, p_2\}) \cap  \mathcal{B}(\Pi/\{p_1, p_2\})
+
+\\ \hline
+
+\ext{p}_{\alpha 1}\ext{p}_{\beta 1} &
+0 &  \mathcal{B}(G/p_1\setminus p_2)\cap\mathcal{B}(\Pi/p_2\setminus p_1)
+
+\\ \hline
+
+\ext{p}_{\alpha 1}\ext{p}_{\beta 2} &
+ (g_{1} +  g_{2}) g_{4} & \mathcal{B}(G/p_1\setminus p_2)  \cap \mathcal{B}(\Pi/p_1\setminus p_2)
+\\ \hline 
+
+\ext{p}_{\alpha 2}\ext{p}_{\beta 1} &
+- g_{3} g_{4} & \mathcal{B}(G/p_2\setminus p_1) \cap \mathcal{B}(\Pi/p_2\setminus p_1)
+\\ \hline
+ 
+\ext{p}_{\alpha 2}\ext{p}_{\beta 2} &
+ g_{1} g_{4} & \mathcal{B}(G/p_1\setminus p_2)\cap\mathcal{B}(\Pi/p_2\setminus p_1)
+\\ \hline
+ 
+\ext{p}_{\beta 1}\ext{p}_{\beta 2} &
+ (g_{1} +g_{2}) g_{3} g_{4} & \mathcal{B}(G\setminus \{p_1, p_2\})  \cap \mathcal{B}(\Pi\setminus \{p_1, p_2\})
+\\ \hline
+
+\end{array}
+\end{equation}
+
+
 
