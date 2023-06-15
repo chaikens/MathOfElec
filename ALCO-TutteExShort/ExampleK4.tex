@@ -64,14 +64,25 @@ graphic (with bases $\mathcal{B}(G)$) and cographic matroids respectively.
   \includegraphics[scale=0.5]{K4.pdf}
 \end{figure}
 
+We begin with the familiar incidence matrix representation of K4's matroid.
+We delete row 2 and take a representation for the dual that is consistent
+with our exterior algebra duality operator (\ref{}):
 
-We form the following system of equations according to (\ref{LmatrixDef}).
+
 \[
-N_\alpha=
 \left(\begin{array}{cc|cccc}
 1 & 0 & -1 & 0 & 1 & 0 \\
 -1 & 0 & 0 & -1 & 0 & -1 \\
-0 & 1 & 1 & 1 & 0 & 0
+0 & 1 & 1 & 1 & 0 & 0 \\
+0 & -1 & 0 & 0 & -1 & 1
+\end{array}\right)
+\;\;\;
+N_\alpha=
+\left(\begin{array}
+{cc|cccc}
+1 & 0 & -1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 \\
+0 & -1 & 0 & 0 & -1 & 1
 \end{array}\right)
 %\]
 \;\;\;\;
@@ -85,32 +96,8 @@ N_\beta^\perp =
 \]
 
 
-%\[
-%\left(\begin{array}{rrrrrr}
-%1 & 0 & -g_{1} & 0 & g_{3} & 0 \\
-%-1 & 0 & 0 & -g_{2} & 0 & -g_{4} \\
-%0 & 1 & g_{1} & g_{2} & 0 & 0
-%\end{array}\right)
-%\]
+We form the following system of equations according to (\ref{LmatrixDef}).
 
-%\[
-%\left(\begin{array}{rrrrrr}
-%1 & 0 & 0 & 0 & -r_{3} & -r_{4} \\
-%0 & 1 & 0 & -r_{2} & 0 & r_{4} \\
-%0 & 0 & r_{1} & -r_{2} & r_{3} & r_{4}
-%\end{array}\right)
-%\]
-
-%\[
-%\left(\begin{array}{cccccccc}
-%  +1 & 0  & 0  & 0  & -g_{1} & 0     & +g_{3}  & 0 \\
-%  -1 & 0  & 0  & 0  &  0    & -g_{2} & 0      & -g_{4} \\
-%  0  & +1 & 0  & 0  & +g_{1} & +g_{2} & 0      & 0 \\
-%  0  & 0  & +1 & 0  & 0     & 0      & -r_{3} & -r_{4} \\
-%  0  & 0  & 0  & +1 & 0     & -r_{2}  & 0     & +r_{4} \\
-%  0  & 0  & 0  & 0  & +r_{1} & -r_{2}  & +r_{3} & +r_{4}
-%  \end{array}\right)
-%\]
 \begin{equation}\label{K4Equation}
 \begin{split}
   0=L\left(\begin{array}{cc} {\Nal} \\ {\NbePe}  \end{array}\right)z
@@ -122,13 +109,13 @@ N_\beta^\perp =
     \\
     =&
 \left(\begin{array}{cc|cc|cccc}
-  1 & 0  & 0  & 0  & -g_{1} & 0     & g_{3}  & 0 \\
-  -1 & 0  & 0  & 0  &  0    & -g_{2} & 0      & -g_{4} \\
-  0  & 1 & 0  & 0  & g_{1} & g_{2} & 0      & 0 \\ \hline
-  0  & 0  & 1 & 0  & 0     & 0      & -r_{3} & -r_{4} \\
-  0  & 0  & 0  & 1 & 0     & -r_{2}  & 0     & r_{4} \\
-  0  & 0  & 0  & 0  & r_{1} & -r_{2}  & r_{3} & r_{4}
-  \end{array}\right)z
+1 & 0 & 0 & 0 & -g_{1} & 0 & g_{3} & 0 \\
+0 & 1 & 0 & 0 & g_{1} & g_{2} & 0 & 0 \\
+0 & -1 & 0 & 0 & 0 & 0 & -g_{3} & g_{4} \\ \hline
+0 & 0 & 1 & 0 & 0 & 0 & -r_{3} & -r_{4} \\
+0 & 0 & 0 & 1 & 0 & -r_{2} & 0 & r_{4} \\
+0 & 0 & 0 & 0 & r_{1} & -r_{2} & r_{3} & r_{4}
+\end{array}\right)z
 \end{split}
 \end{equation}
 
