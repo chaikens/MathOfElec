@@ -199,7 +199,7 @@ basis enumerating interpretion of the Cauchy-Binet theorem applied to
 $|N G N^t|$
 where $G=\text{diag}(\cdots, g_e , \cdots )$ is a diagonal matrix of variables
 $g_e$ with entries corresponding to $e\in U$.
-When $P\neq\emptyset$, definition \ref{LmatrixDef} gives what we prove
+When $P\neq\emptyset$, definition \ref{LDefs} gives what we prove
 is a function between decomposible elements in certain
 exterior algebras that satisfies Tutte functions'
 additive and multiplicative identities.  Section \ref{polys} shows how
@@ -829,8 +829,12 @@ essentially the Cauchy-Binet theorem:
 \end{equation}
 
 \end{coro}
-Remark: The only non-zero terms in the sums are those for which both $A\dunion Q_\alpha$
-and $A\dunion Q_\beta$ are common bases in the matroids of $\ext{N}_\alpha$ and $\ext{N}_\beta$.
+Remark: The only non-zero terms in the sums are those for which $A$ is a common
+base in the matroids represented by $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$.
+(Because of our definition of contraction,
+if $Q_\alpha, Q_\beta$ are not independent sets in the matroids of $\ext{N}_\alpha, \ext{N}_\beta$
+respectively the term will be zero.)
+
 
 \begin{proof}
   By induction on (\ref{productequation}),
