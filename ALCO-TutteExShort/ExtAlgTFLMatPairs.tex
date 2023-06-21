@@ -72,6 +72,14 @@ Albany, NY 12203 (USA)}
 \subjclass{10X99, 14A12, 11L05}
 
 %mycommands
+
+%Matroid Variable--converts a matroid to a variable.
+\newcommand{\MVar}[1]{
+  \setlength\fboxrule{1.5pt}
+  \setlength\fboxsep{1.5pt}
+  {\;\framebox{\ensuremath{#1}}\;}}
+
+
 \newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
 %\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
 \newcommand{\extvee}{\;\;}
@@ -787,7 +795,10 @@ case, (\ref{LDefs}) is a evaluation of this common generalization polynomial.
 \begin{defi}\label{NcontrArestrictP}
 For $A\subseteq E$, the abbreviation $\ext{N}/A|P$ $=$
 $\ext{N}/A\backslash \overline{A}$, \\
-where $\overline{A}=(S(\ext{N})\setminus P)\setminus A$.
+where $\overline{A}=(S(\ext{N})\setminus P)\setminus A$.  The analgous
+abbreviation for matroids is \\
+$\mathcal{N}/A|P$ $=$
+$\mathcal{N}/A\backslash \overline{A}$
 \end{defi}
 
 For general $\ext{N}$ and the matroids they represent, given two indepentent sets $A$ and $A'$,
@@ -830,7 +841,7 @@ essentially the Cauchy-Binet theorem:
 
 \end{coro}
 Remark: The only non-zero terms in the sums are those for which $A$ is a common
-base in the matroids represented by $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$.
+basis in the matroids represented by $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$.
 (Because of our definition of contraction,
 if $Q_\alpha, Q_\beta$ are not independent sets in the matroids of $\ext{N}_\alpha, \ext{N}_\beta$
 respectively the term will be zero.)
@@ -849,10 +860,77 @@ By definitions \ref{LDefs} and \ref{iGvRdefs},
 =(\ext{N}_\alpha/A|P)[Q_\alpha](\ext{N}_\beta/A|P)^\perp[\overline{Q_{\beta}}].
 \]
 Dualization $(\ext{N}_\beta/A|P)^\perp[\overline{Q_{\beta}}]=
-(\ext{N}_\beta/A|P)[Q_{\beta}]\epsilon(Q_\beta\overline{Q_\beta})$ gives the first equation.
+(\ext{N}_\beta/A|P)[Q_{\beta}]\epsilon(Q_\beta\overline{Q_\beta})$
+gives the first equation.
 Our definition of contraction gives the second.
 \end{proof}
 
+
+Las Vergnas defined the big Tutte polynomial\cite{} of a set-pointed matroid
+as follows, in our notation\cite{} where we called the matroid ``ported''
+because of our application to electrical networks.  Each connected matroid
+is considered to be a variable and the symbol $\MVar{\mathcal{N}}$ denotes
+the product of the connected components of matroid $\mathcal{N}$.
+
+\begin{equation}
+  r_{P}(\mathcal{N}) = \sum_{X\subseteq E}\MVar{\mathcal{N}/X|P}
+  V^{r(\mathcal{N}) - r(\mathcal{N}/X|P) -r(A)}
+  W^{|A|-r(A)}
+\end{equation}
+
+
+
+Welsh and Kayibi\cite{WelshKayibiLinking} defined (our notation):
+\begin{defi}
+  Let $\mathcal{N}_\alpha, \mathcal{N}_\beta$ be matroids on $S$ with rank
+  functions $r_\alpha$ and $r_\beta$ respectively.  Define the 4-variable
+  polynomial $Q$ by
+  \begin{equation}
+\begin{split}
+    Q(\mathcal{N}_\alpha, \mathcal{N}_\beta;x, y, u, v) =
+  \sum_{X\subseteq S}
+  &(x-1)^{r_\alpha(S)-r_\alpha(X)}
+  (y-1)^{|X|-r_\alpha(X)}       \\
+  &(u-1)^{r_\beta(S)-r_\beta(X)}
+  (v-1)^{|X|-r_\beta(X)}
+\end{split}
+  \end{equation}
+\end{defi}
+
+
+Let us combine these constructions and obtain the polynomial below whose
+variables include the parameters $g_e, r_e$ for $e\in E$:
+
+\begin{defi}
+\begin{equation}
+  \begin{split}
+    L_E(\mathcal{N}_\alpha,\mathcal{N_\beta};\text{... matroid variables } &
+    \MVar{\mathcal{N}_\alpha/A|P}, \MVar{\mathcal{N}_\beta/A|P}, \text{...};
+    U_\alpha,W_\alpha,U_\beta,W_\beta) \\
+    =\sum_{A\subseteq E}\MVar{\mathcal{N}_\alpha/A|P}\MVar{\mathcal{N}_\beta/A|P}
+& g_A r_{\overline{A}} \\
+& V_\alpha^{r_\alpha(\mathcal{N}_\alpha)-r_\alpha(\mathcal{N}_\alpha/A|P)-r_\alpha(A)} 
+ W_\alpha^{|A|-r_\alpha(A)} \\
+& V_\beta^{r_\beta(\mathcal{N}_\beta)-r_\beta(\mathcal{N}_\beta/A|P)-r_\beta(A)} 
+ W_\beta^{|A|-r_\beta(A)}  \\
+ =
+ \sum_{A\subseteq E}\MVar{\mathcal{N}_\alpha/A|P}\MVar{\mathcal{N}_\beta/A|P}
+ & g_A r_{\overline{A}} \\
+ & V_\alpha^{r_\alpha(\mathcal{N}_\alpha)-r_\alpha(P\cup A)} 
+ W_\alpha^{|A|-r_\alpha(A)} \\
+& V_\beta^{r_\beta(\mathcal{N}_\beta)-r_\beta(P \cup A)} 
+ W_\beta^{|A|-r_\beta(A)}. 
+  \end{split}
+\end{equation}
+\end{defi}
+
+
+Straighforward adaptions of the proofs by the aforementioned authors
+results in the following:
+
+\begin{theo}
+
+\end{theo}
 
 
 
