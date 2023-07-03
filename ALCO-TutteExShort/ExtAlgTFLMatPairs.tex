@@ -770,41 +770,12 @@ This corollary is very helpful for calculations.
 
 \section{Towards a Tutte Polynomial}\label{polys}
 
-
-Here we show:  $\ext{L}_E$ is a an evaluation of a common generalization
-of parametrized Tutte polynomials, relative Tutte polynomials and linking
-(matroid pair Tutte) polynomials.  This Tutte polynomial has matroid
-variables, and the ones that appear in the polynomial for a given
-pair of matroids are minors of those matroids.  However, when the
-matroid minors are replaced by exterior algebra minors, the Tutte
-equations fail to be satisfied.  The only situation where
-the Tutte equations are satisfied is when the corank and nullity
-variables are set to zero and the matroids are unimodular (i.e. regular).
+\newcommand{\V}{v}
+\newcommand{\W}{w}
 
 
-
-
-
-The oriented matroid abstraction of objects like $\ext{N}$ and values of $\ext{L}_E$
-(when $K_0$ is ordered) is an oriented matroid with one of its two chirotopes $\pm \chi$ distinguished; that
-distinguished chirotope is $\chi(B) = \text{sign}(\ext{N}[B])$.
-
-Consider definition (\ref{LDefs}) and Theorems (\ref{delecontrtheorem},\ref{producttheorem})
-restricted to totally unimodular representations of unimodular (i.e., regular) oriented matroids
-with a distinguished chirotope.  In this situation,  $\chi(B) = \ext{N}[B]\in \{0,\pm 1\}$.
-So restricted, these definitions and theorems constitute a special case
-of a common generalization of three Tutte polynomial variations:
-set-pointed/relative/ported Tutte polynomial
-Tutte polynomials, 
-Bollobos and Riordan's parameterized or colored Tutte polynomials\cite{BollobasRiordanTuttePolyColored},
-and Welsh and Kayibi's linking
-polynomial of a matroid pair\cite{WelshKayibiLinking}. The idea of set-pointed Tutte polynomials
-was likely first recoginzed by Las Vergnas\cite{MR0419272}
-and was subsequently rediscovered and developed\cite{sdcPorted,SetPointedLV,RelTuttePolyDiaoHetyei}.
-The common feature is an enumeration
-of the common bases in a pair of oriented matroids.  Definition (\ref{LDefs}) is a function between
-exterior algebras, but the three variations give polynomial functions of matroids.  In our special
-case, (\ref{LDefs}) is a evaluation of this common generalization polynomial. 
+An easy consequence of Theorem \ref{delecontrtheorem} is that $\ext{L}_E(\ext{N}_\alpha;\ext{N}_\beta)$ has an
+expansion over the common bases of the matroids represented by $\ext{N}_\alpha$ and $\ext{N}_\beta$.
 
 \begin{defi}\label{NcontrArestrictP}
 For $A\subseteq E$, the abbreviation $\ext{N}/A|P$ $=$
@@ -812,17 +783,14 @@ $\ext{N}/A\backslash \overline{A}$, \\
 where $\overline{A}=(S(\ext{N})\setminus P)\setminus A$.  The analgous
 abbreviation for matroids is \\
 $\mathcal{N}/A|P$ $=$
-$\mathcal{N}/A\backslash \overline{A}$
+$\mathcal{N}/A\backslash \overline{A}$.
 \end{defi}
 
-For general $\ext{N}$ and the matroids they represent, given two indepentent sets $A$ and $A'$,
-$\ext{N}/A|P$ and $\ext{N}/A'|P$ might represent the same matroid but may be
-different decomposibles and even represent different elements of Grassmannians of $K^{P}$.
-Then there is no map from matroids to decomposibles whose evaluation on the ported
-Tutte polynomial gives the value of $\ext{L}_E( \ext{N} ; \ext{N} )$.  The basis
-expansion of $\ext{L}_E$ for general $\ext{N_\alpha}$, $\ext{N_\beta}$ we do have is
-essentially the Cauchy-Binet theorem:
-
+Notice that in the expansion below, the only non-zero terms in the sums are those for which $A$ is a common
+basis in the matroids represented by $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$.
+Because of our definition of contraction,
+if $Q_\alpha, Q_\beta$ are not independent sets in the matroids of $\ext{N}_\alpha, \ext{N}_\beta$
+respectively, the term will be zero.
 
 
 \begin{coro} Given 
@@ -854,11 +822,6 @@ essentially the Cauchy-Binet theorem:
 \end{equation}
 
 \end{coro}
-Remark: The only non-zero terms in the sums are those for which $A$ is a common
-basis in the matroids represented by $\ext{N}_\alpha/Q_\alpha$ and $\ext{N}_\beta/Q_\beta$.
-(Because of our definition of contraction,
-if $Q_\alpha, Q_\beta$ are not independent sets in the matroids of $\ext{N}_\alpha, \ext{N}_\beta$
-respectively the term will be zero.)
 
 
 \begin{proof}
@@ -881,51 +844,37 @@ Our definition of contraction gives the second.
 \end{proof}
 
 
-Las Vergnas defined the big Tutte polynomial\cite{} of a set-pointed matroid
-as follows, in our notation\cite{} where we called the matroid ``ported''
-because of our application to electrical networks.  Each connected matroid
-is considered to be a variable and the symbol $\MVar{\mathcal{N}}$ denotes
-the product of the connected components of matroid $\mathcal{N}$.
-
-\begin{equation}
-  r_{P}(\mathcal{N}) = \sum_{X\subseteq E}\MVar{\mathcal{N}/X|P}
-  V^{r(\mathcal{N}) - r(\mathcal{N}/X|P) -r(A)}
-  W^{|A|-r(A)}
-\end{equation}
 
 
 
-Welsh and Kayibi\cite{WelshKayibiLinking} defined (our notation):
-\begin{defi}
-  Let $\mathcal{N}_\alpha, \mathcal{N}_\beta$ be matroids on $S$ with rank
-  functions $r_\alpha$ and $r_\beta$ respectively.  Define the 4-variable
-  polynomial $Q$ by
-  \begin{equation}
-\begin{split}
-    Q(\mathcal{N}_\alpha, \mathcal{N}_\beta;x, y, u, v) =
-  \sum_{X\subseteq S}
-  &(x-1)^{r_\alpha(S)-r_\alpha(X)}
-  (y-1)^{|X|-r_\alpha(X)}       \\
-  &(u-1)^{r_\beta(S)-r_\beta(X)}
-  (v-1)^{|X|-r_\beta(X)}
-\end{split}
-  \end{equation}
-\end{defi}
+Here we show:  $\ext{L}_E$ is an evaluation of a common generalization
+of parametrized Tutte polynomials, relative Tutte polynomials and linking
+(matroid pair Tutte) polynomials.
+Based on these origins, it is straightforward to demonstrate the Tutte
+identities this generalization satisfies (Theorem \ref{pairbigtuttepolytheorem}.)
+This Tutte polynomial has matroid
+variables, and the ones that appear in the polynomial for a given
+pair of matroids are minors of those matroids.
+However, when the
+matroid minors in the generalization are replaced by exterior algebra minors, the Tutte
+equations fail to be satisfied.  The only situation where
+those Tutte equations are satisfied is when the corank and nullity
+variables are set to zero and the matroids are unimodular (i.e. regular).
 
+Let $\mathcal{N}$ be a matroid.  In the following, $\MVar{\mathcal{N}}$ will
+denote the product of the connected components of $\mathcal{N}$, each regarded as
+a variable.
 
-Let us combine these constructions and obtain the polynomial below whose
-variables include the parameters $g_e, r_e$ for $e\in E$:
-
-\newcommand{\V}{v}
-\newcommand{\W}{w}
-
-
+The following definition combines those given by Las Vergnas for the ``big'' Tutte polynomial of
+set-pointed matroids, which has matroid variables,
+Bollobas and Riordan for ``colored'' Tutte polynomials, which we call parametrized, and
+Welsh and Kayibi for the linking polynomial of a matroid pair.     
 
 \begin{defi}
-\begin{equation}
+\begin{equation}\label{bigportedpairpolydef}
   \begin{split}
     L_E(\mathcal{N}_\alpha,\mathcal{N_\beta};\text{... matroid variables } &
-    \MVar{\mathcal{N}_\alpha/A|P}, \MVar{\mathcal{N}_\beta/A|P}, \text{...};
+    , \text{...};
     \V_\alpha,\W_\alpha,\V_\beta,\W_\beta) \\
     =\sum_{A\subseteq E}\MVar{\mathcal{N}_\alpha/A|P}\MVar{\mathcal{N}_\beta/A|P}
 & g_A r_{\overline{A}} \\
@@ -945,17 +894,8 @@ variables include the parameters $g_e, r_e$ for $e\in E$:
 \end{defi}
 
 
-Straighforward adaptions of the proofs by the aforementioned authors
-results in the following:
 
-\begin{theo}
-  If $e\in E$ is a non-separator in $\mathcal{N}_\alpha$ and $\mathcal{N}_\beta$, then, with $E'=E\setminus e$,
-  \[
-  L_E(\mathcal{N}_\alpha,\mathcal{N_\beta})=
-  g_e L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/e) +
-  r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e).
-  \]
-  If $e\in E$ is a separator in one or both of  $\mathcal{N}_\alpha$ and $\mathcal{N}_\beta$, then
+\begin{theo}\label{pairbigtuttepolytheorem}
   \begin{equation}
     \begin{array}{cc|rl}
       
@@ -1019,11 +959,175 @@ results in the following:
 
     \end{array}
   \end{equation}
+
+  For $e\in E$,
+  $\mathcal{N}\backslash^\dag e$ and $\mathcal{N}/^\dag e$ denote that
+  $e$ is a separator in $\mathcal{N}$.  In that case,
+  $\mathcal{N}\backslash e$ $=$ $\mathcal{N}/ e$ is also
+  denoted by $\mathcal{N}- e$.  Furthermore,
+  $\mathcal{N}/(A\backslash e)|P$ $=$ $\mathcal{N}/(A \cup e)|P$ $=$ 
+  $\mathcal{N}/A|P$.
+
 \end{theo}
 
+\begin{proof}
+  Apply straightforward adaptions of proofs given by the aforementioned
+  authors, which use the following elementary properties of separators $e$.
+  Let $e \not\in A$.  When $e$ is a coloop,
+  \[
+  r(\mathcal{N})-r_{\mathcal{N}}(A\cup e \cup P)
+  =  r(\mathcal{N}-e)-r_{\mathcal{N}-e}(A \cup P)
+  \]
+  \[ r(\mathcal{N})-r_{\mathcal{N}}(A \cup P)
+  =  1+r(\mathcal{N}-e)-r_{\mathcal{N}-e}(A \cup P)
+  \]
+  \[
+  |A\cup e|-r_{\mathcal{N}}(A \cup e \cup P)
+   =
+   |A|-r_{\mathcal{N}}(A \cup P)
+     =
+     |A| - r_{\mathcal{N}-e}(A \cup P).
+  \]
+When $e$ is a loop,
+  \[
+  r(\mathcal{N})-r_{\mathcal{N}}(A\cup e \cup P)
+  =  r(\mathcal{N})-r_{\mathcal{N}}(A \cup P)
+  =   r(\mathcal{N}-e)-r_{\mathcal{N}-e}(A \cup P)
+  \]
+  and
+  \[
+  |A\cup e|-r_{\mathcal{N}}(A \cup e \cup P)
+   =
+   1+ |A|-r_{\mathcal{N}-e}(A \cup P)
+   \]
+   \[
+    |A|-r_{\mathcal{N}}(A \cup P)
+     =
+     |A| - r_{\mathcal{N}-e}(A \cup P).
+    \]
+\end{proof}
+  
+
+\subsection{Counterexample}
+
+
+It is tempting to investigate whether the expansion identities
+of Theorem \ref{pairbigtuttepolytheorem} are satisfied, when the matroid
+minor operations are replaced by our exterior algebra minor operations,
+by some function of exterior algebra pairs $(\ext{N}_\alpha, \ext{N}_\beta)$.
+After all, Theorem \ref{delecontrtheorem} tells us the identities are
+satisfied for $\ext{L}_E(\ext{N}_\alpha;\ext{N}_\beta)$ when we set
+$v_\alpha=v_\beta=w_\alpha=w_\beta=0$.  The simplest example, where $P=\emptyset$,
+reveals the answer is no.
+
+Let $\ext{N}_\alpha = a \ext{e}_1 + b \ext{e}_2$ and
+$\ext{N}_\beta = c \ext{e}_1 + d \ext{e}_2$.  Expansion in the
+order of $e_1, e_2$ gives the result
+\[
+g_1 g_2 w_\alpha w_\beta a c + g_1r_2 a c + r_1 g_2 b d + r_1 r_2 v_\alpha v_\beta b d
+\]
+but in the order $e_2, e_1$ the result is
+\[
+g_1 g_2 w_\alpha w_\beta b d + g_1r_2 a c + r_1 g_2 b d + r_1 r_2 v_\alpha v_\beta a c
+\]
+
+As expected, the results are equal when the $w$'s and $v$'s are set to zero.
+Equality holds iff $ac=bd$, so it fails when
+$\ext{N}\alpha = \ext{e_1} + \ext{e}_2$ and
+$\ext{N}\alpha = \ext{e_1} - \ext{e}_2$, which are unimodular matroid representation.
+It also fails for
+$\ext{N}_\alpha = \ext{N}_\beta = \ext{e}_1 + 2\ext{e}_2$.
+
+
+
+\subsection{When $\ext{L}_E$ is a Tutte polynomial evaluation}
+When the exterior algebra elements $\ext{N}_\alpha$ and $\ext{N}_\beta$ are
+unimodular representations of (oriented) matroids matroids,  we can take the
+matroid variables to encode oriented matroid representations by chirotopes $\chi$
+in which one of chirotopes $\pm \chi$ is distinguished.  Then, we can identify
+these oriented matroid representations with the above  $\ext{N}_\alpha$ and $\ext{N}_\beta$.
+In this situation, $\ext{L}_E(\ext{N}_\alpha;\ext{N}_\beta)$ is the result
+of substituting $\ext{N}_\alpha/A|P$ and $\ext{N}_\beta/A|P$ for the matroid
+variables in \ref{bigportedpairpolydef}, together with setting the $v$'s and $w$'s to zero.
 
 
 \newpage
+
+-----------------------------------
+
+The oriented matroid abstraction of objects like $\ext{N}$ and values of $\ext{L}_E$
+(when $K_0$ is ordered) is an oriented matroid with one of its two chirotopes $\pm \chi$ distinguished; that
+distinguished chirotope is $\chi(B) = \text{sign}(\ext{N}[B])$.
+
+Consider definition (\ref{LDefs}) and Theorems (\ref{delecontrtheorem},\ref{producttheorem})
+restricted to totally unimodular representations of unimodular (i.e., regular) oriented matroids
+with a distinguished chirotope.  In this situation,  $\chi(B) = \ext{N}[B]\in \{0,\pm 1\}$.
+So restricted, these definitions and theorems constitute a special case
+of a common generalization of three Tutte polynomial variations:
+set-pointed/relative/ported Tutte polynomial
+Tutte polynomials, 
+Bollobos and Riordan's parameterized or colored Tutte polynomials\cite{BollobasRiordanTuttePolyColored},
+and Welsh and Kayibi's linking
+polynomial of a matroid pair\cite{WelshKayibiLinking}. The idea of set-pointed Tutte polynomials
+was likely first recoginzed by Las Vergnas\cite{MR0419272}
+and was subsequently rediscovered and developed\cite{sdcPorted,SetPointedLV,RelTuttePolyDiaoHetyei}.
+The common feature is an enumeration
+of the common bases in a pair of oriented matroids.  Definition (\ref{LDefs}) is a function between
+exterior algebras, but the three variations give polynomial functions of matroids.  In our special
+case, (\ref{LDefs}) is a evaluation of this common generalization polynomial. 
+
+
+For general $\ext{N}$ and the matroids they represent, given two indepentent sets $A$ and $A'$,
+$\ext{N}/A|P$ and $\ext{N}/A'|P$ might represent the same matroid but may be
+different decomposibles and even represent different elements of Grassmannians of $K^{P}$.
+Then there is no map from matroids to decomposibles whose evaluation on the ported
+Tutte polynomial gives the value of $\ext{L}_E( \ext{N} ; \ext{N} )$.  The basis
+expansion of $\ext{L}_E$ for general $\ext{N_\alpha}$, $\ext{N_\beta}$ we do have is
+essentially the Cauchy-Binet theorem:
+
+
+Las Vergnas defined the big Tutte polynomial\cite{} of a set-pointed matroid
+as follows, in our notation\cite{} where we called the matroid ``ported''
+because of our application to electrical networks.  Each connected matroid
+is considered to be a variable and the symbol $\MVar{\mathcal{N}}$ denotes
+the product of the connected components of matroid $\mathcal{N}$.
+
+\begin{equation}
+  r_{P}(\mathcal{N}) = \sum_{A\subseteq E}\MVar{\mathcal{N}/A|P}
+  V^{r(\mathcal{N}) - r(\mathcal{N}/A|P) -r(X)}
+  W^{|A|-r(A)}
+\end{equation}
+
+
+
+Welsh and Kayibi\cite{WelshKayibiLinking} defined (our notation):
+\begin{defi}
+  Let $\mathcal{N}_\alpha, \mathcal{N}_\beta$ be matroids on $S$ with rank
+  functions $r_\alpha$ and $r_\beta$ respectively.  Define the 4-variable
+  polynomial $Q$ by
+  \begin{equation}
+\begin{split}
+    Q(\mathcal{N}_\alpha, \mathcal{N}_\beta;x, y, u, v) =
+  \sum_{A\subseteq S}
+  &(x-1)^{r_\alpha(S)-r_\alpha(A)}
+  (y-1)^{|A|-r_\alpha(A)}       \\
+  &(u-1)^{r_\beta(S)-r_\beta(A)}
+  (v-1)^{|A|-r_\beta(A)}
+\end{split}
+  \end{equation}
+\end{defi}
+
+
+Let us combine these constructions and obtain the polynomial below whose
+variables include the parameters $g_e, r_e$ for $e\in E$:
+
+
+
+-----------------
+
+
+
+
 
 
 
@@ -1663,3 +1767,11 @@ sign function on all finite sequences of elements.\\
   \end{array}
   \end{equation}
 \end{defi}
+
+  If $e\in E$ is a non-separator in $\mathcal{N}_\alpha$ and $\mathcal{N}_\beta$, then, with $E'=E\setminus e$,
+  \[
+  L_E(\mathcal{N}_\alpha,\mathcal{N_\beta})=
+  g_e L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/e) +
+  r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e).
+  \]
+  If $e\in E$ is a separator in one or both of  $\mathcal{N}_\alpha$ and $\mathcal{N}_\beta$, then
