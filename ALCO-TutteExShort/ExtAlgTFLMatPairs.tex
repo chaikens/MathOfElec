@@ -873,8 +873,9 @@ By definitions \ref{LDefs} and \ref{iGvRdefs},
 \extLHorSub{\emptyset}{\ext{N}_\alpha/A|P}{\ext{N}_\beta/A|P}[Q_{\alpha}\overline{Q_{\beta}}]
 =(\ext{N}_\alpha/A|P)[Q_\alpha](\ext{N}_\beta/A|P)^\perp[\overline{Q_{\beta}}].
 \]
-Dualization $(\ext{N}_\beta/A|P)^\perp[\overline{Q_{\beta}}]=
-(\ext{N}_\beta/A|P)[Q_{\beta}]\epsilon(Q_\beta\overline{Q_\beta})$
+Dualization
+$(\ext{N}_\beta/A|P)^\perp[\overline{Q_{\beta}}]=
+(\ext{N}_\beta/A|P)[Q_{\beta}]\epsilon(Q_{\beta}\overline{Q_{\beta}})$
 gives the first equation.
 Our definition of contraction gives the second.
 \end{proof}
@@ -915,25 +916,30 @@ Welsh and Kayibi\cite{WelshKayibiLinking} defined (our notation):
 Let us combine these constructions and obtain the polynomial below whose
 variables include the parameters $g_e, r_e$ for $e\in E$:
 
+\newcommand{\V}{v}
+\newcommand{\W}{w}
+
+
+
 \begin{defi}
 \begin{equation}
   \begin{split}
     L_E(\mathcal{N}_\alpha,\mathcal{N_\beta};\text{... matroid variables } &
     \MVar{\mathcal{N}_\alpha/A|P}, \MVar{\mathcal{N}_\beta/A|P}, \text{...};
-    U_\alpha,W_\alpha,U_\beta,W_\beta) \\
+    \V_\alpha,\W_\alpha,\V_\beta,\W_\beta) \\
     =\sum_{A\subseteq E}\MVar{\mathcal{N}_\alpha/A|P}\MVar{\mathcal{N}_\beta/A|P}
 & g_A r_{\overline{A}} \\
-& V_\alpha^{r_\alpha(\mathcal{N}_\alpha)-r_\alpha(\mathcal{N}_\alpha/A|P)-r_\alpha(A)} 
- W_\alpha^{|A|-r_\alpha(A)} \\
-& V_\beta^{r_\beta(\mathcal{N}_\beta)-r_\beta(\mathcal{N}_\beta/A|P)-r_\beta(A)} 
- W_\beta^{|A|-r_\beta(A)}  \\
+& \V_\alpha^{r_\alpha(\mathcal{N}_\alpha)-r_\alpha(\mathcal{N}_\alpha/A|P)-r_\alpha(A)} 
+ \W_\alpha^{|A|-r_\alpha(A)} \\
+& \V_\beta^{r_\beta(\mathcal{N}_\beta)-r_\beta(\mathcal{N}_\beta/A|P)-r_\beta(A)} 
+ \W_\beta^{|A|-r_\beta(A)}  \\
  =
  \sum_{A\subseteq E}\MVar{\mathcal{N}_\alpha/A|P}\MVar{\mathcal{N}_\beta/A|P}
  & g_A r_{\overline{A}} \\
- & V_\alpha^{r_\alpha(\mathcal{N}_\alpha)-r_\alpha(P\cup A)} 
- W_\alpha^{|A|-r_\alpha(A)} \\
-& V_\beta^{r_\beta(\mathcal{N}_\beta)-r_\beta(P \cup A)} 
- W_\beta^{|A|-r_\beta(A)}. 
+ & \V_\alpha^{r_\alpha(\mathcal{N}_\alpha)-r_\alpha(P\cup A)} 
+ \W_\alpha^{|A|-r_\alpha(A)} \\
+& \V_\beta^{r_\beta(\mathcal{N}_\beta)-r_\beta(P \cup A)} 
+ \W_\beta^{|A|-r_\beta(A)}. 
   \end{split}
 \end{equation}
 \end{defi}
@@ -943,7 +949,66 @@ Straighforward adaptions of the proofs by the aforementioned authors
 results in the following:
 
 \begin{theo}
-
+  If $e\in E$ is a non-separator in $\mathcal{N}_\alpha$ and $\mathcal{N}_\beta$, then, with $E'=E\setminus e$,
+  \[
+  L_E(\mathcal{N}_\alpha,\mathcal{N_\beta})=
+  g_e L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/e) +
+  r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e).
+  \]
+  If $e\in E$ is a separator in one or both of  $\mathcal{N}_\alpha$ and $\mathcal{N}_\beta$, then
+  \begin{equation}
+    \begin{array}{cc|rl}
+      
+      e \text{ in }N_\alpha  & e \text{ in }N_\beta &
+      \multicolumn{2}{c}{L_E(\mathcal{N}_\alpha,\mathcal{N}_\beta)} \\ \hline \hline
+      
+      \text{non-separator} & \text{coloop} &
+      g_e L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/ e) &+
+      r_e \V_\beta L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash^\dag e) \\  \hline
+      
+      \text{non-separator} & \text{loop} &
+           g_e \W_\beta L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/^\dag e) &+
+           r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e) \\  \hline
+           
+      \text{coloop} & \text{non-separator} &
+      g_e L_{E'}(\mathcal{N}_\alpha/ e,  \mathcal{N}_\beta/e) &+
+      r_e \V_\alpha L_{E'}(\mathcal{N}_\alpha\backslash^\dag e,  \mathcal{N}_\beta \backslash e) \\  \hline
+      
+      \text{coloop} & \text{coloop} &
+      g_e L_{E'}(\mathcal{N}_\alpha/ e,  \mathcal{N}_\beta/ e) &+
+      r_e \V_\alpha \V_\beta L_{E'}(\mathcal{N}_\alpha\backslash^\dag e,  \mathcal{N}_\beta \backslash^\dag e) \\
+      & &
+      \multicolumn{2}{c}{=( r_e \V_\alpha \V_\beta + g_e) L_{E'}(\mathcal{N}_\alpha- e,  \mathcal{N}_\beta - e)} \\  \hline
+      
+      \text{coloop} & \text{loop} &
+           g_e \W_\beta L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/^\dag e) &+
+           r_e \V_\alpha L_{E'}(\mathcal{N}_\alpha\backslash^\dag e,  \mathcal{N}_\beta \backslash e) \\
+           & &
+           \multicolumn{2}{c}{=( r_e \V_\alpha + g_e \W_\beta) L_{E'}(\mathcal{N}_\alpha- e,  \mathcal{N}_\beta - e)} \\  \hline
+           
+      \text{loop} & \text{non-separator} &
+           g_e \W_\alpha L_{E'}(\mathcal{N}_\alpha/^\dag e,  \mathcal{N}_\beta/e) &+
+           r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e) \\  \hline
+           
+      \text{loop} & \text{coloop} &
+     g_e \W_\alpha L_{E'}(\mathcal{N}_\alpha/^\dag e,  \mathcal{N}_\beta/e) &+
+     r_e \V_\beta L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash^\dag e) \\
+     & &
+     \multicolumn{2}{c}{=(r_e \V_\beta + g_e \W_\alpha) L_{E'}(\mathcal{N}_\alpha- e,  \mathcal{N}_\beta - e)} \\  \hline
+     
+      \text{loop} & \text{loop} &
+           g_e \W_\alpha \W_\beta L_{E'}(\mathcal{N}_\alpha/^\dag e,  \mathcal{N}_\beta/^\dag e) &+
+           r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e) \\   
+           & &
+           \multicolumn{2}{c}{= (r_e + g_e \W_\alpha \W_\beta) L_{E'}(\mathcal{N}_\alpha - e,  \mathcal{N}_\beta - e)} \\  \hline
+           
+      \text{non-separator} & \text{non-separator} &
+      g_e L_{E'}(\mathcal{N}_\alpha/e,  \mathcal{N}_\beta/e) &+
+      r_e L_{E'}(\mathcal{N}_\alpha\backslash e,  \mathcal{N}_\beta \backslash e) \\
+      
+      \hline      
+    \end{array}
+  \end{equation}
 \end{theo}
 
 
