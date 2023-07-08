@@ -206,11 +206,17 @@ circuit linear equation application, add little overhead to the theory,
 and provide the subset generating function interpretation of
 the resulting functions.
 
-This motivation led us to find that the class on which our Tutte function
-is defined is comprised of \emph{pairs} $\ext{N}_\alpha$, $\ext{N}_\beta$
-from (1)-(3) with common ground sets $S$ of the form $S=P'\dunion E$,
+This motivation led us to a Tutte function
+$\ext{L}(\ext{N}_\alpha; \ext{N}_\beta)$ on
+\emph{pairs}, analogous to Welsh and Kayibi's
+linking polynomial\cite{WelshKayibiLinking}  of matroid pairs.
+$\ext{N}_\alpha$, $\ext{N}_\beta$ are from the (1)-(3) class,
+with common ground sets $S$ of the form $S=P'\dunion E$,
 where $P'\subseteq P$ and $P$ is a \emph{distinguished} set of
-basis elements.  The Tutte function value is in the class
+basis elements.  Our Tutte function of single $\ext{N}$ is
+the special case $\ext{L}_E(\ext{N};\ext{N})$.
+
+The Tutte function value is in the class
 (1)-(3) for which the ground set is $P_\alpha'\dunion P_\beta'$,
 where $P_\alpha'$ and $P_\beta'$ are disjoint copies of $P'$.
 Interest in our application\cite{sdcPorted} leads us to prefer to call the
@@ -247,9 +253,9 @@ on those labelled variables.  When $\Delta$ is the
 Laplacian, that solution subspace is
 $\{(v_P, i_P) | \Delta v_P + i_P = 0\}$.
 
-When $P=\emptyset$, the main theorem gives the well-known
-basis enumerating interpretion of the Cauchy-Binet theorem applied to
-$|N G N^t|$
+When $P=\emptyset$, the main theorem gives the well-known common basis
+enumerating interpretion of the Cauchy-Binet theorem applied to
+$|N_\alpha G N_\beta^t|$
 where $G=\text{diag}(\cdots, g_e , \cdots )$ is a diagonal matrix of variables
 $g_e$ with entries corresponding to $e\in U$.
 When $P\neq\emptyset$, definition \ref{LDefs} gives what we prove
