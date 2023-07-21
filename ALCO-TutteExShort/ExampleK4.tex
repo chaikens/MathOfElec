@@ -1,6 +1,6 @@
-With the complete graph $G=K_4$, we will illustrate our construction,
+With the complete graph $K_4$, we will illustrate our construction,
 its evaluation and an interpretation
-in terms $G$'s familiar linear spaces, oriented matroids, and electrical
+in terms $K_4$'s familiar linear spaces, oriented matroids, and electrical
 network problem model.  $P=\{p_1, p_2\}$ is comprised of two non-adjacent
 edges and the rest, $K_{2,2}$, will comprise $E$.  
 
@@ -30,7 +30,7 @@ $\phi(\hat{a})-\phi(\hat{b})$ times the resistance of $e$ equals the current thr
 flowing from $a$ to $b$.
 For us, the currents through and voltage drops along
 in all these edges are variables $i_t$ and $v_t$ for $t\in P\cup E$.  Ohm's law
-is asserted in the homogeneous form:  For $e\in E$, the voltage-drop-to-current ratio
+is asserted in the homogeneous form\cite{SmithElec,TutteEx,CirThProjHomo2019}:  For $e\in E$, the voltage-drop-to-current ratio
 $v_e:i_e$ $=$ $r_e:g_e$, the ratio of the resistivity parameters.
 Those parameters are not given for ports.
 Kirchhoff's voltage law asserts that $\sum_tv_t\hat{t}$ is the 1-coboundry $\partial^0(\sum \phi(\hat{a})\hat{a})$
@@ -44,7 +44,7 @@ the network topology, Kirchhoffs' and Ohm's laws.
 Let $P=\{p_1, p_2\}$ and $E=\{e_1, e_2, e_3, e_4\}$ together be the edges in the (oriented) graph
 below representing an electrical network, where $E$ represents the resistors.   $N_\alpha$ is
 a full-row-rank, all-column submatrix of the matrix form for $\partial^1$.  It is the
-usual ``signed'' vertex-edge incidence matrix which represents our graph's graphic matroid, with one
+usual signed vertex-edge incidence matrix which represents our graph's graphic matroid, with one
 row deleted so $N_\alpha$ has full row rank.  The rows of $N_\alpha$ hold the coefficients in
 Kirchhoff's current law, asserting that the edge currents constitute a 1-cycle, (i.e., a flow.)
 $N_\beta^\perp$ is a totally unimodular matrix whose
@@ -64,7 +64,7 @@ graphic (with bases $\mathcal{B}(G)$) and cographic matroids respectively.
   \includegraphics[scale=0.5]{K4.pdf}
 \end{figure}
 
-We begin with the familiar incidence matrix representation of K4's matroid.
+We begin with the familiar incidence matrix representation of $K_4$'s matroid.
 We delete row 2 and take a representation for the dual that is consistent
 with our exterior algebra duality operator (\ref{dualdefinition}):
 
@@ -161,7 +161,7 @@ for the orthogonal complement of the electrical network's
 Each polynomial
 term encodes a subset of $E=\{e_1, e_2, e_3, e_4\}$, for example, $\{e_1, e_2\}$ is encoded
 by $g_1g_2r_3r_4$. Note that each coefficient enumerates
-the common bases of a pair of not always distinct matroid minors.
+the common bases of a pair of not always distinct matroid minors.  See \ref{commonbasescoro}.
 
 
 \begin{equation}\label{K4table}
@@ -202,7 +202,7 @@ in (\ref{K4table}) are \Plucker coordinates, and
 indeed that $\ext{L}_E$ represents the space of
 linear constraints for the
 network solution problem,
-one can calculate that each $2\times 2$ minor of the matrix in
+one can calculate that each $2\times 2$ minor of $M$ in
 (\ref{K4Soln}) equals the $D$ multiple of the corresponding coefficient
 in  (\ref{K4table}).  The one non-trivial calculation is
 \[
