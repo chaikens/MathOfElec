@@ -1,0 +1,232 @@
+\documentclass[12pt,leqno]{amsart}
+\usepackage{color,graphics}
+
+\allowdisplaybreaks
+
+\newtheorem{theorem}{Theorem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{A Path in Forest Exchange Property of Series-Parallel Graphs}
+
+\author{Seth Chaiken}
+\address{Computer Science Department\\
+The University at Albany (SUNY)\\
+Albany, NY 12222, U.S.A.}
+\email{\tt sdc@cs.albany.edu}
+
+\subjclass[2000]{...}
+
+
+
+\keywords{Series-Parallel Graphs, Forests, Negative Association, Negative Correlation}
+
+\thanks{Version of \today.}
+
+\maketitle
+\pagestyle{headings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{An Exchange Propery}
+
+It is well-known that a series-parallel subgraph, defined as 
+a graph with
+no subgraph homeomorphic to $K_4$, is equivalent to a subgraph of an
+$st$-series-parallel network.  Here an $st$-series-parallel network
+has two distinguished vertices $s$, $t$
+constructable from 
+single edge $st$-series-parallel networks using the series and
+parallel connection operations.  
+All graphs can have multiple edges unless otherwise indicated.
+
+\begin{theorem}
+Let $G$ be a series-parallel subgraph 
+with two designated vertices $s$ and $t$.
+
+\begin{enumerate}
+\item
+Whenever 
+$F_0$ and $F_1$ are forest subgraphs in $G$ for which
+$F_1$ contains an $st$ path $P$, there is a unique 
+subset $A\subseteq P\setminus F_0$ for which 
+$F_0\cup A$ is a forest that contains an $st$ path $P'$
+for which $A\subseteq P'$.
+
+\item In this situation, let $F_1'=F_0\cup A$, which contains path $P'$,
+and $F_0'=F_1\setminus A$.   $A$ is also the unique subset 
+$A\subseteq P'\setminus F_0'$ for which 
+$F_0'\cup A$ is a forest that contains an $st$ path $P$
+for which $A\subseteq P$.
+\end{enumerate}
+\end{theorem}
+
+
+{\bf Remark:} When $F_0=\emptyset$, the property is satisfied with
+$A=P$.  When $F_0$ contains an $st$ path, the property is
+satisfied with $A=\emptyset$.
+
+\begin{proof}
+
+The theorem claims that there is a unique subset of
+zero or more edges $A\subseteq P\subseteq F_1$ from $st$ path $P$ which 
+when added to $F_0$ comprises or completes an $st$ path $P'$ within
+a forest; and
+when the same set is removed from $F_1$ it is the unique 
+subset of a path in $F_0\cup A$ that comprises or completes an $st$ path
+when added to $F_1\setminus A$.  Let us call $A$ an ``exchange set.''
+
+If $F_1$ doesn't contain an $st$ path,
+there is nothing to prove.  So,  assume $F_1$ contains $st$ path $P$.
+Note that if a forest contains an $st$-path then
+that $st$ path is unique.
+
+If $F_0$ already contains an $st$ path, then $A=\emptyset$ is the
+only exchange set because additional paths cannot be produced by
+adding edges to $F_0$ without producing circuits.  $F_1\setminus A$
+$=$ $F_1$ contains an $st$ path, so $\emptyset$ is the only 
+subset of a path that can be added to $F_1$ without producing circuits.
+
+So, let us assume that $F_0$ does not contain an $st$ path.  
+
+The following structural characterization
+of an $st$ series-parallel subgraph
+facilitates the proof:
+
+An $st$ series-parallel subgraph
+is either the edgeless graph with vertices $s,t$, a one-edge 
+graph with vertices $s,t$, or is graph composed from
+already constructed $st$ series-parallel subgraphs by series or
+by parallel connection along the $st$ terminals.  See the figure.
+
+\begin{center}
+\input{induction.pdf_t}
+\end{center}
+
+
+We proceed
+by induction on the number of the above series or 
+parallel construction steps for 
+$G$.
+
+The theorem has been verified for the graph $G$ with vertices $s,t$ and no
+edges.  For the one-edge graph $e=st$, we need check only $F_0=\emptyset$
+and $F_1=\{e\}$.  In this case, it is immediate that only $A=\{e\}$
+satisfies the conclusion.
+
+So, we assume $G$ is the parallel connection along $s,t$ of two graphs
+constructed with fewer steps, or is the series connection along $s,t$ of such 
+graphs.  Let the subgraphs be $G^1$ and $G^2$.
+Let $F_i^j=F_i\cap G^j$  for $i=0,1$
+and $j=1,2$.  Recall that we can assume that $F_0$ does not
+contain an $st$ path.
+
+\begin{center}
+\input{CaseParallel.pdf_t}
+\end{center}
+
+Consider the case of parallel connection.  
+Assume the $st$ path $P$ in $F_1$ is contained
+in $F_1^1\subseteq G^1$, otherwise reverse the roles of $G^1$, $G^2$.
+Let $A$ be the exchange set for forests $F_0^1,F_1^1$ in 
+$G^1$ that results from induction.  $F_0\cup A$ 
+has as $st$ path (since $F_0\cup A \supset F_0^1\cup A$) 
+but no circuit, since otherwise, $F_0^2$ would
+have an $st$ path, contradicting our assumption.  Also, by
+induction, $A$ is unique.
+
+The path $P'\subseteq F_0^1\subseteq G^1$, so none of 
+its edges can comprise or complete an $st$ path in 
+$F_0^2\setminus A = F_0^2 \subseteq G^2$.  Therefore,
+$A$ is the unique exchange set for $F_0,F_1$.
+
+\begin{center}
+\input{CaseSeries.pdf_t}
+\end{center}
+
+
+Now for series connection.  
+The $st$ path $P$ in $F_1$ is uniquely
+partitioned into two interterminal paths $P^1$ and 
+$P^2$ in $F_1^1$ and $F_1^2$ respectively.  By induction,
+there are unique $A^1$, $A^2$ and $P'^1, P'^2$ satisfying the theorem
+for $F_0^1,F_1^1$ and $F_0^2,F_1^2$ respectively.
+$A^1\cap A^2$ $=$ $P'^1\cap P'^2$ $=$ $\emptyset$.
+Therefore $A=A^1\cup A^2\subset P'$ is the unique set
+for which 
+$P'=P'^1\cup P'^2$ is an $st$ path in $G$ with
+$A\subseteq P'$.
+
+$P'^1$ and any subset of it must belong to $G^1$ and
+$P'^2$ and any subset of it must belong to $G^2$.  Therefore,
+the properties and uniqueness of $A^1$, $A^2$ and
+$P^1$, $P^2$ following by induction from part (2) of the
+theorem imply the same properties for $A=A^1\cup A^2$ and
+$P=P^1=P^2$.
+\end{proof}
+
+
+\section{Converses}
+
+Clearly, if any subgraph $F_1$ contains an $st$ path $P$, then zero or more
+edges $A\subset P$ can be added to any forest $F_0$ to comprise or
+complete an $st$ path within forest $F_0$.  The conditions that
+$F_1$ is a forest and $F_1\cup F_0$ is a series-parallel subgraph
+are sufficient to guarantee the uniqueness of $A$ and the
+property (2) in our theorem.
+
+
+The only obstacle to the uniqueness seems to be 
+two $st$ paths with at least one common edge
+$e$ where $e$ is traversed in opposite directions
+when traversing the two $st$ paths.  Let $G^+$ be $G$ with
+a new edge $st$ added. In this situation,
+it is known that there is in $G+$ a subgraph homeomorphic to $K_4$.
+The $K_4$ homoeomorph is comprised of 6 edge-disjoint paths, and
+$e$ and $st$ are in two of the pairs of paths that are 
+also vertex disjoint.
+
+\input{Obstruction.pdf_t}
+
+
+\section{Perhaps Excessive Arguments}
+
+If $F_0$ also contains an $st$ path, we claim the theorem is satisfied by
+$A=\emptyset$.  $F_0\cup\emptyset$ is a forest with 
+$st$ path $P'$, and clearly $A=\emptyset\subseteq P'$.  
+To prove $A=\emptyset$ is unique, suppose $A\neq \emptyset$ 
+also satisfies the theorem, so
+$F_0\cup A$ is a forest.  Since $F_0\cup A$ is a forest, 
+$P'$ is the unique $st$ path in $F_0\cup A$.  Therefore, 
+$A\subseteq P'\setminus F_0$.  But $P'\subseteq F_0$, so
+$A\neq\emptyset$ is contradicted.
+
+We therefore verified that when $F_0$ contains an $st$ path,
+$A=\emptyset$ uniquely satisfies (1) of the theorem.
+In this situation, $F_0'=F_1\setminus A=F_1$ contains the 
+unique path $P$, so $\emptyset=A$ is the only set for 
+which $F_0'\cup A$ is a forest that contains an $st$ path $P$
+for which $A\subseteq P$.
+
+
+
+{\bf ------- Parallel case:}
+There cannot be an $st$ path in $F_1^2$, because
+that path together with $P$ would be a circuit, which
+contradicts $F^1$ being a forest.
+
+By induction, $A$ is the unique subset of $P$ for which
+$F_0^1\cup A$ is a forest in $G^1$ that 
+contains $st$ path $P'$ with $A\subseteq P'$. 
+Since $F_0^2$ is a forest without an $st$ path,
+$F_0\cup A=F_0^1\cup A\cup F_0^2$ is a forest 
+in $G$ that contains $st$ path $P'$.  Therefore, (1) is confirmed.
+
+
+
+
+
+\end{document}
