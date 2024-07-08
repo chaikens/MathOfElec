@@ -1,0 +1,444 @@
+\documentclass[12pt,leqno]{amsart}
+
+
+
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{eucal,graphicx}
+\usepackage{color}
+\usepackage[pdftex]{hyperref}
+
+
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-.4in}
+
+%\renewcommand{\baselinestretch}{2}     % Activate for double spacing.
+%\renewcommand{\baselinestretch}{1.6}   % Activate for 1-1/2 spacing.
+%\renewcommand{\baselinestretch}{1.3}   % Activate for 1-1/3 spacing.
+
+
+\newcommand \comment[1]{}			%  Silent version.
+%\renewcommand \comment[1]{\emph{#1}}		%  Comment revealed.
+\newcommand \dateadded[1]{\comment{[Date added: #1.]}}
+\newcommand \mylabel[1]{\label{#1}\comment{{\rm \{#1\} }}}
+\newcommand \myref[1]{\ref{#1}\comment{{\{#1\}}}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{definition}[lem]{Definition}
+
+
+\theoremstyle{remark}
+\newtheorem{exam}{Example}%[section]
+\newcommand \myexam[1]{\smallskip\begin{exam}[\emph{#1}]}
+
+\renewcommand{\phi}{\varphi}
+\newcommand\eset{\varnothing}
+\newcommand\inv{^{-1}}
+\newcommand\setm{\setminus}
+\newcommand\chiz{\chi^\bbZ}
+\newcommand\bbR{\mathbb{R}}
+\newcommand\bbZ{\mathbb{Z}}
+\newcommand\cH{\mathcal{H}}
+
+
+\newcommand\Ueloop{\ensuremath{U^e_{0}}}
+\newcommand\Uecoloop{\ensuremath{U^e_{1}}}
+\newcommand\Uefdyad{\ensuremath{U^{ef}_{1}}}
+\newcommand\Uefgtriad{\ensuremath{U^{efg}_{1}}}
+\newcommand\Uefgtriangle{\ensuremath{U^{efg}_{2}}}
+
+%   Disjoint Union
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}
+%{\mbox{\hbox{\hskip4pt$\cdot$\hskip-4.62pt$\cup$\hskip2pt}}}
+{\mbox{\hbox{\hskip6pt$\cdot$\hskip-5.50pt$\cup$\hskip2pt}}}
+%
+% Dot inside a cup.
+% If there is a better, more Latex like way 
+% (more invariant under font size changes) way,
+% I'd like to know.
+
+
+\newcommand{\Bases}[1]{\ensuremath{{\mathcal{B}}(#1)}}
+\newcommand{\Reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\FieldK}{\ensuremath{K}}
+\newcommand{\Perms}{\ensuremath{\mathfrak{S}}}
+\newcommand{\rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Rank}{{\rho}}% {{\mbox{rank}}}
+\newcommand{\Card}[1]{\ensuremath{{\left|#1\right|}}}
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+
+% Set Complement
+% command to mess with overline, bar or custom 
+% alternatives for sequence or set complement
+%
+%\newcommand{\scomp}[1]{\ensuremath{\;\overline{#1}\;}}
+%\newcommand{\scomp}[1]{\ensuremath{\bar{#1}}}
+%\newcommand{\scomp}[1]{\ensuremath{\genfrac{}{}{}{}{}{#1}}}
+\newcommand{\scomp}[1]{\ensuremath{\overline{#1}}}
+
+\allowdisplaybreaks
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[Reliability in Ported Graphs]
+{Reliability in Ported Graphs}
+
+\author{Seth Chaiken}
+\address{Computer Science Department\\
+The University at Albany (SUNY)\\
+Albany, NY 12222}
+\email{\tt sdc@cs.albany.edu}
+
+\author{Joanna Ellis-Monaghan}
+\address{Department of Mathematics\\
+St. Michaels College\\
+Colchester, VT 05439}
+\email{\tt jellis-monaghan@uvm.edu}
+
+
+\begin{abstract}
+\end{abstract}
+
+\subjclass[2000]{Primary 05B35; Secondary 05C99, 05C15, 57M25, 94C05}
+
+
+
+\keywords{Tutte function, Tutte polynomial}
+
+\thanks{Version of \today.}
+
+\maketitle
+\pagestyle{headings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+In this note we propose an extension to the graph and matroid theoretic
+model for network reliability studied by Colbourn and others.
+The classical model characterizes 
+$R(G)$, the reliability polynomial in $p$ of graph $G$, by
+\begin{equation}
+\label{pAdditiveTutteEq}
+R(G)=pR(G/e)+(1-p)R(G\setminus e)\;\;\text{for }e\in E(G),
+\end{equation}
+and
+\begin{equation}
+\label{unportedReliabilityIVs}
+R(G)=\left\{
+ \begin{array}{ll}
+  1 & \text{ if } |E(G)|=0 \text{ and } |V(G)|=1    \\
+  0 & \text{ if } |E(G)|=0 \text{ and } |V(G)|> 1. 
+ \end{array}
+\right.
+\end{equation}
+Here, $E=E(G)$ is the edge set, 
+$V(G)$ is the vertex set,
+and $G/e = G\setminus e$ if $e\in E$ is a loop.
+It is immediate that $R(G)$ equals the probability that the
+random subgraph $(V(G),A)$ is path-connected 
+when the edges $A\subseteq E$ are chosen
+each independently with probability $p$, $0\le p \le 1$.
+($A$ is often called the \emph{state}.) Indeed,
+\begin{equation}
+\label{unportedSetExpansion}
+R(G)=\sum_{A\subseteq E}p^{|A|}(1-p)^{|E|-|A|}\chi(G,A)
+\end{equation}
+where $\chi(G,A)$ is 1 if $(V(G),A)$ is a path-connected graph and 
+$0$ otherwise.  $\chi(G,A)=1$ when 
+$G/A\setminus (E\setminus A)$ is a single vertex graph
+with no edges and 
+$\chi(G,A)=0$ when 
+$G/A\setminus (E\setminus A)$ is a multiple vertex graph
+with no edges.
+
+Our extension is to introduce a set $P$ of distinguished edges
+(perhaps more precisely, edge names) so that 
+equation \eqref{pAdditiveTutteEq} is restricted to apply only
+to $e \not\in P$.  We call $P$ the \emph{set of ports}.  
+For convenience, we use $E(G)$ for the edges of $G$ other than
+ports, and $S(G)$ for all the edges of $G$.  Then,
+to unambigously define $R(G)$, we must combine 
+\eqref{pAdditiveTutteEq} with \emph{initial values}
+$I(Q)$, where each $Q$ is a minor of $G$ obtained by
+contracting some $A\subseteq E$ and deleting
+$E\setminus A$, leaving a multigraph whose edges all
+belong to $P$.  The vertices of $G$ are unlabelled, as are the 
+the vertices of $Q$.  The extension of 
+\eqref{unportedSetExpansion} is
+\begin{equation}
+\label{pSetExpansion}
+R(G)=\sum_{A\subseteq E}p^{|A|}(1-p)^{|E|-|A|}I(G/A|P),
+\end{equation}
+where $G/A|P$ abbreviates $G/A\setminus (E\setminus A)$.
+When $0\le I(G/A|P)\le 1$ is interpreted as a probability, we
+can discuss a probabilistic significance to our ported
+$R(G)$ value.  However, after we give motivations, we
+will discuss another probablistic interpretation in addition
+to this one.
+
+\section{Enter Matroid Theory}
+
+Assume for now $P=\emptyset$.
+It is impractical to compute $R(G)$, either as a polynomial or 
+number for given $p$, even for small graphs of interest
+in practical applications.  Upper and lower bounds on the
+coefficients are therefore desired because, for example,
+\[
+\sum L_k p^k \le R(G) \le \sum U_k p^k
+\]
+when
+\[
+L_k\le c_k \le U_k\text{ and } R(G)=\sum c_k p^k.
+\]
+For the same reason, bounds on the coefficients when
+$R(G)$ is expanded about numbers besides $0$ are useful,
+as will as other information about coefficient behavior.
+Matroid theory has provided such information.
+
+When $G$ is a (non-empty) disconnected graph, $R(G)=0$.  
+Otherwise, $R(G)$ is related to $G's$ graphic matroid, specificially
+through its Tutte polynomial $T(M(G);X,Y)$ via
+\begin{equation}
+R(G)=p^{n-1}(1-p)^{m-n+1}T(M(G);1,\frac{1}{1-p}).
+\end{equation}
+where $m=|E(G)|$ and $n=|V(G)|$.  Combinatorial theory of
+Tutte polynomial of matroids, and specifically graphic matroids,
+has provided information useful for approximating the 
+coefficients in several expansions and other analyses.
+
+The basics of Tutte polynomial theory has been extended to
+$P$-ported and $P$-ported parametrized Tutte functions, where
+restrictions like we gave already on reducing elements in $P$ 
+are applied to Tutte equations for matroids.  
+
+\emph{The goal of our project is to formulate ported extensions of
+the theory that has been successful in helping to
+approximate the non-ported reliability polynomial.}
+
+\subsection{Probability Variables}
+
+Suppose a separate probability variable $0\le p_e \le 1$ is given
+for each $e\in E$.  Take $q_e = 1 - p_e$.  Then \eqref{pAdditiveTutteEq} 
+becomes
+\begin{equation}
+\label{ParampAdditiveTutteEq}
+R(G)=p_eR(G/e)+q_eR(G\setminus e)\;\;\text{for }e\in E(G),
+\end{equation}
+and so, when $e$ is a loop, $R(G)=1\cdot R(G\setminus e)$ and
+when $e$ is a coloop, $R(G)=p_e R(G/ e)$.  In the notation of
+[sdc,emt], $x_e=p_e$, $y_e=q_e$, $X_e=p_e$ and $Y_e=1$.  The
+identities 
+\[
+x_eY_f+y_eX_f = x_fY_e+ y_fX_e = p_e+p_f-p_fq_e,
+\]
+\[
+x_ey_f+y_eX_f = x_fy_e+ y_fX_e = p_eq_f+p_fq_e
+\]
+and 
+\[
+x_eY_f+y_ex_f = x_fY_e+y_fx_e = p_e + p_f - p_ep_f
+\]
+are satisfied.  These imply the satisfaction of the 
+identities shown in [sdc] to be necessary and sufficient
+for a ported parametrized Tutte polynomial to be well-defined
+by the equations
+\[
+R(G) = x_e R(G/e) + y_e R(G\setminus e)\text{ if }e\not\in P
+\text{ is a non-separator,}
+\]
+\[
+R(G) = X_e R(G/e)\text{ if }e\not\in P\text{ is a coloop, and}
+\]
+\[
+R(G) = Y_e R(G\setminus e)\text{ if }e\not\in P\text{ is a loop.}
+\]
+One can also prove the well-definedness of the ported
+reliability polynomial with probability variables from the
+corank-nullity expansion
+\[
+R(G)=\sum_{A\subseteq E}R(G/A|P)
+x_Au^{r(G)-r(G/A|P)-r(A)}
+y_{\scomp{A}}1^{|A|-r(A)}
+\]
+with the values $u=0$ and $v=1$, i.e.,
+\[
+\label{PortedVarProb}
+R(G)\;\;\;=\sum_{A\subseteq E, A\cup P \text{ spans }G}
+R(G/A|P)
+x_A
+y_{\scomp{A}}
+\;\;\;=
+\sum_{A\subseteq E, A\cup P \text{ spans }G}
+R(G/A|P)
+p_A
+q_{\scomp{A}}
+\]
+since 
+$r(G)-r(G/A|P)-r(A)=r(G)-r(P\cup A)$.  This expansion is also expresses
+probabilistic interpretations of the ported reliability polynomial
+with variable probabilities.
+
+\section{Applications}
+
+We know two disparate applications of our ported reliability 
+function extension.
+
+The first is to introduce ports for the purpose of expressing
+variations of basic (all-terminal) reliability, beginning
+with $k$-terminal reliability for $k=2$ and for higher $k$.
+The second is to use ports to to model some edges whose joint
+state probability has a different distribution than that
+of the non-port edges $E$, possibly more complex than
+the product of independent Bernoulli distributions.  Indeed, we
+can express the idea that if one of several edges fails, then
+the others are more likely to fail also, perhaps because the
+other ones are forced to carry more traffic.  It is clear from
+\eqref{PortedVarProb} that when the $R(G/A|P)=R(Q)$ are assigned
+values each signifying the probability that at least one 
+``functioning'' 
+subset $T\subseteq P$ is edge connected in graph $Q$ (whose edge set is $P$),
+then $R(G)$ expresses the all-terminal reliablility.
+
+Example: $P=\{p_1, p_2\}$.  
+
+
+
+
+
+\section{Activities and Boolean Interval Expansions}
+
+Ported Tutte polynomials, including those with parameters,
+have activities and boolean interval expansions in which the
+the terms indexed by matroid bases are generalized to
+terms indexed by so-called $P$-subbases.  
+In this section, we extend known expressions for $R(G)$ 
+in terms of activities and interval partitions of facial
+simplicial complexes to the ported case.  
+We thus extend the known $h$-vector expression for $R(G)$.
+It is convenient
+to work with variable probabilities and then to specialize
+to $p_e=p$.
+
+A $P$-subbasis $F$
+is an independent subset of $E$ for which $F\cup P$ is a spanning
+subset[sdc].  
+
+From [sdc],
+\[
+T^{\mathcal{C}}(M)=
+\sum_{F\in \mathcal{B}_P}[M/F|P]
+%\left(
+\Big(
+\sum_{\substack{
+       IP(F)\subseteq K \subseteq F\\
+       EP(F)\subseteq L \subseteq E\setminus F
+      }}
+ x_{K\cup (E\setminus F\setminus L)}\;
+ v^{\Card{E\setminus F\setminus L}}\;
+ y_{L\cup (F\setminus K)}\;
+ u^{\Card{F\setminus K}}\;\;
+%\right)
+\Big)
+\]
+
+Substituting $u=0$, $v=1$, $x_e=p_e$, $y_e=q_e$, and $[Q]=R(Q)$, we get:
+\[
+R(G)\;\;=
+\sum_{F\in \mathcal{B}_P}R(G/F|P)
+%\left(
+\Big(
+\sum_{\substack{
+       EP(F)\subseteq L \subseteq E\setminus F
+      }}
+ p_{E\setminus L}\;
+ q_{L}
+%\right)
+\Big).
+\]
+
+
+
+
+
+Let's write
+\[
+R(G)=\sum_{A\subseteq E, A\cup P \text{ spans }G}
+R(G/A|P)
+x_A
+y_{\scomp{A}} =
+\sum_{A\subseteq E, A\cup P \text{ spans }G}
+R(G/A|P)
+p_A
+q_{\scomp{A}}
+\]
+as
+\[
+R(G)=\sum_{\text{coindependent }F\subseteq E}
+R(G/\scomp{F}|P)
+p_{\scomp{F}}
+q_F.
+\]
+
+
+\section{Beyond and Beyond}
+The lesson of the Tutte tree methodology applied to ZBR-type 
+theorems for matroids is that the parametrized Tutte identities determine a 
+class of computations and the identities have a solution
+when all computations in the class that start with
+the same input object have the same outcomes.  The lesson
+of the methodology, underscored by its $P$-ported 
+extension, applied to Tutte functions of oriented matroids and to
+graphs is that some useful functions have computations where
+the recursions are constrained by matroid structure but
+the initial values vary with additional structure.
+In the oriented matroid case, the additional structure is
+the orientation.  In the non-ported graph case, the additional
+structure is the number of path-connected components.  
+
+This observation suggests we investigate values associated
+with a Tutte tree (equivalently, a choice of applications
+of Tutte equations to objects obtained recursively) in 
+ways more general than the polynomial of monomials determined
+by the activity status of the elements along each root-to-leaf path.
+For example, each path may contribute a product (monomial)
+where the factor corresponding to a separator (loop or coloop)
+\emph{depends on structure of the object on which
+a deletion/contraction reduction produces a separator
+in the resulting minor}.   
+Here, the coloop becomes  internally active 
+along the path in which it occurs, or the loop becomes 
+externally active along the path in which it occurs.
+
+As before, the value would be well-defined
+if \emph{all computation trees} produce the same
+value under the given set of rules.  Are there 
+rules leading to well-defined function
+for which the factor due to an active element
+varies with the object in which it becomes
+active?
+
+Does the computation tree represent a sample
+in a random process?  Might it correspond to
+a process in which network elements are 
+chosen to be utilized (or reserved for use)
+and then found to be functioning or not?
+
+Is there a notion of a random Tutte computation
+tree?  I.E., a tree that evolved (grew) from
+a process in which one of the non-separators
+is picked for reduction at each node on the
+tree-growth boundary?
+
+
+\end{document}
