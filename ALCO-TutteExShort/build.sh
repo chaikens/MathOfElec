@@ -2,9 +2,9 @@
 
 touch gitcommit
 
-pdflatex ExtAlgTFLMatPairs.tex || exit
+pdflatex ExtAlgNew.tex || exit
 
-bibtex ExtAlgTFLMatPairs.aux || exit
+bibtex ExtAlgNew.aux || exit
 
 cat > gitcommit <<EOF
 \begin{verbatim}
@@ -18,8 +18,9 @@ cat >> gitcommit <<EOF
 
 EOF
 
-pdflatex ExtAlgTFLMatPairs.tex
-pdflatex ExtAlgTFLMatPairs.tex
+pdflatex ExtAlgNew.tex
+pdflatex ExtAlgNew.tex
+
 
 
 
