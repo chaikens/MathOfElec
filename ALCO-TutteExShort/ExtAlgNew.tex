@@ -1,0 +1,223 @@
+%% The class cedram-ALCO is just a wrapper around amsart.cls (version 2)
+%% implementing the layout of the journal, and some additionnal
+%% administrative commands. 
+%% You can place one option:
+%% * "Unicode" if the file is UTF-8 encoded.
+\documentclass[Unicode]{cedram-alco}
+
+
+\usepackage{xcolor}
+
+
+%% Here you might want to add some standard packages if those
+%% functionnalities are required.
+%\usepackage[matrix,arrow,tips,curve]{xy}
+% ...
+%% The production will anyway use amsmath (all ams utilities except
+%% amscd for commutative diagrams which you need to load explicilty if
+%% required), hyperref, graphicx, mathtools, enumitem...
+
+%% User definitions if necessary...  Such definitions are forbidden
+%% inside titles, abstracts or the bibliography.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %Something useful only for this sample's sake: you can erase this line in your file (or find it useful...)
+%% The title of the paper: amsart's syntax. 
+\title
+%% The optionnal argument is the short version for headings.
+[Exterior Algebra Tutte Functions]
+%% The mandatory argument is for the title page, summaries, headings
+%% if optionnal void.
+{An Exterior Algebra Valued Tutte Function on Linear Matroid Pairs}
+
+%% Authors according to amsart's syntax + distinction between Given
+%% and Proper names:
+\author[\initial{S.} \middlename{} Chaiken]{\firstname{Seth} \middlename{} \lastname{Chaiken}}
+
+%% Do not include any other information inside \author's argument!
+%% Other author data have special commands for them:
+\address{University at Albany\\
+  State University of New York\\
+Computer Science Department\\
+1400 Washington Avenue\\
+Albany, NY 12222 (USA)}
+
+%% Current address, if different from institutionnal address
+\curraddr{18 Eileen Street\\
+Albany, NY 12203 (USA)}
+
+
+%% e-mail address
+\email{schaiken@albany.edu}
+
+%% possibly home page URL (not encouraged by journal's style)
+%\urladdr{https://en.wikipedia.org/wiki/Marin\_Mersenne}
+
+%% Acknowledgements are not a footnote in
+%% \author, but are given apart:
+%\thanks{The author was partially supported by a special grant for Junior Woodchucks.}
+
+
+%% If co-authors exist, add them the same way, in alaphabetical order
+%\author{\firstname{Joseph}  \lastname{Fourier}}
+%\address{Universit\'e de  Grenoble\\
+% Institut Moi-m\^eme\\
+% BP74, 38402 SMH Cedex (France)}
+%\email{fourier@fourier.edu.fr}
+
+% Key words and phrases:
+\keywords{Tutte Functions, Exterior Algebra, Laplacian, Electrical Networks}
+  
+
+%% Mathematical classification (2010)
+%% This will not be printed but can be useful for database search
+\subjclass{10X99, 14A12, 11L05}
+
+%mycommands
+
+%Matroid Variable--converts a matroid to a variable.
+\newcommand{\MVar}[1]{
+  \setlength\fboxrule{1.5pt}
+  \setlength\fboxsep{1.5pt}
+  {\;\framebox{\ensuremath{#1}}\;}}
+
+
+\newcommand{\ext}[1]{\ensuremath{\mathbf{#1}}}
+%\newcommand{\extvee}{\ensuremath{\mathbf{\vee}}}
+\newcommand{\extvee}{\;\;}
+\newcommand{\Plucker}{Pl\"{u}cker\ }
+
+\newcommand{\Nal}{\ensuremath{N_{\alpha}}}
+\newcommand{\NbePe}{\ensuremath{N_{\beta}^{\perp}}}
+\newcommand{\eNal}{\ensuremath{\ext{N}_{\alpha}}}
+\newcommand{\eNbePe}{\ensuremath{\ext{N}_{\beta}^{\perp}}}
+\newcommand{\eNbe}{\ensuremath{\ext{N}_\beta}}
+\newcommand{\Nbe}{\ensuremath{N_\beta}}
+
+\newcommand{\Is}{\ensuremath{\iota}}
+\newcommand{\Vs}{\ensuremath{\upsilon}}
+
+
+%Emphasize in color!
+\newcommand{\Remph}[1]{{\color{red}#1}}
+\newcommand{\Bemph}[1]{{\color{blue}#1}}
+
+\newcommand{\alert}[1]{{\color{red}#1}}
+
+
+
+%\newcommand{\dunion}{\uplus}
+\newcommand{\dunion}{\coprod}
+
+\newcommand{\extLVert}[2]{\ext{L}\left( \begin{array}{c} {#1}\\ {#2} \end{array} \right)}
+\newcommand{\extLVertSub}[3]{\ext{L}_{#1}\left( \begin{array}{c} {#2}\\ {#3} \end{array} \right)}
+\newcommand{\extLHor}[2]{\ext{L}\left( {#1}; {#2} \right)}
+\newcommand{\extLHorSub}[3]{\ext{L}_{#1}\left(  {#2}; {#3}  \right)}
+
+\newcommand{\LVert}[2]{\ext{L}\left( \begin{array}{c} {#1}\\ {#2} \end{array} \right)}
+\newcommand{\LVertSub}[3]{\ext{L}_{#1}\left( \begin{array}{c} {#2}\\ {#3} \end{array} \right)}
+\newcommand{\LHor}[2]{\ext{L}\left( {#1}; {#2} \right)}
+\newcommand{\LHorSub}[3]{\ext{L}_{#1}\left(  {#2}; {#3}  \right)}
+
+
+
+
+\definecolor{Blue}{rgb}{.255,.41,.884} % RoyalBlue of svgnames
+\definecolor{Red}{rgb}{1, 0, 0} % Red of svgnames
+\definecolor{Green}{rgb}{.196,.804,.196} % LimeGreen of svgnames
+\definecolor{Yellow}{rgb}{1,.648,0} % Orange of svgnames
+
+
+
+
+
+\begin{document}
+%% Abstracts must be placed before \maketitle
+\begin{abstract}
+ The matrix tree theorem expresses the basis enumeration Tutte function
+(spanning tree count of connected graphic matroids) as a
+determinant--a minor of the graph's Laplacian. We will generalize the
+choice of a root vertex for the trees by distinguishing a fixed set $P$
+of $p$ matroid elements, which we will call ports, a word from
+engineering. We then define a function from $K$-linear matrix
+representations of matroid pairs ($N_{\alpha},N_{\beta})$
+(often $N_{\alpha}=N_{\beta}$) whose ground sets
+include $P$, into pure (decomposible)
+exterior algebra elements which represent points in the Grassmannian of $p$ dimensional $K$-linear subspaces
+of $K^{(2p)}$. We express this subspace value as a decomposible
+(i.e. product of vectors) element in the exterior algebra (of
+anti-symmetric tensors) over $K^{(2p)}$, in a standard way.  The result is
+a restricted or set-pointed Tutte function $\ext{L}_E(N_{\alpha},N_{\beta})$
+that
+satisfies sign-corrected forms of the two familiar identities for
+deletion/contraction of elements not in $P$, and for disjoint
+union. Note that these identities are in exterior algebra, whose
+multiplication is anti-commutative. This generalizes the all-minors
+directed graph matrix tree theorem (proved combinatorially by the
+author) because those minors are the coefficients in the expansion of
+$T$'s value over the standard basis--they are the standardized \Plucker
+coordinates for the dimension $p$ subspace $T$'s value represents.  An
+unusual feature for this Tutte-like function is that when $K$ is ordered
+so the matroids are oriented, $T$ can distinguish different orientations
+of the same matroid.  
+\end{abstract}
+
+
+\maketitle
+
+% First paragraph after a section is not indented. If there is text
+% below the title before the first section, it should be unindented
+% like this.
+\noindent
+\input{gitcommit}
+
+
+
+\section{Introduction}
+
+
+The subject of Tutte functions is one of the most prominent
+in classical and contemporary discrete mathematics. Recent
+developments have been made in algebraic frameworks which provide
+grounds for multiple function domains and analogies,
+and for studies of convolutions.
+It might therefore be interesting to see some Tutte functions valued
+in exterior algebras.  Unlike the classical and recently employed frameworks
+we are aware of, 
+exterior algebras \cite{MarcusFDMuAlPt2} have \emph{anticommutative} multiplication.
+
+Our construction depends on equipping vector spaces with particular
+bases. Such a base $S$ can be identified with a matroid's ground set.
+Later we explore consequences of further distinguishing some basis elements
+$p\in P$ (we call ``ports'')
+so deletion and contraction are restricted away from such
+$p$\cite{MR0419272,SetPointedLV,sdcPorted,TutteEx,RelTuttePolyDiaoHetyei}.
+It does no
+harm to take the concrete point of view and consider elements of
+$S$ to be coordinates; more accurately, \emph{names} or
+\emph{labels} for coordinates.  This is how a matrix $N$ represents a matroid
+whose ground set $S$ is comprised of the labels of the matrix columns.  This matroid is
+also represented the subspace $\mathcal{N}$ of $KS$ (over $K$)
+generated by the (linear combinations over $S$ encoded by the) rows.  Therefore,
+$N$ will be assummed to have full row rank.
+
+Let the pure tensor $\mathbf{N}$
+determined $\mathcal{N}$ be defined
+by the exterior product 
+of the rows of $N$, up to non-zero $K$ multiples.  Its 
+decomposition begins but does not completely fulfill a Tutte function analogy:
+\begin{equation}\label{extDaC}
+  \text{for all } e \in E, \mathbf{N} =
+  \mathbf{e}\wedge(\mathbf{N}/\mathbf{e}) +
+  (\mathbf{N}\setminus \mathbf{e}).
+\end{equation}
+These \emph{contraction} and \emph{deletion} operations are defined up to sign
+by extending the vector space operations of projecttion and quotient
+(by subspace $<\mathbf{e}>$) to exterior algebra.  (We will adopt comventions
+to make (\ref{extDaC}) an identity.)
+
+
+\bibliographystyle{amsplain-ac}
+\bibliography{ExtAlgTFLMatPairs}
+
+
+\end{document}
+
