@@ -180,20 +180,43 @@ developments have been made in algebraic frameworks which provide
 grounds for various function domains and analogies,
 and for analysis of convolutions.
 It might therefore be interesting to see some Tutte functions valued
-in exterior algebras.  Unlike the classical and recent frameworks
+in exterior algebras.  The arguments of the Tutte functions we present
+are restricted to linear matroid representations.
+But, unlike the classical and recent frameworks
 we are aware of, 
 exterior algebras \cite{MarcusFDMuAlPt2} have \emph{anticommutative} multiplication.
+Furthermore, our Tutte function values are all pure (or indecomposable),
+and as such they represent points in a Grassmannian.
+
+We will see how the subspaces they
+so represent are derived from the function argument subspaces.  We first formulated
+our construction
+by combining a representation with its dual
+(i.e. orthogonal complement, which is well-known to represent the dual matroid).
+There is little extra work to do it for any pair of complementary rank matroid
+representations.  By dualizing one of the pair, the pair is transformable to
+a pair of not necessarilly equal representations of equal rank.  We will therefore
+define our functions on suitable \emph{pairs} of representations.
 
 As usual, a matroid representation is a subspace
 of a vector space equipped with a particular basis $S$, which is 
-identified with the matroid's ground set.  Let $P \subseteq S$.
-Our exterior
+identified with the matroid's ground set.  In what we present,
+to get non-trivial exterior algebra values, it is necessary to
+distinguish some elements $P\subset S$; the generators of the exterior algebra containing
+the Tutte function value will turn out to be the union of two disjoint copies of $P$: $P_{\alpha} \cup P_{\beta}$.
+When the pair is formed from two identical matroid representations, our exterior
 algebra valued Tutte function emerges as a restriction, to represented matroids,
 of a specialization of
 the so-called relative, set-pointed, or what we call ``$P$-ported''
 Tutte functions \cite{MR0419272,SetPointedLV,sdcPorted,TutteEx,RelTuttePolyDiaoHetyei}.
 These functions obey the deletion-contraction
-identity only for $e\not\in P$.  But we will first describe some motivations leading to
+identity only for $e\not\in P$.
+When the two components of the pair are not equal, our Tutte function is found
+to be a specialization of the $P$-ported version of the universal Tutte function for a pair 
+of matroids found by Welsh and Kayibi \cite{WelshKayibiLinking}.
+
+
+We will now first describe some motivations leading to
 the case when $P=\emptyset$.  Then, the exterior algebra just the underlying (commutative)
 field.
 
@@ -206,14 +229,18 @@ Now the well-known Matrix-Tree theorem
 is the fact that the determinant $|N N^t|$ of the
 reduced Laplacian matrix equals the number of bases, i.e. maximal forests.
 
-The directed graph version of the Matrix-Tree theorem asserts that rooted maximal directed forests
-(sometimes called branchings of arborescences) are emumerated by the similar matrix
-$|N_1 (N_2)^t|$.  Here, the 0-1 matrix $N_2$ encodes the incidences of heads of edges to
+The directed graph version of the Matrix-Tree theorem asserts that
+rooted maximal directed forests
+(sometimes called branchings of arborescences) are enumerated by
+$|N_1 (N_2)^t|$, a non-symmetric directed graph analogy of the Laplacian.
+Here, the 0-1 matrix $N_2$ encodes the incidences of edge heads to
 vertices except for the root vertices, and $N_1$ is the $\pm 1$-entry incidence matrix
-resticted as was $N_2$ to the non-root vertices.
+restricted as was $N_2$ to the non-root vertices.
 This directed graph generalization 
-naturally leads us to construct our
-Tutte functions for \emph{pairs} of matroid representations.    
+is a natural application of the construction 
+for \emph{unequal} \emph{pairs} of matroid representations.  (A partition matroid encodes the
+edge to head vertex incidences and the graphic matroid encodes that the enumerated subgraphs
+are forests.)
 
 \input{introclue.tex}
 
