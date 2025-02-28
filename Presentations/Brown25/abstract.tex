@@ -1,0 +1,32 @@
+\documentclass{article}
+\begin{document}
+Let $N$ be a linear representation (i.e, matrix) of a matroid whose ground
+set $S$ includes a finite, distinguished subset $P$.  We give
+function $L(N)$ that, unlike other Tutte functions and variations such as the 
+Hopf algebraic framework
+of
+Krajewski, Moffatt and Tanasa
+for analogues of Tutte functions we know of, has values
+in an \emph{anti-commutative} algebra. Let deletion and contraction be limited
+to $e\not\in P$.  Then, the values are in the exterior algebra generated
+by $P_\alpha \coprod P_\beta$.  The construction relies on concrete minor operations
+to establish consistent signs of the constituent terms so that, with suitable
+accounting for sequential orderings of set elements, $L(N)=L(N\setminus e)+L(N/e)$
+in the exterior algebra. Our construction is derived from the structure of
+the equilibrium equations for linear electrical networks, and of their generalization
+to multi-dimensional elastic frameworks.  Further, the construction does not
+require orthogonality for the spaces that generalize spaces of feasible currents and voltages,
+or of forces and displacements.  Hence $L$ will be defined on equal rank pairs $(N_\alpha, N_\beta)$
+(where originally, $N_\alpha=N_\beta=N$).  We take the Tutte identities those for Welsh and Kayibi's
+linking polynomial of matroid pairs. With $N_\alpha\neq N_\beta$, we can derive the digraph
+all-minors matrix tree theorem by taking $P$ to be the set of vertices.  Similarly, we can
+derive common basis expansion form solutions for
+linear electrical and other linear systems with multi-terminal amplifiers (where a voltage or force
+at one place is a multiple of current or displacement at a different place).  To incorporate
+resistance ($r_e$), conductance ($g_e$), elasticity constant, etc. parameters, we use parametrized
+Tutte function theory
+for which $L(N)=r_e L(N\setminus e)+ g_e L(N/e)$; the
+term for basis $B$ of the common basis expansions includes
+$\prod _{e\in B} g_e \prod _{e\not\in B} r_e$.
+
+\end{document}
