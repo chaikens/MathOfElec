@@ -1,0 +1,166 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\begin{document}
+
+\begin{frame}
+
+
+  \( \displaystyle  {N_\alpha}_{i j} {\color{red}\mathbf{p_{\alpha j}}} \)
+
+  \( \displaystyle  {N_\alpha}_{i j} \mathbf{\widehat{e_j}} \)
+
+  \( \displaystyle  {N_\beta}_{i j} {\color{green}\mathbf{\widehat{p_{\beta j}}}} \)
+
+  \( \displaystyle  {N_\beta}_{i j} \mathbf{e_j} \)
+
+  { $\displaystyle {\color{red}\mathbf{p_{\alpha j}}},
+    {\color{green}\mathbf{p_{\beta j}}}, \mathbf{e_j}:$ free generators, space basis elements }
+
+  { \( \displaystyle 0 \) }
+
+  \( \displaystyle \left( \;\;\; | \;\;\; \right) \)
+
+  
+
+ { $N_\alpha,N_\beta \rightarrow$ matroid rep. matrices. }
+
+
+
+{ \( \displaystyle \bigwedge\left(
+ \text{\begin{tabular}{c} row \\ sums 
+ \end{tabular}} \right) \) }
+
+
+ 
+{ \( \left( \mathbf{\widehat{e_i}} | \mathbf{e_j} \right) 
+  = \delta^i_j \) }
+
+
+
+{ \( \left( \mathbf{\widehat{e_{i_1}}\widehat{e_{i_2}}\ldots\widehat{e_{i_k}}} |
+             \mathbf{e_{j_1}e_{j_2}\ldots e_{j_k}} \right) 
+             = \delta^{i_1 i_2 \ldots i_k}_{j_1 j_2 \ldots j_k} \) }
+
+
+{ \(
+  \left(
+       {\color{red}\mathbf{p_{\alpha i}}}  \ldots
+       |
+       {\color{green}\mathbf{\widehat{p_{\beta j}}}}  \ldots
+  \right) 
+  =
+  { \color{red}\mathbf{p_{\alpha i }}}
+  \wedge 
+  {\color{green}\mathbf{\widehat{p_{\beta j}}}}
+  \left( \ldots | \ldots \right)
+  \)
+}
+
+ { \(
+  \left(
+       {\color{red}\mathbf{p_{\alpha i}}}  \ldots
+       |
+       {\color{green}\mathbf{\widehat{p_{\beta j}}}}  \ldots
+  \right) 
+  \) =
+  }
+
+{ \(
+  { \color{red}\mathbf{p_{\alpha i}}}
+  \wedge 
+  {\color{green}\mathbf{\widehat{p_{\beta j}}}}
+  \left( \ldots | \ldots \right)
+  \)
+}
+
+\end{frame}
+
+\begin{frame}
+
+
+  {
+    \(
+    \mathbf{L}_E(\mathbf{N_\alpha; N_\beta}) =
+    \mathbf{L}_{E\setminus e}(\mathbf{N_\alpha\setminus e; N_\beta\setminus e})
+    +
+    \mathbf{L}_{E\setminus e}(\mathbf{N_\alpha/ e; N_\beta/ e})
+    \)
+  }
+
+  {
+    \(
+    \mathbf{L}_E(\mathbf{N_\alpha; N_\beta})
+    \)
+  }
+  {
+    \(
+    =
+    \mathbf{L}_{E\setminus e}(\mathbf{N_\alpha\setminus e; N_\beta\setminus e})
+    +
+    \mathbf{L}_{E\setminus e}(\mathbf{N_\alpha/ e; N_\beta/ e})
+    \)
+  }
+
+
+
+
+  {  \(
+    =
+    \sum_{F\subseteq E}[\mathbf{N_\alpha}/F|{\color{red}{P_\alpha}}]\wedge
+        [\mathbf{N_\beta}/F|{\color{green}{\widehat{P_\beta}}}]
+     \)
+  }
+
+  {  \(
+    =
+    \sum_{F\subseteq E}[\mathbf{N_\alpha}/F|{\color{red}{P_\alpha}}]\wedge
+        [\mathbf{N_\beta}/F|{\color{green}{\widehat{P_\beta}}}]
+        =
+        \sum_{F\subseteq E}( [\mathbf{N_\alpha}/F|{\color{red}\mathbf{P_\alpha}}]
+        \;\;\;|\;\;\; [\mathbf{N_\beta}/F|{\color{green}\mathbf{\widehat{P_\beta}}}] )
+     \)
+  }
+
+  {
+    \(
+  =
+        \sum_{F\subseteq E}( [\mathbf{N_\alpha}/F|{\color{red}{P_\alpha}}]
+        \;\;\;|\;\;\; [\mathbf{N_\beta}/F|{\color{green}{\widehat{P_\beta}}}] )
+     \)
+  }
+
+
+  { \( \displaystyle \mathbf{N_\alpha} \) }
+
+    { \( \displaystyle \mathbf{N_\beta} \) }
+
+  \( \displaystyle \left( \mathbf{N_\alpha} | \mathbf{N_\beta} \;\;\; \right) \)
+
+
+
+  { \(
+    \in
+    \bigwedge {\color{red}{P_\alpha}} \cup {\color{green}{\widehat{P_\beta}}}
+    \)
+  }
+
+
+  { Like $|$Graph Laplacian$|=|I\;I^t|=\sum_{F\subseteq E}|I(F)|^2$}
+  
+  {$\sum_{T:\text{span. tree}}1$ Cauchy-Binet expansion. }
+  
+    
+    
+
+
+
+
+
+
+
+  
+\end{frame}
+\end{document}
+
