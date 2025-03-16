@@ -1,0 +1,152 @@
+\documentclass[14pt]{extarticle}
+\usepackage{amsmath}
+\setlength{\textwidth}{7.5in}
+\setlength{\hoffset}{-1.0in}
+\setlength{\voffset}{-1.2in}
+\setlength{\textheight}{9.8in}
+
+\usepackage{enumitem}
+\setlist{itemsep=3pt}
+\renewcommand{\baselinestretch}{0.95}
+
+\begin{document}
+
+{\bf
+  \begin{itemize}
+  \item We start with two matrices, $N$-Alpha and Beta.  The matroids
+    they represent have the $\mathbf{p}$ \& $\mathbf{e}$ symbols, hatted or
+    not hatted, for their ground set elements.  For now, think of the
+    row spaces.
+
+  \item We make two exterior algebra elements,  boldface
+    $\mathbf{N}$-Alpha and Beta to represent the row spaces.
+
+  \item We construct function $L$ of those
+    $\mathbf{N}$-Alpha and Beta, ... by 
+    kind of composition or bilinear pairing ... 
+  $\mathbf{N}\text{-Alpha} \text{\;\;bar\;\;} \mathbf{N}\text{-Beta}$.
+
+  \item This bilinear operation has exterior algebra,
+    not field or commutative ring values. 
+
+\item Result 1 is that $L$ obeys Tutte's deletion and contraction identity:  BUT
+  only for $e$ type elements, not the $p$'s.  
+
+\item There is also a direct sum identity ... $L$ of a direct sum is an exterior product, not
+  a commutative ring product.
+
+\item We have TO CAREFULLY DEFINE the exterior algebra operations for deletion \&
+  contraction \& direct sum so the signs in the $L$--s we combine are consistent.
+
+\item Here is more background.
+  
+\item
+  As pure, ... or indecomposable anti-symmetric tensors, ... that is 
+  products of vectors, the boldface
+  $\mathbf{N}$--s represent linear subspaces of a big space generated
+  by matroid ground set elements and their hatted versions.  
+
+\item  So with these designated bases, related to ground sets, we get duals of basis vectors.
+  I'll say how the duals are used after relating these things to matroids.
+
+\item
+  $\mathbf{N}$-Alpha \& Beta represent points in the
+  Grassmannian, and have Plucker coordinates.
+
+\item
+  The Plucker coordinates are the maximal minors of the matrices.
+
+\item
+So, the matroid bases are encoded by which Plucker coordinates are non-zero.
+
+\item
+Back to the constuctions.  I multiply each column's boldface symbol with its entries.
+
+\item
+  What are the boldface $\mathbf{N}$--s?
+  They are the exterior products of the row sums.
+
+\item
+  Finally $L$ equals the bilinear pairing or composition on these two.
+
+\item
+  I find it interesting that, ... in order to get a Tutte function out
+  of this, it seems require two special things.
+
+\item
+One is to make the Tutte function relative, ... to the set of ports $P$.
+
+\item
+  We need them because the $\mathbf{e}$---s  disappear when they are contracted or deleted.
+
+\item
+  I like to call the distinguised elements ports. ... We never delete or contract them.
+
+%\item
+%  Those port elements in the exterior algebra are vectors, and the hatted
+%  ones are covectors, ie., 1-forms or dual vectors.
+
+\item In applications, ports relate to variables used to specify inputs
+  or parameters, ... like how much you push on nodes with forces or electric currents,
+  and responses, ... like how the nodes move, or change their voltages.
+
+\item But this setup, you can interchange inputs and responses ANY WAY that the
+  relevant matroids encode is feasible and well-posed.  Electrical engineers would
+  call $L$ a MULTIPORT LINEAR DEVICE model.
+
+  %The cascade form of two ports has at the first port both the voltage and current for independent, input
+  %variables and at the second port, both the voltage and current are response variables. (Not for a
+  %lighting talk, just thinking.)
+
+\item
+  Two, it seems this exterior algebra Tutte function needs to be constructed on 
+  two arguments, labelled $\alpha$ \& $\beta$.
+
+\item
+  We recover the basis enumerator when the two are equal and $P$ is empty.  It
+  is the sum of squared determinants though, not always ones.
+
+\item Now for the final step.
+
+\item
+  To define the final bilinear pairing function 
+  we distinguish 
+  four kinds of generators:\\
+  vector $\mathbf{e}$'s, vector $\mathbf{p}$'s and
+dual vector $\widehat{\mathbf{e}}$ hats and $\widehat{\mathbf{p}}$ hats.  
+
+\item
+  It's defined here \emph{WITH} these rules for algebra basis monomials.  Dual vectors
+  in the left evaluate on vectors in the right, but reverse that ... and
+  they behave like anticommutative coefficients.
+
+\item
+  The $\mathbf{N}$--s mix vectors and dual vectors ... they represent linear mappings.
+  The hatted and unhatted status of $p$--s and $e$--s are interchanged.
+  $\mathbf{N}_\beta$ is like the adjoint of $\mathbf{N_\alpha}$.  So ... the
+  bilinear pairing is composition of mappings  ... like matrix multiplication.
+
+\item
+  Therefore ... I call this the Cauchy-Binet form.  We get result 2.  The common
+  independent set expansion here hides many common basis expansions.  One of them
+  is the famous matrix tree theorem.
+
+\item
+  In my old writeup, I start with $\mathbf{N}$-Alpha, exterior multiply it by the DUAL of
+  $\mathbf{N}$-Beta,
+  and finally contract all the $e$--s.  A non-zero exterior product is disjoint subspace join, and
+  contraction is projection. I call that the Laplace form.  
+
+\item
+  I finish with some take-homes and morals, and my name, Seth Chaiken
+  of Albany, NY.
+  Three punchlines:  One, ports are IM-PORT-ANT.
+  Two, let's do matroid recursion on matrices in exterior algebra.
+  Three, we find a Tutte function there.
+  Thank you!
+  \end{itemize}
+}
+
+\end{document}
+
+
