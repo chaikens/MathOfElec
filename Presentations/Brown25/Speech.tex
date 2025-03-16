@@ -7,26 +7,28 @@
 
 \usepackage{enumitem}
 \setlist{itemsep=3pt}
-%\renewcommand{\baselinestretch}{0.90}
+\renewcommand{\baselinestretch}{0.95}
 
 \begin{document}
 
 {\bf
   \begin{itemize}
-  \item Here $N_\alpha$ and $\beta$, the 2 matrices we start with.
+  \item Here are $N_\alpha$ and $\beta$, the 2 matrices we start with.
     They represent two matroids.  The \textbf{p}---s \&
-    \textbf{e}---s are ground set elements.  But think of the row spaces for now.
+    \textbf{e}---s, unhatted and hatted forms, are ground set elements.
+    But for now, think of the row spaces.
 
-\item We make two exterior algebra elements to represent those row spaces:
-   boldface $\mathbf{N_\alpha}$ \& $\mathbf{N_\beta}$.
+  \item From each matrix we make an exterior algebra element, denoted in boldface,
+    to represent its row space.
 
-\item We construct a Tutte Function $L$ of those two things by a kind of bilinear pairing
+  \item We construct a Tutte Function $L$ of those two elements by a
+    kind of bilinear pairing ... 
   $\mathbf{N_\alpha} \text{\;\;bar\;\;} \mathbf{N_\beta}$:
 
-\item But this bilinear function has exterior algebraic, not field or ring values. 
+\item But this bilinear function has exterior algebra, not field or ring values. 
 
-\item Result 1 is that $L$, as a function of pair $\mathbf{N_\alpha}$ \&
-  $\mathbf{N_\beta}$ obeys result ONE, Tutte's deletion and contraction identity:  BUT
+\item Result 1 is that $L$, as a function of $\mathbf{N_\alpha}$ \&
+  $\mathbf{N_\beta}$ obeys Tutte's deletion and contraction identity:  BUT
   only for $e$ type elements, not the $p$'s.
 
 \item I omit the direct sum identity, but its product is exterior, not
@@ -38,13 +40,13 @@
 \item Here's some more background.
   
 \item
-  As pure, ... or indecomposabale anti-symmetric tensors, ... that is 
+  As pure, ... or indecomposable anti-symmetric tensors, ... that is 
   products of vectors, the boldface
-  $\mathbf{N}$s represent linear subspaces over the
-  basis comprised of the matroids' ground sets.
+  $\mathbf{N}$--s represent linear subspaces of the big space generated
+  by matroid ground set elements and their hatted copies.  
 
-\item The ground elements correspond to the boldface $\mathbf{p}$ \&
-  $\mathbf{e}$ vectors, ... or dual vectors when they have hats.
+\item  Having a basis related to ground set elements, we will in a moment
+  consider the unhatted and hatted versions to be vector duals.
 
 \item
   So, $\mathbf{N_\alpha}$ \& $\mathbf{N_\beta}$ represent points in the
@@ -57,14 +59,14 @@
 So, the matroid bases are encoded by which Plucker coordinates are non-zero.
 
 \item
-I multiply a column's boldface symbol with every numeric entry.
+I multiply each column's boldface symbol with its entries.
 
 \item
   What are the boldface $\mathbf{N}$s?
   They are the exterior products of the row sums.
 
 \item
-  Finally to get $L$ I use the bilinear pairing on the two $\mathbf{N}$s.
+  Finally to get $L$ I use the bilinear pairing on the two $\mathbf{N}$--s.
 
 \item
   I find it interesting that, ... in order to get a Tutte function out
@@ -75,46 +77,49 @@ One is to make the Tutte function relative, ... to the set of ports $P$.
 
 \item
   We need that in order to get a non-trivial exterior algebra
-  for the Tutte function values to live in.
-
-\item The $\mathbf{e}$---s  disappear when they are contracted or deleted.
+  value because the $\mathbf{e}$---s  disappear when they are contracted or deleted.
 
 \item
   I like to call the distinguised elements ports. ... We never delete or contract them.
 
-\item
-  Those port elements in the exterior algebra are vectors, and the hatted
-  ones are covectors, ie., 1-forms or dual vectors.
+%\item
+%  Those port elements in the exterior algebra are vectors, and the hatted
+%  ones are covectors, ie., 1-forms or dual vectors.
 
 \item In applications, ports relate to variables used to specify inputs
   or parameters, ... like how much you push on a node with force or an electric current,
-  and responses, ... like how much every node moves, or change its voltage.
+  and responses, ... like how much every node moves, or changes its voltage.
 
 \item
-  Two, it seems the Tutte function needs pairs,
-  $\mathbf{N_\alpha}$ ... $\mathbf{N_\beta}$.
+  Two, it seems this exterior algebra Tutte function needs to be constructed using
+  two arguments, which I labelled $\alpha$ \& $\beta$.
 
 \item
-  We recover the basis enumerator with $P$ empty and
- $\mathbf{N_\alpha}$ ... $\mathbf{N_\beta}$.
+  We recover the basis enumerator when the two are equal and $P$ is empty.  It
+  is the sum of squared determinants though, not always ones.
+
+\item Now for the final step.
 
 \item
-  The bilinear pairing in the final step to construct $L$ ... 
-  is defined after distinguishing 
+  To define the final bilinear pairing function 
+  we distinguish 
   four kinds of generators:\\
   vector $\mathbf{e}$'s, vector $\mathbf{p}$'s and
 dual vector $\widehat{\mathbf{e}}$ hats and $\widehat{\mathbf{p}}$ hats.  
 
 \item
-It's defined on the slide \emph{WITH} these rules for algebra basis monomials.
+  It's defined here \emph{WITH} these rules for algebra basis monomials.  Covectors
+  on the left kind act on vectors on the right, but reverse that ... and
+  they behave like anticommutative scalars.
+
 
 \item
-  I found this very recently, ... a pairing that should return algebra values
-  instead of ring values.  I'd appreciate pointers if anyone recognizes
-  something like it.
+  I found this very recently, ... an algebra valued, not scalar valued bilinear
+  function on tensors or their relatives.  I'd appreciate any pointers.
+  I also must ask some physicists.
 
 \item
-I call $L$'---s construction the Cauchy-Binet form because of the expansion in result 2.
+I call $L$-'-s construction the Cauchy-Binet form because of the expansion in result 2.
 
 \item
 A while ago I defined $L$ from $\mathbf{N_\alpha}$, and the DUAL of $\mathbf{N_\beta}$.
