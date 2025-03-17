@@ -11,76 +11,59 @@
 
 \begin{document}
 
-TOO LONG AT ABT 6 min.
 
 
 {\bf
   \begin{itemize}
-  \item On the Mass Pike from Albany, I found a better title:  Forest Counting Laplacian
-    Minors Lift to Exterior Algebra Tutte Functions.
 
   \item The math at the bottom reviews how the Cauchy-Binet theorem proves a graph's Laplacian
-    determinant counts spanning trees.
+    determinant counts spanning trees.  We present a broad linear algebra framework for this. 
 
-  \item Applied to minors, it shows that each minor counts forests with
-    constraints on whether some vertices must
-    be in different trees, forcing pairs of vertices to be in the same tree.
-
-    \item At least ... when terms don't cancel.
-
-    \item I see in first order stiffness theory, ... matrices like the Laplacian, ...
+  \item I see in Connelly and Guest's new book that
+    in first order stiffness theory, ... there are matrices like the Laplacian, ...
       and Poisson and Dirichlet type problems.
-
-      \item
-    With generic constants for electrical conductance, ... analogous to Hooke's law constants, there's no
-    cancellation.
 
   \item I'd be very happy to meet collaborators to help go from my electrical network
     thinking with its one-dimensional voltages and currents to the higher dimensional
-    world of this workshop.
+    world of this workshop, and see what problems are analogous to electrical ones.
 
-  \item Basically, the exterior algebra Tutte function values package Plucker coordinates.
+  \item Briefly,  (1) solution matrices can be encoded in pure exterior algebra elements, (2) As such,
+    they package Plucker coordinate values, and (3) the solution is a Tutte function of a class
+    of problems.
 
   \item
     Entries in solution matrices for nice electrical network analyses ... and also larger minors
-    in those matrices ... turn out to be ratios of Plucker coordinates of our extensor function
-    values.
+    in those matrices ... turn out to be ratios of those Plucker coordinates. 
 
     \item I conjecture that's true and might be interesting for stiffness problems.
     
   \item Now some details.
       
-  \item We start with two matrices, $N$-Alpha and Beta.  The resulting matroids
-    have for their elements a mixture of hatted and not-hatted, ...  $\mathbf{p}$ \& $\mathbf{e}$ type
+  \item We start with two matrices, $N$-Alpha and Beta.  Their matroids
+    have for their elements a mixture of hatted and not-hatted, ... and $\mathbf{p}$ \& $\mathbf{e}$ type
     symbols.
    For now, think of the row spaces.
 
-  \item We make two exterior algebra elements,  boldface
-    $\mathbf{N}$-Alpha and Beta to represent the row spaces.
-
-
-    \item They and all the 
-      other exterior algebra elements we'll see today are
-      pure or indecomposible---that is, products of vectors or dual vectors.
-
-
-    \item For brevity I'll call them ``extensors''.
+  \item We make two pure exterior algebra elements,  boldface
+    $\mathbf{N}$-Alpha and Beta to represent the row spaces.  From now on, every pure, that is,
+    indecomposible element, 
+    a product of vectors and or dual vectors, we will call an ``extensor''.  
 
 
     \item Only extensors represent subspaces, that is, points in Grassmannians.
       They have Plucker coodinates which satisfy the Grassmann-Plucker relations.
 
       \item
-        I'll remind everyone that the Plucker coordinates are proportional to the maximal minors of
+        Plucker coordinates are proportional to the maximal minors of
         full-row rank matrices whose rows generate the subspace.  So ... non-zero Plucker coordinates encode
     which subsets are matroid bases.  
 
   \item We construct function $L$ of those
     $\mathbf{N}$-Alpha and Beta, ... by a
-    kind of composition and bilinear pairing ... 
-  $\mathbf{N}\text{-Alpha} \text{\;\;bar\;\;} \mathbf{N}\text{-Beta}$.
+    kind of composition and bilinear pairing of the extensors $N$-Alpha and Beta formed by
+    exterior product of the rows
 
-  \item This bilinear operation has extensor values,
+  \item It has extensor values,
     not field or commutative ring values. 
 
 \item Result 1 is that $L$ obeys Tutte's deletion and contraction identity:  BUT
@@ -89,25 +72,24 @@ TOO LONG AT ABT 6 min.
 \item There is also a direct sum identity ... $L$ of a direct sum is an exterior product, not
   a commutative ring product.
 
-\item We have TO CAREFULLY DEFINE the extensor operations for deletion \&
-  contraction \& direct sum so the signs in the $L$--s we combine are consistent.
-
 \item
-  The  boldface $\mathbf{N}$  extensors
+  Going back, the boldface $\mathbf{N}$--s are the exterior products of the row sums
+  after plugging and multiplying next to each entry the label of the column label it belongs to.
+  
+\item
+  So the exterior products
    represent linear subspaces of a big space generated
   by matroid ground set elements and their hatted versions.  
 
-\item
-  So the boldface $\mathbf{N}$--s are the exterior products of the row sums
-  after plugging a column label related vector or dual vector multiplying each matrix  entry.
+\item We have TO CAREFULLY DEFINE the extensor operations for deletion \&
+  contraction \& direct sum so the signs in the $L$--s we combine are consistent.
 
+\item Now I'll explain the hats. Since the subspaces are given with matroid elements comprising
+  a special basis of the big underlying linear space, we have the dual of each, wearing a hat. 
   
-\item  So with these designated ground set related bases, we get duals of basis vectors.
-
 \item
   Finally $L$ equals the bilinear pairing or composition on these two.  The status
   of vector versus dual vector is used in defining this.
-  
 
 \item
   I find it interesting that, ... in order to get a Tutte function out
