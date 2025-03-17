@@ -47,8 +47,8 @@
 
 \item  So with these designated bases, related to ground sets,
   we get duals of basis vectors.
-  We make sure to label the $N$ matrices so hatting is consistent with dualizing.
-  Using duals will be detailed later.
+  The choice of column labels makes hatting consistent with dualizing.
+  We'll use duals later.
 
 \item
   $\mathbf{N}$-Alpha \& Beta represent points in the
@@ -57,8 +57,9 @@
   So, the matroid bases are encoded by which Plucker coordinates are non-zero.
 
 \item
-To construct an extensor from a matrix, I multiply each column's boldface symbol with its entries.
-Boldface $\mathbf{N}$ is the exterior product of the row sums.
+  To construct an extensor from a matrix,
+  I multiply each column's boldface symbol with its entries.
+  Boldface $\mathbf{N}$ is the exterior product of the row sums.
 
 \item
   Finally $L$ equals the bilinear pairing which expresses an linear endomorphism
@@ -69,11 +70,12 @@ Boldface $\mathbf{N}$ is the exterior product of the row sums.
   of this, it seems require two special things.
 
 \item
-One is to make the Tutte function relative.
+ We need to make the Tutte function relative.
 
 \item
-  We need to hold back some elements from deletion or contraction because
-  otherwise they will all disappear and the result will in a trivial algebra.
+  That means we to hold some elements back from deletion or contraction,
+  ... so they do not all disappear from the algebra where the function value
+  will live.
 
 \item
   The distinguished elements we don't delete or contract I like to call PORTS.
@@ -83,13 +85,17 @@ One is to make the Tutte function relative.
 %  ones are covectors, ie., 1-forms or dual vectors.
 
 \item In applications, ports relate to variables used to specify inputs
-  or parameters, ... like how much you push on nodes with forces or electric currents,
+  or parameters, ... like how much you force or electric current you
+  put into nodes, ...
   and responses, ... like how the nodes move, or change their voltages.
 
-\item But when you use $L$-s value, you can interchange inputs and responses ANY WAY that the
-  relevant matroids encode is feasible and well-posed.  Matroids encode which among all
-  variables are independent.  Electrical engineers would
-  call $L$ a MULTIPORT LINEAR DEVICE model.
+\item But when you use $L$-s value, you can disregard the duality
+  status of p elements, ... so 
+  you can interchange inputs and responses ANY WAY that the
+  matroid of $L$ tells you is feasible and well-posed.  It encodes which
+  combinations of variables are independent.
+  Electrical engineers like to solve for matrix forms of $L$ and 
+  them MULTIPORT LINEAR DEVICE models.
 
   %The cascade form of two ports has at the first port both the voltage and current for independent, input
   %variables and at the second port, both the voltage and current are response variables. (Not for a
@@ -124,9 +130,9 @@ dual vector $\widehat{\mathbf{e}}$ hats and $\widehat{\mathbf{p}}$ hats.
   bilinear pairing is composition of mappings  ... like matrix multiplication.
 
 \item
-  Therefore ... I call this the Cauchy-Binet form.  We get result 2.  The common
-  independent set expansion here hides many common basis expansions.  One of them
-  is the famous matrix tree theorem.
+  Therefore ... I call this the Cauchy-Binet form.  We get result 2.
+  The common independent set expansion here hides many common basis
+  expansions.  One of them is the famous matrix tree theorem.
 
 \item
   I finish with some take-homes and morals, and my name, Seth Chaiken
