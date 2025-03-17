@@ -11,22 +11,76 @@
 
 \begin{document}
 
+TOO LONG AT ABT 6 min.
+
+
 {\bf
   \begin{itemize}
-  \item We start with two matrices, $N$-Alpha and Beta.  The matroids
-    they represent have the $\mathbf{p}$ \& $\mathbf{e}$ symbols, hatted or
-    not hatted, for their ground set elements.  For now, think of the
-    row spaces.
+  \item On the Mass Pike from Albany, I found a better title:  Forest Counting Laplacian
+    Minors Lift to Exterior Algebra Tutte Functions.
+
+  \item The math at the bottom reviews how the Cauchy-Binet theorem proves a graph's Laplacian
+    determinant counts spanning trees.
+
+  \item Applied to minors, it shows that each minor counts forests with
+    constraints on whether some vertices must
+    be in different trees, forcing pairs of vertices to be in the same tree.
+
+    \item At least ... when terms don't cancel.
+
+    \item I see in first order stiffness theory, ... matrices like the Laplacian, ...
+      and Poisson and Dirichlet type problems.
+
+      \item
+    With generic constants for electrical conductance, ... analogous to Hooke's law constants, there's no
+    cancellation.
+
+  \item I'd be very happy to meet collaborators to help go from my electrical network
+    thinking with its one-dimensional voltages and currents to the higher dimensional
+    world of this workshop.
+
+  \item Basically, the exterior algebra Tutte function values package Plucker coordinates.
+
+  \item
+    Entries in solution matrices for nice electrical network analyses ... and also larger minors
+    in those matrices ... turn out to be ratios of Plucker coordinates of our extensor function
+    values.
+
+    \item I conjecture that's true and might be interesting for stiffness problems.
+    
+  \item Now some details.
+      
+  \item We start with two matrices, $N$-Alpha and Beta.  The resulting matroids
+    have for their elements a mixture of hatted and not-hatted, ...  $\mathbf{p}$ \& $\mathbf{e}$ type
+    symbols.
+   For now, think of the row spaces.
 
   \item We make two exterior algebra elements,  boldface
     $\mathbf{N}$-Alpha and Beta to represent the row spaces.
 
+
+    \item They and all the 
+      other exterior algebra elements we'll see today are
+      pure or indecomposible---that is, products of vectors or dual vectors.
+
+
+    \item For brevity I'll call them ``extensors''.
+
+
+    \item Only extensors represent subspaces, that is, points in Grassmannians.
+      They have Plucker coodinates which satisfy the Grassmann-Plucker relations.
+
+      \item
+        I'll remind everyone that the Plucker coordinates are proportional to the maximal minors of
+        full-row rank matrices whose rows generate the subspace.  So ... non-zero Plucker coordinates encode
+    which subsets are matroid bases.  
+
   \item We construct function $L$ of those
-    $\mathbf{N}$-Alpha and Beta, ... by 
-    kind of composition or bilinear pairing ... 
+    $\mathbf{N}$-Alpha and Beta, ... by a
+    kind of composition and bilinear pairing ... 
   $\mathbf{N}\text{-Alpha} \text{\;\;bar\;\;} \mathbf{N}\text{-Beta}$.
 
-  \item This bilinear operation has exterior algebra,
+  \item This bilinear operation has extensor values,
     not field or commutative ring values. 
 
 \item Result 1 is that $L$ obeys Tutte's deletion and contraction identity:  BUT
@@ -35,39 +89,25 @@
 \item There is also a direct sum identity ... $L$ of a direct sum is an exterior product, not
   a commutative ring product.
 
-\item We have TO CAREFULLY DEFINE the exterior algebra operations for deletion \&
+\item We have TO CAREFULLY DEFINE the extensor operations for deletion \&
   contraction \& direct sum so the signs in the $L$--s we combine are consistent.
 
-\item Here is more background.
-  
 \item
-  As pure, ... or indecomposable anti-symmetric tensors, ... that is 
-  products of vectors, the boldface
-  $\mathbf{N}$--s represent linear subspaces of a big space generated
+  The  boldface $\mathbf{N}$  extensors
+   represent linear subspaces of a big space generated
   by matroid ground set elements and their hatted versions.  
 
-\item  So with these designated bases, related to ground sets, we get duals of basis vectors.
-  I'll say how the duals are used after relating these things to matroids.
+\item
+  So the boldface $\mathbf{N}$--s are the exterior products of the row sums
+  after plugging a column label related vector or dual vector multiplying each matrix  entry.
+
+  
+\item  So with these designated ground set related bases, we get duals of basis vectors.
 
 \item
-  $\mathbf{N}$-Alpha \& Beta represent points in the
-  Grassmannian, and have Plucker coordinates.
-
-\item
-  The Plucker coordinates are the maximal minors of the matrices.
-
-\item
-So, the matroid bases are encoded by which Plucker coordinates are non-zero.
-
-\item
-Back to the constuctions.  I multiply each column's boldface symbol with its entries.
-
-\item
-  What are the boldface $\mathbf{N}$--s?
-  They are the exterior products of the row sums.
-
-\item
-  Finally $L$ equals the bilinear pairing or composition on these two.
+  Finally $L$ equals the bilinear pairing or composition on these two.  The status
+  of vector versus dual vector is used in defining this.
+  
 
 \item
   I find it interesting that, ... in order to get a Tutte function out
@@ -77,7 +117,7 @@ Back to the constuctions.  I multiply each column's boldface symbol with its ent
 One is to make the Tutte function relative, ... to the set of ports $P$.
 
 \item
-  We need them because the $\mathbf{e}$---s  disappear when they are contracted or deleted.
+  We need this because the $\mathbf{e}$---s  disappear when they are contracted or deleted.
 
 \item
   I like to call the distinguised elements ports. ... We never delete or contract them.
@@ -99,47 +139,50 @@ One is to make the Tutte function relative, ... to the set of ports $P$.
   %lighting talk, just thinking.)
 
 \item
-  Two, it seems this exterior algebra Tutte function needs to be constructed on 
+  Two, it seems this extensor Tutte function needs to be constructed on 
   two arguments, labelled $\alpha$ \& $\beta$.
 
-\item
-  We recover the basis enumerator when the two are equal and $P$ is empty.  It
-  is the sum of squared determinants though, not always ones.
+%\item
+%  We recover the basis enumerator when the two are equal and $P$ is empty.  It
+  %  is the sum of squared determinants though, not always ones.
+  % (This idea is subsumed by the new introduction)
 
 \item Now for the final step.
 
 \item
-  To define the final bilinear pairing function 
-  we distinguish 
+  We define the bilinear pairing function 
+  after distinguishing  
   four kinds of generators:\\
-  vector $\mathbf{e}$'s, vector $\mathbf{p}$'s and
-dual vector $\widehat{\mathbf{e}}$ hats and $\widehat{\mathbf{p}}$ hats.  
+  vector $\mathbf{e}$'s, vector $\mathbf{p}$'s ... and
+dual vector $\widehat{\mathbf{e}}$--hats and $\widehat{\mathbf{p}}$--hats.  
 
 \item
-  It's defined here \emph{WITH} these rules for algebra basis monomials.  Dual vectors
-  in the left evaluate on vectors in the right, but reverse that ... and
+  The pairing function is defined \emph{WITH} rules on the slide for basis monomials.  Dual vectors
+  in the left evaluate on vectors in the right.   But ... when you reverse that ... 
   they behave like anticommutative coefficients.
 
 \item
   The $\mathbf{N}$--s mix vectors and dual vectors ... they represent linear mappings.
-  The hatted and unhatted status of $p$--s and $e$--s are interchanged.
+  Between Alpha and Bets, the hatted and unhatted status of $p$--s and $e$--s are interchanged.
   $\mathbf{N}_\beta$ is like the adjoint of $\mathbf{N_\alpha}$.  So ... the
   bilinear pairing is composition of mappings  ... like matrix multiplication.
 
 \item
-  Therefore ... I call this the Cauchy-Binet form.  We get result 2.  The common
-  independent set expansion here hides many common basis expansions.  One of them
-  is the famous matrix tree theorem.
+  Result 2 is a Cauchy-Binet kind of expansion. The bracketed minors denote sums of terms
+  because they are extensor representations of minors without any non-port elements.
+  The notation hides common basis expansions of many different minors our two matroids.
 
-\item
-  In my old writeup, I start with $\mathbf{N}$-Alpha, exterior multiply it by the DUAL of
-  $\mathbf{N}$-Beta,
-  and finally contract all the $e$--s.  A non-zero exterior product is disjoint subspace join, and
-  contraction is projection. I call that the Laplace form.  
+%\item
+%  In my old writeup, I start with $\mathbf{N}$-Alpha, exterior multiply it by the DUAL of
+%  $\mathbf{N}$-Beta,
+%  and finally contract all the $e$--s.  A non-zero exterior product is disjoint subspace join, and
+%  contraction is projection. I call that the Laplace form.  
 
 \item
   I finish with some take-homes and morals, and my name, Seth Chaiken
   of Albany, NY.
+
+  \item
   Three punchlines:  One, ports are IM-PORT-ANT.
   Two, let's do matroid recursion on matrices in exterior algebra.
   Three, we find a Tutte function there.
