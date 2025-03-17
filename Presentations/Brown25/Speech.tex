@@ -40,13 +40,15 @@
   contraction \& direct sum so the signs in the $L$--s we combine are consistent.
 
 \item
-  As pure, ... or indecomposable anti-symmetric tensors, ... that is 
+  As pure, ... or indecomposable anti-symmetric tensors, ... that is, 
   products of vectors, the boldface
   $\mathbf{N}$--s represent linear subspaces of a big space generated
-  by matroid ground set elements and their hatted versions.  
+  by matroid ground set elements and their hatted versions.
 
-\item  So with these designated bases, related to ground sets, we get duals of basis vectors.
-  I'll say how the duals are used after relating these things to matroids.
+\item  So with these designated bases, related to ground sets,
+  we get duals of basis vectors.
+  We make sure to label the $N$ matrices so hatting is consistent with dualizing.
+  Using duals will be detailed later.
 
 \item
   $\mathbf{N}$-Alpha \& Beta represent points in the
@@ -67,13 +69,14 @@ Boldface $\mathbf{N}$ is the exterior product of the row sums.
   of this, it seems require two special things.
 
 \item
-One is to make the Tutte function relative, ... to the set of ports $P$.
+One is to make the Tutte function relative.
 
 \item
-  We need them because the $\mathbf{e}$---s  disappear when they are contracted or deleted.
+  We need to hold back some elements from deletion or contraction because
+  otherwise they will all disappear and the result will in a trivial algebra.
 
 \item
-  I like to call the distinguised elements ports. ... We never delete or contract them.
+  The distinguished elements we don't delete or contract I like to call PORTS.
 
 %\item
 %  Those port elements in the exterior algebra are vectors, and the hatted
@@ -83,8 +86,9 @@ One is to make the Tutte function relative, ... to the set of ports $P$.
   or parameters, ... like how much you push on nodes with forces or electric currents,
   and responses, ... like how the nodes move, or change their voltages.
 
-\item But this setup, you can interchange inputs and responses ANY WAY that the
-  relevant matroids encode is feasible and well-posed.  Electrical engineers would
+\item But when you use $L$-s value, you can interchange inputs and responses ANY WAY that the
+  relevant matroids encode is feasible and well-posed.  Matroids encode which among all
+  variables are independent.  Electrical engineers would
   call $L$ a MULTIPORT LINEAR DEVICE model.
 
   %The cascade form of two ports has at the first port both the voltage and current for independent, input
