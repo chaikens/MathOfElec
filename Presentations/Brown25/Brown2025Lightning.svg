@@ -27,7 +27,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.1785437"
-     inkscape:cx="228.59307"
+     inkscape:cx="228.36356"
      inkscape:cy="168.92018"
      inkscape:document-units="in"
      inkscape:current-layer="layer18"
@@ -11963,7 +11963,7 @@
      transform="matrix(0.9025,0,0,0.9025,31.735362,24.472157)">
     <g
        id="surface1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1"
-       transform="matrix(1.066664,0,0,1.066664,20.956012,2.656826)"
+       transform="matrix(1.066664,0,0,1.066664,27.657402,2.656826)"
        style="display:inline"
        inkscape:label="FreeGens">
       <g
@@ -13608,7 +13608,7 @@
        inkscape:groupmode="layer"
        id="layer6"
        inkscape:label="Shrink2"
-       transform="matrix(0.8,0,0,0.8,45.489857,51.448941)">
+       transform="matrix(0.75074239,0,0,0.76164391,62.489813,63.646729)">
       <g
          inkscape:label=""
          transform="matrix(0.85481079,0,0,1,332.61655,62.262998)"
@@ -14711,12 +14711,12 @@
        inkscape:groupmode="layer"
        id="layer9"
        inkscape:label="Shrink3"
-       transform="matrix(0.8,0,0,0.8,44.873409,49.42082)">
+       transform="matrix(0.76763716,0,0,0.7718101,53.6604,68.253872)">
       <g
          inkscape:groupmode="layer"
          id="layer13"
          inkscape:label="CauchyBinet"
-         transform="matrix(1.25,0,0,1.25,-56.091761,-49.776025)">
+         transform="matrix(1.2224425,0,0,1.1014801,-53.008593,-1.0957281)">
         <g
            inkscape:label=""
            transform="matrix(0.8,0,0,0.8,125.66128,296.55828)"
@@ -15478,7 +15478,7 @@
          inkscape:groupmode="layer"
          id="layer12"
          inkscape:label="Result2"
-         transform="matrix(1.25,0,0,1.25,-56.091761,-55.776025)">
+         transform="matrix(1.2081202,0,0,1.1061436,-56.065645,-17.005101)">
         <g
            id="surface1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1"
            transform="matrix(1.066664,0,0,1.066664,77.901794,246.29884)"
@@ -16131,7 +16131,7 @@
          inkscape:groupmode="layer"
          id="layer11"
          inkscape:label="Result1"
-         transform="matrix(1.25,0,0,1.25,-56.091761,-61.776025)">
+         transform="matrix(1.2210318,0,0,1.1734471,-62.620816,-44.057034)">
         <text
            xml:space="preserve"
            style="font-size:21.3333px;line-height:1.25;font-family:FreeSerif;-inkscape-font-specification:FreeSerif;display:inline"
